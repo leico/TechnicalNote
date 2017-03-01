@@ -1,0 +1,21 @@
+
+# ---- configuration ----
+
+# exclude bundle files
+exclude: 
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+timezone: Asia/Tokyo
+encording: utf-8
+
+
+# ---- build option ----
+
+kramdown:
+  input: GFM
+
+sass:
+  sass_dir: _sass
+  style: :compressed

@@ -1,0 +1,21 @@
+---
+layout : default
+title : My JK Page
+---
+<div class="jumbotron">
+  <header>
+    <h1>Technical Note</h1>
+    <p>leico</p>
+  </header>
+  <p>色々な技術メモ置き場</p>
+</div>
+
+<ul>
+
+  {% for post in site.posts %}
+  <li>
+    {{post.date | date: "%F" }}:<a href="{{ post.url }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
