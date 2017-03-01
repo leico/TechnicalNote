@@ -14,7 +14,7 @@ title : My JK Page
 
   {% for post in site.posts %}
   <li>
-    {{post.date | date: "%F" }}:<a href="{{ post.url }}">{{ post.title }}</a>
+    {{post.date | date: "%F" }}:<a href="{{site.github.url}}/{{ post.url }}">{{ post.title }}</a>
   </li>
   {% endfor %}
 </ul>
