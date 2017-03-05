@@ -13,7 +13,7 @@ collectioncontents: site.collections.docs, where 'label' = pages.label
 <div class="col-md-4" id="id_{{include.pages.label}}">
   <div class="card panel panel-default">
     <div class="card-header panel-heading" role="tab" id="head_{{include.pages.label}}">
-      <h3>
+      <h3 class="panel-title card-title">
       <a href="#body_{{include.pages.label}}" 
          role="button" 
          data-toggle="collapse"
@@ -31,7 +31,9 @@ collectioncontents: site.collections.docs, where 'label' = pages.label
       {% for page in include.pages.pages %}
         {% capture path %}_{{include.pages.label}}/{{page}}.md{% endcapture %}
         {% assign obj = include.collectioncontents | where:"path", path | first %}
-        <h4><a href="{{site.github.url}}{{obj.url}}">{{obj.title}}</a> </h4>
+        <h4 class="panel-title card-title">
+          <a href="{{site.github.url}}{{obj.url}}">{{obj.title}}</a>
+        </h4>
         <dl class="dl-horizontal">
           <dt>created</dt>
           <dd> {{ obj.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
@@ -41,7 +43,7 @@ collectioncontents: site.collections.docs, where 'label' = pages.label
       {% endfor %}
       {% if include.pages.related %}
       <hr>
-      <h4>関連記事</h4>
+      <h4 class="panel-title card-title">関連記事</h4>
       {% for content in include.pages.related %}
         {% assign rel_collect = site.collections | where:"label", content.label | first %}
 
@@ -49,7 +51,9 @@ collectioncontents: site.collections.docs, where 'label' = pages.label
           {% capture path %}_{{content.label}}/{{page}}.md{% endcapture %}
 
           {% assign obj = rel_collect.docs | where:"path", path | first %}
-          <h5><a href="{{site.github.url}}{{obj.url}}">{{obj.title}}</a> </h5>
+          <h5 class="panel-title card-title">
+            <a href="{{site.github.url}}{{obj.url}}">{{obj.title}}</a>
+          </h5>
           <dl class="dl-horizontal">
             <dt>created</dt>
             <dd> {{ obj.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
