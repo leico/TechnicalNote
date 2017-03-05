@@ -10,6 +10,11 @@ exclude:
 timezone: Asia/Tokyo
 encording: utf-8
 
+# ---- gems ------------
+
+gems:
+  - jekyll-gist
+
 # ---- collections -----
 
 collections :
@@ -23,7 +28,14 @@ collections :
     output: true
   VirtualBox:
     output: true
-
+  Cpp:
+    output: true
+  LibCurl:
+    output: true
+  JavaScript:
+    output: true
+  OpenFrameworks:
+    output: true
 
 # ---- build option ----
 

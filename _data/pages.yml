@@ -17,17 +17,6 @@
   - post-layout
   - jekyll-bootstrap-install
 
-- title : Vim & VimR
-  label : VimR
-  pages :
-    - Vim-structure
-    - VimR-dein-XDG
-    - VimR-dein-autodate
-    - VimR-dein-toml
-    - VimR-deoplete
-    - VimR-env
-    - VimR-ftplugin
-
 - title : bootstrap
   label : Bootstrap
   pages :
@@ -37,6 +26,11 @@
     - label : Jekyll
       pages : 
         - jekyll-bootstrap-install
+
+- title : openFrameworks
+  label : OpenFrameworks
+  pages :
+    - multiwindow
 
 - title : RaspberryPi
   label : RaspberryPi
@@ -51,3 +45,43 @@
   label : VirtualBox
   pages :
     - VirtualBox-Create-VM
+
+- title : JavaScript & jQuery
+  label : JavaScript
+  pages :
+    - array-foreach
+    - object-create
+    - inherit
+    - prototype
+
+- title : libCurl & libOAuth
+  label : LibCurl
+  pages :
+    - twitter-streaming-api
+
+- title : C++
+  label : Cpp
+  pages :
+    - overload-cast
+    - accessor
+    - Explicit-specialization-of-after-instantiation
+    - part-of-specialize
+    - template-meta
+    - inherited-interface
+    - call-base-class-function
+    - not-definit-const-static-in-header
+    - pure-virtual-definition
+    - interface-test
+
+- title : Vim & VimR
+  label : VimR
+  pages :
+    - Vim-structure
+    - VimR-dein-XDG
+    - VimR-dein-autodate
+    - VimR-dein-toml
+    - VimR-deoplete
+    - VimR-env
+    - VimR-ftplugin
+
+
