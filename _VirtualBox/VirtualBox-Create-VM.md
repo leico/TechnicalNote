@@ -2,7 +2,7 @@
 layout : post
 title  : VirtualBoxで仮想マシンを作成
 date   : 2017/02/03
-lastchange : 2017-03-05 18:52:50.
+lastchange : 2017-03-05 18:54:36.
 tags   :
   - macOS
   - Sierra
@@ -76,6 +76,7 @@ HDD設定の際に、`すでにある既存のハードディスクファイル�
 プルダウンメニュー横のフォルダアイコンで仮想HDDを参照する。
 
 ![HDDの保存場所]({{site.github.url}}{% link _VirtualBox/images/VirtualBox-Create-VM/10_select_vhdd.png %} "HDDの保存場所")
+
 この時点で`~/VirtualBox VMs/`以下に仮想マシンのフォルダが作成されているので、
 ここに仮想HDDファイルをインストールすればよい。
 
