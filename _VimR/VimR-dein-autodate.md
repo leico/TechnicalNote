@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : dein.vim:autodate.vimプラグインを入れる
+date   : 2017/02/01
+lastchange : 2017-03-05 17:08:22.
 tags   :
   - vim
   - VimR

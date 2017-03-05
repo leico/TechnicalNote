@@ -1,7 +1,8 @@
 ---
 layout : post
 title  : bootstrap:ランディングページ(トップページ)のヘッダについて考える
-lastchange : 2017-03-01 14:33:07.
+date : 2017/02/12
+lastchange : 2017-03-05 17:22:48.
 tags   :
   - bootstrap
   - jumbotron

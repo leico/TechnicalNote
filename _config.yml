@@ -10,6 +10,20 @@ exclude:
 timezone: Asia/Tokyo
 encording: utf-8
 
+# ---- collections -----
+
+collections :
+  Jekyll:
+    output: true
+  VimR:
+    output: true
+  Bootstrap:
+    output: true
+  RaspberryPi:
+    output: true
+  VirtualBox:
+    output: true
+
 
 # ---- build option ----
 

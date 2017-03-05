@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : gemを間違えてグローバルにインストールしてしまった場合
+date   : 2017/01/18
+lastchange : 2017-03-01 16:52:46.
 tags   :
   - jekyll
   - ruby

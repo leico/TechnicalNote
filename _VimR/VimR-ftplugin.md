@@ -1,7 +1,8 @@
 ---
 layout : post
 title  : Vim:ファイル毎にautodate書式を設定する
-lastchange : 2017-02-04 23:28:56.
+date   : 2017/02/04
+lastchange : 2017-03-05 17:15:37.
 tags   :
   - vim
   - VimR
@@ -60,7 +61,7 @@ __ftplugin__ ディレクトリにファイルタイプ毎の設定ファイル�
 
 ## __ftplugin__ ディレクトリの場所
 
-* [Vimのディレクトリ構成]({{site.baseurl}}{% post_url 2017-02-04-Vim-structure %})
+* [Vimのディレクトリ構成]({{site.github.url}}{% link _VimR/Vim-structure.md %})
 
 から定石だと`~/.config/nvim/ftplugin`になるが、せっかく __dein.vim__ でパッケージ管理しているので、
 __autodate.vim__ 用に __ftplugin__ を分離したい。

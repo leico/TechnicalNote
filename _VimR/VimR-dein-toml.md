@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : dein.vim:tomlファイルでプラグイン管理する
+date : 2017/01/26
+lastchange : 2017-03-05 17:07:45.
 tags   :
   - vim
   - VimR

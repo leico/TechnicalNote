@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : Github Pagesのデバッグ環境を整える
+date   : 2017/01/16
+lastchange : 2017-03-04 23:14:13.
 tags   :
   - jekyll
   - ruby
@@ -60,25 +62,25 @@ GemはRubyのライブラリパッケージ管理システム、[RubyGems](https
 ### Ruby自体のインストール
 
 参考
+* [Ruby開発環境について]({{site.github.url}}{% link _Jekyll/Ruby-research.md %})
+* [rbenvをアプリケーションフォルダにインストールする]({{site.github.url}}{% link _Jekyll/rbenv-install.md %})
+* [rbenvコマンドの利用方法]({{site.github.url}}{% link _Jekyll/rbenv-usage.md %})
 
-* [Ruby開発環境について]({{site.baseurl}}{% post_url 2017-01-16-Ruby-research %})
-* [rbenvをアプリケーションフォルダにインストールする]({{site.baseurl}}{% post_url 2017-01-16-rbenv-install %})
-* [rbenvコマンドの利用方法]({{site.baseurl}}{% post_url 2017-01-16-rbenv-usage %})
-
-「[Ruby開発環境について]({{site.baseurl}}{% post_url 2017-01-16-Ruby-research %})」
+「[Ruby開発環境について]({{site.github.url}}{% link _Jekyll/Ruby-research.md %})」
 より、Ruby開発環境を作るために`rbenv`を利用するのが便利らしい。
 
-`rbenv`の利用方法は「[rbenvコマンドの利用方法]({{site.baseurl}}{% post_url 2017-01-16-rbenv-usage %})」
+`rbenv`の利用方法は「[rbenvコマンドの利用方法]({{site.github.url}}{% link _Jekyll/rbenv-usage.md %})」
 にまとめた。
 
 ### Bundlerの利用方法
 
 参考
 
-* [Bundlerの利用方法]({{site.baseurl}}{% post_url 2017-01-17-bundle-usage %})
+{% comment %}
+* [Bundlerの利用方法]({{site.github.url}}{% link _Jekyll/bundle-usage.md %})
 
-[Bundlerの利用方法]({{site.baseurl}}{% post_url 2017-01-17-bundle-usage %})に`rbenv`環境でのインストール方法から利用方法をまとめた。
-
+[Bundlerの利用方法]({{site.github.url}}{% link _Jekyll/bundle-usage.md %})に`rbenv`環境でのインストール方法から利用方法をまとめた。
+{% endcomment %}
 
 
 ## ローカルでGithub Pagesと同じ環境を作る
@@ -86,12 +88,12 @@ GemはRubyのライブラリパッケージ管理システム、[RubyGems](https
 ### `rbenv`のインストール
 
 `rbenv`はアプリケーションフォルダにインストールすることにし、その方法は
-「[rbenvをアプリケーションフォルダにインストールする]({{site.baseurl}}{% post_url 2017-01-16-rbenv-install %})」
+「[rbenvをアプリケーションフォルダにインストールする]({{site.github.url}}{% link _Jekyll/rbenv-install.md %})」
 にまとめた。
 
 ### `rbenv`を使ったRubyのインストール
 
-* [rbenvコマンドの利用方法]({{site.baseurl}}{% post_url 2017-01-16-rbenv-usage %})
+* [rbenvコマンドの利用方法]({{site.github.url}}{% link _Jekyll/rbenv-usage.md %})
 * [Github Pages - Dependency versions](https://pages.github.com/versions/)
 
 を参考にして、Github Pagesが利用しているバージョンのRubyをインストールする。
@@ -130,7 +132,7 @@ $ rbenv versions
 
 同時にRuby 2.3.3にBundlerをインストールする。
 
-[Bundlerの利用方法]({{site.baseurl}}{% post_url 2017-01-17-bundle-usage %})を参考に
+[Bundlerの利用方法]({{site.github.url}}{% link _Jekyll/bundle-usage.md %})を参考に
 
 ```sh
 rbenv exec install bundler
@@ -284,7 +286,7 @@ https://github.com/jekyll/minima#customization
 
 ### jekyllの使い方
 
-* [jekyllの利用方法]({{site.baseurl}}{% post_url 2017-01-18-jekyll-usage %})
+* [jekyllの利用方法]({{site.github.url}}{% link _Jekyll/jekyll-usage.md %})
 
 ### jekyllでビルド&デバッグ
 
@@ -368,8 +370,8 @@ $ bundle exec jekyll new -f .
 >   - Gemfile.lock
 >   - vendor
 > ```
-> 
-> [jekyllの利用方法]({{site.baseurl}}{% post_url 2017-01-18-jekyll-usage %})
+>
+> [jekyllの利用方法]({{site.github.url}}{% link _Jekyll/jekyll-usage.md %})
 
 `_config.yml`に以下を追加する。
 

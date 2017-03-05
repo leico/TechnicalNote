@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : rbenvコマンドの利用方法
+date   : 2017/01/16
+lastchange : 2017-03-01 16:49:53.
 tags   :
   - jekyll
   - ruby

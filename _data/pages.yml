@@ -1,0 +1,51 @@
+- title  : github pages & Jekyll
+  label  : Jekyll
+  pages  : 
+  - Ruby-research
+  - bundle-usage
+  - github-pages-debug
+  - github-pages-generator
+  - jekyll-usage
+  - rbenv-install
+  - rbenv-usage
+  - worth-bundle-install
+  - site-variables
+  - liquid-raw
+  - display-value
+  - page-menu
+  - post-layout
+  - jekyll-bootstrap-install
+
+- title : Vim & VimR
+  label : VimR
+  pages :
+    - Vim-structure
+    - VimR-dein-XDG
+    - VimR-dein-autodate
+    - VimR-dein-toml
+    - VimR-deoplete
+    - VimR-env
+    - VimR-ftplugin
+
+- title : bootstrap
+  label : Bootstrap
+  pages :
+    - bootstrap-landing-page-header
+  related:
+    - label : Jekyll
+      pages : 
+        - jekyll-bootstrap-install
+
+- title : RaspberryPi
+  label : RaspberryPi
+  pages :
+    - RaspberryPi-Recover
+  related:
+    - label : VirtualBox
+      pages :
+        - VirtualBox-Create-VM
+
+- title : VirtualBox
+  label : VirtualBox
+  pages :
+    - VirtualBox-Create-VM

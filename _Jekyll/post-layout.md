@@ -1,7 +1,8 @@
 ---
 layout : post
 title  : Jekyll:postsのレイアウトについて考える
-lastchange : 2017-02-13 02:49:05.
+date   : 2017/02/03
+lastchange : 2017-03-05 17:18:19.
 tags   :
   - bootstrap
   - jekyll

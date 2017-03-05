@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : Github Pages Gemを、複数のプロジェクトからエイリアスで参照する
+date   : 2017/01/19
+lastchange : 2017-03-01 16:53:20.
 tags   :
   - jekyll
   - ruby

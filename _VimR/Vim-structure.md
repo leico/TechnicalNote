@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : Vim:Vimのディレクトリ構成
+date   : 2017/02/04
+lastchange : 2017-03-05 17:09:00.
 tags   :
   - vim
   - VimR

@@ -1,0 +1,11 @@
+<ul>
+  {% for page in include.section.pages %}
+
+    {% capture path %}_{{include.section.prefix}}/{{page}}.md{% endcapture %}
+    {% assign target = include.targets | where:"path", path | first %}
+<li>
+  <a href="{{site.github.url}}{{target.url}}">{{target.title}}</a>
+  lastchange: {{target.lastchange}}
+</li>
+  {% endfor %}
+</ul>

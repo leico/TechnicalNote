@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : Ruby開発環境についての調査
+date   : 2017/01/16
+lastchange : 2017-03-04 23:13:07.
 tags   :
   - jekyll
   - ruby
@@ -82,6 +84,5 @@ Gemのインストールパス
 だった。github pagesのバージョンより古く、gemインストール先も管理者権限が必要な領域なので、
 手動でRubyをインストールする方法をしらべよう。
 
-[rbenvを使ってRubyをインストールする方法]({{site.baseurl}}{% post_url 2017-01-16-rbenv-install %})
-
+[rbenvを使ってRubyをインストールする方法]({{site.github.url}}{% link _Jekyll/rbenv-install.md %})
 

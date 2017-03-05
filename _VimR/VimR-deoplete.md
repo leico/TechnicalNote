@@ -1,7 +1,8 @@
 ---
 layout : post
 title  : VimRにdeoplete.nvimをインストールする
-lastchange : 2017-02-04 23:29:20.
+date   : 2017/02/05
+lastchange : 2017-03-05 17:10:27.
 tags   :
   - vim
   - VimR

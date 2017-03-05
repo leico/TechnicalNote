@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : jekyllの利用方法
+date   : 2017/01/18
+lastchange : 2017-03-01 16:52:14.
 tags   :
   - jekyll
   - ruby

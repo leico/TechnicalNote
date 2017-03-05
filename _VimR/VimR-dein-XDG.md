@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : dein.vimのキャッシュディレクトリの設定
+date   : 2017/01/26
+lastchange : 2017-03-05 17:07:00.
 tags   :
   - vim
   - VimR

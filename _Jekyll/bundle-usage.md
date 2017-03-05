@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : bundlerの利用方法
+date   : 2017/01/17
+lastchange : 2017-03-04 23:14:38.
 tags   :
   - jekyll
   - ruby
@@ -20,7 +22,7 @@ tags   :
 
 ## bundlerのインストール
 
-[rbenvコマンドの利用方法]({{site.baseurl}}{% post_url 2017-01-16-rbenv-usage %})
+[rbenvコマンドの利用方法]({{site.github.url}}{% link _Jekyll/rbenv-usage.md %})
 のラストにも登場しているように、
 
 ```sh

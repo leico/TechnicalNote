@@ -1,6 +1,8 @@
 ---
 layout : post
 title  : rbenvをアプリケーションフォルダにインストールする
+date   : 2017/01/16
+lastchange : 2017-03-01 16:49:00.
 tags   :
   - jekyll
   - ruby

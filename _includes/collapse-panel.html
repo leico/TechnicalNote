@@ -1,0 +1,49 @@
+{% comment %}
+{% raw %}
+{% include collapse-panel.html id title sizeclass headersize items type %}
+
+id:
+html unique id, expanded id_(id), head_(id), body_(id)
+
+title:
+panel/card title
+
+sizeclass:
+bootstrap size class 
+
+headersize:
+h1, h2, h3...
+
+items:
+body contents 
+
+type:
+body contents type, now pagelinklist only
+{% endraw %}
+{% endcomment %}
+
+
+<div class="{{include.sizeclass}}" id="id_{{include.id}}">
+  <div class="card panel panel-default">
+    <div class="card-header panel-heading" role="tab" id="head_{{include.id}}">
+      <{{include.headersize}}>
+      <a href="#body_{{include.id}}" 
+         role="button" 
+         data-toggle="collapse"
+         data-parent="#id_{{include.id}}" 
+         area-expanded="false" 
+         area-controls="body_{{include.id}}">
+        {{include.title}}
+      </a>
+      </{{include.headersize}}>
+    </div>
+    <div class="card-block panel-body panel-collapse collapse"
+         role="tabpanel"
+         area-labelledby="head_{{include.id}}"
+         id="body_{{include.id}}">
+      {% include pagelinklist.html section=include.items targets=site.Jekyll %}
+    </div>
+  </div>
+</div>
+
+

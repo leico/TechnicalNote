@@ -1,0 +1,10 @@
+
+<ul>
+  {% for item in include.items %}
+  <li>
+    <a href="{{item.url}}">{{item.title}}</a>/
+    create:{{item.date}}/
+    lastchange:{{item.lastchange}}
+  </li>
+  {% endfor %}
+</ul>
