@@ -2,12 +2,13 @@
 layout : post
 title  : Ableton LiveでCue Mix と Cue Volume を実現する
 date   : 2017/03/06
-lastchange : 2017-03-07 00:01:28.
+lastchange : 2017-03-07 00:29:42.
 tags   :
-  - Ableton Live 9
-  - Cue Mix
-  - Cue Volume
-  - Return Track
+  - Ableton
+  - Live
+  - 9
+  - CueMix
+  - CueVolume
 ---
 
 ## Cue機能が貧弱すぎる
@@ -15,11 +16,14 @@ tags   :
 Ableton Live 9でDJをする機会があり、その際Cue機能が貧弱すぎて頭にきました。というメモです。
 
 最終的なトラック構成はこちら
-[<img class="img-responsive" src="{% link _AbletonLive/images/cuemix-cuevolume/01_tracks.png%}" alt="ableton Live のトラック構成" title="ableton Live のトラック構成">]({% link _AbletonLive/images/cuemix-cuevolume/01_tracks.png%})
+<a href="{% link _AbletonLive/images/cuemix-cuevolume/01_tracks.png %}">
+  <img class="img-responsive" src="{% link _AbletonLive/images/cuemix-cuevolume/01_tracks.png %}" alt="ableton Live のトラック構成" title="ableton Live のトラック構成">
+</a>
 
 さらにブロック図も作ってみました。
-[<img class="img-responsive" src="{% link _AbletonLive/images/cuemix-cuevolume/02_block.png %}" alt="ブロック図" title="ブロック図">]({% link _AbletonLive/images/cuemix-cuevolume/02_block.png %})
-
+<a href="{% link _AbletonLive/images/cuemix-cuevolume/02_block.png %}">
+  <img class="img-responsive" src="{% link _AbletonLive/images/cuemix-cuevolume/02_block.png %}" alt="ブロック図" title="ブロック図">
+</a>
 
 ## 実現したい機能
 
