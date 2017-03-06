@@ -36,6 +36,8 @@ collections :
     output: true
   OpenFrameworks:
     output: true
+  AbletonLive:
+    output: true
 
 # ---- build option ----
 
