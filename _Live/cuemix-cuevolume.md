@@ -2,7 +2,7 @@
 layout : post
 title  : AbletonLiveでCueMixとCueVolumeを実現する
 date   : 2017/3/6
-lastchange : 2017-03-07 22:12:51.
+lastchange : 2017-03-07 22:14:07.
 tags   :
   - Ableton
   - Live
@@ -53,7 +53,9 @@ CueVolume
 
 ## 実装解説
 
-![ブロック図]({{block}})
+<a href="{{block}}">
+  <img class="img-responsive" title="ブロック図" src="{{block}}" alt="ブロック図">
+</a>
 
 を元に解説します。
 
