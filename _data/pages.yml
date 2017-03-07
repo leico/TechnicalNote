@@ -1,9 +1,4 @@
 
-- title : VirtualBox
-  label : Test
-  pages :
-    - VirtualBox-Create-VM
-
 - title : Ableton Live & Max for Live
   label : Live
   pages :

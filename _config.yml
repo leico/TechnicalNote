@@ -38,8 +38,6 @@ collections :
     output: true
   Live:
     output: true
-  Ableton:
-    output: true
 
 # ---- build option ----
 
