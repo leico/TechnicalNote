@@ -1,6 +1,12 @@
+
+- title : VirtualBox
+  label : Test
+  pages :
+    - VirtualBox-Create-VM
+
 - title : Ableton Live & Max for Live
-  label : AbletonLive
-  pages:
+  label : Live
+  pages :
     - cuemix-cuevolume
 
 - title  : github pages & Jekyll
