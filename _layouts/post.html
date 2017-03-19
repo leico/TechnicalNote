@@ -4,14 +4,28 @@ layout : default
 
 <header class="page-header">
   <h1>{{page.title}}</h1>
-  <dl class="dl-horizontal">
-    <dt>created</dt>
-    <dd>{{page.date | date : "%F"}}</dd>
-    <dt>last change</dt>
-    <dd>{{page.lastchange}}</dd>
-  </dl>
+  <div class="row">
+    <div class="col-xs-6">
+      <dl class="dl-horizontal">
+        <dt>created</dt>
+        <dd>{{page.date | date : "%F"}}</dd>
+        <dt>last change</dt>
+        <dd>{{page.lastchange}}</dd>
+      </dl>
+    </div>
+    <div class="col-xs-6 text-right">
+      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
 </header>
 
 <div class="row">
-  {{ content }}
+  <div class="col-xs-12">
+    {{ content }}
+  </div>
+  <div class="col-xs-12">
+    <hr>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
 </div>
