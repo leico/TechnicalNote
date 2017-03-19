@@ -12,9 +12,8 @@ title : Technical Notes
 
 <div class="row">
 {% for pages in site.data.pages %}
-{% assign collection = site.collections | where:"label", pages.label | first %}
 
-{% include docs-collapse-panel.html pages=pages collectioncontents=collection.docs %}
+{% include docs-collapse-panel.html pages=pages %}
 
 {% endfor %}
 </div>

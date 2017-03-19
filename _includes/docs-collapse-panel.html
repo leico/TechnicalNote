@@ -1,10 +1,8 @@
 {% comment %}
 {% raw %}
-{% include docs-collapse-panel.html pages collectioncontents %}
+{% include docs-collapse-panel.html pages %}
 
 pages: 1st generation object of _data/pages.yml
-
-collectioncontents: site.collections.docs, where 'label' = pages.label
 
 {% endraw %}
 {% endcomment %}
@@ -28,41 +26,33 @@ collectioncontents: site.collections.docs, where 'label' = pages.label
          role="tabpanel"
          area-labelledby="head_{{include.pages.label}}"
          id="body_{{include.pages.label}}">
-      {% for page in include.pages.pages %}
-        {% capture path %}_{{include.pages.label}}/{{page}}.md{% endcapture %}
-        {% assign obj = include.collectioncontents | where:"path", path | first %}
-        <h4 class="panel-title card-title">
-          <a href="{{site.github.url}}{{obj.url}}">{{obj.title}}</a>
-        </h4>
-        <dl class="dl-horizontal">
-          <dt>created</dt>
-          <dd> {{ obj.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
-          <dt>lastchange</dt>
-          <dd> {{ obj.lastchange | date: "%Y/%m/%d %H:%M:%S" }} </dd>
-        </dl>
-      {% endfor %}
-      {% if include.pages.related %}
-      <hr>
-      <h4 class="panel-title card-title">関連記事</h4>
-      {% for content in include.pages.related %}
-        {% assign rel_collect = site.collections | where:"label", content.label | first %}
+      {% for section in include.pages.sections %}
+        <h4 class="panel-title card-title"> {{section.name}} </h4>
+        {% for page in section.pages %}
 
-        {% for page in content.pages %}
-          {% capture path %}_{{content.label}}/{{page}}.md{% endcapture %}
+          {% if section.label %}
+            {% capture path %}_{{ section.label }}/{{ page }}.md{% endcapture %}
+            {% assign label = section.label %}
 
-          {% assign obj = rel_collect.docs | where:"path", path | first %}
-          <h5 class="panel-title card-title">
-            <a href="{{site.github.url}}{{obj.url}}">{{obj.title}}</a>
+          {% else %}
+            {% capture path %}_{{ include.pages.label }}/{{ page }}.md{% endcapture %}
+            {% assign label = include.pages.label %}
+
+          {% endif %}
+
+          {% assign collection = site.collections | where:"label", label | first %}
+          {% assign doc        = collection.docs  | where:"path" , path  | first %}
+          <h5>
+            <a href="{{ site.github.url }}{{ doc.url }}">{{ doc.title }}</a>
           </h5>
           <dl class="dl-horizontal">
             <dt>created</dt>
-            <dd> {{ obj.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
+            <dd> {{ doc.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
             <dt>lastchange</dt>
-            <dd> {{ obj.lastchange | date: "%Y/%m/%d %H:%M:%S" }} </dd>
+            <dd> {{ doc.lastchange | date: "%Y/%m/%d %H:%M:%S" }} </dd>
           </dl>
         {% endfor %}
       {% endfor %}
-      {% endif %}
     </div>
   </div>
 </div>
