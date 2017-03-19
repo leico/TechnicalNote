@@ -2,7 +2,7 @@
 layout : post
 title  : Github Pagesのデバッグ環境を整える
 date   : 2017/01/16
-lastchange : 2017-03-04 23:14:13.
+lastchange : 2017-03-20 03:11:01.
 tags   :
   - jekyll
   - ruby
@@ -62,6 +62,7 @@ GemはRubyのライブラリパッケージ管理システム、[RubyGems](https
 ### Ruby自体のインストール
 
 参考
+
 * [Ruby開発環境について]({{site.github.url}}{% link _Jekyll/Ruby-research.md %})
 * [rbenvをアプリケーションフォルダにインストールする]({{site.github.url}}{% link _Jekyll/rbenv-install.md %})
 * [rbenvコマンドの利用方法]({{site.github.url}}{% link _Jekyll/rbenv-usage.md %})
@@ -76,11 +77,9 @@ GemはRubyのライブラリパッケージ管理システム、[RubyGems](https
 
 参考
 
-{% comment %}
 * [Bundlerの利用方法]({{site.github.url}}{% link _Jekyll/bundle-usage.md %})
 
 [Bundlerの利用方法]({{site.github.url}}{% link _Jekyll/bundle-usage.md %})に`rbenv`環境でのインストール方法から利用方法をまとめた。
-{% endcomment %}
 
 
 ## ローカルでGithub Pagesと同じ環境を作る
@@ -320,8 +319,10 @@ jekyllを実行する/できるディレクトリ=プロジェクトディレク
 > >
 > > If the existing directory isn’t empty, you’ll also have to pass the --force option like so jekyll new . --force.
 > >
+>
+> ---
 > 
-> [Github Pages + Jekyll でハマったこと](http://zdogma.hatenablog.com/entry/2016/08/07/220511)
+> * [Github Pages + Jekyll でハマったこと](http://zdogma.hatenablog.com/entry/2016/08/07/220511)
 
 ということなので、以下を実行する。
 
@@ -371,7 +372,9 @@ $ bundle exec jekyll new -f .
 >   - vendor
 > ```
 >
-> [jekyllの利用方法]({{site.github.url}}{% link _Jekyll/jekyll-usage.md %})
+> ---
+> 
+> * [jekyllの利用方法]({{site.github.url}}{% link _Jekyll/jekyll-usage.md %})
 
 `_config.yml`に以下を追加する。
 

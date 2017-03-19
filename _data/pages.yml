@@ -11,17 +11,19 @@
 - title    : github pages & Jekyll
   label    : Jekyll
   sections :
+    - name  : Jekyllの導入
+      pages :
+        - Ruby-research
+        - rbenv-install
+        - rbenv-usage
+        - bundle-usage
+        - jekyll-usage
+        - github-pages-debug
+        - github-pages-generator
+        - worth-bundle-install
     - name  : Tips
       pages :
         - collection-variable
-        - Ruby-research
-        - bundle-usage
-        - github-pages-debug
-        - github-pages-generator
-        - jekyll-usage
-        - rbenv-install
-        - rbenv-usage
-        - worth-bundle-install
         - site-variables
         - liquid-raw
         - display-value
