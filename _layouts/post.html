@@ -2,30 +2,76 @@
 layout : default
 ---
 
-<header class="page-header">
-  <h1>{{page.title}}</h1>
-  <div class="row">
-    <div class="col-xs-6">
-      <dl class="dl-horizontal">
-        <dt>created</dt>
-        <dd>{{page.date | date : "%F"}}</dd>
-        <dt>last change</dt>
-        <dd>{{page.lastchange}}</dd>
-      </dl>
-    </div>
-    <div class="col-xs-6 text-right">
-      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
-</header>
-
 <div class="row">
-  <div class="col-xs-12">
-    {{ content }}
+
+
+  <div class="col-md-8">
+
+    <header class="page-header">
+      <h1>{{page.title}}</h1>
+      <div class="row">
+
+        <div class="col-xs-6">
+          <dl class="dl-horizontal">
+            <dt>created</dt>
+            <dd>{{page.date | date : "%F"}}</dd>
+            <dt>last change</dt>
+            <dd>{{page.lastchange}}</dd>
+          </dl>
+        </div>
+
+        <div class="col-xs-6 text-right">
+          <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+      </div>
+    </header>
+
+    <div class="row">
+
+      <div class="col-xs-12">
+        {{ content }}
+      </div>
+
+      <div class="col-xs-12">
+        <hr>
+        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+
+    </div>
+
   </div>
-  <div class="col-xs-12">
-    <hr>
-    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </div>
+  {% if page.collection %}
+    <div class="col-md-4">
+      {% assign sibling = site.data.pages | where:"label", page.collection | first %}
+      {% for section in sibling.sections %}
+        <h3>{{ section.name }}</h3>
+        <ul>
+        {% for content in section.pages %}
+
+          {% if section.label %}
+            {% capture path %}_{{ section.label }}/{{ content }}.md{% endcapture %}
+            {% assign label = section.label %}
+
+          {% else %}
+            {% capture path %}_{{ sibling.label }}/{{ content }}.md{% endcapture %}
+            {% assign label = sibling.label %}
+
+          {% endif %}
+
+          {% assign collection = site.collections | where:"label", label | first %}
+          {% assign doc        = collection.docs  | where:"path" , path  | first %}
+
+          <li>
+            <a href="{{ site.github.url }}{{ doc.url }}">{{ doc.title }}</a>
+          </li>
+
+        {% endfor %}
+        </ul>
+      {% endfor %}
+    </div>
+  {% endif %}
+
 </div>
