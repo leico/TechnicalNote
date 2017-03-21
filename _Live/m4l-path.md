@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: pathを使って操作する"
 date   : 2017/03/21
-lastchange : 2017-03-21 20:22:02.
+lastchange : 2017-03-21 20:40:03.
 tags   :
   - Ableton
   - Live
@@ -155,7 +155,4 @@ Nには0以上の数字が入る。存在しないトラックにアクセスは
 
 例に示したものの他、いろんなものに *path* を使って表すことができる。
 
-## Max for Liveから操作する方法
 
-*path* を利用して直接Ableton Liveが操作できると便利なのだが、
-Max for Liveで操作するには`id`に変換する必要がある。
