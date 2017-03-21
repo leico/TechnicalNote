@@ -6,6 +6,10 @@
       pages :
         - cuemix-cuevolume
 
+    - name : Max for Live Basics
+      pages :
+        - m4l-path
+
 
 
 - title    : github pages & Jekyll
