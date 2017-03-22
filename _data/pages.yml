@@ -9,6 +9,7 @@
     - name : Max for Live Basics
       pages :
         - m4l-path
+        - m4l-id
 
 
 

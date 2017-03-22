@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : "Max for Live: pathを使って操作する"
+title  : "Max for Live: pathによる特定方法"
 date   : 2017/03/21
-lastchange : 2017-03-21 20:40:03.
+lastchange : 2017-03-22 18:45:29.
 tags   :
   - Ableton
   - Live
@@ -12,7 +12,7 @@ tags   :
   - path
 ---
 
-## Max for Live から Ableton Liveを操作する方法
+## Max for Live から Ableton Live のパラメータにアクセスする方法
 
 参考
 
@@ -21,7 +21,7 @@ tags   :
 * [Max 7 - LOM - The Live Object Model](https://docs.cycling74.com/max7/vignettes/live_object_model)
 
 Max for Live から Ableton Live を操作する方法を調査した結果をまとめる。
-まずは **path** について。ほとんど
+まずは **path** を用いて各種パラメータにアクセスする方法について。ほとんど
 [Controlling Live with Max for Live Lesson 1 - Ableton](https://help.ableton.com/hc/en-us/articles/209071389-Controlling-Live-with-Max-for-Live-Lesson-1)
 と同じ内容になってしまうけれど。
 
@@ -63,8 +63,9 @@ Max for Live から Ableton Live を操作する方法を調査した結果を�
 もし詳細表示されているものが3トラック目の最初のクリップだった場合、
 全ての *path* は同じものを選択していることになる。
 
-{% capture path %}{{site.github.url}}{% link _Live/images/m4l-path/01_path.png %}{% endcapture %}
-{% include responsive-img.html url=path title='それぞれのパス' alt='それぞれのパスによるアクセス方法' %}
+{% capture url %}{{site.github.url}}{% link _Live/images/m4l-path/01_path.png %}{% endcapture %}
+{% assign caption = 'それぞれのパスによるアクセス方法' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
 ## Live Object Model
 
@@ -93,10 +94,19 @@ Max for Live から Ableton Live を操作する方法を調査した結果を�
 > 
 > * [Controlling Live with Max for Live Lesson 1 - Ableton](https://help.ableton.com/hc/en-us/articles/209071389-Controlling-Live-with-Max-for-Live-Lesson-1)
 
-{% capture path %}{{site.github.url}}{% link _Live/images/m4l-path/02_LOM.png %}{% endcapture %}
-{% include responsive-img.html url=path %}
+
+
+{% capture url %}{{site.github.url}}{% link _Live/images/m4l-path/02_LOM.png %}{% endcapture %}
+{% assign caption = '
+Live Object Model image
 
 * [Max 7 - LOM - The Live Object Model](https://docs.cycling74.com/max7/vignettes/live_object_model)
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+
+
+
 
 図はLive Object Modelの全体を俯瞰したもの。各オブジェクト間の従属関係がだいたい網羅されている。
 Max for LiveデバイスからAbleton Liveのパラメータのいずれかを操作したり、連動させたりする場合は、
@@ -143,16 +153,33 @@ Nには0以上の数字が入る。存在しないトラックにアクセスは
 > 
 > * [Controlling Live with Max for Live Lesson 1 - Ableton](https://help.ableton.com/hc/en-us/articles/209071389-Controlling-Live-with-Max-for-Live-Lesson-1)
 
-{% capture path %}{{site.github.url}}{% link _Live/images/m4l-path/03_LOM_path.png %}{% endcapture %}
-{% include responsive-img.html url=path %}
+
+
+
+{% capture url %}{{site.github.url}}{% link _Live/images/m4l-path/03_LOM_path.png %}{% endcapture %}
+{% assign caption = '
+*path* trace image
+
 * [Controlling Live with Max for Live Lesson 1 - Ableton](https://help.ableton.com/hc/en-us/articles/209071389-Controlling-Live-with-Max-for-Live-Lesson-1)
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+
+
 
 この例では第一トラックの`volume`にアクセスする方法が示されている。
 これをAbleton Liveの画面でみた時の画像が以下。
 
-{% capture path %}{{site.github.url}}{% link _Live/images/m4l-path/04_path_volume.png %}{% endcapture %}
-{% include responsive-img.html url=path %}
 
-例に示したものの他、いろんなものに *path* を使って表すことができる。
+
+
+
+{% capture url %}{{site.github.url}}{% link _Live/images/m4l-path/04_path_volume.png %}{% endcapture %}
+{% assign caption = '*path* trace image in Live interface' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+例に示したものの他、いろんなものを *path* を使って表すことができる。
+
+この *path* を用いて操作/反映/監視する対象を決定する。
 
 
