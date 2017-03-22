@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: pathからidを生成する"
 date   : 2017/03/21
-lastchange : 2017-03-22 18:51:25.
+lastchange : 2017-03-22 18:54:09.
 tags   :
   - Ableton
   - Live
@@ -73,7 +73,11 @@ Max for Live 側からの制御には主にこの *id* を利用する。
 
 厄介なのは、起動毎に違う *id* が割り振られるという仕様だ。
 {% capture url %}{{ site.github.url }}{% link _Live/images/m4l-id/04_randomid.png %}{% endcapture %}
-{% assign caption = 'こういう状態が普通にありうる' | markdownify %}
+{% assign caption = '
+`live.path`でアクセスした順に *id* が発行されるので、画像のようなことが普通にありうる。
+
+そして、起動するたびに割り振られる *id* が変わるのである。
+' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
 
