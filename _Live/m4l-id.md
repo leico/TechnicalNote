@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: pathからidを生成する"
 date   : 2017/03/21
-lastchange : 2017-03-22 18:38:45.
+lastchange : 2017-03-22 18:51:25.
 tags   :
   - Ableton
   - Live
@@ -19,6 +19,7 @@ tags   :
 * [Live API Overview](https://docs.cycling74.com/max7/vignettes/live_api_overview)
 * [Controlling Live with Max for Live Lesson 2 - Ableton](https://help.ableton.com/hc/en-us/articles/212086305-Controlling-Live-with-Max-for-Live-Lesson-2)
 * [Max 7 - live.path Reference](https://docs.cycling74.com/max7/maxobject/live.path)
+
 Ableton Live の各種パラメータにアクセスする *path* を
 そのままMax for Live では使うことができない。
 
