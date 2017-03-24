@@ -38,6 +38,8 @@ collections :
     output: true
   Live:
     output: true
+  Max:
+    output: true
 
 # ---- build option ----
 

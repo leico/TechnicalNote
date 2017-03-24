@@ -2,7 +2,7 @@
 layout : post
 title  : AbletonLiveでCueMixとCueVolumeを実現する
 date   : 2017/3/6
-lastchange : 2017-03-21 17:50:08.
+lastchange : 2017-03-22 19:14:38.
 tags   :
   - Ableton
   - Live
@@ -17,13 +17,15 @@ Ableton Live 9でDJをする機会があり、その際Cue機能が貧弱すぎ�
 
 最終的なトラック構成はこちら
 
-{% capture path %}{{site.github.url}}{% link _Live/images/cuemix-cuevolume/01-tracks.png %}{% endcapture %}
-{% include responsive-img.html url=path title='トラック構成' alt='トラック構成' %}
+{% capture url %}{{site.github.url}}{% link _Live/images/cuemix-cuevolume/01-tracks.png %}{% endcapture %}
+{% assign caption = 'トラック構成' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
 さらにブロック図も作ってみました。
 
-{% capture path %}{{site.github.url}}{% link _Live/images/cuemix-cuevolume/02-block.png %}{% endcapture %}
-{% include responsive-img.html url=path title='ブロック図' alt='ブロック図' %}
+{% capture url %}{{site.github.url}}{% link _Live/images/cuemix-cuevolume/02-block.png %}{% endcapture %}
+{% assign caption = 'diagram' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
 ## 実現したい機能
 
@@ -48,9 +50,9 @@ CueVolume
 
 ## 実装解説
 
-<a href="{{block}}">
-  <img class="img-responsive" title="ブロック図" src="{{block}}" alt="ブロック図">
-</a>
+{% capture url %}{{site.github.url}}{% link _Live/images/cuemix-cuevolume/02-block.png %}{% endcapture %}
+{% assign caption = 'diagram' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
 を元に解説します。
 

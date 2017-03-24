@@ -2,7 +2,7 @@
 layout : post
 title  : Raspberry Pi:VirtualBoxを使って死んだSDカードからリカバリー
 date : 2017/02/02
-lastchange : 2017-03-05 18:37:06.
+lastchange : 2017-03-22 19:34:58.
 tags   :
   - Raspberry Pi
   - VirtualBox
@@ -208,9 +208,20 @@ Debianに`gparted`をインストールして実行するようにした。慣�
 [Ubuntuの場合、仮想マシン向けのハードディスクイメージを配布している](https://www.ubuntulinux.jp/download)
 ので、Debianも仮想HDDイメージがないか探したら[OSBoxesが作成、配布しているものを見つけた。](https://www.osboxes.org/debian/)
 
-![OSBoxesダウンロード画面]({{site.github.url}}{% link _RaspberryPi/images/RaspberryPi-Recover/01_osboxes.png %} "OSBoxesダウンロード画面")
+
+
+{% capture url %}{{site.github.url}}{% link _RaspberryPi/images/RaspberryPi-Recover/01_osboxes.png %}{% endcapture %}
+{% assign caption = '
+OSBoxesダウンロード画面
+
 
 画像のところでダウンロードすることができる。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+
+
+
 
 ## VirtualBoxで仮想マシンを作成
 
@@ -220,25 +231,47 @@ Debianに`gparted`をインストールして実行するようにした。慣�
 
 ## 仮想マシンにRaspberry Piと復元先のMicro SDファイルを追加する
 
-![左上中、設定]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/02_virtualbox_config.png %} "左上中、設定を押す")
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/02_virtualbox_config.png %}{% endcapture %}
+{% assign caption = 'マシンを選択して、左上2番目から設定。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-マシンを選択して、左上2番目から設定。　
 
-![ストレージを追加する]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/03_storage_tab.png %} "ストレージを追加する")
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/03_storage_tab.png %}{% endcapture %}
+{% assign caption = '
+ストレージを追加する
 
 ストレージタブに移動し、SATAコントローラを選択後、サイドバー下部のHDD追加アイコンからハードディスクを追加
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![MicroSDファイルを追加]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/04_select_vhdd.png %} "MicroSDファイルを追加")
+
+
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/04_select_vhdd.png %}{% endcapture %}
+{% assign caption = '
+MicroSDファイルを追加
 
 先ほど作ったMicro SDのファイルをRaspberry Pi、復元先両方とも追加する。
 
 この時に仮想マシンのディレクトリに入れておくと混乱しない。
 
 仮想マシンは初期設定では`~/VirtualBox VMs/`にまとめられている。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![終了]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/05_config_end.png %} "終了")
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/05_config_end.png %}{% endcapture %}
+{% assign caption = '
+終了
 
 追加されたら終了し、Debianを起動する。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
 
 ## Debianの設定
 
@@ -384,81 +417,124 @@ deb-src http://security.debian.org/ jessie/updates main contrib non-free
 
 ## gpartedを使ってパーティションサイズ変更とコピー
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/06_Activities.png %})
 
-Debianデスクトップ左上`Activities`からgpartedを起動する。
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/06_Activities.png %}{% endcapture %}
+{% assign caption = 'Debianデスクトップ左上`Activities`からgpartedを起動する。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/07_select_gparted.png %})
 
-`gparted`で検索し、起動する。
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/08_authentication.png %})
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/07_select_gparted.png %}{% endcapture %}
+{% assign caption = '`gparted`で検索し、起動する。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/08_authentication.png %}{% endcapture %}
+{% assign caption = '
 パーティション操作を行うので、管理者権限での実行を求められる。
 
 管理者パスワードを入れて認証する。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/09_boot_gparted.png %})
 
-gpartedが起動する。
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/09_boot_gparted.png %}{% endcapture %}
+{% assign caption = 'gpartedが起動する。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/10_select_RPi.png %})
 
-まずは元々Raspberry Piが入っているディスクを選択する。
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/11_RPi_resize.png %})
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/10_select_RPi.png %}{% endcapture %}
+{% assign caption = 'まずは元々Raspberry Piが入っているディスクを選択する。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/11_RPi_resize.png %}{% endcapture %}
+{% assign caption = '
 復元先に移動できるサイズにするために、
 Raspberry Pi本体のデータが入っているパーティションのサイズを変更する。
 
 `Resize/Move the selected partition`を選択
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/12_RPi_reduction.png %})
 
-パーティション右端をドラッグして復元先に収まりそうなサイズに縮小する。
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/13_boot_copy.png %})
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/12_RPi_reduction.png %}{% endcapture %}
+{% assign caption = 'パーティション右端をドラッグして復元先に収まりそうなサイズに縮小する。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/13_boot_copy.png %}{% endcapture %}
+{% assign caption = '
 変更が完了したら各々のパーティションを復元先にコピーする。
 
 まずはbootをコピーし
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/14_select_recover.png %})
 
-復元先を選択し
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/15_paste.png %})
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/14_select_recover.png %}{% endcapture %}
+{% assign caption = '復元先を選択し' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-パーティションを貼り付ける。
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/16_paste_boot.png %})
 
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/15_paste.png %}{% endcapture %}
+{% assign caption = 'パーティションを貼り付ける。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/16_paste_boot.png %}{% endcapture %}
+{% assign caption = '
 貼り付けるとサイズ変更と同じ画面が表示される。
 
 なぜかRaspberry Piのパーティションの先頭4MiB分が使われていないので、
 `Free space preceding (MiB):`の部分を __4__ に変更する。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/17_RPi_copy.png %}{% endcapture %}
+{% assign caption = '
 PasteしてRaspberry Pi本体のデータもコピーする。
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/17_RPi_copy.png %})
-
 Raspberry Pi本体のパーティションをコピーして
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/18_RPi_paste.png %})
 
-bootの後ろに貼り付ける。
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/19_RPi_extend.png %})
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/18_RPi_paste.png %}{% endcapture %}
+{% assign caption = 'bootの後ろに貼り付ける。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-貼り付け終了後、パーティション後部に空白がある場合、パーティションをリサイズして埋める。
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/20_Apply.png %})
 
-全ての変更を適用
 
-![image]({{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/21_Progress.png %})
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/19_RPi_extend.png %}{% endcapture %}
+{% assign caption = '貼り付け終了後、パーティション後部に空白がある場合、パーティションをリサイズして埋める。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
 
-パーティションのコピーが行われて、復元先にRaspberry Piがコピーされる。
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/20_Apply.png %}{% endcapture %}
+{% assign caption = '全ての変更を適用' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+
+
+{% capture url %}{{site.github.url}}{%link _RaspberryPi/images/RaspberryPi-Recover/21_Progress.png %}{% endcapture %}
+{% assign caption = 'パーティションのコピーが行われて、復元先にRaspberry Piがコピーされる。' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+
+
 
 ## 復元先Micro SDをvdiからディスクイメージファイルに変換する
 

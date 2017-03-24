@@ -10,6 +10,17 @@
       pages :
         - m4l-path
         - m4l-id
+    - name : 関連記事
+      label : Max
+      pages:
+        - patch-share
+
+- title : "Cycling '74 Max"
+  label : Max
+  sections:
+    - name : Tips
+      pages :
+        - patch-share
 
 
 
