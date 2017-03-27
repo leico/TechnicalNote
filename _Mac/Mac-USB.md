@@ -2,7 +2,7 @@
 layout : post
 title  : Mac で USBが認識されない問題の原因、対処法
 date   : 2017/03/27
-lastchange : 2017-03-27 17:01:49.
+lastchange : 2017-03-27 19:23:26.
 tags   :
   - Mac
   - Macbook
@@ -119,3 +119,4 @@ tags   :
 ' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
+内蔵デバイスと外部デバイスのバス共有はなくしたみたいだけど、NVRAM/SMCリセットで解決しそうな気がすごいする。
