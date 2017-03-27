@@ -167,3 +167,13 @@
         - VimR-deoplete
         - VimR-env
         - VimR-ftplugin
+
+
+
+
+
+- title : Mac Tips
+  label : Mac
+  sections :
+    - name : Tips
+      pages : Mac-USB

@@ -40,6 +40,8 @@ collections :
     output: true
   Max:
     output: true
+  Mac:
+    output: true
 
 # ---- build option ----
 
