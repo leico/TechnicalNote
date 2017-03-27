@@ -26,6 +26,13 @@ pages: 1st generation object of _data/pages.yml
          role="tabpanel"
          area-labelledby="head_{{include.pages.label}}"
          id="body_{{include.pages.label}}">
+
+
+      <h4>
+        <a href="{{site.github.url}}{{include.pages.label}}">{{include.pages.title}} Top</a></h4>
+      </h4>
+
+
       {% for section in include.pages.sections %}
         <h4 class="panel-title card-title"> {{section.name}} </h4>
         {% for page in section.pages %}

@@ -1,0 +1,46 @@
+
+{% assign pages = site.data.pages | where:"label", page.collection | first %}
+
+
+<div class="row">
+
+{% for section in pages.sections %}
+
+<div class="col-md-4">
+  <div class="card panel panel-default">
+    <div class="card-header panel-heading">
+      <h3 class="card-title panel-title"> {{ section.name }} </h3>
+    </div>
+    <div class="card-block panel-body">
+      {% for page in section.pages %}
+
+        {% if section.label %}
+          {% capture path %}_{{ section.label }}/{{ page }}.md{% endcapture %}
+          {% assign label = section.label %}
+
+        {% else %}
+          {% capture path %}_{{ pages.label }}/{{ page }}.md{% endcapture %}
+          {% assign label = pages.label %}
+
+        {% endif %}
+
+        {% assign collection = site.collections | where:"label", label | first %}
+        {% assign doc        = collection.docs  | where:"path" , path  | first %}
+        <h5>
+          <a href="{{ site.github.url }}{{ doc.url }}">{{ doc.title }}</a>
+        </h5>
+        <dl class="dl-horizontal">
+          <dt>created</dt>
+          <dd> {{ doc.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
+          <dt>lastchange</dt>
+          <dd> {{ doc.lastchange | date: "%Y/%m/%d %H:%M:%S" }} </dd>
+        </dl>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+</div>

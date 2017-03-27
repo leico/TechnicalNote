@@ -45,7 +45,19 @@ layout : default
   </div>
   {% if page.collection %}
     <div class="col-md-4">
+      <h2>
+        <a href="{{site.github.com}}/">
+          {{site.data.summary.title}}
+        </a>
+      </h2>
+
+
       {% assign sibling = site.data.pages | where:"label", page.collection | first %}
+
+      <h3>
+        <a href="{{site.github.url}}/{{sibling.label}}">{{sibling.title}} Top</a></h4>
+      </h3>
+
       {% for section in sibling.sections %}
         <h3>{{ section.name }}</h3>
         <ul>
