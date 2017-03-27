@@ -2,10 +2,12 @@
 layout : default
 ---
 
+{% assign pages = site.data.pages | where:"label", page.collection | first %}
+
 <div class="page-header">
   <header>
     <h1>
-      {{ page.title }}
+      {{ pages.title }}
     <small> by <a href="{{site.github.url}}/">{{site.data.summary.title}}</a></small>
     </h1>
   </header>
