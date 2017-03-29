@@ -11,6 +11,7 @@
         - m4l-path
         - m4l-id
         - m4l-object
+        - m4l-observer
 
     - name : 関連記事
       label : Max
