@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : "Max for Live: live.object"
+title  : "Max for Live: live.observer"
 date   : 2017/03/29
-lastchange : 2017-03-29 23:01:46.
+lastchange : 2017-03-29 23:05:48.
 tags   :
   - Ableton
   - Live
