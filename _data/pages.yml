@@ -59,6 +59,7 @@
   sections :
     - name  : Tips
       pages :
+        - sass-customize
         - bootstrap-landing-page-header
         - panel-collapse
 
