@@ -42,6 +42,7 @@
         - worth-bundle-install
     - name  : Tips
       pages :
+        - mathjax-install
         - collection-variable
         - site-variables
         - liquid-raw

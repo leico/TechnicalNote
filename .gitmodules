@@ -1,0 +1,4 @@
+[submodule "js/MathJax"]
+	path = js/MathJax
+	url = https://github.com/mathjax/MathJax.git
+	branch = v2.6-latest
