@@ -17,6 +17,7 @@
       pages :
         - store-parameter
         - initialize
+        - initial-timing
 
     - name : 関連記事
       label : Max
