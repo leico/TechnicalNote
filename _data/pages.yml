@@ -13,6 +13,11 @@
         - m4l-object
         - m4l-observer
 
+    - name  : Parameter インスペクタ関係
+      pages :
+        - store-parameter
+        - initialize
+
     - name : 関連記事
       label : Max
       pages:
@@ -24,6 +29,12 @@
     - name : Tips
       pages :
         - patch-share
+
+    - name  : Parameter インスペクタ関係
+      label : Live
+      pages : 
+        - store-parameter
+        - initialize
 
 
 
