@@ -2,7 +2,7 @@
 layout : post
 title  : "Max: サンプリングレートで動作を分ける"
 date   : 2017/04/02
-lastchange : 2017-04-02 18:47:02.
+lastchange : 2017-04-02 18:50:53.
 tags   :
   - Max
   - Max for Live
@@ -12,7 +12,7 @@ tags   :
 
 ---
 
-## \\( 44.1 \mathrm{Hz} \\) で \\(30000 \mathrm{Hz} \\) のHigh Pass Filter(HPF)かけたらDSPがフリーズした。
+## \\( 44.1 \mathrm{kHz} \\) で \\(30000 \mathrm{Hz} \\) のHigh Pass Filter(HPF)かけたらDSPがフリーズした。
 
 {% capture url %}{{ site.github.url }}{% link _Max/images/separate-samplingrate/01_Oops.png %}{% endcapture %}
 {% assign caption = '音が一切出なくなった。' | markdownify %}
