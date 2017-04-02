@@ -36,6 +36,7 @@
       pages : 
         - store-parameter
         - initialize
+        - initial-timing
 
 
 
