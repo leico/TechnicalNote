@@ -2,7 +2,7 @@
 layout : post
 title  : "Max: サンプリングレートで動作を分ける"
 date   : 2017/04/02
-lastchange : 2017-04-02 18:41:55.
+lastchange : 2017-04-02 18:47:02.
 tags   :
   - Max
   - Max for Live
@@ -60,6 +60,7 @@ tags   :
     l3Qvln6JaPCvlv6FazOHNXwAkd+3S5HJO+U5XOWiqq2R3htkzvDUW95Jt1bg
     mwjxrlgFSNYKsOdyk2PLW02JUMsMbaedah8MF3lpBBm0P65oTY9f6WvoEpQ4
     -----------end_max5_patcher-----------
+
 サンプル
 
 `live.thisdevice`からの *bang* を `dspstate~`に入れ、
