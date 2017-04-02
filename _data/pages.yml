@@ -22,6 +22,7 @@
     - name : 関連記事
       label : Max
       pages:
+        - separate-samplingrate
         - patch-share
 
 - title : "Cycling '74 Max"
@@ -29,6 +30,7 @@
   sections:
     - name : Tips
       pages :
+        - separate-samplingrate
         - patch-share
 
     - name  : Parameter インスペクタ関係
