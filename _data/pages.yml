@@ -197,3 +197,17 @@
   sections :
     - name : Tips
       pages : Mac-USB
+
+
+
+
+
+
+
+
+- title : Memorandum
+  label : Memo
+  sections :
+    - name : 
+      pages : 
+        - bouldering

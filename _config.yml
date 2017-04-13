@@ -42,6 +42,8 @@ collections :
     output: true
   Mac:
     output: true
+  Memo:
+    output: true
 
 # ---- build option ----
 
