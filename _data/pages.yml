@@ -2,6 +2,10 @@
 - title : Ableton Live & Max for Live
   label : Live
   sections :
+    - name  : My Devices
+      pages :
+        - clipselector
+
     - name  : Tips
       pages :
         - cuemix-cuevolume
