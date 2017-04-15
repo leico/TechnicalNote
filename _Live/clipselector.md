@@ -2,7 +2,7 @@
 layout : post
 title  : "ClipSelector"
 date   : 2017/04/06
-lastchange : 2017-04-15 18:42:26.
+lastchange : 2017-04-15 18:52:11.
 tags   :
   - Ableton
   - Live
@@ -25,11 +25,11 @@ MIDIコントローラのボタンやノブ、フェーダをアサインして�
 {% capture url %}{{site.github.url}}{% link _Live/images/clipselector/02_Source.png %}{% endcapture %}
 {% assign caption = '全体像
 
-ダウンロードはこちらから
-
 ' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
+ダウンロードはこちらから
+[Clip Selector version 1.0 by leico on maxforlive.com](http://www.maxforlive.com/library/device/4103/clip-selector)
 
 
 ## 構造
