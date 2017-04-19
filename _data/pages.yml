@@ -8,8 +8,8 @@
 
     - name  : Tips
       pages :
-        - cuemix-cuevolume
         - dbfs
+        - cuemix-cuevolume
 
     - name : Max for Live Basics
       pages :
