@@ -9,6 +9,7 @@
     - name  : Tips
       pages :
         - cuemix-cuevolume
+        - dbfs
 
     - name : Max for Live Basics
       pages :

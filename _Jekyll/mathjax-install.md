@@ -2,7 +2,7 @@
 layout : post
 title  : MathJaxをインストールする
 date   : 2017/04/01
-lastchange : 2017-04-01 22:27:21.
+lastchange : 2017-04-19 15:23:47.
 tags   :
   - jekyll
   - github pages
@@ -84,6 +84,10 @@ y=\log_{e}x
 * [Git submoduleの抑えておきたい理解ポイントのまとめ - Qiita](http://qiita.com/kinpira/items/3309eb2e5a9a422199e9)
 * [Loading and Configuring MathJax — MathJax 2.7 documentation](http://docs.mathjax.org/en/latest/configuration.html#config-files)
 * [Using MathJax on Github:Pages](http://www.christopherpoole.net/using-mathjax-on-githubpages.html)
+
+MathJaxの書き方
+
+* [Easy Copy MathJax](http://easy-copy-mathjax.xxxx7.com/)
 
 ## `git submodule` でバージョン管理しながらインストール
 
