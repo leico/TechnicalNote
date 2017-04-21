@@ -2,7 +2,7 @@
 layout : post
 title  : Ableton Push2でのM4Lパラメータ表示順序
 date   : 2017/04/19
-lastchange : 2017-04-21 17:26:37.
+lastchange : 2017-04-21 17:46:38.
 tags   :
   - Ableton
   - Live
@@ -16,7 +16,7 @@ tags   :
 
 何ら指定することなくMax for Liveデバイスを作ると
 
-{% capture url %}{{ site.github.url }}{% link _Live/images/automapping-index/01_4bandeq.jpg %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _Live/images/automapping-index/01_4bandeq.png %}{% endcapture %}
 {% assign caption = 'これが' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
@@ -27,22 +27,23 @@ tags   :
 で、Ableton Supportに聞いてみた。
 
 {% capture url %}{{ site.github.url }}{% link _Live/images/automapping-index/03_support.png %}{% endcapture %}
-{% assign caption = '
+{% assign caption = "
 
 > To change the order of the controls on Push you'd have to define the Automapping Index parameter within the Max Inspector.
-> 
+>  
 > As soon as you assign a different value than 0 to a parameter you'd enable the functionality for all other parameters as well. 
 > Practically this means 0 becomes not available to Push and 1, 2, 3... defines the order on the Push display.
 > 
 > Please make sure to cycle tracks to make changes visible on Push after changing/saving the Max patch.
-> 
+>  
 > Let me know if you have further questions and feel free to come back at any time!
 >
+> 
 > ---
 >
 > Ableton Support
 
-' | markdownify %}
+" | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
 > インスペクタ内のAutomapping Index の値が小さい方から順番に並ぶよー
@@ -69,12 +70,12 @@ tags   :
 6. High\_Mid Kill
 7. High
 8. High Kill
-9. ---
+9. 
 10. Low crossover
-11. ---
-12. ---
+11. 
+12. 
 13. Mid crossover
-14. ---
+14. 
 15. High crossover
 
 をやってみた時
