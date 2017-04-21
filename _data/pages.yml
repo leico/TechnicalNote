@@ -8,6 +8,7 @@
 
     - name  : Tips
       pages :
+        - automapping-index
         - dbfs
         - cuemix-cuevolume
 
