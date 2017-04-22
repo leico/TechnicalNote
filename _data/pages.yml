@@ -8,6 +8,7 @@
 
     - name  : Tips
       pages :
+        - knob-mapping
         - automapping-index
         - dbfs
         - cuemix-cuevolume
@@ -33,6 +34,7 @@
 
     - name  : 関連
       label : Memo
+      pages:
         - log-power
 
 - title : "Cycling '74 Max"
@@ -52,6 +54,7 @@
 
     - name  : 関連
       label : Memo
+      pages:
         - log-power
 
 

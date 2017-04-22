@@ -2,7 +2,7 @@
 layout : post
 title  : Ableton Liveのレベル、Max for Liveでの値
 date   : 2017/04/19
-lastchange : 2017-04-19 21:43:34.
+lastchange : 2017-04-22 20:09:28.
 tags   :
   - Ableton
   - Live
@@ -89,6 +89,31 @@ Max for Live で *0 dB* の値を知らねばならないところは3つ
 ' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
+---
+
+もう一個忘れていた。`live.gain~`の *raw value* での *0 dB* を求める。
+これはMIDIマッピング等で利用する。
+
+{% capture url %}{{site.github.url}}{% link _Live/images/dbfs/03_live.gain.png %}{% endcapture %}
+{% assign caption = '
+    ----------begin_max5_patcher----------
+    450.3ociSsraCBCD7L7UX4yzHHPHs8WopJxDbHaEXGYaPIJp8aud8iPRaRUO
+    .FO6rdMyN64zDZi7HWSIuRdijjbNMIwAg.Ig8IzA1ws8LsiFcWuTLNPy7gfV
+    Gnr4imJJhfGXJ1.2vUa3BVSOGojGhIGM8bi4zAtunTZFg1vDcTx6AJ1iGDVR
+    t5UD.0lS9ChFqxNoZfYPn54D8GuKykWtMls6AQ2FEeqwWzp0urHOirptBWJV
+    UhKKKVjSdGy4yzT7U1+TQ5gI9hNFH9Jd0lXJgUAdPzqzrm+KIq3QRlF5DrdT
+    3l+BersFqfjg0Tadfdt7tZ0p+PqpVhpS45mwkJ26hxZTqhsF1DucCyXTPyng
+    O+kNHZAUC0k9QtbWDNhe8uu0c08Xs6Fp58Rk4exMpd42I1fUdvXOsNew8iyb
+    s+56FEDfAr8.mXkOKK2PZzR5hCtxG24xhKAKmKY6uh3myjtFCheqOTKGUai1
+    hfghTdoyzx0FPvLfTbEGbPkL291Cssbw0ynsfF8fNaZ9utcrCGl3Jc3Lc2D6
+    7vGREtcclaKH7aKcaU7IHx2ivTValw5wFU9t2w5JpOUYKWIFA2.PJV4OS+1S
+    0PR0
+    -----------end_max5_patcher-----------
+
+*0.921*
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
 
 ### 結果
 
@@ -102,9 +127,14 @@ Max for Live で *0 dB* の値を知らねばならないところは3つ
 Max for Liveからの出力
 : \\(0 dB = 1 \\)
 
+`live.gain~` *0 dB* の *raw value*
+: \\(0 dB \fallingdotseq 0.921 \\)
+
 
 センドコントロールとMax for Live内部の音量は\\( 0 \to 1 \\)制御で問題無いんだけど、
 トラックボリュームがおそらく *+6 dB* まである影響か *0.85* なのがちょっと問題かも。
+
+あと`live.gain~`の *0.921* って・・・。どっちかに統一してほしい。
 
 ## 補足:レベルのお話
 
