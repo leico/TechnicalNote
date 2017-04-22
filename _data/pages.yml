@@ -25,11 +25,15 @@
         - initialize
         - initial-timing
 
-    - name : 関連記事
+    - name : Max関連
       label : Max
       pages:
         - separate-samplingrate
         - patch-share
+
+    - name  : 関連
+      label : Memo
+        - log-power
 
 - title : "Cycling '74 Max"
   label : Max
@@ -45,6 +49,11 @@
         - store-parameter
         - initialize
         - initial-timing
+
+    - name  : 関連
+      label : Memo
+        - log-power
+
 
 
 
@@ -216,4 +225,5 @@
   sections :
     - name : 
       pages : 
+        - log-power
         - bouldering
