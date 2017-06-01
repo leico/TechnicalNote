@@ -52,6 +52,10 @@
         - initialize
         - initial-timing
 
+    - name : bpatcher Tricks
+      pages:
+        - bpatcher-embed
+
     - name  : 関連
       label : Memo
       pages:
