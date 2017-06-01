@@ -54,6 +54,9 @@
 
     - name : bpatcher Tricks
       pages:
+        - bpatcher-inherit-argument
+        - bpatcher-argument-name
+        - bpatcher-argument
         - bpatcher-embed
 
     - name  : 関連
