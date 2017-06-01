@@ -63,6 +63,10 @@
 - title    : github pages & Jekyll
   label    : Jekyll
   sections :
+    - name  : github pagesの管理
+      pages :
+        - update-github-page
+
     - name  : Jekyllの導入
       pages :
         - Ruby-research
