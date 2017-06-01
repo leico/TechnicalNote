@@ -66,6 +66,7 @@
     - name  : github pagesの管理
       pages :
         - update-github-page
+        - fix-3.4.3
 
     - name  : Jekyllの導入
       pages :

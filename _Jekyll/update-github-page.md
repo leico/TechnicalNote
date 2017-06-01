@@ -2,7 +2,7 @@
 layout : post
 title  : github-pages環境のアップデート
 date   : 2017/06/01
-lastchange : 2017-06-01 20:06:18.
+lastchange : 2017-06-01 20:31:42.
 tags   :
   - jekyll
   - ruby
@@ -11,6 +11,7 @@ tags   :
   - github
   - pages
   - uninstall
+  - update
 ---
 
 ## github-pagesに更新がきていた
