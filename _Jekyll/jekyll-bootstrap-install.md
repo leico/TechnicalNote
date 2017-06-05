@@ -2,7 +2,7 @@
 layout : post
 title  : Github Pagesにbootstrap sassをインストールする
 date : 2017/01/20
-lastchange : 2017-03-05 17:45:17.
+lastchange : 2017-06-06 01:13:56.
 tags   :
   - jekyll
   - ruby
@@ -519,4 +519,6 @@ __\_includes__ ディレクトリを作成して、中に __defaulthtmlheader.ht
 
 このソースコードを入れてボタンとアイコンがちゃんと設定されるか確認する。
 
-![スクリーンショット]({% link _Jekyll/images/jekyll-bootstrap-install/ss.png %})
+{% capture url %}{{ site.github.url }}{% link _Jekyll/images/jekyll-bootstrap-install/ss.png %}{% endcapture %}
+{% assign caption = '' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
