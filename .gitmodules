@@ -2,3 +2,6 @@
 	path = js/MathJax
 	url = https://github.com/mathjax/MathJax.git
 	branch = v2.6-latest
+[submodule "bs4"]
+	path = bs4
+	url = https://github.com/twbs/bootstrap.git
