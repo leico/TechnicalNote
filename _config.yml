@@ -6,6 +6,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - Submodules/
 
 timezone: Asia/Tokyo
 encording: utf-8
