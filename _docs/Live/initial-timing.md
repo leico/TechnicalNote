@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: 初期化、ロードのタイミング"
 date   : 2017/04/02
-lastchange : 2017-06-07 21:44:38.
+lastchange : 2017-06-08 03:08:13.
 tags   :
   - Max for Live
   - init
@@ -35,6 +35,7 @@ tags   :
     SztXVm5Q4S0iPm0eR53UKdW2.XrgZRLwM27r1Lt8G4zVoxukbDlwMnDwSW3w
     3FmSiNat23MkyeeCy+oZAXT8xv4V2e9R56PwmTXI
     -----------end_max5_patcher-----------
+
 実験パッチ
 
 `live.thisdevice`からの *bang* を *0.5* に変換して`live.dial`へ入力している。
