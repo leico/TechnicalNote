@@ -10,9 +10,8 @@ collection : collection name that contains pages
 
 
 <div class="col-md-4" id="id_{{include.pages.label}}">
-  <div class="card panel panel-default">
-    <div class="card-header panel-heading" role="tab" id="head_{{include.pages.label}}">
-      <h3 class="panel-title card-title">
+  <div class="card">
+    <h3 class="card-header" role="tab" id="head_{{include.pages.label}}">
       <a href="#body_{{include.pages.label}}" 
          role="button" 
          data-toggle="collapse"
@@ -21,20 +20,19 @@ collection : collection name that contains pages
          area-controls="body_{{include.pages.label}}">
         {{include.pages.title}}
       </a>
-      </h3>
-    </div>
-    <div class="card-block panel-body panel-collapse collapse"
+    </h3>
+    <div class="card-block collapse"
          role="tabpanel"
          area-labelledby="head_{{include.pages.label}}"
          id="body_{{include.pages.label}}">
 
 
-      <h4>
+      <h4 class="card-title">
         <a href="{{site.github.url}}/{{include.pages.label}}">{{include.pages.title}} Top</a></h4>
       </h4>
 
       {% for section in include.pages.sections %}
-        <h4 class="panel-title card-title"> {{section.name}} </h4>
+        <h4 class="card-title"> {{section.name}} </h4>
         {% for page in section.pages %}
 
           {% if section.label %}

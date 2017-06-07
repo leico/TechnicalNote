@@ -1,25 +1,40 @@
 ---
 ---
 
-//$gray-base : #1a1a1a
-
-$font-size-base : 16px
-
-$blockquote-font-size: $font-size-base
-
-
 //import bootstrap
-@import "bootstrap/_bootstrap"
+@import "bootstrap/bootstrap"
 @import "_syntax"
 
 pre
-  font-size : $font-size-small
+  font-size : $font-size-sm
 
 .MathJax_Display
-  font-size : $font-size-large
+  font-size : $font-size-lg
 
-h1, .h1, h2, .h2, h3, .h3
-  margin-top : $font-size-h1
+.card
+  @extend .my-3
+
+.card h1
+  font-size : $font-size-h2
+.card h2
+  font-size : $font-size-h3
+.card h3
+  font-size : $font-size-h4
+.card h4
+  font-size : $font-size-h5
+.card h5
+  font-size : $font-size-h6
+.card h6
+  font-size : 1rem
+
+h1:not(.card-header), 
+h2:not(.card-header),
+h3:not(.card-header),
+.h1, .h2, .h3
+  @extend .my-5
 
 table
   @extend .table
+
+blockquote
+  @extend .blockquote

@@ -1,3 +1,6 @@
 [submodule "Submodules/MathJax"]
 	path = Submodules/MathJax
 	url = https://github.com/mathjax/MathJax.git
+[submodule "Submodules/Bootstrap"]
+	path = Submodules/Bootstrap
+	url = https://github.com/twbs/bootstrap.git
