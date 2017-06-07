@@ -13,7 +13,7 @@ title : Technical Notes
 <div class="row">
 {% for pages in site.data.pages %}
 
-{% include docs-collapse-panel.html pages=pages %}
+{% include docs-collapse-panel.html pages=pages collection='docs' %}
 
 {% endfor %}
 </div>

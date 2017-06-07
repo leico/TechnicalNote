@@ -18,32 +18,9 @@ gems:
 # ---- collections -----
 
 collections :
-  Jekyll:
-    output: true
-  VimR:
-    output: true
-  Bootstrap:
-    output: true
-  RaspberryPi:
-    output: true
-  VirtualBox:
-    output: true
-  Cpp:
-    output: true
-  LibCurl:
-    output: true
-  JavaScript:
-    output: true
-  OpenFrameworks:
-    output: true
-  Live:
-    output: true
-  Max:
-    output: true
-  Mac:
-    output: true
-  Memo:
-    output: true
+  docs :
+    output    : true
+    permalink : /:path
 
 # ---- build option ----
 
@@ -55,4 +32,4 @@ sass:
   style: :compressed
 
 # ---- fixed github metadata authentication bug ----
-# github : [metadata]
+github : [metadata]

@@ -1,6 +1,12 @@
 
-{% assign pages = site.data.pages | where:"label", page.collection | first %}
+{% assign collection = page.collection %}
+{% assign category = page.path | remove : collection | 
+                                 remove : page.slug | 
+                                 remove : page.ext | 
+                                 remove : '/' |
+                                 remove : '_' %}
 
+{% assign pages = site.data.pages | where:"label", category | first %}
 
 <div class="row">
 
@@ -15,17 +21,16 @@
       {% for page in section.pages %}
 
         {% if section.label %}
-          {% capture path %}_{{ section.label }}/{{ page }}.md{% endcapture %}
-          {% assign label = section.label %}
+          {% capture path %}_{{ collection }}/{{ section.label }}/{{ page }}.md{% endcapture %}
 
         {% else %}
-          {% capture path %}_{{ pages.label }}/{{ page }}.md{% endcapture %}
-          {% assign label = pages.label %}
+          {% capture path %}_{{ collection }}/{{ pages.label }}/{{ page }}.md{% endcapture %}
 
         {% endif %}
+        <p>{{path}}</p>
 
-        {% assign collection = site.collections | where:"label", label | first %}
-        {% assign doc        = collection.docs  | where:"path" , path  | first %}
+        {% assign unit = site.collections | where:"label", collection | first %}
+        {% assign doc  = unit.docs        | where:"path" , path       | first %}
         <h5>
           <a href="{{ site.github.url }}{{ doc.url }}">{{ doc.title }}</a>
         </h5>

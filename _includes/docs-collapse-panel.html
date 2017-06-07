@@ -1,8 +1,9 @@
 {% comment %}
 {% raw %}
-{% include docs-collapse-panel.html pages %}
+{% include docs-collapse-panel.html pages collection %}
 
-pages: 1st generation object of _data/pages.yml
+pages      : 1st generation object of _data/pages.yml
+collection : collection name that contains pages
 
 {% endraw %}
 {% endcomment %}
@@ -32,23 +33,20 @@ pages: 1st generation object of _data/pages.yml
         <a href="{{site.github.url}}/{{include.pages.label}}">{{include.pages.title}} Top</a></h4>
       </h4>
 
-
       {% for section in include.pages.sections %}
         <h4 class="panel-title card-title"> {{section.name}} </h4>
         {% for page in section.pages %}
 
           {% if section.label %}
-            {% capture path %}_{{ section.label }}/{{ page }}.md{% endcapture %}
-            {% assign label = section.label %}
+            {% capture path %}_{{ include.collection }}/{{ section.label }}/{{ page }}.md{% endcapture %}
 
           {% else %}
-            {% capture path %}_{{ include.pages.label }}/{{ page }}.md{% endcapture %}
-            {% assign label = include.pages.label %}
+            {% capture path %}_{{ include.collection }}/{{ include.pages.label }}/{{ page }}.md{% endcapture %}
 
           {% endif %}
 
-          {% assign collection = site.collections | where:"label", label | first %}
-          {% assign doc        = collection.docs  | where:"path" , path  | first %}
+          {% assign collection = site.collections | where:"label", include.collection | first %}
+          {% assign doc        = collection.docs  | where:"path" , path               | first %}
           <h5>
             <a href="{{ site.github.url }}{{ doc.url }}">{{ doc.title }}</a>
           </h5>
