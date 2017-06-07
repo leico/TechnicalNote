@@ -33,4 +33,4 @@ sass:
   style: :compressed
 
 # ---- fixed github metadata authentication bug ----
-github : [metadata]
+# github : [metadata]
