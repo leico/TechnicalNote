@@ -8,38 +8,36 @@
 
 {% assign pages = site.data.pages | where:"label", category | first %}
 
-<div class="row">
+<div class="card-columns category-index">
 
 {% for section in pages.sections %}
 
-<div class="col-md-4">
-  <div class="card ">
-    <h3 class="card-header">{{ section.name }} </h3>
-    <div class="card-block">
-      {% for page in section.pages %}
+<div class="card">
+  <h3 class="card-header">{{ section.name }} </h3>
+  <div class="card-block">
+    {% for page in section.pages %}
 
-        {% if section.label %}
-          {% capture path %}_{{ collection }}/{{ section.label }}/{{ page }}.md{% endcapture %}
+    {% if section.label %}
+    {% capture path %}_{{ collection }}/{{ section.label }}/{{ page }}.md{% endcapture %}
 
-        {% else %}
-          {% capture path %}_{{ collection }}/{{ pages.label }}/{{ page }}.md{% endcapture %}
+    {% else %}
+    {% capture path %}_{{ collection }}/{{ pages.label }}/{{ page }}.md{% endcapture %}
 
-        {% endif %}
+    {% endif %}
 
-        {% assign unit = site.collections | where:"label", collection | first %}
-        {% assign doc  = unit.docs        | where:"path" , path       | first %}
-        <h5>
-          <a href="{{ site.github.url }}{{ doc.url }}">{{ doc.title }}</a>
-        </h5>
-        <dl class="dl-horizontal">
-          <dt>created</dt>
-          <dd> {{ doc.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
-          <dt>lastchange</dt>
-          <dd> {{ doc.lastchange | date: "%Y/%m/%d %H:%M:%S" }} </dd>
-        </dl>
+    {% assign unit = site.collections | where:"label", collection | first %}
+    {% assign doc  = unit.docs        | where:"path" , path       | first %}
+    <h5>
+      <a href="{{ site.github.url }}{{ doc.url }}">{{ doc.title }}</a>
+    </h5>
+    <dl class="dl-horizontal">
+      <dt>created</dt>
+      <dd> {{ doc.date | date: "%Y/%m/%d %H:%M:%S" }} </dd>
+      <dt>lastchange</dt>
+      <dd> {{ doc.lastchange | date: "%Y/%m/%d %H:%M:%S" }} </dd>
+    </dl>
 
-      {% endfor %}
-    </div>
+    {% endfor %}
   </div>
 </div>
 

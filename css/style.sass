@@ -1,9 +1,70 @@
 ---
 ---
 
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+// Start with assigning color names to specific hex values.
+
+$gray-dark     : #333333 //K 80%
+$gray          : #666666 //K 60%
+$gray-light    : #999999 //K 40%
+$gray-lighter  : #cccccc //K 20%
+$gray-lightest : #f3f3f3 //K 5%
+
+$white  : #fff
+$black  : #000
+$blue   : #2996cc //base H200 S80 V80
+$teal   : #29CCB1
+$green  : #29CC5F
+$yellow : #CCB129
+$orange : #CC5F29
+$red    : #CC2944
+$pink   : #CC2996
+$purple : #B129CC
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg    : $gray-lightest
+$body-color : $gray-dark
+
+$inverse-bg    : $gray-lightest
+$inverse-color : $gray-dark
+
+// Links
+//
+// Style anchor elements.
+$link-hover-color: $teal
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+$line-height-base     : 1.55
+$headings-line-height : $line-height-base
+$blockquote-font-size : 1rem
+$letter-spacing       : 0.01rem
+
+// Jumbotron
+$jumbotron-bg : $gray-lightest
+
+// Cards
+$card-bg : $gray-lightest
+
+// Code
+$code-color : $yellow
+$code-bg    : $gray-dark
+
+
 //import bootstrap
 @import "bootstrap/bootstrap"
 @import "_syntax"
+
+body
+  letter-spacing : $letter-spacing
+
 
 pre
   font-size : $font-size-sm
@@ -38,3 +99,19 @@ table
 
 blockquote
   @extend .blockquote
+
+p
+  @extend .text-justify
+
+.card-block > p
+  @extend .card-text
+
+pre
+  @extend .p-3
+  @extend .rounded
+
+div.card-columns.category-index
+  @include media-breakpoint-only(md)
+    column-count : 1
+  @include media-breakpoint-only(lg)
+    column-count : 3
