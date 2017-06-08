@@ -15,6 +15,7 @@ encording: utf-8
 
 gems:
   - jekyll-gist
+  - jekyll-mentions
 
 # ---- collections -----
 

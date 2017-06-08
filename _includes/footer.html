@@ -1,7 +1,32 @@
-<footer>
-{% if include.prefix %}
-{{ include.prefix }}
-{% endif %}
-<cite>{{include.cite}}</cite>
-</footer>
+<footer class="container">
+  <hr>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-4">
+          <figure class="figure">
+            <img src="{{site.github.url}}{% link image/logo.png %}" class="figure-img rounded" 
+                 width="200px" height="auto" alt="{{site.data.summary.auther.name}}">
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <h5>contact</h5>
+          <ul class="list-unstyled">
+            <li> {{site.data.summary.author.github}} </li>
+            <li> <a href="{{site.data.summary.author.twitter}}">twitter</li>
+            <li> <a href="{{site.data.summary.author.Web}}">web</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h5>Merchandise/Schwags</h5>
+      <p><small class="text-muted">支援してくれるとうれしい</small></p>
+      <iframe frameborder="0" height="220" width="160" src="https://leico.official.ec/items/6694858/widget/small" ></iframe>
+    </div>
+  </div>
+  <p class="text-right">
+    <small class="text-muted">© 2017 leico.</small>
+  </p>
 
+</footer>
