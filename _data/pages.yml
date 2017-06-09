@@ -87,6 +87,7 @@
         - worth-bundle-install
     - name  : Tips
       pages :
+        - jekyll-bootstrap4-submodule
         - mathjax-install
         - collection-variable
         - site-variables
@@ -112,6 +113,7 @@
       label : Jekyll
       pages : 
         - jekyll-bootstrap-install
+        - jekyll-bootstrap4-submodule
 
 
 
