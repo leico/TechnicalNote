@@ -17,6 +17,10 @@ gems:
   - jekyll-gist
   - jekyll-mentions
 
+# ---- jekyll-feed -----
+feed : 
+  path : atom.xml
+
 # ---- collections -----
 
 collections :
@@ -34,4 +38,4 @@ sass:
   style: :compressed
 
 # ---- fixed github metadata authentication bug ----
-# github : [metadata]
+github : [metadata]

@@ -1,0 +1,34 @@
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{ site.name }}</title>
+  <link href="{{ site.url }}/atom.xml" rel="self" />
+  <link href="{{ site.url }}/"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}</id>
+  <author>
+    <name>{{ site.data.summary.author.name }}</name>
+  </author>
+  {% for collection in site.collections %}
+
+    {% assign docs = collection.docs | sort: 'lastchange' | reverse %}
+    {% for doc in docs %}
+
+      {% if doc.slug == 'index' %} {% continue %} {% endif %}
+
+      <entry>
+        <title>{{ doc.title }}</title>
+        <link href="{{ site.github.url }}{{ doc.url }}" />
+        <updated>
+          {{ doc.lastchange | date_to_xmlschema }}
+        </updated>
+        <id>{{ site.github.url }}{{ doc.id }}</id>
+        <summary>{{ doc.content | strip_html | newline_to_br | split:'<br />' | first }}</summary>
+      </entry>
+    {% endfor %}
+  {% endfor %}
+</feed>

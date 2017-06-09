@@ -2,7 +2,7 @@
 layout : post
 title  : Github Pagesにsubmoduleとしてbootstrapを入れる
 date : 2017/06/09
-lastchange : 2017-06-09 20:47:37.
+lastchange : 2017-06-10 02:52:06.
 tags   :
   - jekyll
   - github
@@ -19,7 +19,17 @@ tags   :
 
 ついでに **submodule** たちを一つのディレクトリで一元管理したい。
 
+参考:
 
+* [Assets \| Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/assets/)
+* [Accept multiple Sass load paths · Issue #3366 · jekyll/jekyll](https://github.com/jekyll/jekyll/issues/3366)
+* [Configuring Jekyll - User Documentation](https://help.github.com/articles/configuring-jekyll/#configuration-settings-you-cannot-change)
+* [GitHub Pages symlink test](https://s4y.github.io/gh-pages-symlink-test/)
+    * [s4y/gh-pages-symlink-test](https://github.com/s4y/gh-pages-symlink-test)
+* [git submoduleを今風な感じで削除する - Qiita](http://qiita.com/u1aryz/items/8d1923da79158439eeaa)
+* [【Git】tag関連コマンド - Qiita](http://qiita.com/chihiro/items/cba40015b1aa2c73b78a)
+* [git submodule でブランチ/タグをチェックアウトする - Qiita](http://qiita.com/kysnm/items/c083674deac0c4a34756)
+* [ Getting started · Bootstrap ](https://getbootstrap.com/getting-started/#whats-included-source)
 
 
 ## Jekyllの仕様
