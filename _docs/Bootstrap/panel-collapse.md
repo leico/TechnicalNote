@@ -2,7 +2,7 @@
 layout : post
 title  : Panelを使ったCollapseやAccordionメニュー
 date : 2017/03/5
-lastchange : 2017-03-05 23:18:57.
+lastchange : 2017-06-10 18:28:45.
 tags   :
   - bootstrap
   - card
@@ -18,7 +18,6 @@ tags   :
 参考:
 
 * [Bootstrap4 Cards](https://v4-alpha.getbootstrap.com/components/card/)
-* [#Panels Components Bootstrap](http://getbootstrap.com/components/#panels)
 * [Accordion Example Javascript Bootstrap](http://getbootstrap.com/javascript/#collapse-example-accordion)
 * [Collapse · Bootstrap4](https://v4-alpha.getbootstrap.com/components/collapse/)
 * [role属性を正しく設定してアクセシビリティを高める – カラクリ.jp](http://xn--lcki7of.jp/502/)
@@ -28,7 +27,7 @@ tags   :
 * [aria-labelledby属性 \| WAI-ARIA - HTMLリファレンス](http://www.webcreativepark.net/html/wai-aria/aria-labelledby/)
 * [Bootstrap3 アコーディオンとCollapseの簡単な使い方](http://tetra-themes.com/bootstrap3-collapse-194/)
 
-## Panelの使い方
+## Cardの使い方
 
 > If you’re familiar with Bootstrap 3,
 > cards replace our old panels, wells, and thumbnails.
@@ -45,27 +44,27 @@ Bootstrap4ではPanelはCardに置き換わるらしい。
 > By default, all the `.panel` does is apply some basic border and padding to contain some content.
 > 
 > ```html
-> <div class="panel panel-default">
->   <div class="panel-body">
->     Basic panel example
+> <div class="card">
+>   <div class="card-block">
+>     This is some text within a card block.
 >   </div>
 > </div>
 > ```
-> 
-> <div class="panel panel-default">
->   <div class="panel-body">
->     Basic panel example
+>
+> <div class="card">
+>   <div class="card-block">
+>     This is some text within a card block.
 >   </div>
 > </div>
 > 
 > ---
-> 
-> * [#Panels Components Bootstrap](http://getbootstrap.com/components/#panels)
+>
+> * [Bootstrap4 Cards](https://v4-alpha.getbootstrap.com/components/card/)
 
-`<div class="panel panel-default">`で囲えばパネルになるらしい。
-パネルのコンテンツは内部の`<div class="panel-body">`タグ内に記述するようだ。
-他に、`<div class="panel-heading">`を先頭に書くとヘッダが出力され、
-`<div class="panel-footer">`を最後に書くとフッターが出力されるようだ。
+`<div class="card">`で囲えばパネルになるらしい。
+パネルのコンテンツは内部の`<div class="card-block">`タグ内に記述するようだ。
+他に、`<div class="card-header">`を先頭に書くとヘッダが出力され、
+`<div class="card-footer">`を最後に書くとフッターが出力されるようだ。
 
 ## アコーディオン用のパネルテンプレ
 
@@ -73,23 +72,24 @@ Bootstrap4ではPanelはCardに置き換わるらしい。
 
 ```html
 <div class="col-md-4">
-  <div class="panel panel-default card">
-    <div class="panel-heading card-header">
-      <h3>title</h3>
-    </div>
-    <div class="panel-body card-block">
+  <div class="card">
+    <h3 class="card-header">
+      title
+    </h3>
+    <div class="card-block">
       contents here
     </div>
   </div>
 </div>
 ```
+
 <div class="row">
   <div class="col-md-4">
-    <div class="panel panel-default card">
-      <div class="panel-heading card-header">
-        <h3>title</h3>
-      </div>
-      <div class="panel-body card-block">
+    <div class="card">
+      <h3 class="card-header">
+        title
+      </h3>
+      <div class="card-block">
         contents here
       </div>
     </div>
@@ -99,15 +99,15 @@ Bootstrap4ではPanelはCardに置き換わるらしい。
 将来のことを考え、一緒に`card`クラスも指定している。
 
 階層が深くてやな感じなので`<div class="col-md-4">`と
-`<div class="panel panel-default card">`を一緒にできないかとおもったが、
+`<div class="card">`を一緒にできないかとおもったが、
 デザインが崩れたのでもとに戻した。
 
 ```html
 <div class="row">
-  <div class="col-md-4 panel panel-default card">
-    <div class="panel-heading card-header">
-      <h3>←なんやねんこれ→</h3>
-    </div>
+  <div class="col-md-4 card">
+    <h3 class="card-header">
+      ←なんやねんこれ→
+    </h3>
     <div class="panel-body card-block">
       contents here
     </div>
@@ -116,10 +116,10 @@ Bootstrap4ではPanelはCardに置き換わるらしい。
 ```
 
 <div class="row">
-  <div class="col-md-4 panel panel-default card">
-    <div class="panel-heading card-header">
-      <h3>←なんやねんこれ→</h3>
-    </div>
+  <div class="col-md-4 card">
+    <h3 class="card-header">
+      ←なんやねんこれ→
+    </h3>
     <div class="panel-body card-block">
       contents here
     </div>
@@ -265,9 +265,8 @@ Bootstrap4ではPanelはCardに置き換わるらしい。
 
 ```html
 <div class="col-md-4" id="id_panel">
-  <div class="card panel panel-default">
-    <div class="card-header panel-heading" role="tab" id="head_panel">
-      <h3 class="panel-title">
+  <div class="card">
+    <h3 class="card-header" role="tab" id="head_panel">
       <a href="#body_panel" 
          role="button" 
          data-toggle="collapse"
@@ -276,9 +275,8 @@ Bootstrap4ではPanelはCardに置き換わるらしい。
          area-controls="body_panel">
         title
       </a>
-      </h3>
-    </div>
-    <div class="card-block panel-body panel-collapse collapse"
+    </h3>
+    <div class="card-block collapse"
          role="tabpanel"
          area-labelledby="head_panel"
          id="body_panel">
@@ -289,26 +287,22 @@ Bootstrap4ではPanelはCardに置き換わるらしい。
 ```
 
 <div class="row">
-  <div class="col-md-4" id="id_panel">
-    <div class="card panel panel-default">
-      <div class="card-header panel-heading" role="tab" id="head_panel">
-        <h3 class="panel-title">
-        <a href="#body_panel" 
-           role="button" 
-           data-toggle="collapse"
-           data-parent="#id_panel" 
-           area-expanded="false" 
-           area-controls="body_panel">
-          title
-        </a>
-        </h3>
-      </div>
-      <div class="card-block panel-body panel-collapse collapse"
-           role="tabpanel"
-           area-labelledby="head_panel"
-           id="body_panel">
-           contents
-      </div>
+  <div class="card">
+    <h3 class="card-header" role="tab" id="head_panel">
+      <a href="#body_panel" 
+         role="button" 
+         data-toggle="collapse"
+         data-parent="#id_panel" 
+         area-expanded="false" 
+         area-controls="body_panel">
+        title
+      </a>
+    </h3>
+    <div class="card-block collapse"
+         role="tabpanel"
+         area-labelledby="head_panel"
+         id="body_panel">
+         contents
     </div>
   </div>
 </div>
