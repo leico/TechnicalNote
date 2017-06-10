@@ -85,17 +85,25 @@
         - github-pages-debug
         - github-pages-generator
         - worth-bundle-install
-    - name  : Tips
+
+    - name  : Install frameworks
       pages :
         - jekyll-bootstrap4-submodule
         - mathjax-install
+        - jekyll-bootstrap-install
+
+    - name  : Jekyll variables
+      pages : 
         - collection-variable
         - site-variables
-        - liquid-raw
         - display-value
+
+    - name  : Tips
+      pages :
+        - jekyll-atom
+        - liquid-raw
         - page-menu
         - post-layout
-        - jekyll-bootstrap-install
 
 
 

@@ -13,22 +13,28 @@ layout: null
   <author>
     <name>{{ site.data.summary.author.name }}</name>
   </author>
+
+  {% assign docs = "" | split: "" %}
   {% for collection in site.collections %}
+    {% for doc in collection.docs %}
+    
+    {% if doc.slug == 'index' %} {% continue %} {% endif %}
+    {% assign docs = docs | push: doc %}
 
-    {% assign docs = collection.docs | sort: 'lastchange' | reverse %}
-    {% for doc in docs %}
-
-      {% if doc.slug == 'index' %} {% continue %} {% endif %}
-
-      <entry>
-        <title>{{ doc.title }}</title>
-        <link href="{{ site.github.url }}{{ doc.url }}" />
-        <updated>
-          {{ doc.lastchange | date_to_xmlschema }}
-        </updated>
-        <id>{{ site.github.url }}{{ doc.id }}</id>
-        <summary>{{ doc.content | strip_html | newline_to_br | split:'<br />' | first }}</summary>
-      </entry>
     {% endfor %}
+  {% endfor %}
+
+
+  {% assign docs = docs | sort: 'lastchange' | reverse %}
+  {% for doc in docs %}
+    <entry>
+      <title>{{ doc.title }}</title>
+      <link href="{{ site.github.url }}{{ doc.url }}" />
+      <updated>
+        {{ doc.lastchange | date_to_xmlschema }}
+      </updated>
+      <id>{{ site.github.url }}{{ doc.id }}</id>
+      <summary>{{ doc.content | strip_html | newline_to_br | split:'<br />' | first }}</summary>
+    </entry>
   {% endfor %}
 </feed>
