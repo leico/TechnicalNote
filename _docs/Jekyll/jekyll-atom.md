@@ -2,7 +2,7 @@
 layout : post
 title  : Collectiosの変更に追従するAtomフィードを設置する
 date : 2017/06/10
-lastchange : 2017-06-10 17:10:58.
+lastchange : 2017-06-10 17:24:27.
 tags   :
   - jekyll
   - github
@@ -34,6 +34,7 @@ Wiki的に使っているこのサイトはページを大まかなカテゴリ�
 * [Concat arrays in Jekyll(liquid)](https://gist.github.com/BryanSchuetz/52012affd9318ba59e19a74639a8c16a)
 * [Jekyllのテーマを自作する 基本編 – 第5回 – titleタグとmeta descriptionを作成する \| e-JOINT.jp](http://e-joint.jp/363/)
 * [liquid - How can I split a string by newline in Shopify? - Stack Overflow](https://stackoverflow.com/questions/27694610/how-can-i-split-a-string-by-newline-in-shopify)
+* [jekyll/jekyll-feed: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts](https://github.com/jekyll/jekyll-feed)
 
 
 ## [Jekyll Tips](http://jekylltips-ja.github.io/) のひな形を利用する
@@ -442,6 +443,25 @@ gems:
   - jekyll-feed
 ```
 
+
+> ### Already have a feed path?
+> 
+> Do you already have an existing feed someplace other than `/feed.xml`, 
+> but are on a host like GitHub Pages that doesn't support machine-friendly redirects? 
+> If you simply swap out `jekyll-feed` for your existing template, 
+> your existing subscribers won't continue to get updates. Instead, you can specify a non-default path via your site's config.
+> 
+> ```yml
+> feed:
+>   path: atom.xml
+> ```
+> 
+> To note, you shouldn't have to do this unless you already have a feed you're using, and you can't or wish not to redirect existing subscribers.
+>
+> ---
+> 
+> * [jekyll/jekyll-feed: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts](https://github.com/jekyll/jekyll-feed)
+
 *jekyll-feed* 用の設定を追加
 
 
@@ -451,6 +471,20 @@ feed :
   path : atom.xml
 ```
 
+
+> ### Meta tags
+> 
+> The plugin exposes a helper tag to expose the appropriate meta tags 
+> to support automated discovery of your feed. 
+> Simply place `{% feed_meta %}` someplace in your template's `<head>` section,
+> to output the necessary metadata.
+>
+> ---
+>
+> * [jekyll/jekyll-feed: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts](https://github.com/jekyll/jekyll-feed)
+
+ページヘッダに`{% feed_meta %}`記述して終わり。
+ 
 Atomフィードへのリンクは右下
 
 {% endraw %}
