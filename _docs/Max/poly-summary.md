@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : "poly~機能まとめ"
-date   : 2017/06/01
-lastchange : 2017-06-13 06:05:05.
+date   : 2017/06/13
+lastchange : 2017-06-13 06:08:53.
 tags   :
   - Max
   - Max for Live
