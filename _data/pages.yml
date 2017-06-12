@@ -52,8 +52,9 @@
         - initialize
         - initial-timing
 
-    - name : bpatcher Tricks
+    - name : poly~ & bpatcher Tricks
       pages:
+        - poly-summary
         - bpatcher-inherit-argument
         - bpatcher-argument-name
         - bpatcher-argument
