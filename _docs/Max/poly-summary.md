@@ -2,7 +2,7 @@
 layout : post
 title  : "poly~機能まとめ"
 date   : 2017/06/13
-lastchange : 2017-06-13 06:08:53.
+lastchange : 2017-06-13 15:12:38.
 tags   :
   - Max
   - Max for Live
@@ -95,8 +95,10 @@ poly~ [filename] [inst_number] @parallel [1/0] @threadcount [int] @args [...]
 
     マルチスレッディング有効化。
 
-    0. 無効
-    1. 有効
+    \\[ 
+    0 \to 無効 \\\\\
+    1 \to 有効
+    \\]
 
     切り替えた際はMSPを再起動させる必要あり。
     有効の場合、各実体毎に指定されたスレッド数で割り振る。実体が1つの場合シングルスレッドになる。
@@ -120,7 +122,7 @@ poly~ [filename] [inst_number] @parallel [1/0] @threadcount [int] @args [...]
   > * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
 
     マルチスレッディング時のスレッド数を指定する。
-    実体数16、スレッド数4とした場合、1スレッドで4つの実体を処理数。
+    実体数16、スレッド数4とした場合、1スレッドで4つの実体を処理する。
     最適なスレッド数はコンピュータのコア数と等しい。
     `threadcount 0`がデフォルト値。コア数と等しくなる。
     
