@@ -2,7 +2,7 @@
 layout : post
 title  : "poly~機能まとめ"
 date   : 2017/06/13
-lastchange : 2017-06-13 15:12:38.
+lastchange : 2017-06-13 15:19:44.
 tags   :
   - Max
   - Max for Live
@@ -38,7 +38,7 @@ tags   :
 > 
 > * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
 
-`poly~`サブパッチを読み込んで実行できるオブジェクト。
+`poly~`はサブパッチを読み込んで実行できるオブジェクト。
 普通のサブパッチと異なるのは、複数の実体を持つことができること。
 
 同じサブパッチを1つのオブジェクトで同時に複数実行することができ、メッセージの送受信先を制御することができる。
@@ -103,6 +103,8 @@ poly~ [filename] [inst_number] @parallel [1/0] @threadcount [int] @args [...]
     切り替えた際はMSPを再起動させる必要あり。
     有効の場合、各実体毎に指定されたスレッド数で割り振る。実体が1つの場合シングルスレッドになる。
     シグナルベクターサイズが大きい方が優位性が上がる。
+
+    ただし、Max for Liveでは有無を言わさずマルチスレッディングが無効になる。
 
 `@threadcount` メッセージ
 : > threadcount
