@@ -2,7 +2,7 @@
 layout : post
 title  : "poly~:実体毎に個別のメッセージ/シグナルを送信する"
 date   : 2017/06/13
-lastchange : 2017-06-13 19:29:41.
+lastchange : 2017-06-13 22:51:13.
 tags   :
   - Max
   - Max for Live
@@ -45,7 +45,7 @@ tags   :
 
 となると`thispoly~`のIDになる。
 
-{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-indivisual-signal/01-thispoly.png %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-individual-signal/01-thispoly.png %}{% endcapture %}
 {% assign caption = '`thispoly~`に *bang* を送ると実体のIDを出力する。' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
@@ -151,7 +151,7 @@ IDと別の文字列を組み合わせる必要がある。`sprintf`を利用す
 
 ## `loadbang`,`thispoly~`,`sprintf`,`forward`,`receive`
 
-{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-indivisual-signal/02-indivisual.png %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-individual-signal/02-individual.png %}{% endcapture %}
 {% assign caption = '
 これが実装例
 
@@ -191,7 +191,7 @@ IDと別の文字列を組み合わせる必要がある。`sprintf`を利用す
 実体それぞれに別々のメッセージ/シグナルを送受信することができることを検証する。
 サンプルパッチは以下
 
-{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-indivisual-signal/03-mother.png %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-individual-signal/03-mother.png %}{% endcapture %}
 {% assign caption = '
 
 メインパッチ
@@ -228,7 +228,7 @@ IDと別の文字列を組み合わせる必要がある。`sprintf`を利用す
 {% include thumbnail.html url=url caption=caption %}
 
 
-{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-indivisual-signal/04-poly.png %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-individual-signal/04-poly.png %}{% endcapture %}
 {% assign caption = '
 
 `poly~`サブパッチ
@@ -260,7 +260,7 @@ IDと別の文字列を組み合わせる必要がある。`sprintf`を利用す
 実体毎に正弦波、三角波、矩形波、鋸波、および個々の数値を外から内側へ`send`/`receive`。
 入力されたシグナル/メッセージはそのまま内側から外へ`forward`/`receive`する。
 
-{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-indivisual-signal/05-result.png %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Max/images/poly-individual-signal/05-result.png %}{% endcapture %}
 {% assign caption = '個々の実体へ別々のシグナル/メッセージが送受信できていることが分かる。' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
