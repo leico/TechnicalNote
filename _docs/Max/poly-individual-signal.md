@@ -2,7 +2,7 @@
 layout : post
 title  : "poly~:実体毎に個別のメッセージ/シグナルを送信する"
 date   : 2017/06/13
-lastchange : 2017-06-13 22:51:13.
+lastchange : 2017-06-13 23:00:20.
 tags   :
   - Max
   - Max for Live
@@ -51,9 +51,9 @@ tags   :
 
 ## `send`/`receive`の名前を変更する
 
-`thispoly~`から実体毎異なる番号が出力されるのはいいが、
+`thispoly~`から実体ごと異なる番号が出力されるのはいいが、
 `send`/`receive`オブジェクトの送受信先(名前)を後から
-`thispatcher`の出力で上書きできなければならない。
+`thispoly~`の出力で上書きできなければならない。
 
 > set
 > : *Arguments*
