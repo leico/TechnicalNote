@@ -54,7 +54,7 @@
 
     - name : poly~ & bpatcher Tricks
       pages:
-        - poly-indivisual-signal
+        - poly-individual-signal
         - poly-summary
         - bpatcher-inherit-argument
         - bpatcher-argument-name
