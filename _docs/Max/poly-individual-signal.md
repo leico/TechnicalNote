@@ -2,7 +2,7 @@
 layout : post
 title  : "poly~:実体毎に個別のメッセージ/シグナルを送信する"
 date   : 2017/06/13
-lastchange : 2017-06-13 23:00:20.
+lastchange : 2017-06-15 13:26:08.
 tags   :
   - Max
   - Max for Live
@@ -55,72 +55,83 @@ tags   :
 `send`/`receive`オブジェクトの送受信先(名前)を後から
 `thispoly~`の出力で上書きできなければならない。
 
-> set
-> : *Arguments*
-> 
->   name [symbol]
-> 
->   The word set, followed by a symbol, provides a name for receive, 
->   as if that name had been typed in as an argument.
-> 
-> ---
-> 
-> * [r Reference](https://docs.cycling74.com/max7/maxobject/receive)
+{% assign text='
+set
+: *Arguments*
 
-> set
-> : *Arguments*
-> 
->   object-name [symbol]
-> 
->   The word set, followed by a symbol, changes the name of the `receive~` so that 
->   it connects to different `send~` objects that have the symbol as a name. 
->   If no `send~` objects exist with the name, the output of `receive~` is 0.
-> 
-> ---
-> 
-> * [receive~ Reference](https://docs.cycling74.com/max7/maxobject/receive~)
+  name [symbol]
 
-> set
-> : *Arguments*
-> 
->   object-name [symbol]
-> 
->   The word set, followed by a symbol, changes the name of the `send~` so that 
->   it connects to different `receive~` objects that have the symbol as a name. 
->   (If no `receive~` objects with the same name exist, `send~` does nothing.)
-> 
-> ---
-> 
-> * [send~ Reference](https://docs.cycling74.com/max7/maxobject/send~)
+  The word set, followed by a symbol, provides a name for receive, 
+  as if that name had been typed in as an argument.
+' | markdownify %}
+{% assign source='
+[r Reference](https://docs.cycling74.com/max7/maxobject/receive)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+{% assign text='
+set
+: *Arguments*
+
+  object-name [symbol]
+
+  The word set, followed by a symbol, changes the name of the `receive~` so that 
+  it connects to different `send~` objects that have the symbol as a name. 
+  If no `send~` objects exist with the name, the output of `receive~` is 0.
+' | markdownify %}
+{% assign source='
+[receive~ Reference](https://docs.cycling74.com/max7/maxobject/receive~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+{% assign text='
+set
+: *Arguments*
+
+  object-name [symbol]
+
+  The word set, followed by a symbol, changes the name of the `send~` so that 
+  it connects to different `receive~` objects that have the symbol as a name. 
+  (If no `receive~` objects with the same name exist, `send~` does nothing.)
+' | markdownify %}
+{% assign source='
+[send~ Reference](https://docs.cycling74.com/max7/maxobject/send~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+ 
 
 `receive`、`receive~`、`send~`は`set name`メッセージであとから受信元/送信先を変更できる。
 でも`send`は不可能。
 
-> # forward
-> 
-> Send messages to specified receive objects
-> 
-> ## Description
-> 
-> Relays messages to other objects remotely. 
-> Unlike the `send` object, the destination `receive` object of forward 
-> can be changed with each message.
-> 
-> ---
-> 
-> send
-> : *Arguments*a
-> 
->   arguments [list]
-> 
->   The word send, followed by the name of a `receive` object, 
->   sets the destination for any subsequent messages received by the forward object. 
->   This ability to change the destination of messages on the fly distinguishes 
->   forward from the `send` object.
-> 
-> ---
-> 
-> * [forward Reference](https://docs.cycling74.com/max7/maxobject/forward)
+
+{% assign text='
+# forward
+
+Send messages to specified receive objects
+
+## Description
+
+Relays messages to other objects remotely. 
+Unlike the `send` object, the destination `receive` object of forward 
+can be changed with each message.
+
+---
+
+send
+: *Arguments*a
+
+  arguments [list]
+
+  The word send, followed by the name of a `receive` object, 
+  sets the destination for any subsequent messages received by the forward object. 
+  This ability to change the destination of messages on the fly distinguishes 
+  forward from the `send` object.
+' | markdownify %}
+{% assign source='
+[forward Reference](https://docs.cycling74.com/max7/maxobject/forward)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
 `forward`オブジェクトはメッセージ毎に送信先の`receive`オブジェクトを変更することができる。
 `send name`メッセージで`receive name`オブジェクトに送信先を切り替えることができる。
@@ -132,19 +143,21 @@ IDだけでは名前にしても1つのメッセージしか送受信するこ�
 
 IDと別の文字列を組み合わせる必要がある。`sprintf`を利用する。
 
-> # sprintf
-> 
-> Format a message of words and numbers
-> 
-> ## Description
-> 
-> Uses the common C-language "printf" function inside Max. 
-> You can combine symbols, organize lists of numbers, or format messages or menu items. 
-> For complete documentation, refer to a standard C library reference manual.
-> 
-> ---
-> 
-> * [sprintf Reference](https://docs.cycling74.com/max7/maxobject/sprintf)
+{% assign text='
+# sprintf
+
+Format a message of words and numbers
+
+## Description
+
+Uses the common C-language "printf" function inside Max. 
+You can combine symbols, organize lists of numbers, or format messages or menu items. 
+For complete documentation, refer to a standard C library reference manual.
+' | markdownify %}
+{% assign source='
+[sprintf Reference](https://docs.cycling74.com/max7/maxobject/sprintf)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
 `sprintf`はいろんなメッセージを指定した書式に合わせて組み合わせて出力する。
 これを用いて一意な名前を作る。

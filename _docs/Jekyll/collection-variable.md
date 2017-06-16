@@ -2,7 +2,7 @@
 layout : post
 title  : Collection変数を調査する
 date   : 2017/03/05
-lastchange : 2017-06-07 21:08:41.
+lastchange : 2017-06-15 21:15:33.
 tags   :
   - jekyll
   - github
@@ -13,22 +13,26 @@ tags   :
 
 ## Collectionの中身を調査する。
 
-> The collections are also available under `site.collections`,
-> with the metadata you specified in your `_config.yml` (if present)
-> and the following information:
-> 
-> | Variable             | Description                                        |
-> | -------------------- | -------------------------------------------------- |
-> | `label`              | The name of your collection, e.g. `my_collection`. |
-> | `docs`               | An array of documents.                             |
-> | `files`              | An array of static files in the collection.        |
-> | `relative_directory` | The path to the collection's source directory, relative to the site source. |
-> | `directory`          | The full path to the collections's source directory. |
-> | `output`             | Whether the collection's documents will be output as individual files. |
-> 
-> ---
-> 
-> * [Collections - Jekyll](https://jekyllrb.com/docs/collections/)
+{% assign text='
+The collections are also available under `site.collections`,
+with the metadata you specified in your `_config.yml` (if present)
+and the following information:
+
+| Variable             | Description                                        |
+| -------------------- | -------------------------------------------------- |
+| `label`              | The name of your collection, e.g. `my_collection`. |
+| `docs`               | An array of documents.                             |
+| `files`              | An array of static files in the collection.        |
+| `relative_directory` | The path to the collection's source directory, relative to the site source. |
+| `directory`          | The full path to the collections's source directory. |
+| `output`             | Whether the collection's documents will be output as individual files. |
+' | markdownify %}
+{% assign source='
+[Collections - Jekyll](https://jekyllrb.com/docs/collections/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 JekyllのCollectionは `site.collections` に全て格納されるらしいので、
 格納されているデータを調査した。

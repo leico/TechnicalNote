@@ -2,7 +2,7 @@
 layout : post
 title  : Bootstrap sassをカスタマイズする
 date   : 2017/04/01
-lastchange : 2017-06-10 18:07:12.
+lastchange : 2017-06-15 16:53:05.
 tags   :
   - Bootstrap
   - sass
@@ -139,39 +139,52 @@ div.card-columns.category-index
 * [品のある青色（Webカラー#2996CC）を使ったカラーパレット \| 配色の悩みを解決！配色の見本帳](http://ironodata.info/rgb.php?color=2996CC)
 ## 変数の値を変更する
 
-> ```sass
-> $font-stack:    Helvetica, sans-serif
-> $primary-color: #333
-> 
-> body
->   font: 100% $font-stack
->   color: $primary-color
-> ```
-> 
-> ---
-> 
-> * [Sass: Sass Basics](http://sass-lang.com/guide)
+{% assign text='
+```sass
+$font-stack:    Helvetica, sans-serif
+$primary-color: #333
+
+body
+  font: 100% $font-stack
+  color: $primary-color
+```
+' | markdownify %}
+{% assign source='
+[Sass: Sass Basics](http://sass-lang.com/guide)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+ 
 
 こうやって変数を使えるらしい。`;`が最後にいらないのがちょっと気持ち悪い。
 
 ## bootstrap sass を眺める
 
-> style.scssから_variables.scssのNavbarを探して下記の赤文字の部分を変更します。
-> 
-> ---
-> * [Bootstrap実践編 Sass,CSSを追加してオリジナルデザインにする（４） - マンガでなれる？WEBデザイナー講座](https://creativeweb.jp/manga/bootstrap-2/page4)
+{% assign text='
+style.scssから_variables.scssのNavbarを探して下記の赤文字の部分を変更します。
+' | markdownify %}
+{% assign source='
+[Bootstrap実践編 Sass,CSSを追加してオリジナルデザインにする（４） - マンガでなれる？WEBデザイナー講座](https://creativeweb.jp/manga/bootstrap-2/page4)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 *\_variables.scss* の中に色々な変数が宣言されているようだ。
 ここから必要なものだけを上書きする。
 
 ## bootstrap sass を上書きする
 
-> Sassで変数を定義するときに `!default` がついていることがありますが、
-> これは「あとから上書きされます」という意味ではなく「既に定義されている場合は上書きしません」という意味らしい。
-> 
-> ---
-> 
-> * [変数宣言の!defaultは「既に定義されている場合は上書きしない」という意味 - Qiita](http://qiita.com/yuku_t/items/0bebe541432cdfad4e14)
+
+{% assign text='
+Sassで変数を定義するときに `!default` がついていることがありますが、
+これは「あとから上書きされます」という意味ではなく「既に定義されている場合は上書きしません」という意味らしい。
+' | markdownify %}
+{% assign source='
+[変数宣言の!defaultは「既に定義されている場合は上書きしない」という意味 - Qiita](http://qiita.com/yuku_t/items/0bebe541432cdfad4e14)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 なので、文字サイズを先行して宣言しておけば上書きされる。
 
@@ -185,49 +198,56 @@ Bootstrapで宣言されている変数を利用したいので、`@import`の�
 
 sassでの記法はこんな感じらしい
 
-> ```sass
-> nav
->   ul
->     margin: 0
->     padding: 0
->     list-style: none
-> 
->   li
->     display: inline-block
-> 
->   a
->     display: block
->     padding: 6px 12px
->     text-decoration: none
-> ```
-> 
-> ---
-> 
-> * [Sass: Sass Basics](http://sass-lang.com/guide)
+{% assign text='
+```sass
+nav
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+  li
+    display: inline-block
+
+  a
+    display: block
+    padding: 6px 12px
+    text-decoration: none
+```
+' | markdownify %}
+{% assign source='
+[Sass: Sass Basics](http://sass-lang.com/guide)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 これが
 
-> ```css
-> nav ul {
->   margin: 0;
->   padding: 0;
->   list-style: none;
-> }
-> 
-> nav li {
->   display: inline-block;
-> }
-> 
-> nav a {
->   display: block;
->   padding: 6px 12px;
->   text-decoration: none;
-> }
-> ```
-> 
-> ---
-> 
-> * [Sass: Sass Basics](http://sass-lang.com/guide)
+{% assign text='
+```css
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+```
+' | markdownify %}
+{% assign source='
+[Sass: Sass Basics](http://sass-lang.com/guide)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 こうなる。
 
@@ -274,66 +294,69 @@ markdown から吐き出された html には基本、装飾がなされない�
 
 class 指定されていない要素もスタイルが適用されるように、class の設定を各々のタグに継承させる。
 
+{% capture text %}
+## Extend/Inheritance
 
-> ## Extend/Inheritance
-> 
-> This is one of the most useful features of Sass. 
-> Using `@extend` lets you share a set of CSS properties from one selector to another. 
-> It helps keep your Sass very DRY. 
-> In our example we're going to create a simple series of messaging for errors, warnings and successes.
-> 
-> ### Sass Syntax
-> 
-> ```sass
-> .message
->   border: 1px solid #ccc
->   padding: 10px
->   color: #333
-> 
-> 
-> .success
->   @extend .message
->   border-color: green
-> 
-> 
-> .error
->   @extend .message
->   border-color: red
-> 
-> 
-> .warning
->   @extend .message
->   border-color: yellow
-> ```
-> 
-> 
-> What the above code does is allow you to take the CSS properties in 
-> `.message` and apply them to `.success`, `.error`, & `.warning`. 
-> The magic happens with the generated CSS, 
-> and this helps you avoid having to write multiple class names on HTML elements. 
-> This is what it looks like:
-> 
-> 
-> ```css
-> .message, .success, .error, .warning {
->   border: 1px solid #cccccc;
->   padding: 10px;
->   color: #333;
-> }
-> 
-> .success {
->   border-color: green;
-> }
-> 
-> .error {
->   border-color: red;
-> }
-> 
-> .warning {
->   border-color: yellow;
-> }
-> ```
-> 
-> ---
->
-> * [Sass: Sass Basics](http://sass-lang.com/guide)
+This is one of the most useful features of Sass. 
+Using `@extend` lets you share a set of CSS properties from one selector to another. 
+It helps keep your Sass very DRY. 
+In our example we're going to create a simple series of messaging for errors, warnings and successes.
+
+### Sass Syntax
+
+```sass
+.message
+  border: 1px solid #ccc
+  padding: 10px
+  color: #333
+
+
+.success
+  @extend .message
+  border-color: green
+
+
+.error
+  @extend .message
+  border-color: red
+
+
+.warning
+  @extend .message
+  border-color: yellow
+```
+
+
+What the above code does is allow you to take the CSS properties in 
+`.message` and apply them to `.success`, `.error`, & `.warning`. 
+The magic happens with the generated CSS, 
+and this helps you avoid having to write multiple class names on HTML elements. 
+This is what it looks like:
+
+
+```css
+.message, .success, .error, .warning {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.error {
+  border-color: red;
+}
+
+.warning {
+  border-color: yellow;
+}
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Sass: Sass Basics](http://sass-lang.com/guide)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+

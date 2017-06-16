@@ -1,0 +1,25 @@
+{% comment %}
+{% raw %}
+
+{% include cite.html text source %}
+
+text   : cite contents
+source : cite source
+
+example below-----
+
+{% assign text='
+any
+text
+here
+' | markdownify %}
+{% assign source='[source](source/url)' | markdownify %}
+{% include cite.html text=text source=source %}
+
+{% endraw %}
+{% endcomment %}
+
+<blockquote class="blockquote">
+  {{ include.text }}
+  <footer class="blockquote-footer"><cite>{{ include.source }}</cite></footer>
+</blockquote>

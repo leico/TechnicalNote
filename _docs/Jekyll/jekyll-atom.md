@@ -2,7 +2,7 @@
 layout : post
 title  : Collectiosの変更に追従するAtomフィードを設置する
 date : 2017/06/10
-lastchange : 2017-06-10 17:24:27.
+lastchange : 2017-06-15 22:02:45.
 tags   :
   - jekyll
   - github
@@ -43,48 +43,54 @@ Wiki的に使っているこのサイトはページを大まかなカテゴリ�
 
 ......のはいつものことだけれど、Jekyll-tipsにひな形が掲載されていたのでこれを元に改造する。
 
+{% capture text %}
+## JekyllでのAtomフィード
+
+Atomフィードによって、読者はあなたのブログの最新の記事を購読することができます。AtomフィードをJekyllサイトに追加するのは簡単です。
+
+以下の内容で、ウェブサイトルートに`atom.xml`を作ります：
+
+{% raw %}
+```html
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.name }}</title>
+  <link href="{{ site.url }}/atom.xml" rel="self" />
+  <link href="{{ site.url }}/"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}</id>
+  <author>
+    <name>{{ site.author.name }}</name>
+    <email>{{ site.author.email }}</email>
+  </author>
+  {% for post in site.posts %}
+    <entry>
+      <title>{{ post.title }}</title>
+      <link href="{{ site.url }}{{ post.url }}" />
+      <updated>{{ post.date | date_to_xmlschema }}</updated>
+      <id>{{ site.url }}{{ post.id }}</id>
+      <content type="html">{{ post.content | xml_escape }}</content>
+    </entry>
+  {% endfor %}
+</feed>
+```
+{% endraw %} 
+このコードは、すべてのブログ記事に繰り返し処理を行い、記事全てをXML形式で出力しています。
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Atomフィード - Jekyll Tips](http://jekylltips-ja.github.io/tutorials/atom-feed/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
 
-> ## JekyllでのAtomフィード
-> 
-> Atomフィードによって、読者はあなたのブログの最新の記事を購読することができます。AtomフィードをJekyllサイトに追加するのは簡単です。
-> 
-> 以下の内容で、ウェブサイトルートに`atom.xml`を作ります：
-> 
-> {% raw %}
-> ```html
-> ---
-> layout: null
-> ---
-> 
-> <?xml version="1.0" encoding="utf-8"?>
-> <feed xmlns="http://www.w3.org/2005/Atom">
->   <title>{{ site.name }}</title>
->   <link href="{{ site.url }}/atom.xml" rel="self" />
->   <link href="{{ site.url }}/"/>
->   <updated>{{ site.time | date_to_xmlschema }}</updated>
->   <id>{{ site.url }}</id>
->   <author>
->     <name>{{ site.author.name }}</name>
->     <email>{{ site.author.email }}</email>
->   </author>
->   {% for post in site.posts %}
->     <entry>
->       <title>{{ post.title }}</title>
->       <link href="{{ site.url }}{{ post.url }}" />
->       <updated>{{ post.date | date_to_xmlschema }}</updated>
->       <id>{{ site.url }}{{ post.id }}</id>
->       <content type="html">{{ post.content | xml_escape }}</content>
->     </entry>
->   {% endfor %}
-> </feed>
-> ```
-> {% endraw %} 
-> このコードは、すべてのブログ記事に繰り返し処理を行い、記事全てをXML形式で出力しています。
-> 
-> ---
-> 
-> * [Atomフィード - Jekyll Tips](http://jekylltips-ja.github.io/tutorials/atom-feed/)
+
+
 
 これを見ただけでは全然わからないので調べる。
 
@@ -93,26 +99,32 @@ Wiki的に使っているこのサイトはページを大まかなカテゴリ�
 
 ## Atomフィードについて
 
-> ### RSS1.0
-> 
-> * シンプルな記述がウリ。テキスト配信向き？
-> * RDFシリーズを元にして制作されている。
-> * はてなRSSは1.0を使用。FC2も1.0を使用。
-> 
-> ### RSS2.0
-> 
-> * 配信する文章の色を変えたり、リンクを仕込めるなど、グラフィック面でいろいろ出来る。コンテンツ配信向き？
-> * RSS1.0の後継シリーズではない。(0.9x系の流れを汲む規格)
-> * XMLシリーズを元にして制作されている。
-> 
-> ### ATOM
-> 
-> * RSS2.0からいろいろ削って、よりシンプルに。よりスマートに。
-> * GoogleはGmail（ジーメール） にて、メールの内容を Atom フィードで提供するサービスを行っている。
-> 
-> ---
-> 
-> * [RSS1.0,RSS2.0,ATOM のフォーマット・仕様・構造 - Amarronの日記](http://amarron.hatenablog.com/entry/2014/03/14/200556)
+{% assign text='
+### RSS1.0
+
+* シンプルな記述がウリ。テキスト配信向き？
+* RDFシリーズを元にして制作されている。
+* はてなRSSは1.0を使用。FC2も1.0を使用。
+
+### RSS2.0
+
+* 配信する文章の色を変えたり、リンクを仕込めるなど、グラフィック面でいろいろ出来る。コンテンツ配信向き？
+* RSS1.0の後継シリーズではない。(0.9x系の流れを汲む規格)
+* XMLシリーズを元にして制作されている。
+
+### ATOM
+
+* RSS2.0からいろいろ削って、よりシンプルに。よりスマートに。
+* GoogleはGmail（ジーメール） にて、メールの内容を Atom フィードで提供するサービスを行っている。
+' | markdownify %}
+{% assign source='
+[RSS1.0,RSS2.0,ATOM のフォーマット・仕様・構造 - Amarronの日記](http://amarron.hatenablog.com/entry/2014/03/14/200556)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 ## 利用状況
 
@@ -130,81 +142,91 @@ Wiki的に使っているこのサイトはページを大まかなカテゴリ�
 
 ## Atomフィードの構造
 
-> ## Atom 1.0 の基本構造
-> 
-> ```xml
-> <?xml version='1.0' encoding='UTF-8'?>
-> <feed xmlns='http://www.w3.org/2005/Atom' xml:lang='ja'>
-> 	<id>tag:phpjavascriptroom.comfeed/</id>
-> 	<title>PHP & JavaScript Room：更新情報</title>
-> 	<updated>2008-06-11T15:30:59Z</updated>
-> 	<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/feed/' />
-> 	<link rel='self' type='application/atom+xml' href='http://phpjavascriptroom.com/feed/atom10.xml' />
-> 	<entry>
-> 		<id>http://phpjavascriptroom.com/post3.html#20080611</id>
-> 		<title>記事タイトル3</title>
-> 		<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/post3.html' />
-> 		<updated>2008-06-11T15:30:59Z</updated>
-> 		<summary>記事の内容です。</summary>
-> 	</entry>
-> 	<entry>
-> 		<id>http://phpjavascriptroom.com/post2.html#200810153059</id>
-> 		<title>記事タイトル2</title>
-> 		<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/post2.html' />
-> 		<updated>2008-06-10T15:30:59Z</updated>
-> 		<summary>記事の内容です。</summary>
-> 	</entry>
-> 	<entry>
-> 		<id>http://phpjavascriptroom.com/post1.html#20080609205030</id>
-> 		<title>記事タイトル1</title>
-> 		<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/post1.html' />
-> 		<updated>2008-06-09T20:50:30Z</updated>
-> 		<summary>記事の内容です。</summary>
-> 	</entry>
-> </feed>
-> ```
->
-> ---
->
-> * [Atom 1.0 のフォーマット｜RSS｜Web関連特集｜PHP & JavaScript Room](http://phpjavascriptroom.com/?t=topic&p=atom_format)
+{% capture text %}
+## Atom 1.0 の基本構造
 
-> 作るファイルはひとつだけ、RSSファイルです。それにリンクを貼るだけ。
-> 以下ソース。テクストエディタなどで編集してください。
-> 注： （説明） ←カッコごと書き換えてください。
-> 
-> ```xml
-> <?xml version=”1.0″ encoding=”utf-8″ ?>
->   <rss version=”2.0″>
->     <channel>
->       <title>（サイト名）</title>
->       <link>（サイトのURL）</link>
->       <description>（サイトの説明、ない場合は空欄）</description>
->       <lastBuildDate>Sat, 28 Oct 2006 00:00:00 +0900</lastBuildDate>
->       （↑最終更新日時。曜日, 日 月 年 時:分:秒 +0900）
-> 
->       <item>
->         <title>（各情報のタイトル）</title>
->         <description><![CDATA[（各情報の説明）]]></description>
->         <link>（各情報のURL）</link>
->         <category>（カテゴリをつけたい場合は入力。「お知らせ」「更新情報」など）</category>
->         <pubDate>Sat, 28 Oct 2006 00:00:00 +0900</pubDate>
->         （↑各情報の日時。書式は上に同じ）
->       </item>
-> 
->       （複数情報を入力したい場合は<item>～</item>を連記。その場合は上から新しい順になるように）
->       <item>
->       ・
->       ・
->       ・
->       </item>
-> 
->       </channel>
->     </rss>
-> ```
-> 
-> ---
-> 
-> * [  RSSに対応、RSSの書き方 : SITE-ICHIJO. NET/BLOG 跡地](http://si.jpn.org/archives/date/2006/1028-230856.php)
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xml:lang='ja'>
+	<id>tag:phpjavascriptroom.comfeed/</id>
+	<title>PHP & JavaScript Room：更新情報</title>
+	<updated>2008-06-11T15:30:59Z</updated>
+	<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/feed/' />
+	<link rel='self' type='application/atom+xml' href='http://phpjavascriptroom.com/feed/atom10.xml' />
+	<entry>
+		<id>http://phpjavascriptroom.com/post3.html#20080611</id>
+		<title>記事タイトル3</title>
+		<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/post3.html' />
+		<updated>2008-06-11T15:30:59Z</updated>
+		<summary>記事の内容です。</summary>
+	</entry>
+	<entry>
+		<id>http://phpjavascriptroom.com/post2.html#200810153059</id>
+		<title>記事タイトル2</title>
+		<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/post2.html' />
+		<updated>2008-06-10T15:30:59Z</updated>
+		<summary>記事の内容です。</summary>
+	</entry>
+	<entry>
+		<id>http://phpjavascriptroom.com/post1.html#20080609205030</id>
+		<title>記事タイトル1</title>
+		<link rel='alternate' type='text/html' href='http://phpjavascriptroom.com/post1.html' />
+		<updated>2008-06-09T20:50:30Z</updated>
+		<summary>記事の内容です。</summary>
+	</entry>
+</feed>
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Atom 1.0 のフォーマット｜RSS｜Web関連特集｜PHP & JavaScript Room](http://phpjavascriptroom.com/?t=topic&p=atom_format)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+{% assign text='
+作るファイルはひとつだけ、RSSファイルです。それにリンクを貼るだけ。
+以下ソース。テクストエディタなどで編集してください。
+注： （説明） ←カッコごと書き換えてください。
+
+```xml
+<?xml version=”1.0″ encoding=”utf-8″ ?>
+  <rss version=”2.0″>
+    <channel>
+      <title>（サイト名）</title>
+      <link>（サイトのURL）</link>
+      <description>（サイトの説明、ない場合は空欄）</description>
+      <lastBuildDate>Sat, 28 Oct 2006 00:00:00 +0900</lastBuildDate>
+      （↑最終更新日時。曜日, 日 月 年 時:分:秒 +0900）
+
+      <item>
+        <title>（各情報のタイトル）</title>
+        <description><![CDATA[（各情報の説明）]]></description>
+        <link>（各情報のURL）</link>
+        <category>（カテゴリをつけたい場合は入力。「お知らせ」「更新情報」など）</category>
+        <pubDate>Sat, 28 Oct 2006 00:00:00 +0900</pubDate>
+        （↑各情報の日時。書式は上に同じ）
+      </item>
+
+      （複数情報を入力したい場合は<item>～</item>を連記。その場合は上から新しい順になるように）
+      <item>
+      ・
+      ・
+      ・
+      </item>
+
+      </channel>
+    </rss>
+```
+' | markdownify %}
+{% assign source='
+[  RSSに対応、RSSの書き方 : SITE-ICHIJO. NET/BLOG 跡地](http://si.jpn.org/archives/date/2006/1028-230856.php)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 
 
@@ -276,9 +298,11 @@ layout: null
   {% endfor %}
 </feed>
 ```
+{% endraw %}
 
 ### ページ情報
 
+{% raw %}
 ```xml
   <title>{{ site.name }}</title>
   <link href="{{ site.url }}/atom.xml" rel="self" />
@@ -289,53 +313,62 @@ layout: null
     <name>{{ site.data.summary.author.name }}</name>
   </author>
 ```
+{% endraw %}
 
-> ## The Data Folder
-> 
-> As explained on the [directory structure](https://jekyllrb.com/docs/structure/) page, 
-> the `_data` folder is where you can store additional data for Jekyll to use when generating your site. 
-> These files must be YAML, JSON, or CSV files (using either the `.yml`, `.yaml`, `.json` or `.csv` extension),
-> and they will be accessible via `site.data`.
-> 
-> ## Example: List of members
-> 
-> Here is a basic example of using Data Files 
-> to avoid copy-pasting large chunks of code in your Jekyll templates:
-> 
-> In `_data/members.yml`:
-> 
-> ```yaml
-> - name: Eric Mill
->   github: konklone
-> 
-> - name: Parker Moore
->   github: parkr
-> 
-> - name: Liu Fengyun
->   github: liufengyun
-> ```
-> 
-> Or `_data/members.csv`:
-> 
-> ```
-> name,github
-> Eric Mill,konklone
-> Parker Moore,parkr
-> Liu Fengyun,liufengyun
-> ```
-> 
-> This data can be accessed via `site.data.members` 
-> (notice that the filename determines the variable name).
-> 
-> ---
-> 
-> * [Data Files \| Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/datafiles/)
+
+
+{% assign text='
+## The Data Folder
+
+As explained on the [directory structure](https://jekyllrb.com/docs/structure/) page, 
+the `_data` folder is where you can store additional data for Jekyll to use when generating your site. 
+These files must be YAML, JSON, or CSV files (using either the `.yml`, `.yaml`, `.json` or `.csv` extension),
+and they will be accessible via `site.data`.
+
+## Example: List of members
+
+Here is a basic example of using Data Files 
+to avoid copy-pasting large chunks of code in your Jekyll templates:
+
+In `_data/members.yml`:
+
+```yaml
+- name: Eric Mill
+  github: konklone
+
+- name: Parker Moore
+  github: parkr
+
+- name: Liu Fengyun
+  github: liufengyun
+```
+
+Or `_data/members.csv`:
+
+```
+name,github
+Eric Mill,konklone
+Parker Moore,parkr
+Liu Fengyun,liufengyun
+```
+
+This data can be accessed via `site.data.members` 
+(notice that the filename determines the variable name).
+' | markdownify %}
+{% assign source='
+[Data Files \| Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/datafiles/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 ページ情報はほとんど変更していない。1点、オーナー情報等は Jekyll Documentation に 
 `_data` にまとめる example が掲載されていたのでこれに倣っている。
 
 ### Collectionsページの走査
 
+{% raw %}
 ```liquid
   {% assign docs = "" | split: "" %}
   {% for collection in site.collections %}
@@ -347,20 +380,31 @@ layout: null
     {% endfor %}
   {% endfor %}
 ```
+{% endraw %}
 
-> ```liquid
-> {% assign all_hosts = "" | split: "" %}
-> {% for host in site.data.shared_hosts %}
->   {% assign all_hosts = all_hosts | push: host %}
-> {% endfor %}
-> {% for host in site.data.paas_hosts %}
->   {% assign all_hosts = all_hosts | push: host %}
-> {% endfor %}
-> ```
-> 
-> ---
-> 
-> * [Concat arrays in Jekyll(liquid)](https://gist.github.com/BryanSchuetz/52012affd9318ba59e19a74639a8c16a)
+
+{% capture text %}
+{% raw %}
+```liquid
+{% assign all_hosts = "" | split: "" %}
+{% for host in site.data.shared_hosts %}
+  {% assign all_hosts = all_hosts | push: host %}
+{% endfor %}
+{% for host in site.data.paas_hosts %}
+  {% assign all_hosts = all_hosts | push: host %}
+{% endfor %}
+```
+{% endraw %}
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Concat arrays in Jekyll(liquid)](https://gist.github.com/BryanSchuetz/52012affd9318ba59e19a74639a8c16a)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 上記の方法を利用した。
 空文字を空文字で分割して配列作る方法は賢い。
@@ -369,6 +413,7 @@ layout: null
 
 ### `<entry></entry>`の作成
 
+{% raw %}
 ```xml
   {% assign docs = docs | sort: 'lastchange' | reverse %}
   {% for doc in docs %}
@@ -387,48 +432,60 @@ layout: null
 ```liquid
  {% assign docs = docs | sort: 'lastchange' | reverse %}
 ```
+{% endraw %}
 
 `docs` を更新日時の新しい順にソートし、新しい方から`<entry></entry>`を記述している。
 
+{% capture text %}
+{% raw %}
+meta descriptionはこんな感じに表示できるようにします｡
 
-> meta descriptionはこんな感じに表示できるようにします｡
-> 
-> * トップページではサイトの説明文を表示する
-> * それ以外ページでは､ページの概要を表示する（160文字）
-> 
-> If文を使って以下の用に書き換えます｡
-> 
-> ```xml
-> <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-> ```
->
-> ---
->
-> * [Jekyllのテーマを自作する 基本編 – 第5回 – titleタグとmeta descriptionを作成する \| e-JOINT.jp](http://e-joint.jp/363/)
+* トップページではサイトの説明文を表示する
+* それ以外ページでは､ページの概要を表示する（160文字）
+
+If文を使って以下の用に書き換えます｡
+
+```xml
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+```
+{% endraw %}
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Jekyllのテーマを自作する 基本編 – 第5回 – titleタグとmeta descriptionを作成する \| e-JOINT.jp](http://e-joint.jp/363/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
 
-> Try this:
-> 
-> ```liquid
-> {% assign paragraphs = settings.intro | newline_to_br | split: '<br />' %}
-> {% for paragraph in paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
-> ```
->
-> ---
->
-> answered Dec 29 '14 at 21:23
-> 
-> [Josh Brown](https://stackoverflow.com/users/2423824/josh-brown)
->
-> ---
->
-> * [liquid - How can I split a string by newline in Shopify? - Stack Overflow](https://stackoverflow.com/questions/27694610/how-can-i-split-a-string-by-newline-in-shopify)
+{% capture text %}
+Try this:
+{% raw %}
+```liquid
+{% assign paragraphs = settings.intro | newline_to_br | split: '<br />' %}
+{% for paragraph in paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+```
+{% endraw %}
+
+---
+
+answered Dec 29 '14 at 21:23
+
+[Josh Brown](https://stackoverflow.com/users/2423824/josh-brown)
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[liquid - How can I split a string by newline in Shopify? - Stack Overflow](https://stackoverflow.com/questions/27694610/how-can-i-split-a-string-by-newline-in-shopify)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 などを参考に、概要は最初の1文だけを表示するようにした
 
+{% raw %}
 ```liquid
 {{ doc.content | strip_html | newline_to_br | split:'<br />' | first }}
 ```
+{% endraw %}
 
 ## `_config.yml` に *jekyll-feed* 追加
 
@@ -443,24 +500,28 @@ gems:
   - jekyll-feed
 ```
 
+{% capture text %}
+### Already have a feed path?
 
-> ### Already have a feed path?
-> 
-> Do you already have an existing feed someplace other than `/feed.xml`, 
-> but are on a host like GitHub Pages that doesn't support machine-friendly redirects? 
-> If you simply swap out `jekyll-feed` for your existing template, 
-> your existing subscribers won't continue to get updates. Instead, you can specify a non-default path via your site's config.
-> 
-> ```yml
-> feed:
->   path: atom.xml
-> ```
-> 
-> To note, you shouldn't have to do this unless you already have a feed you're using, and you can't or wish not to redirect existing subscribers.
->
-> ---
-> 
-> * [jekyll/jekyll-feed: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts](https://github.com/jekyll/jekyll-feed)
+Do you already have an existing feed someplace other than `/feed.xml`, 
+but are on a host like GitHub Pages that doesn't support machine-friendly redirects? 
+If you simply swap out `jekyll-feed` for your existing template, 
+your existing subscribers won't continue to get updates. Instead, you can specify a non-default path via your site's config.
+
+```yml
+feed:
+  path: atom.xml
+```
+
+To note, you shouldn't have to do this unless you already have a feed you're using, and you can't or wish not to redirect existing subscribers.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[jekyll/jekyll-feed: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts](https://github.com/jekyll/jekyll-feed)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 *jekyll-feed* 用の設定を追加
 
@@ -471,20 +532,24 @@ feed :
   path : atom.xml
 ```
 
+{% capture text %}
+### Meta tags
 
-> ### Meta tags
-> 
-> The plugin exposes a helper tag to expose the appropriate meta tags 
-> to support automated discovery of your feed. 
-> Simply place `{% feed_meta %}` someplace in your template's `<head>` section,
-> to output the necessary metadata.
->
-> ---
->
-> * [jekyll/jekyll-feed: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts](https://github.com/jekyll/jekyll-feed)
+{% raw %}
+The plugin exposes a helper tag to expose the appropriate meta tags 
+to support automated discovery of your feed. 
+Simply place `{% feed_meta %}` someplace in your template's `<head>` section,
+to output the necessary metadata.
+{% endraw %}
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[jekyll/jekyll-feed: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts](https://github.com/jekyll/jekyll-feed)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
+{% raw %}
 ページヘッダに`{% feed_meta %}`記述して終わり。
- 
+{% endraw %} 
 Atomフィードへのリンクは右下
 
-{% endraw %}

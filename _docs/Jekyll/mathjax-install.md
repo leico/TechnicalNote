@@ -2,7 +2,7 @@
 layout : post
 title  : MathJaxをインストールする
 date   : 2017/04/01
-lastchange : 2017-04-19 15:23:47.
+lastchange : 2017-06-16 22:41:50.
 tags   :
   - jekyll
   - github pages
@@ -21,53 +21,59 @@ tags   :
 
 というものを見つけた。
 
-> ## Math MLとの比較
-> 
-> Webページに数式を表示するために[W3C](https://www.w3.org/) が標準化を進めている書式 [MathML](https://www.w3.org/Math/) がある。
-> よく考えられているのだが[MathML 耐久テスト](https://developer.mozilla.org/ja/docs/Mozilla/MathML_Project/MathML_Torture_Test)参照）、一番の問題はMathMLとして数式を表すための記述コード量が多くなること、
-> そしてMathJaxがそうであるようにLaTeX記述でWebページに数式を表示できる
-> 
-> MathJaxを使ってLaTeXのようにして \\(4\sin^2(x)−4\cos^2(x)\\)
-> を表示するごく単純な表現 `$4∖sin\^2(x)−4∖cos\^2(x)$` はMathMLでは次のように長大になる。
-> LaTeX表式が数式を美しく簡素に表現できることがわかる。
-> <math>
->   <mn>4</mn>
->   <msup>
->     <mi>sin</mi>
->     <mn>2</mn>
->   </msup>
->   <mi>x</mi>
->   <mo>-</mo>
->   <mn>4</mn>
->   <msup>
->     <mi>cos</mi>
->     <mn>2</mn>
->   </msup>
->   <mi>x</mi>
-> </math>
->
-> 
-> ```html
->     <math>
->         <mn>4</mn>
->         <msup>
->           <mi>sin</mi>
->           <mn>2</mn>
->         </msup>
->         <mi>x</mi>
->         <mo>-</mo>
->         <mn>4</mn>
->         <msup>
->           <mi>cos</mi>
->           <mn>2</mn>
->         </msup>
->         <mi>x</mi>
->     </math>
-> ```
-> 
-> ---
-> 
-> * [Webの数式表現](http://www.ic.daito.ac.jp/~mizutani/html/mathexpress.html)
+{% assign text='
+## Math MLとの比較
+
+Webページに数式を表示するために[W3C](https://www.w3.org/) が標準化を進めている書式 [MathML](https://www.w3.org/Math/) がある。
+よく考えられているのだが[MathML 耐久テスト](https://developer.mozilla.org/ja/docs/Mozilla/MathML_Project/MathML_Torture_Test)参照）、
+一番の問題はMathMLとして数式を表すための記述コード量が多くなること、
+そしてMathJaxがそうであるようにLaTeX記述でWebページに数式を表示できる
+
+MathJaxを使ってLaTeXのようにして \\(4\sin^2(x)−4\cos^2(x)\\)
+を表示するごく単純な表現 `$4∖sin\^2(x)−4∖cos\^2(x)$` はMathMLでは次のように長大になる。
+LaTeX表式が数式を美しく簡素に表現できることがわかる。
+<math>
+  <mn>4</mn>
+  <msup>
+    <mi>sin</mi>
+    <mn>2</mn>
+  </msup>
+  <mi>x</mi>
+  <mo>-</mo>
+  <mn>4</mn>
+  <msup>
+    <mi>cos</mi>
+    <mn>2</mn>
+  </msup>
+  <mi>x</mi>
+</math>
+
+
+```html
+<math>
+    <mn>4</mn>
+    <msup>
+      <mi>sin</mi>
+      <mn>2</mn>
+    </msup>
+    <mi>x</mi>
+    <mo>-</mo>
+    <mn>4</mn>
+    <msup>
+      <mi>cos</mi>
+      <mn>2</mn>
+    </msup>
+    <mi>x</mi>
+</math>
+```
+
+
+' | markdownify %}
+{% assign source='
+[Webの数式表現](http://www.ic.daito.ac.jp/~mizutani/html/mathexpress.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 ということなのでMathJaxを使ってみる。
 
@@ -153,22 +159,26 @@ git checkout 2.7-latest
 
 と呼び出す。
 
-> To load a configuration file, use `config=filename`
-> (where filename is one of the names above without the `.js`)
-> as a parameter to the URL of the `MathJax.js` file. For example
-> 
-> ```html
-> <script type="text/javascript"
->    src="https://example.com/MathJax.js?config=TeX-AMS-MML_CHTML">
-> </script>
-> ```
-> 
-> loads the `config/TeX-AMS-MML_HTMLorMML.js` configuration file 
-> from the MathJax distributed network service.
->
-> ---
->
-> * [Loading and Configuring MathJax — MathJax 2.7 documentation](http://docs.mathjax.org/en/latest/configuration.html#config-files)
+{% assign text='
+To load a configuration file, use `config=filename`
+(where filename is one of the names above without the `.js`)
+as a parameter to the URL of the `MathJax.js` file. For example
+
+```html
+<script type="text/javascript"
+   src="https://example.com/MathJax.js?config=TeX-AMS-MML_CHTML">
+</script>
+```
+
+loads the `config/TeX-AMS-MML_HTMLorMML.js` configuration file 
+from the MathJax distributed network service.
+
+' | markdownify %}
+{% assign source='
+[Loading and Configuring MathJax — MathJax 2.7 documentation](http://docs.mathjax.org/en/latest/configuration.html#config-files)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 とのことで、設定プリセットが *MathJax/config* 以下にいくつか用意されている。
 それらを呼び出すには `MathJax.js?config=XXXXX`とするらしい。`XXXXX` はファイル名から `.js`を取ったもの。
@@ -179,63 +189,65 @@ git checkout 2.7-latest
 
 ## github pages jekyll との競合を回避しながら書く方法
 
+{% assign text='
+> ### Using MathJax on Github:Pages
+> Posted on 01, Oct 2012
 
-> > ### Using MathJax on Github:Pages
-> > Posted on 01, Oct 2012
-> 
-> MathJax is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages.
-> To get up and running you need to include the MathJax script in the header of your github pages page,
-> and then write some maths. For LaTex, there are two delimiters you need to know about,
-> one for block or displayed mathematics `\[ ... \]` ,
-> and the other for inline mathematics `\( ... \)` .
-> Installation
-> 
-> You can find the MathJax documentation here however, 
-> to get up and running quickly, simply put this into the `<head>` section of the page 
-> you would like to display mathematics:
-> 
-> ```html
-> <head>
-> ...
->     <script type="text/javascript"
->             src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
->     </script>
-> ...
-> </head>
-> ```
-> 
-> 
-> If you are using jekyll, in _config.yml set
-> 
-> ```yaml
-> markdown: kramdown
-> ```
-> 
-> If it is set to discount for example, 
-> the markdown parser will automatically replace `x^2` with `x<sup>2</sup>` which interrupts the MathJax rendering.
-> 
-> 
-> ## Usage
-> 
-> Using it is pretty easy:
-> 
-> ```
-> Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
-> \\[ \frac{1}{n^{2}} \\]
-> ```
-> 
-> 
-> Here is an example MathJax inline rendering \\( 1/x^2 \\)
-> , and here is a block rendering:
-> \\[ \frac{1}{n^{2}} \\]
-> 
-> The only thing to look out for is the escaping of the backslash when using markdown,
-> so the delimiters become `\\[ ... \\]` and `\\( ... \\)` for inline and block maths respectively. 
-> 
->
-> ---
-> 
-> * [Using MathJax on Github:Pages](http://www.christopherpoole.net/using-mathjax-on-githubpages.html)
+MathJax is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages.
+To get up and running you need to include the MathJax script in the header of your github pages page,
+and then write some maths. For LaTex, there are two delimiters you need to know about,
+one for block or displayed mathematics `\[ ... \]` ,
+and the other for inline mathematics `\( ... \)` .
+Installation
+
+You can find the MathJax documentation here however, 
+to get up and running quickly, simply put this into the `<head>` section of the page 
+you would like to display mathematics:
+
+```html
+<head>
+...
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+...
+</head>
+```
+
+
+If you are using jekyll, in _config.yml set
+
+```yaml
+markdown: kramdown
+```
+
+If it is set to discount for example, 
+the markdown parser will automatically replace `x^2` with `x<sup>2</sup>` which interrupts the MathJax rendering.
+
+
+## Usage
+
+Using it is pretty easy:
+
+```
+Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
+\\[ \frac{1}{n^{2}} \\]
+```
+
+
+Here is an example MathJax inline rendering \\( 1/x^2 \\)
+, and here is a block rendering:
+\\[ \frac{1}{n^{2}} \\]
+
+The only thing to look out for is the escaping of the backslash when using markdown,
+so the delimiters become `\\[ ... \\]` and `\\( ... \\)` for inline and block maths respectively. 
+' | markdownify %}
+{% assign source='
+[Using MathJax on Github:Pages](http://www.christopherpoole.net/using-mathjax-on-githubpages.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 ということで、
 

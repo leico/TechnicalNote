@@ -2,7 +2,7 @@
 layout : post
 title  : rbenvをアプリケーションフォルダにインストールする
 date   : 2017/01/16
-lastchange : 2017-03-01 16:49:00.
+lastchange : 2017-06-16 23:07:20.
 tags   :
   - jekyll
   - ruby
@@ -27,14 +27,24 @@ Rubyのバージョン管理なので当然といえば当然なのだが、プ�
 のように、[HomeBrew](http://brew.sh/index_ja.html)で自家醸造するのが一般的らしい。
 しかし、HomeBrewは
 
-> Homebrew は /usr/local にインストールすることを推奨しています。
->
-> しかし、/usr/local はそもそもホスト管理者に与えられた場所で、
-> 自前でビルドしたものやローカルで用意したツールなどを置く場所です。パッケージマネージャに入ってきてほしい場所ではありません。
->
-> /usr/local を本来の意味で使いたいため、Homebrew は /opt にインストールすることにしました。
-> 
-> [Homebrew のインストール先を変更する](http://qiita.com/usamik26/items/601f5612bd3f8a21cc41)
+
+{% capture text %}
+Homebrew は /usr/local にインストールすることを推奨しています。
+
+しかし、/usr/local はそもそもホスト管理者に与えられた場所で、
+自前でビルドしたものやローカルで用意したツールなどを置く場所です。パッケージマネージャに入ってきてほしい場所ではありません。
+
+/usr/local を本来の意味で使いたいため、Homebrew は /opt にインストールすることにしました。
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Homebrew のインストール先を変更する](http://qiita.com/usamik26/items/601f5612bd3f8a21cc41)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 というように`/usr/local`を利用するのでよろしくない。
 そしてmacOSを使っているのに`/opt/homebrew`にインストールするというのもなんだか・・・という感じ。

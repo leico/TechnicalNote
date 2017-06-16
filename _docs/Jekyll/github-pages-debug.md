@@ -2,7 +2,7 @@
 layout : post
 title  : Github Pagesのデバッグ環境を整える
 date   : 2017/01/16
-lastchange : 2017-06-07 20:17:55.
+lastchange : 2017-06-15 21:41:05.
 tags   :
   - jekyll
   - ruby
@@ -289,92 +289,114 @@ https://github.com/jekyll/minima#customization
 
 ### jekyllでビルド&デバッグ
 
->
-> _Note: You are not required to install Jekyll separately.
-> Once the `github-pages` gem is installed, you can build your site using `jekyll build`,
-> or preview your site using `jekyll serve`. 
-> For more information about installing Jekyll locally, please see
-> [the GitHub Help docs on the matter](https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/)._
->
-> [Github - github/pages-gem](https://github.com/github/pages-gem)
+{% assign text='
+
+_Note: You are not required to install Jekyll separately.
+Once the `github-pages` gem is installed, you can build your site using `jekyll build`,
+or preview your site using `jekyll serve`. 
+For more information about installing Jekyll locally, please see
+[the GitHub Help docs on the matter](https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/)._
+
+' | markdownify %}
+{% assign source='
+[Github - github/pages-gem](https://github.com/github/pages-gem)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 ということなので、`github-pages`のデバッグには特別なコマンドがあるわけではなく、Jekyllを走らせるようだ。　
 
 github-pages gemを利用する場合、jekyllとgithub-pages gemが同じプロジェクトディレクトリに同居することになる。
 jekyllを実行する/できるディレクトリ=プロジェクトディレクトリになるので、`jekyll new`をカレントディレクトリで実行しなければならない。
 
-> ### 解決方法
-> 
-> Github Pages 側の公式ドキュメントに導入方法があったので読んでみる。（最初から読んでおけという話）
-> [Setting up your GitHub Pages site locally with Jekyll - User Documentation](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
-> 
-> ```sh
-> bundle exec jekyll new . --force
-> New jekyll site installed in /Users/octocat/my-site.
-> ```
-> 
-> force オプションが必要だったらしい。
-> すでに存在するディレクトリに jekyll の初期設定を展開する時には必須なのだそうだ。
-> 
-> >
-> > If the existing directory isn’t empty, you’ll also have to pass the --force option like so jekyll new . --force.
-> >
+{% assign text='
+### 解決方法
+
+Github Pages 側の公式ドキュメントに導入方法があったので読んでみる。（最初から読んでおけという話）
+[Setting up your GitHub Pages site locally with Jekyll - User Documentation](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
+
+```sh
+bundle exec jekyll new . --force
+New jekyll site installed in /Users/octocat/my-site.
+```
+
+force オプションが必要だったらしい。
+すでに存在するディレクトリに jekyll の初期設定を展開する時には必須なのだそうだ。
+
 >
-> ---
-> 
-> * [Github Pages + Jekyll でハマったこと](http://zdogma.hatenablog.com/entry/2016/08/07/220511)
+> If the existing directory isn’t empty, you’ll also have to pass the --force option like so jekyll new . --force.
+>
+' | markdownify %}
+{% assign source='
+[Github Pages + Jekyll でハマったこと](http://zdogma.hatenablog.com/entry/2016/08/07/220511)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
 ということなので、以下を実行する。
 
 ```sh
 $ bundle exec jekyll new -f .
 ```
-> > ## 問題2: Invalid date でフォーマットエラー
-> > 
-> > ### 概要
-> > 
-> > またもビルドで落ちる。
-> > 
-> > ```sh
-> > $ bundle exec jekyll serve
-> > Configuration file: /Users/tomohiro.zoda/git/github.com/zdogma/zdogma.github.io/_config.yml
-> >             Source: /Users/tomohiro.zoda/git/github.com/zdogma/zdogma.github.io
-> >        Destination: /Users/tomohiro.zoda/git/github.com/zdogma/zdogma.github.io/_site
-> >  Incremental build: disabled. Enable with --incremental
-> >       Generating...
-> >              ERROR: YOUR SITE COULD NOT BE BUILT:
-> >                     ------------------------------------
-> >                     Invalid date '<%= Time.now.strftime('%Y-%m-%d %H:%M:%S %z') %>': Document 'vendor/bundle/ruby/2.3.0/gems/jekyll-3.1.6/lib/site_template/_posts/0000-00-00-welcome-to-jekyll.markdown.erb' does not have a valid date in the YAML front matter.
-> > ```
-> > 
-> > なにか余計なものを見に行って落ちているようで、これはすぐに解決策が浮かんだ。
-> > 
-> > ### 解決方法
-> > 
-> > `_config.yml` に下記を追記する。
-> > 
-> > ```sh
-> > exclude: [vendor]
-> > ```
-> > 
-> > vendor/bundle 以下に gem を入れている場合、ビルド時にそこを読まないように除外してやる必要がある。
-> > 除外含めた _config.yml の書き方は下記に詳しい。
-> > 
-> > [Github Pages + Jekyll でハマったこと](http://zdogma.hatenablog.com/entry/2016/08/07/220511)
-> 
-> ディレクトリ内にgemが入っているディレクトリがあるとビルドがこけるので、
-> `_config.yml`に除外設定をしてあげる必要があるが、書き方が変わっていた。
-> 
-> ```sh
-> exclude:
->   - Gemfile
->   - Gemfile.lock
->   - vendor
-> ```
->
-> ---
-> 
-> * [jekyllの利用方法]({{site.github.url}}{% link _docs/Jekyll/jekyll-usage.md %})
+
+{% capture text %}
+{% capture text2 %}
+## 問題2: Invalid date でフォーマットエラー
+
+### 概要
+
+またもビルドで落ちる。
+
+```sh
+$ bundle exec jekyll serve
+Configuration file: /Users/tomohiro.zoda/git/github.com/zdogma/zdogma.github.io/_config.yml
+            Source: /Users/tomohiro.zoda/git/github.com/zdogma/zdogma.github.io
+       Destination: /Users/tomohiro.zoda/git/github.com/zdogma/zdogma.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+             ERROR: YOUR SITE COULD NOT BE BUILT:
+                    ------------------------------------
+                    Invalid date '<%= Time.now.strftime('%Y-%m-%d %H:%M:%S %z') %>': Document 'vendor/bundle/ruby/2.3.0/gems/jekyll-3.1.6/lib/site_template/_posts/0000-00-00-welcome-to-jekyll.markdown.erb' does not have a valid date in the YAML front matter.
+```
+
+なにか余計なものを見に行って落ちているようで、これはすぐに解決策が浮かんだ。
+
+### 解決方法
+
+`_config.yml` に下記を追記する。
+
+```sh
+exclude: [vendor]
+```
+
+vendor/bundle 以下に gem を入れている場合、ビルド時にそこを読まないように除外してやる必要がある。
+除外含めた _config.yml の書き方は下記に詳しい。
+{% endcapture %}
+{% assign text2=text2 | markdownify %}
+{% assign source='
+[Github Pages + Jekyll でハマったこと](http://zdogma.hatenablog.com/entry/2016/08/07/220511)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text2 source=source %}
+
+
+ディレクトリ内にgemが入っているディレクトリがあるとビルドがこけるので、
+`_config.yml`に除外設定をしてあげる必要があるが、書き方が変わっていた。
+
+```sh
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[jekyllの利用方法]({{site.github.url}}{% link _docs/Jekyll/jekyll-usage.md %})
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 `_config.yml`に以下を追加する。
 

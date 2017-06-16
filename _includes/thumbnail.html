@@ -1,3 +1,22 @@
+{% comment %}
+{% raw %}
+
+{% include thumbnail.html url caption %}
+
+url     : image URL
+caption : image caption, comments
+
+example below
+
+{% capture url %}{{ site.github.url }}{% link path/to/image %}{% endcapture %}
+{% assign caption = 'caption here' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+
+{% endraw %}
+{% endcomment %}
+
+
 <div class="row">
   <div class="col-md-offset-1 col-md-10">
     <div class="card">

@@ -2,7 +2,7 @@
 layout : post
 title  : Github Pagesにsubmoduleとしてbootstrapを入れる
 date : 2017/06/09
-lastchange : 2017-06-10 02:52:06.
+lastchange : 2017-06-15 22:51:54.
 tags   :
   - jekyll
   - github
@@ -34,22 +34,27 @@ tags   :
 
 ## Jekyllの仕様
 
-> If you are using Sass `@import` statements, 
-> you’ll need to ensure that your `sass_dir` is set to the base directory 
-> that contains your Sass files. You can do that thusly:
->
-> ---
->
-> ##### The `sass_dir` is only used by Sass
-> 
-> Note that the `sass_dir` becomes the load path for Sass imports, nothing more.
-> This means that Jekyll does not know about these files directly,
-> so any files here should not contain the YAML Front Matter as described above
-> nor will they be transformed as described above. This folder should only contain imports.
-> 
-> ---
-> 
-> * [Assets \| Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/assets/)
+{% assign text='
+If you are using Sass `@import` statements, 
+you’ll need to ensure that your `sass_dir` is set to the base directory 
+that contains your Sass files. You can do that thusly:
+
+---
+
+##### The `sass_dir` is only used by Sass
+
+Note that the `sass_dir` becomes the load path for Sass imports, nothing more.
+This means that Jekyll does not know about these files directly,
+so any files here should not contain the YAML Front Matter as described above
+nor will they be transformed as described above. This folder should only contain imports.
+' | markdownify %}
+{% assign source='
+[Assets \| Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/assets/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+ 
 
 **\_sass** ディレクトリには scss/sass ファイルしか置くことができない。
 さらに他の scss/sass ファイルから `@import` するファイルはすべて **\_sass** に入れておけと書いてある。
@@ -63,51 +68,66 @@ bootstrap は javascript と css(scss) で構成されている。
 
 ## `load_paths` で複数の **\_sass** ディレクトリを指定できる
 
-> ##### [parkr](https://github.com/parkr) commented on 27 Jan 2015
-> 
-> Specify them under the load_paths key.
-> [It's already implemented when not in safe mode](https://github.com/jekyll/jekyll-sass-converter/blob/master/lib/jekyll/converters/scss.rb#L74-L80).
->
-> ---
-> 
-> ##### [wjdp](https://github.com/wjdp) commented on 27 Jan 2015
-> 
-> Thanks! For anyone stumbling on this later:
->
-> ```yaml
-> sass:
->     load_paths:
->         - _sass
->         - bower_components
-> ```
-> 
-> ---
-> 
-> * [Accept multiple Sass load paths · Issue #3366 · jekyll/jekyll](https://github.com/jekyll/jekyll/issues/3366)
+
+{% capture text %}
+##### [parkr](https://github.com/parkr) commented on 27 Jan 2015
+
+Specify them under the load_paths key.
+[It's already implemented when not in safe mode](https://github.com/jekyll/jekyll-sass-converter/blob/master/lib/jekyll/converters/scss.rb#L74-L80).
+
+---
+
+##### [wjdp](https://github.com/wjdp) commented on 27 Jan 2015
+
+Thanks! For anyone stumbling on this later:
+
+```yaml
+sass:
+    load_paths:
+        - _sass
+        - bower_components
+```
+{% endcapture %}
+
+{% assign text=text | markdownify %}
+{% assign source='
+[Accept multiple Sass load paths · Issue #3366 · jekyll/jekyll](https://github.com/jekyll/jekyll/issues/3366)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 **\_config.yml** に `sass: load_paths:` で sass の `@import` 先を複数記述できる。
 ただし、セーフモードでは動作しない。
 
 github のビルドオプションを見てみると
 
-> #### Configuration settings you cannot change
-> 
-> GitHub Pages & Jekyll override the following settings in your *\_config.yml* file, which you cannot change:
-> 
-> ```yaml
-> lsi: false
-> safe: true
-> source: [your repo's top level directory]
-> incremental: false
-> highlighter: rouge
-> gist:
->   noscript: false
-> kramdown:
->   math_engine: mathjax
-> ```
->
-> ---
-> * [Configuring Jekyll - User Documentation](https://help.github.com/articles/configuring-jekyll/#configuration-settings-you-cannot-change)
+
+{% capture text %}
+#### Configuration settings you cannot change
+
+GitHub Pages & Jekyll override the following settings in your *\_config.yml* file, which you cannot change:
+
+```yaml
+lsi: false
+safe: true
+source: [your repo's top level directory]
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Configuring Jekyll - User Documentation](https://help.github.com/articles/configuring-jekyll/#configuration-settings-you-cannot-change)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 `safe: true` なのでセーフモードでビルドする。この方法も使えない。
 
@@ -118,21 +138,27 @@ github のビルドオプションを見てみると
 ## シンボリックリンクが利用できる
 
 
-> # GitHub Pages symlink test
-> 
-> Symbolic links work with [GitHub Pages](http://pages.github.com/)!
-> 
-> ## Test
-> 
-> 1. Symlink to a file: [this](http://s4y.github.io/gh-pages-symlink-test/link.txt) should show the same content as [this](http://s4y.github.io/gh-pages-symlink-test/target.txt).
-> 2. Symlink to a directory: [this](http://s4y.github.io/gh-pages-symlink-test/link/) should show the same content as [this](http://s4y.github.io/gh-pages-symlink-test/target/).
-> 
-> [Questions?](https://github.com/s4y/gh-pages-symlink-test/issues)
-> 
-> ---
-> 
-> * [s4y/gh-pages-symlink-test](https://github.com/s4y/gh-pages-symlink-test)
-> * [GitHub Pages symlink test](https://s4y.github.io/gh-pages-symlink-test/)
+{% assign text='
+# GitHub Pages symlink test
+
+Symbolic links work with [GitHub Pages](http://pages.github.com/)!
+
+## Test
+
+1. Symlink to a file: [this](http://s4y.github.io/gh-pages-symlink-test/link.txt) should show the same content as [this](http://s4y.github.io/gh-pages-symlink-test/target.txt).
+2. Symlink to a directory: [this](http://s4y.github.io/gh-pages-symlink-test/link/) should show the same content as [this](http://s4y.github.io/gh-pages-symlink-test/target/).
+
+[Questions?](https://github.com/s4y/gh-pages-symlink-test/issues)
+' | markdownify %}
+{% assign source='
+[s4y/gh-pages-symlink-test](https://github.com/s4y/gh-pages-symlink-test),
+[GitHub Pages symlink test](https://s4y.github.io/gh-pages-symlink-test/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 @s4y が検証しているように、github pagesの要素の中にシンボリックリンクがあった場合も正常に動作するらしい。
 
@@ -149,19 +175,25 @@ submodule を入れるディレクトリを作って、シンボリックリン�
 
 まずは submodule を削除する。
 
-> v1.8.3から `git submodule deinit` が追加され、わずらわしかったサブモジュールの削除がほんの少しだけ楽になりました。
-> 
-> ```sh
-> $ git submodule deinit path/to/submodule
-> $ git rm path/to/submodule
-> $ git config -f .gitmodules --remove-section submodule.path/to/submodule
-> ```
-> 
-> ちなみにv1.8.5からは最後の行もいらなくなるそうです。
-> 
-> ---
-> 
-> * [git submoduleを今風な感じで削除する - Qiita](http://qiita.com/u1aryz/items/8d1923da79158439eeaa)
+{% assign text='
+v1.8.3から `git submodule deinit` が追加され、わずらわしかったサブモジュールの削除がほんの少しだけ楽になりました。
+
+```sh
+$ git submodule deinit path/to/submodule
+$ git rm path/to/submodule
+$ git config -f .gitmodules --remove-section submodule.path/to/submodule
+```
+
+ちなみにv1.8.5からは最後の行もいらなくなるそうです。
+' | markdownify %}
+{% assign source='
+[git submoduleを今風な感じで削除する - Qiita](http://qiita.com/u1aryz/items/8d1923da79158439eeaa)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 ```sh
 git submodule deinit js/Mathjax
@@ -178,14 +210,17 @@ git submodule add https://github.com/mathjax/MathJax Submodules/MathJax
 
 MathJaxリポジトリに移動、参照するバージョンを確認する。
 
+{% assign text='
+## tagの一覧を表示する
 
-> ## tagの一覧を表示する
-> 
->     git tag      // アルファベット順に表示される
-> 
-> ---
-> 
-> * [【Git】tag関連コマンド - Qiita](http://qiita.com/chihiro/items/cba40015b1aa2c73b78a)
+    git tag      // アルファベット順に表示される
+' | markdownify %}
+{% assign source='
+[【Git】tag関連コマンド - Qiita](http://qiita.com/chihiro/items/cba40015b1aa2c73b78a)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 ```sh
 cd Submodules/Mathjax
@@ -200,23 +235,27 @@ git tag
 
 MathJaxのバージョンを **2.7.1** にして保存
 
-> ```sh
-> cd submodule_directory
-> git checkout v1.0
-> cd ..
-> git add submodule_directory
-> git commit -m "moved submodule to v1.0"
-> git push
-> ```
-> 
-> でうまくいった。
-> stackoverflow++
-> 
-> [http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag](http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag)
-> 
-> ---
-> 
-> * [git submodule でブランチ/タグをチェックアウトする - Qiita](http://qiita.com/kysnm/items/c083674deac0c4a34756)
+{% assign text='
+```sh
+cd submodule_directory
+git checkout v1.0
+cd ..
+git add submodule_directory
+git commit -m "moved submodule to v1.0"
+git push
+```
+
+でうまくいった。
+stackoverflow++
+
+[http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag](http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag)
+' | markdownify %}
+{% assign source='
+[git submodule でブランチ/タグをチェックアウトする - Qiita](http://qiita.com/kysnm/items/c083674deac0c4a34756)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 ```sh
 git checkout 2.7.1
@@ -312,32 +351,38 @@ rm -r font/bootstrap
 
 **Submodules/Bootstrap** へシンボリックリンクを行う
 
-> ## Bootstrap source code
-> 
-> The Bootstrap source code download includes the precompiled CSS, JavaScript, and font assets, 
-> along with source Less, JavaScript, and documentation. More specifically, it includes the following and more:
-> 
-> ```sh
-> bootstrap/
-> ├── less/
-> ├── js/
-> ├── fonts/
-> ├── dist/
-> │   ├── css/
-> │   ├── js/
-> │   └── fonts/
-> └── docs/
->     └── examples/
-> ```
-> 
-> The `less/`, `js/`, and `fonts/` are the source code for our CSS, JS, and icon fonts (respectively). 
-> The `dist/` folder includes everything listed in the precompiled download section above. 
-> The `docs/` folder includes the source code for our documentation, and `examples/` of Bootstrap usage. 
-> Beyond that, any other included file provides support for packages, license information, and development.
-> 
-> ---
-> 
-> * [ Getting started · Bootstrap ](https://getbootstrap.com/getting-started/#whats-included-source)
+{% assign text='
+## Bootstrap source code
+
+The Bootstrap source code download includes the precompiled CSS, JavaScript, and font assets, 
+along with source Less, JavaScript, and documentation. More specifically, it includes the following and more:
+
+```sh
+bootstrap/
+├── less/
+├── js/
+├── fonts/
+├── dist/
+│   ├── css/
+│   ├── js/
+│   └── fonts/
+└── docs/
+    └── examples/
+```
+
+The `less/`, `js/`, and `fonts/` are the source code for our CSS, JS, and icon fonts (respectively). 
+The `dist/` folder includes everything listed in the precompiled download section above. 
+The `docs/` folder includes the source code for our documentation, and `examples/` of Bootstrap usage. 
+Beyond that, any other included file provides support for packages, license information, and development.
+' | markdownify %}
+{% assign source='
+[ Getting started · Bootstrap ](https://getbootstrap.com/getting-started/#whats-included-source)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 **Bootstrap/dist** の中はコンパイル済みの css/js が入っている。
 **Bootstrap/scss** に css になる前の scss ソースコードが入っている。

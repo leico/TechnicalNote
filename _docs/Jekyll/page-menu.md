@@ -2,7 +2,7 @@
 layout : post
 title  : ページメニューの作り方
 date   : 2017/03/04
-lastchange : 2017-03-05 03:19:31.
+lastchange : 2017-06-16 22:55:31.
 tags   :
   - jekyll
   - liquid
@@ -33,16 +33,22 @@ tags   :
 
 ### 前知識 **\_data** ディレクトリ
 
-> ## The Data Folder
-> 
-> As explained on the [directory structure](https://jekyllrb.com/docs/structure/) page, 
-> the `_data` folder is where you can store additional data for Jekyll to use when generating your site.
-> These files must be YAML, JSON, or CSV files (using either the `.yml`, `.yaml`, `.json` or `.csv` extension),
-> and they will be accessible via `site.data`.
-> 
-> ---
-> 
-> * [Data Files - Jekyll](https://jekyllrb.com/docs/datafiles/)
+
+{% assign text='
+## The Data Folder
+
+As explained on the [directory structure](https://jekyllrb.com/docs/structure/) page, 
+the `_data` folder is where you can store additional data for Jekyll to use when generating your site.
+These files must be YAML, JSON, or CSV files (using either the `.yml`, `.yaml`, `.json` or `.csv` extension),
+and they will be accessible via `site.data`.
+' | markdownify %}
+{% assign source='
+[Data Files - Jekyll](https://jekyllrb.com/docs/datafiles/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 まず **\_data** ディレクトリについて知らないといけないようだ。
 
@@ -60,25 +66,30 @@ tags   :
 
 ### Jekyllのソースを覗く: **\_data/docs.yml**
 
-> ```yaml
-> - title: Getting Started
->   docs:
->   - home
->   - quickstart
->   - installation
->   - usage
->   - structure
->   - configuration
-> 
-> - title: Your Content
->   docs:
-> - frontmatter
-> …
-> ```
-> 
-> ---
-> 
-> * [jekyll/docs.yml at jekyll/jekyll](https://github.com/jekyll/jekyll/blob/master/docs/_data/docs.yml)
+
+{% assign text='
+```yaml
+- title: Getting Started
+  docs:
+  - home
+  - quickstart
+  - installation
+  - usage
+  - structure
+  - configuration
+
+- title: Your Content
+  docs:
+- frontmatter
+…
+```
+' | markdownify %}
+{% assign source='
+[jekyll/docs.yml at jekyll/jekyll](https://github.com/jekyll/jekyll/blob/master/docs/_data/docs.yml)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 
 {% assign variable_path = "Jekyll/site-variables.md" %}
@@ -92,25 +103,34 @@ tags   :
 
 ### Jekyllのソースを覗く: **\_includes/docs\_contents.html**
 
+
+{% capture text %}
+
 {% raw %}
-> ```liquid
-> <div class="unit one-fifth hide-on-mobiles">
->   <aside>
->     {% for section in site.data.docs %}
->     <h4>{{ section.title }}</h4>
->     {% include docs_ul.html items=section.docs %}
->     {% endfor %}
->   </aside>
-> </div>
-> ```
-> 
-> ---
-> 
-> * [jekyll/docs\_contents.html at jekyll/jekyll](https://github.com/jekyll/jekyll/blob/master/docs/_includes/docs_contents.html)
+```liquid
+<div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    {% for section in site.data.docs %}
+    <h4>{{ section.title }}</h4>
+    {% include docs_ul.html items=section.docs %}
+    {% endfor %}
+  </aside>
+</div>
+```
+{% endraw %}
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[jekyll/docs\_contents.html at jekyll/jekyll](https://github.com/jekyll/jekyll/blob/master/docs/_includes/docs_contents.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 **docs.yml** を走査している`for`があって、まず`title`のデータを用いてヘッダを作っているのが分かる。
 その後
 
+{% raw %}
 ```liquid
 {% include docs_ul.html items=section.docs %}
 ```
@@ -120,44 +140,62 @@ tags   :
 
 ### `include`で引数を渡す
 
+
+{% capture text %}
+
 {% raw %}
-> ### Passing in parameters
-> 
-> If you need to pass in parameters you can do that too.
-> The fragment below shows how you might pass in a string `"a value"` and a variable `variable_name`.
-> 
-> ```liquid
-> {% include your_function.html some_parameter="a value" another_parameter=variable_name %}
-> ```
-> 
-> Within the file you can access those parameters using `{{ include.some_parameter }}` and `{{ include.another_parameter }}` respectively.
-> 
-> ---
-> 
-> * [Using Jekyll \_includes as custom liquid functions](http://hamishwillee.github.io/2014/11/13/jekyll-includes-are-functions/)
+### Passing in parameters
+
+If you need to pass in parameters you can do that too.
+The fragment below shows how you might pass in a string `"a value"` and a variable `variable_name`.
+
+```liquid
+{% include your_function.html some_parameter="a value" another_parameter=variable_name %}
+```
+
+Within the file you can access those parameters using `{{ include.some_parameter }}` and `{{ include.another_parameter }}` respectively.
+{% endraw %}
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Using Jekyll \_includes as custom liquid functions](http://hamishwillee.github.io/2014/11/13/jekyll-includes-are-functions/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 **\_includes** ディレクトリ下のファイルをインクルードする際、引数名と値をセットすることで引数を渡すことができる。
 渡された引数には`include.value`といった形式でアクセスできるとのこと。
 
-{% endraw %}
-
 ### Jekyllのソースを覗く: **\_includes/docs_ul.html**
 
-{% raw %}
-> ```liquid
-> <ul>
-> {% for item in include.items %}
->   {% assign item_url = item | prepend:"/docs/" | append:"/" %}
->   {% assign p = site.docs | where:"url", item_url | first %}
->   <li class="{% if item_url == page.url %}current{% endif %}"><a href="{{ p.url }}">{{ p.title }}</a></li>
-> {% endfor %}
-> </ul>
-> ```
-> 
-> ---
-> 
-> * [jekyll/docs\_ul.html at jekyll/jekyll](https://github.com/jekyll/jekyll/blob/master/docs/_includes/docs_ul.html)
+{% capture text %}
 
+{% raw %}
+```liquid
+<ul>
+{% for item in include.items %}
+  {% assign item_url = item | prepend:"/docs/" | append:"/" %}
+  {% assign p = site.docs | where:"url", item_url | first %}
+  <li class="{% if item_url == page.url %}current{% endif %}"><a href="{{ p.url }}">{{ p.title }}</a></li>
+{% endfor %}
+</ul>
+```
+{% endraw %}
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[jekyll/docs\_ul.html at jekyll/jekyll](https://github.com/jekyll/jekyll/blob/master/docs/_includes/docs_ul.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
+{% raw %}
 ```liquid
 {% assign item_url = item | prepend:"/docs/" | append:"/" %}
 ```
@@ -172,61 +210,71 @@ tags   :
 
 {% endraw %}
 
-> ## Collections
-> 
-> Not everything is a post or a page. Maybe you want to document the various methods in your open source project,
-> members of a team, or talks at a conference. Collections allow you to define a new type of document
-> that behave like Pages or Posts do normally, but also have their own unique properties and namespace.
-> 
-> ---
-> 
-> 
-> Add the following to your site’s `_config.yml` file, replacing `my_collection` with the name of your collection:
-> 
-> ```yaml
-> collections:
-> - my_collection
-> ```
-> 
-> ---
-> 
-> ### Step 2: Add your content
-> 
-> Create a corresponding folder (e.g. `<source>/_my_collection`) and add documents. 
-> YAML front matter is processed if the front matter exists, 
-> and everything after the front matter is pushed into the document’s `content` attribute. 
-> If no YAML front matter is provided, Jekyll will not generate the file in your collection.
-> 
-> ---
-> 
-> ### Step 3: Optionally render your collection’s documents into independent files
-> 
-> If you’d like Jekyll to create a public-facing, 
-> rendered version of each document in your collection,
-> set the `output` key to `true` in your collection metadata in your `_config.yml`:
-> 
-> ```yaml
-> collections:
->   my_collection:
->     output: true
-> ```
-> 
-> This will produce a file for each document in the collection. For example,
-> if you have `_my_collection/some_subdir/some_doc.md`,
-> it will be rendered using Liquid and the Markdown converter of your choice
-> and written out to `<dest>/my_collection/some_subdir/some_doc.html`
-> 
-> ---
-> 
-> ### Collections
-> 
-> Each collection is accessible as a field on the `site` variable.
-> For example, if you want to access the `albums` collection found in `_albums`,
-> you’d use `site.albums`.
-> 
-> ---
-> 
-> * [Collections - Jekyll](https://jekyllrb.com/docs/collections/)
+
+{% capture text %}
+
+## Collections
+
+Not everything is a post or a page. Maybe you want to document the various methods in your open source project,
+members of a team, or talks at a conference. Collections allow you to define a new type of document
+that behave like Pages or Posts do normally, but also have their own unique properties and namespace.
+
+---
+
+
+Add the following to your site's `_config.yml` file, replacing `my_collection` with the name of your collection:
+
+```yaml
+collections:
+- my_collection
+```
+
+---
+
+### Step 2: Add your content
+
+Create a corresponding folder (e.g. `<source>/_my_collection`) and add documents. 
+YAML front matter is processed if the front matter exists, 
+and everything after the front matter is pushed into the document's `content` attribute. 
+If no YAML front matter is provided, Jekyll will not generate the file in your collection.
+
+---
+
+### Step 3: Optionally render your collection’s documents into independent files
+
+If you'd like Jekyll to create a public-facing, 
+rendered version of each document in your collection,
+set the `output` key to `true` in your collection metadata in your `_config.yml`:
+
+```yaml
+collections:
+  my_collection:
+    output: true
+```
+
+This will produce a file for each document in the collection. For example,
+if you have `_my_collection/some_subdir/some_doc.md`,
+it will be rendered using Liquid and the Markdown converter of your choice
+and written out to `<dest>/my_collection/some_subdir/some_doc.html`
+
+---
+
+### Collections
+
+Each collection is accessible as a field on the `site` variable.
+For example, if you want to access the `albums` collection found in `_albums`,
+you'd use `site.albums`.
+
+
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Collections - Jekyll](https://jekyllrb.com/docs/collections/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 これを使っているのか。Collectionは関連するデータをまとめて入れておく場所という認識でよいかな。
 
@@ -273,16 +321,31 @@ collectionname/test.html
 ```liquid
 {% assign p = site.docs | where:"url", item_url | first %}
 ```
+{% endraw %}
 
 `docs` Collectionから`where`でフィルタリングしている。
 
-> Where
-> : Select all the objects in an array where the key has the given value.
-> : `{{ site.members | where:"graduation_year","2014" }}`
-> 
-> ---
-> 
-> * [Templates - Jekyll](https://jekyllrb.com/docs/templates/)
+
+
+
+{% capture text %}
+
+{% raw %}
+Where
+: Select all the objects in an array where the key has the given value.
+: `{{ site.members | where:"graduation_year","2014" }}`
+{% endraw %}
+
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Templates - Jekyll](https://jekyllrb.com/docs/templates/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 引用した例では`site.members`配列の内、`graduation_year`の要素が`2014`のもののみを抽出しているということになる。
 
@@ -293,7 +356,6 @@ collectionname/test.html
 つまり、urlを検索キーに使ってページオブジェクトを取得しているようだ。
 それ以下のコードは取得したオブジェクトからタイトルとかを取り出している。
 
-{% endraw %}
 
 ## Collectionを使うための準備
 
@@ -394,18 +456,22 @@ Jekyll系の記事のメニューを作ってみる。
 
 ## ページ一覧から`path`を生成する。
 
-{% raw %}
+{% capture text %}
 
-> Combining multiple strings into one variable:
-> 
-> ```liquid
-> {% capture full-name %}{{ name }} {{ surname }}{% endcapture %}
-> ```
-> 
-> ---
-> 
-> * [Jekyll & Liquid Cheat Sheet](https://gist.github.com/smutnyleszek/9803727)
+{% raw %}
+Combining multiple strings into one variable:
+
+```liquid
+{% capture full-name %}{{ name }} {{ surname }}{% endcapture %}
+```
 {% endraw %}
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Jekyll & Liquid Cheat Sheet](https://gist.github.com/smutnyleszek/9803727)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
 これを使うとパスを作るのが簡単そうだった。
 

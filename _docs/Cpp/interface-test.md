@@ -2,7 +2,7 @@
 layout : post
 title  : インターフェイスの実験
 date   : 2016/09/13
-lastchange : 2017-03-05 23:38:24.
+lastchange : 2017-06-15 16:55:19.
 tags   :
   - C++
   - interface
@@ -10,6 +10,7 @@ tags   :
   - virtual
 ---
 ## main.cpp 
+
 ```Cpp
 #include <iostream>
 

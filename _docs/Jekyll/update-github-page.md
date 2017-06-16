@@ -2,7 +2,7 @@
 layout : post
 title  : github-pages環境のアップデート
 date   : 2017/06/01
-lastchange : 2017-06-07 21:50:37.
+lastchange : 2017-06-16 23:15:51.
 tags   :
   - jekyll
   - ruby
@@ -34,20 +34,29 @@ Gemのアップデートのみの場合は下の方まで飛ばして大丈夫�
 
 ### ローカルにインストールしているgemのアンインストール
 
-> ### 9. bundle clean で古い gem を削除する
-> 
-> bundle update や Gemfile の変更などで使われなくなった gem は bundle clean で削除出来ます。
->
-> さきほどの json の例の後だと次のようになります。
-> 
-> ```sh
-> % bundle clean
-> Removing json (1.5.5)
-> ```
-> 
-> ---
-> 
-> * [ツールを使いたいだけの人のための bundler 入門 (例: vagrant + veewee) - Qiita](http://qiita.com/znz/items/5471e5826fde29fa9a80)
+
+
+{% capture text %}
+### 9. bundle clean で古い gem を削除する
+
+bundle update や Gemfile の変更などで使われなくなった gem は bundle clean で削除出来ます。
+
+さきほどの json の例の後だと次のようになります。
+
+```sh
+% bundle clean
+Removing json (1.5.5)
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[ツールを使いたいだけの人のための bundler 入門 (例: vagrant + veewee) - Qiita](http://qiita.com/znz/items/5471e5826fde29fa9a80)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 
 `bundle clean`を使えば手軽に削除できそう。
@@ -153,14 +162,23 @@ rm -rf vendor/bundle/ruby/2.3.0
 ### 不要になったRubyのアンインストール
 
 
-> ### 不要になったバージョンのRuby環境を削除する
-> 
-> $ rbenv uninstall -f 2.0.0-p195
-> $ rbenv rehash
-> 
-> ---
-> 
-> * [rbenvでrubyのバージョン管理をする - Qiita](http://qiita.com/MasahiroSakoda/items/b66f92df80b375f7c786)
+{% capture text %}
+### 不要になったバージョンのRuby環境を削除する
+
+```sh
+$ rbenv uninstall -f 2.0.0-p195
+$ rbenv rehash
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[rbenvでrubyのバージョン管理をする - Qiita](http://qiita.com/MasahiroSakoda/items/b66f92df80b375f7c786)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 今回は2.3.3をアンインストールするので
 
