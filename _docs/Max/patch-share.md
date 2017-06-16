@@ -2,7 +2,7 @@
 layout : post
 title  : "Max: パッチを共有する"
 date   : 2017/03/21
-lastchange : 2017-06-07 21:42:20.
+lastchange : 2017-06-17 00:49:18.
 tags   :
   - Max
   - share
@@ -37,51 +37,60 @@ x6DeH6BIO3pmyvSUBjbE3dAx3MZq+Fgwxo+JldpYtnmkyuAkQ8WP1MShMnyW
 
 に載っているので簡単に。
 
-> ##### [c1t1zen](http://archive.monome.org/community/profile/48/c1t1zen.html)
-> 
-> ###### [December 2008](http://archive.monome.org/community/discussion/3054/-begin_max5_patcher-/p1.html)
-> 
-> how do I open the text files that start with
-> 
-> ```
-> ----------begin_max5_patcher----------
-> ```
-> 
-> I need like a dummy proof step by step explanation. 
-> I've read a couple forums that include these but 
-> haven't found a good run through or even what they are named to help me search better.
-> 
-> ---
-> 
-> ##### [soundcystsoundcyst](http://archive.monome.org/community/profile/7/soundcyst.html)
-> 
-> ###### [December 2008](http://archive.monome.org/community/discussion/comment/34008.html#Comment_34008)
-> 
-> this is one of the biggest pains about max 5, particularly the lack of documentation regarding this feature.
-> 
-> anyways, copy the text (ctrl c, apple c, whatever) 
-> starting at the beginning of the `begin_max5_patcher` line,
-> ending at the end of the `end_max5_patcher` line
-> 
-> then open up max 5, and click on the file menu, and select New From Clipboard.
-> 
-> ---
->
-> * [\---\---\---\-begin\_max5\_patcher\---\---\---\- - monome](http://archive.monome.org/community/discussion/3054/-begin_max5_patcher-/p1.html)
 
-> > ## Copying a patcher into an e-mail message in compressed format
-> >
-> > Max offers a compressed text format for copying patcher data to the clipboard. 
-> > This may be useful when posting excerpts of a patcher on a public forum or mailing list.
-> > The text is "unreadable" but will be a small fraction the size of the usual text format.
-> > 
-> > * Select the part of the patch you wish to copy
-> > * Choose Copy Compressed from the Edit menu to copy the selected objects to the clipboard
-> > * Switch to your e-mail client. Paste the contents of the clipboard into a message
+{% capture text %}
+##### [c1t1zen](http://archive.monome.org/community/profile/48/c1t1zen.html)
+
+###### [December 2008](http://archive.monome.org/community/discussion/3054/-begin_max5_patcher-/p1.html)
+
+how do I open the text files that start with
+
+```
+----------begin_max5_patcher----------
+```
+
+I need like a dummy proof step by step explanation. 
+I've read a couple forums that include these but 
+haven't found a good run through or even what they are named to help me search better.
+
+---
+
+##### [soundcystsoundcyst](http://archive.monome.org/community/profile/7/soundcyst.html)
+
+###### [December 2008](http://archive.monome.org/community/discussion/comment/34008.html#Comment_34008)
+
+this is one of the biggest pains about max 5, particularly the lack of documentation regarding this feature.
+
+anyways, copy the text (ctrl c, apple c, whatever) 
+starting at the beginning of the `begin_max5_patcher` line,
+ending at the end of the `end_max5_patcher` line
+
+then open up max 5, and click on the file menu, and select New From Clipboard.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[\---\---\---\-begin\_max5\_patcher\---\---\---\- - monome](http://archive.monome.org/community/discussion/3054/-begin_max5_patcher-/p1.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+{% capture text %}
+> ## Copying a patcher into an e-mail message in compressed format
 >
-> ---
+> Max offers a compressed text format for copying patcher data to the clipboard. 
+> This may be useful when posting excerpts of a patcher on a public forum or mailing list.
+> The text is "unreadable" but will be a small fraction the size of the usual text format.
 > 
-> * [Sharing Patches](https://docs.cycling74.com/max7/vignettes/sharing_patches)
+> * Select the part of the patch you wish to copy
+> * Choose Copy Compressed from the Edit menu to copy the selected objects to the clipboard
+> * Switch to your e-mail client. Paste the contents of the clipboard into a message
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Sharing Patches](https://docs.cycling74.com/max7/vignettes/sharing_patches)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 {% capture url %}{{ site.github.url }}{% link _docs/Max/images/patch-share/01_copy_compressed.png %}{% endcapture %}
 {% assign caption = '
@@ -126,26 +135,33 @@ ufJUd1.
 
 ## 公開されているスケッチを開く
 
-> > ## Opening a patcher from an e-mail message
-> > 
-> > Max can create objects from text on the clipboard in the old Max 4 text format, standard Max format, or the compressed format.
-> > 
-> > * Because there may be a lot of text involved in the patcher data,
-> >   the easiest technique for selecting all of the data is select a line at the beginning of the text,
-> >   then scroll to the end of the message and Shift-click to select the end of the text.
-> > * Once all of the text is selected, choose Copy from the Edit menu in your e-mail client. 
-> >   If you are manually selecting all the data,
-> >   be sure to include the `begin_max5_patcher` and `end_max5_patcher` lines in their entirety.
-> > * Switch to Max.
-> > * If you want to create a new patcher window with the patcher data you've received,
-> >   choose New From Clipboard from the File menu. 
-> >   A new patcher window will appear with the objects from the e-mail message.
-> > * If you want to paste the objects in the e-mail message
-> >   into an existing unlocked patcher, choose Paste from the Edit menu.
+
+{% capture text %}
+> ## Opening a patcher from an e-mail message
 > 
-> ---
+> Max can create objects from text on the clipboard in the old Max 4 text format, standard Max format, or the compressed format.
 > 
-> * [Sharing Patches](https://docs.cycling74.com/max7/vignettes/sharing_patches)
+> * Because there may be a lot of text involved in the patcher data,
+>   the easiest technique for selecting all of the data is select a line at the beginning of the text,
+>   then scroll to the end of the message and Shift-click to select the end of the text.
+> * Once all of the text is selected, choose Copy from the Edit menu in your e-mail client. 
+>   If you are manually selecting all the data,
+>   be sure to include the `begin_max5_patcher` and `end_max5_patcher` lines in their entirety.
+> * Switch to Max.
+> * If you want to create a new patcher window with the patcher data you've received,
+>   choose New From Clipboard from the File menu. 
+>   A new patcher window will appear with the objects from the e-mail message.
+> * If you want to paste the objects in the e-mail message
+>   into an existing unlocked patcher, choose Paste from the Edit menu.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Sharing Patches](https://docs.cycling74.com/max7/vignettes/sharing_patches)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 {% capture url %}{{ site.github.url }}{% link _docs/Max/images/patch-share/02_new_from_clipboard.png %}{% endcapture %}
 {% assign caption = '

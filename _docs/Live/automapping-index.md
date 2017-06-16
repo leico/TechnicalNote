@@ -2,7 +2,7 @@
 layout : post
 title  : Ableton Push2でのM4Lパラメータ表示順序
 date   : 2017/04/19
-lastchange : 2017-06-07 21:48:05.
+lastchange : 2017-06-16 23:25:44.
 tags   :
   - Ableton
   - Live
@@ -27,23 +27,27 @@ tags   :
 で、Ableton Supportに聞いてみた。
 
 {% capture url %}{{ site.github.url }}{% link _docs/Live/images/automapping-index/03_support.png %}{% endcapture %}
-{% assign caption = "
 
-> To change the order of the controls on Push you'd have to define the Automapping Index parameter within the Max Inspector.
->  
-> As soon as you assign a different value than 0 to a parameter you'd enable the functionality for all other parameters as well. 
-> Practically this means 0 becomes not available to Push and 1, 2, 3... defines the order on the Push display.
-> 
-> Please make sure to cycle tracks to make changes visible on Push after changing/saving the Max patch.
->  
-> Let me know if you have further questions and feel free to come back at any time!
->
-> 
-> ---
->
-> Ableton Support
+{% capture caption %}
 
-" | markdownify %}
+{% capture text %}
+To change the order of the controls on Push you'd have to define the Automapping Index parameter within the Max Inspector.
+ 
+As soon as you assign a different value than 0 to a parameter you'd enable the functionality for all other parameters as well. 
+Practically this means 0 becomes not available to Push and 1, 2, 3... defines the order on the Push display.
+
+Please make sure to cycle tracks to make changes visible on Push after changing/saving the Max patch.
+ 
+Let me know if you have further questions and feel free to come back at any time!
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+Ableton Support
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+{% endcapture %}
+{% assign caption=caption | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
 > インスペクタ内のAutomapping Index の値が小さい方から順番に並ぶよー

@@ -2,7 +2,7 @@
 layout : post
 title  : インターフェイスの実験
 date   : 2016/09/13
-lastchange : 2017-06-15 16:55:19.
+lastchange : 2017-06-17 02:20:00.
 tags   :
   - C++
   - interface
@@ -11,7 +11,7 @@ tags   :
 ---
 ## main.cpp 
 
-```Cpp
+```cpp
 #include <iostream>
 
 class Interface{

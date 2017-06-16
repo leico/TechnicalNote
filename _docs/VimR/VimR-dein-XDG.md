@@ -2,7 +2,7 @@
 layout : post
 title  : dein.vimのキャッシュディレクトリの設定
 date   : 2017/01/26
-lastchange : 2017-03-05 17:07:00.
+lastchange : 2017-06-17 01:44:55.
 tags   :
   - vim
   - VimR
@@ -24,16 +24,23 @@ tags   :
 
 のでキャッシュディレクトリを`~/.cache/dein`に移動させる。
 
-> ```
-> g:dein#cache_directory
->     The cache directory to use.
-> 
->     The default is under the base directory you have already specified by |dein#begin()|.
-> ```
-> 
-> ---
-> 
-> * [dein.vim/dein.txt at master - Shougo/dein.vim](https://github.com/Shougo/dein.vim/blob/master/doc/dein.txt)
+
+{% capture text %}
+```
+g:dein#cache_directory
+    The cache directory to use.
+
+    The default is under the base directory you have already specified by |dein#begin()|.
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[dein.vim/dein.txt at master - Shougo/dein.vim](https://github.com/Shougo/dein.vim/blob/master/doc/dein.txt)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 ということなので、`g:dein#cache_directory`を設定すればキャッシュディレクトリが変更される。
 

@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: 前回利用したパラメータが保存され、読み込まれるようにする"
 date   : 2017/04/02
-lastchange : 2017-06-07 21:45:40.
+lastchange : 2017-06-17 00:41:37.
 tags   :
   - Max for Live
   - parameter
@@ -27,36 +27,48 @@ Max for Liveのパラメータが残る方法を調べた。
 
 ## Parameter インスペクタを利用する
 
-> In order to provide interoperability between the Max and Live application,
-> Max for Live introduced some new attributes intended to allow users to include generic Max UI objects
-> (e.g. [rslider](https://docs.cycling74.com/max7/maxobject/rslider),
-> [multislider](https://docs.cycling74.com/max7/maxobject/multislider) ) as part of a Max for Live device. 
-> These parameter attributes are available to all Max users,
-> and provide a simple means for saving the initial state of any Max/Max for Live UI object
-> in a Max patch in addition to [their use with Max for Live](https://docs.cycling74.com/max7/vignettes/live_parameters). 
-> 
-> ---
-> 
-> * [Max 7 - Parameter attributes in Max](https://docs.cycling74.com/max7/vignettes/parameter_enable)
 
-> Parameters are settings of Max for Live devices you want to store and/or automate in Live.
-> In some cases, a parameter may be set once and never change. In other cases,
-> you'll want to use Max objects to interact with parameter values by clicking and moving the mouse,
-> by receiving MIDI data mapped to a parameter, or via Live [automation](https://docs.cycling74.com/max7/vignettes/live_automation).
-> 
-> There are two ways to add parameters to your device:
-> using the Live UI objects or using [pattr](https://docs.cycling74.com/max7/maxobject/pattr) objects with
-> [parameter mode enabled](https://docs.cycling74.com/max7/vignettes/live_pattr#parameter_mode_enable).
-> 
-> The [Parameters Window](https://docs.cycling74.com/max7/vignettes/live_parameterswindow) shows
-> all parameters currently associated with a device,
-> and permits you to change parameter attributes in a single place.
-> You can also change parameter attributes for individual objects by using the Parameter tab of the 
-> [Inspector](https://docs.cycling74.com/max7/vignettes/inspector). 
-> 
-> ---
-> 
-> * [Device Parameters in Max for Live](https://docs.cycling74.com/max7/vignettes/live_parameters)
+{% capture text %}
+In order to provide interoperability between the Max and Live application,
+Max for Live introduced some new attributes intended to allow users to include generic Max UI objects
+(e.g. [rslider](https://docs.cycling74.com/max7/maxobject/rslider),
+[multislider](https://docs.cycling74.com/max7/maxobject/multislider) ) as part of a Max for Live device. 
+These parameter attributes are available to all Max users,
+and provide a simple means for saving the initial state of any Max/Max for Live UI object
+in a Max patch in addition to [their use with Max for Live](https://docs.cycling74.com/max7/vignettes/live_parameters). 
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - Parameter attributes in Max](https://docs.cycling74.com/max7/vignettes/parameter_enable)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
+{% capture text %}
+Parameters are settings of Max for Live devices you want to store and/or automate in Live.
+In some cases, a parameter may be set once and never change. In other cases,
+you'll want to use Max objects to interact with parameter values by clicking and moving the mouse,
+by receiving MIDI data mapped to a parameter, or via Live [automation](https://docs.cycling74.com/max7/vignettes/live_automation).
+
+There are two ways to add parameters to your device:
+using the Live UI objects or using [pattr](https://docs.cycling74.com/max7/maxobject/pattr) objects with
+[parameter mode enabled](https://docs.cycling74.com/max7/vignettes/live_pattr#parameter_mode_enable).
+
+The [Parameters Window](https://docs.cycling74.com/max7/vignettes/live_parameterswindow) shows
+all parameters currently associated with a device,
+and permits you to change parameter attributes in a single place.
+You can also change parameter attributes for individual objects by using the Parameter tab of the 
+[Inspector](https://docs.cycling74.com/max7/vignettes/inspector). 
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Device Parameters in Max for Live](https://docs.cycling74.com/max7/vignettes/live_parameters)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 {% capture url %}{{ site.github.url }}{% link _docs/Live/images/store-parameter/01_parameter.png %}{% endcapture %}
 {% assign caption = '

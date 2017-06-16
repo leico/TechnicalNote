@@ -2,7 +2,7 @@
 layout : post
 title  : "poly~機能まとめ"
 date   : 2017/06/13
-lastchange : 2017-06-13 15:19:44.
+lastchange : 2017-06-17 01:05:18.
 tags   :
   - Max
   - Max for Live
@@ -24,19 +24,25 @@ tags   :
 
 ## `poly~`の機能
 
-> # poly~
-> 
-> Manage polyphony/DSP for patchers
-> 
-> ## Description
-> 
-> Use the `poly~` to encapsulate a patcher inside an object box, 
-> to specify the patcher filename and the number of instances you want to load as arguments to the `poly~` object, 
-> and to control object processing and routing in the loaded patcher instances.
-> 
-> ---
-> 
-> * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+
+{% capture text %}
+# poly~
+
+Manage polyphony/DSP for patchers
+
+## Description
+
+Use the `poly~` to encapsulate a patcher inside an object box, 
+to specify the patcher filename and the number of instances you want to load as arguments to the `poly~` object, 
+and to control object processing and routing in the loaded patcher instances.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 `poly~`はサブパッチを読み込んで実行できるオブジェクト。
 普通のサブパッチと異なるのは、複数の実体を持つことができること。
@@ -47,97 +53,134 @@ tags   :
 
 ```
 poly~ [filename] [inst_number] @parallel [1/0] @threadcount [int] @args [...]
+
 ```
+{% capture text %}
+[patcher-name [symbol]]
+: The first argument must specify the name of a patcher to be loaded which already exists and is in the Max search path.
+  A subpatch window is not automatically opened for editing when a patcher argument is supplied for the `poly~` object.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
 
 `filename`
-: > [patcher-name [symbol]]
-  > : The first argument must specify the name of a patcher to be loaded which already exists and is in the Max search path.
-  > A subpatch window is not automatically opened for editing when a patcher argument is supplied for the `poly~` object.
-  > 
-  > ---
-  > 
-  > * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+: {% include cite.html text=text source=source %}
+  `poly~`は必ず外部にサブパッチが必要。呼び出すサブパッチのファイル名。
+  同じディレクトリか、パスの通っている場所に置いておく必要がある。
 
-    `poly~`は必ず外部にサブパッチが必要。呼び出すサブパッチのファイル名。
-    同じディレクトリか、パスの通っている場所に置いておく必要がある。
+
+
+
+
+{% capture text %}
+number-of-instances [int]
+: *Optional*
+
+    The number of patcher instances corresponds to the number of available "voices" This number can be any number between 1 and 1023,
+    and may be dynamically changed by using the voices message.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
 
 `inst_number`
-: > number-of-instances [int]
-  > : *Optional*
-  >
-  >     The number of patcher instances corresponds to the number of available "voices" This number can be any number between 1 and 1023,
-  >     and may be dynamically changed by using the voices message.
-  > 
-  > ---
-  > 
-  > * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+: {% include cite.html text=text source=source %}
 
-    実体をいくつ生成するか。範囲は\\( 1 \to 1023 \\)。
+  実体をいくつ生成するか。範囲は\\( 1 \to 1023 \\)。
+
+
+
+
+{% capture text %}
+parallel [int]
+: When this attribute is set to enable parallel processing, 
+the `poly~` object enables the use of multiple threads to run audio processing for all patcher instances. 
+If disabled `poly~` runs all patcher instances in the audio processing thread. 
+The DSP chain must be restarted whenever the parallel attribute is changed. 
+This attribute is disabled it when Max is hosted by the Live application.
+
+Note
+: At this time, you cannot specify a single subpatcher on a different core. 
+When enabled, this attribute splits up the number of voices between the number of processors available. 
+It is primarily intended for patches that use a significant amount of CPU within multiple voices of the same `poly~` object, 
+and the multithreading overhead is primarily useful for larger signal vector sizes (at least 32 or greater). 
+Other situations will not benefit. Using the default threadcount (which is equal to the number of physical cores) is best.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+
 
 `@parallel` アトリビュート
-: > parallel [int]
-  > : When this attribute is set to enable parallel processing, 
-  > the `poly~` object enables the use of multiple threads to run audio processing for all patcher instances. 
-  > If disabled `poly~` runs all patcher instances in the audio processing thread. 
-  > The DSP chain must be restarted whenever the parallel attribute is changed. 
-  > This attribute is disabled it when Max is hosted by the Live application.
-  > 
-  > Note
-  > : At this time, you cannot specify a single subpatcher on a different core. 
-  > When enabled, this attribute splits up the number of voices between the number of processors available. 
-  > It is primarily intended for patches that use a significant amount of CPU within multiple voices of the same `poly~` object, 
-  > and the multithreading overhead is primarily useful for larger signal vector sizes (at least 32 or greater). 
-  > Other situations will not benefit. Using the default threadcount (which is equal to the number of physical cores) is best.
-  > 
-  > ---
-  > 
-  > * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+: {% include cite.html text=text source=source %}
 
-    マルチスレッディング有効化。
+  マルチスレッディング有効化。
 
-    \\[ 
-    0 \to 無効 \\\\\
-    1 \to 有効
-    \\]
+  \\[ 
+  0 \to 無効 \\\\\
+  1 \to 有効
+  \\]
 
-    切り替えた際はMSPを再起動させる必要あり。
-    有効の場合、各実体毎に指定されたスレッド数で割り振る。実体が1つの場合シングルスレッドになる。
-    シグナルベクターサイズが大きい方が優位性が上がる。
+  切り替えた際はMSPを再起動させる必要あり。
+  有効の場合、各実体毎に指定されたスレッド数で割り振る。実体が1つの場合シングルスレッドになる。
+  シグナルベクターサイズが大きい方が優位性が上がる。
 
-    ただし、Max for Liveでは有無を言わさずマルチスレッディングが無効になる。
+  ただし、Max for Liveでは有無を言わさずマルチスレッディングが無効になる。
+
+
+
+
+
+
+{% capture text %}
+threadcount
+: *Arguments*
+
+number of threads [int]
+
+The word threadcount, followed by a number, sets the number of threads used to divide `poly~` instances' audio processing. 
+The default is the number of processor cores available in your computer. 
+Typically, the number of threads should be set to the number of processor cores in your computer for best performance. 
+This can also be accomplished by sending the message threadcount 0. 
+If a `poly~` object has sixteen instances and the threadcount is 4,
+four of the `poly~` instances will process audio in each of four threads.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+
 
 `@threadcount` メッセージ
-: > threadcount
-  > : *Arguments*
-  > 
-  > number of threads [int]
-  > 
-  > The word threadcount, followed by a number, sets the number of threads used to divide `poly~` instances' audio processing. 
-  > The default is the number of processor cores available in your computer. 
-  > Typically, the number of threads should be set to the number of processor cores in your computer for best performance. 
-  > This can also be accomplished by sending the message threadcount 0. 
-  > If a `poly~` object has sixteen instances and the threadcount is 4,
-  > four of the `poly~` instances will process audio in each of four threads.
-  > 
-  > ---
-  > 
-  > * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+: {% include cite.html text=text source=source %}
 
-    マルチスレッディング時のスレッド数を指定する。
-    実体数16、スレッド数4とした場合、1スレッドで4つの実体を処理する。
-    最適なスレッド数はコンピュータのコア数と等しい。
-    `threadcount 0`がデフォルト値。コア数と等しくなる。
-    
-    と書いてあるが、コア数の倍ぐらいを指定したほうがパフォーマンス上がることがある。
+  マルチスレッディング時のスレッド数を指定する。
+  実体数16、スレッド数4とした場合、1スレッドで4つの実体を処理する。
+  最適なスレッド数はコンピュータのコア数と等しい。
+  `threadcount 0`がデフォルト値。コア数と等しくなる。
+  
+  と書いてあるが、コア数の倍ぐらいを指定したほうがパフォーマンス上がることがある。
+
+
+
+
+
+{% capture text %}
+args [10 atoms]
+When using messages to specifie arguments for a `poly~` object's loaded patch,
+the patch must be reloaded by setting the patchername attribute for new arguments to take effect after initial load.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
 
 `@args` アトリビュート
-: > args [10 atoms]
-  > When using messages to specifie arguments for a `poly~` object's loaded patch,
-  > the patch must be reloaded by setting the patchername attribute for new arguments to take effect after initial load.
-  > 
-  > ---
-  > 
-  > * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+: {% include cite.html text=text source=source %}
 
   サブパッチに渡す引数を指定する。スペース区切りで最大10コまで。
   指定した引数はサブパッチ内の`#1`、`#2`、`#3`...が置き換わる。
@@ -145,33 +188,43 @@ poly~ [filename] [inst_number] @parallel [1/0] @threadcount [int] @args [...]
 
 ## inlet, outlet
 
-> ## Output
-> 
-> message
-> : Each in object in a patcher loaded by the `poly~` or `pfft~` objects appears as an inlet at the top of the object. 
-> Messages received at the first message inlet of the `poly~` or `pfft~` object are sent to the first in object
-> (i.e., the in 1 object) in the loaded patcher, and so on. 
-> The number of total inlets in a `poly~` or `pfft~` object is determined by whether 
-> there are a greater number of `in~` or `in` objects in the loaded patch 
-> (e.g., if your loaded `poly~` patcher has three `in~` objects and only two `in` objects,
-> the `poly~` object will have three inlets, two of which will accept both signals and anything else, 
-> and a third inlet which only takes signal input).
-> 
-> ---
-> 
-> * [in Reference](https://docs.cycling74.com/max7/maxobject/in)
+{% capture text %}
+## Output
 
-> ## Output
-> 
-> (patcher)
-> : Any messages received by an `out` object in a loaded patcher appear at the signal outlet of the `poly~` or `pfft~` object 
-> which corresponds to the number argument of the `out` object. 
-> The signal outputs in a `poly~` or `pfft~` object are a mix of the outputs of all instances of the patcher's outputs 
-> which correspond to that number.
-> 
-> ---
-> 
-> * [out Reference](https://docs.cycling74.com/max7/maxobject/out)
+message
+: Each in object in a patcher loaded by the `poly~` or `pfft~` objects appears as an inlet at the top of the object. 
+Messages received at the first message inlet of the `poly~` or `pfft~` object are sent to the first in object
+(i.e., the in 1 object) in the loaded patcher, and so on. 
+The number of total inlets in a `poly~` or `pfft~` object is determined by whether 
+there are a greater number of `in~` or `in` objects in the loaded patch 
+(e.g., if your loaded `poly~` patcher has three `in~` objects and only two `in` objects,
+the `poly~` object will have three inlets, two of which will accept both signals and anything else, 
+and a third inlet which only takes signal input).
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[in Reference](https://docs.cycling74.com/max7/maxobject/in)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+{% capture text %}
+## Output
+
+(patcher)
+: Any messages received by an `out` object in a loaded patcher appear at the signal outlet of the `poly~` or `pfft~` object 
+which corresponds to the number argument of the `out` object. 
+The signal outputs in a `poly~` or `pfft~` object are a mix of the outputs of all instances of the patcher's outputs 
+which correspond to that number.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[out Reference](https://docs.cycling74.com/max7/maxobject/out)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 `poly~`オブジェクトのメッセージデータの入出力には`in`、`out`オブジェクトを用いる。
 シグナルデータの入出力には`in~`、`out~`を用いる。
@@ -188,20 +241,28 @@ inletの場合は混在できるので、`in`/`in~`の最大値がinletの個数
 
 ## メッセージ送信制御
 
-> target [int]
-> : The `poly~` instance that will receive subsequent messages 
-> (other than messages specifically used by the `poly~` object itself) 
-> arriving at the `poly~` object's inlets - for example, The message `target 2` routes messages to the second instance. 
-> If the target message specifies a value greater than the current number of instances (copies) of the loaded patcher,
-> the message will be sent to the highest numbered instance 
-> (e.g., sending the message `target 2` to a `poly~` object containing only a single instance 
-> will send subsequent messages to the first instance). 
-> The message `target 0` sends input to all instances, 
-> and using any negative number value with the target message will disable input to all instances.
-> 
-> ---
-> 
-> * [Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+
+
+{% capture text %}
+target [int]
+: The `poly~` instance that will receive subsequent messages 
+(other than messages specifically used by the `poly~` object itself) 
+arriving at the `poly~` object's inlets - for example, The message `target 2` routes messages to the second instance. 
+If the target message specifies a value greater than the current number of instances (copies) of the loaded patcher,
+the message will be sent to the highest numbered instance 
+(e.g., sending the message `target 2` to a `poly~` object containing only a single instance 
+will send subsequent messages to the first instance). 
+The message `target 0` sends input to all instances, 
+and using any negative number value with the target message will disable input to all instances.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - poly~ Reference](https://docs.cycling74.com/max7/maxobject/poly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 どの実体にメッセージを送るのかを`target [int]`メッセージで制御する。
 `target 0`の場合、全ての実体にメッセージを送信する。
@@ -222,35 +283,40 @@ inletの場合は混在できるので、`in`/`in~`の最大値がinletの個数
 
 ## `thispoly~`オブジェクト
 
-> bang
-> : Reports the instance number of the patch. The first instance is reported as 1 .
-> 
-> --- 
-> 
-> mute
-> : *Arguments* 
-> 
->   mute-flag [int]
-> 
->   Disables DSP processing for the loaded instance of the patcher when the message `mute 1` is received. 
->   This message can be combined with an int message which toggles the "busy" state of the patcher 
->   to create voices in a patcher which are only on while they play a "note".
->
-> ---
->
-> ### Output
-> 
-> Out left outlet
-> : The instance number, starting at 1, reported when `thispoly~` receives the bang message. 
-> If the patcher containing `thispoly~` was not loaded within a `poly~` object, 0 is output.
-> 
-> Out right outlet
-> : If the loaded instance of the patcher is muted, a 1 is output. 
-> If the instance is not muted, a 0 is output. 
->
-> ---
-> 
-> * [thispoly~ Reference](https://docs.cycling74.com/max7/maxobject/thispoly~)
+{% capture text %}
+bang
+: Reports the instance number of the patch. The first instance is reported as 1 .
+
+--- 
+
+mute
+: *Arguments* 
+
+  mute-flag [int]
+
+  Disables DSP processing for the loaded instance of the patcher when the message `mute 1` is received. 
+  This message can be combined with an int message which toggles the "busy" state of the patcher 
+  to create voices in a patcher which are only on while they play a "note".
+
+---
+
+### Output
+
+Out left outlet
+: The instance number, starting at 1, reported when `thispoly~` receives the bang message. 
+If the patcher containing `thispoly~` was not loaded within a `poly~` object, 0 is output.
+
+Out right outlet
+: If the loaded instance of the patcher is muted, a 1 is output. 
+If the instance is not muted, a 0 is output. 
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[thispoly~ Reference](https://docs.cycling74.com/max7/maxobject/thispoly~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 *bang* を与えると左のアウトレットから実体の番号を出力してくれる。 
 *mute* に続き1/0を与えることでその実体でのシグナル処理の無効/有効を切り替えることができる。

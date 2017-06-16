@@ -2,7 +2,7 @@
 layout : post
 title  : "Max: サンプリングレートで動作を分ける"
 date   : 2017/04/02
-lastchange : 2017-06-07 21:46:17.
+lastchange : 2017-06-17 01:07:32.
 tags   :
   - Max
   - Max for Live
@@ -26,23 +26,28 @@ tags   :
 
 `dspstate~`を利用する。
 
-> ## Description
-> 
-> dspstate~ can be used for calculations 
-> that require the sampling rate of current DSP processing block size.
-> You can also use the leftmost outlet to trigger some event when the audio is turned on or off. 
-> 
-> ---
->
-> ## Output
-> 
-> ### float
-> 
-> Out second outlet: Sampling rate of the connected signal or the global sampling rate.
-> 
-> ---
-> 
-> * [Max 7 - dspstate~ Reference](https://docs.cycling74.com/max7/maxobject/dspstate~)
+
+{% capture text %}
+## Description
+
+dspstate~ can be used for calculations 
+that require the sampling rate of current DSP processing block size.
+You can also use the leftmost outlet to trigger some event when the audio is turned on or off. 
+
+---
+
+## Output
+
+float
+: Out second outlet: Sampling rate of the connected signal or the global sampling rate.
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - dspstate~ Reference](https://docs.cycling74.com/max7/maxobject/dspstate~)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 第二アウトレットからサンプリングレートがでてくるらしい。
 

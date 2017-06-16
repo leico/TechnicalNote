@@ -2,7 +2,7 @@
 layout : post
 title  : Mac で USBが認識されない問題の原因、対処法
 date   : 2017/03/27
-lastchange : 2017-06-07 21:42:59.
+lastchange : 2017-06-17 02:17:21.
 tags   :
   - Mac
   - Macbook
@@ -14,80 +14,107 @@ tags   :
 
 ## とりあえずSMC/NVRAMリセット
 
-> とりあえずその場で何とかなるなら、それに越したことはない。
-> 解決法を聞いてみた。
-> 
-> 以下、手順。
-> ってかアップルサイトに案内がある。
-> 
-> [Intel-based Macs：SMC (システム管理コントローラ) のリセット](https://support.apple.com/ja-jp/HT201295)
->
-> [Mac の PRAM および NVRAM をリセットする](https://support.apple.com/ja-jp/HT204063)
-> 
-> この2種類のリセットをしてみたところ
-> 無事USBポートが復活！！！
->
-> ---
->
-> * [MacBookのUSBポートが認識不良！ - 修復手順 \| BEAT one's way](http://beat.sakura.hippy.jp/?eid=1233860)
+
+{% capture text %}
+とりあえずその場で何とかなるなら、それに越したことはない。
+解決法を聞いてみた。
+
+以下、手順。
+ってかアップルサイトに案内がある。
+
+[Intel-based Macs：SMC (システム管理コントローラ) のリセット](https://support.apple.com/ja-jp/HT201295)
+
+[Mac の PRAM および NVRAM をリセットする](https://support.apple.com/ja-jp/HT204063)
+
+この2種類のリセットをしてみたところ
+無事USBポートが復活！！！
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[MacBookのUSBポートが認識不良！ - 修復手順 \| BEAT one's way](http://beat.sakura.hippy.jp/?eid=1233860)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 これで解決する可能性があります。
 
 旧型のMacbookで以前同じような症状がでてこの方法で解決しました。
 
->     「電源を入れた直後、option+command+R で起動」
->
-> こんなの初めて知りました（PRAMクリアのPがないバージョン）。
-> 何かというと、ネットを介してメモリ上にシステムをダウンロードして、
-> そこから起動するという。つまり、Macbook内のシステムは一切使用しないで立ち上がるのだ。
-> 
-> ---
-> 
-> こんな感じでシステムをダウンロードし始めます。
-> これで何がわかるかと言えば、これでマウスを挿してみて不具合が出なければ、
-> Macbook内のシステムが何らかの悪さをしているということ。
-> これでも不具合が出れば、USBポートがハード的に壊れてる可能性があるということ
-> （ちなみにこれをシャットダウンするには、電源ボタン長押しで強制終了して良いらしい。
-> メモリ上に読み込まれたシステムなので、Mac本体に危害を加えることはないそうだ）。
-> 
-> ---
-> 
-> * [Macbook Air11の右のUSBポートの認識がおかしい。 - まなぶろぐ。\| デザインオフィススズキ](http://manablog.dosuzuki.com/apple/post-1314/)
+{% capture text %}
+    「電源を入れた直後、option+command+R で起動」
+
+こんなの初めて知りました（PRAMクリアのPがないバージョン）。
+何かというと、ネットを介してメモリ上にシステムをダウンロードして、
+そこから起動するという。つまり、Macbook内のシステムは一切使用しないで立ち上がるのだ。
+
+---
+
+こんな感じでシステムをダウンロードし始めます。
+これで何がわかるかと言えば、これでマウスを挿してみて不具合が出なければ、
+Macbook内のシステムが何らかの悪さをしているということ。
+これでも不具合が出れば、USBポートがハード的に壊れてる可能性があるということ
+（ちなみにこれをシャットダウンするには、電源ボタン長押しで強制終了して良いらしい。
+メモリ上に読み込まれたシステムなので、Mac本体に危害を加えることはないそうだ）。
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Macbook Air11の右のUSBポートの認識がおかしい。 - まなぶろぐ。\| デザインオフィススズキ](http://manablog.dosuzuki.com/apple/post-1314/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 こういうのもあるらしいです。
 
 
 ## 他、USB周辺に関する諸々
 
-> 奥の方の USB ポートはすでにハブになっていて、 キーボード、トラックパッド、
-> Bluetooth、iSight カメラと共有されているのだそうです。
-> このあたりは、システムプロファイラから USB を選んで、どのデバイスが
-> どの USB ツリーにぶら下がっているかをみると理解できます。
->
-> コメントでもご指摘いただきましたが、MacBook Pro の場合は両側に USB がありますが、
-> 向かって左側がハブになっていて（すでにいろんなデバイスがつながっているので）、
-> 向かって右側の USB 方が USB パワーが強いみたいです。
-> 
-> [The MacBook. All USB Ports Are Not Equal \| Wired](https://www.wired.com/2008/05/the-macbook-all)
-> 
-> [All USB ports aren’t created equal \| ZDNet](http://www.zdnet.com/topic/apple/?p=1717)
-> 
-> ---
->
-> * [MacBook の２つの USB ポートには違いがある...？ \| Lifehacking.jp](http://lifehacking.jp/2008/05/difference-of-macbook-usb-ports/)
+
+
+{% capture text %}
+奥の方の USB ポートはすでにハブになっていて、 キーボード、トラックパッド、
+Bluetooth、iSight カメラと共有されているのだそうです。
+このあたりは、システムプロファイラから USB を選んで、どのデバイスが
+どの USB ツリーにぶら下がっているかをみると理解できます。
+
+コメントでもご指摘いただきましたが、MacBook Pro の場合は両側に USB がありますが、
+向かって左側がハブになっていて（すでにいろんなデバイスがつながっているので）、
+向かって右側の USB 方が USB パワーが強いみたいです。
+
+[The MacBook. All USB Ports Are Not Equal \| Wired](https://www.wired.com/2008/05/the-macbook-all)
+
+[All USB ports aren’t created equal \| ZDNet](http://www.zdnet.com/topic/apple/?p=1717)
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[MacBook の２つの USB ポートには違いがある...？ \| Lifehacking.jp](http://lifehacking.jp/2008/05/difference-of-macbook-usb-ports/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 ---
 
-> ネットを調べてみると、macはUSBポートによって内部機器の接続状態が異なっており、
-> バスパワーで動作するUSB DACの場合には正常に動作しないポートもあるみたい。
-> 内部機器が沢山ぶら下がっているポートの供給電力（バスパワー）が低下してしまうことが原因のようです。
-> 
-> MA1はバスパワーを必要としないのでその点問題はありませんが、
-> 内部機器が沢山ぶら下がっている程ノイズが多そうなので、できればそうでないポートを使いたいものです。
->
-> ---
-> 
-> * [どちらのUSBポートを使うべきか? - memento](http://d.hatena.ne.jp/briareos156/20130710/p1)
+
+{% capture text %}
+ネットを調べてみると、macはUSBポートによって内部機器の接続状態が異なっており、
+バスパワーで動作するUSB DACの場合には正常に動作しないポートもあるみたい。
+内部機器が沢山ぶら下がっているポートの供給電力（バスパワー）が低下してしまうことが原因のようです。
+
+MA1はバスパワーを必要としないのでその点問題はありませんが、
+内部機器が沢山ぶら下がっている程ノイズが多そうなので、できればそうでないポートを使いたいものです。
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[どちらのUSBポートを使うべきか? - memento](http://d.hatena.ne.jp/briareos156/20130710/p1)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 ## やってみた
 

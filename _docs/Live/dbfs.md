@@ -2,7 +2,7 @@
 layout : post
 title  : Ableton Liveのレベル、Max for Liveでの値
 date   : 2017/04/19
-lastchange : 2017-06-07 21:48:33.
+lastchange : 2017-06-17 00:24:49.
 tags   :
   - Ableton
   - Live
@@ -17,14 +17,19 @@ tags   :
 Max for Liveで音量を操作するパラメータはどのように設計するべきか迷ったので、
 Ableton Liveでの音量の取り扱い方を聞いてみた。
 
-> Using \\( 20 \times log_{10}x \\) or \\( 10 \times log_{10}x \\) simply depends on whether the input x is level or power. 
-> We’re mostly dealing with levels in Live.
-> 
-> Meters and thresholds are in dBFS (with 0 dB meaning digital full scale).
-> 
-> ---
-> 
-> Ableton Support
+{% capture text %}
+Using \\( 20 \times log_{10}x \\) or \\( 10 \times log_{10}x \\) simply depends on whether the input x is level or power. 
+We’re mostly dealing with levels in Live.
+
+Meters and thresholds are in dBFS (with 0 dB meaning digital full scale).
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+Ableton Support
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 この回答をもらうまで完全に *dBFS* の存在を忘れていて、*dBu* っすか？ *dBm* っすか？ って聞いてしまった。
 *dBFS* は「ディジタル信号の最大値を、アナログ信号のどのレベルに合わせるか」という場面で利用されているのをよく見る。
@@ -152,22 +157,28 @@ Live から *0 dB* で出してオーディオインターフェイスの音量�
 
 *dBFS* と *dBu* の対応関係もADC,DACに依存するところが大きいし、DAWの種類でも色々異なるらしい。
 
-> ちなみに、audioeaseのmake a test tone で 0dBFS の波形を作り、各DAWで再生＆ミキサーのメーターを確認してみました。
-> 0dBFSってのはデジタルオーディオの世界でこれ以上大きい音はないって波形ですから、当然0dBFSでメーターが触れるのかと思いきや
-> 
-> DP6
-> : -2.5dBFS
-> 
-> Logic 8 Pro 
-> : +1.2dBFS
-> 
-> ProTools 8 LE 
-> : 0.0dBFS
-> 
-> ProTools は厳格ですなー。って、昔のProToolsは新規ソング作成時にヘッドルームを指定できた気がするんだけど、なくなったのかしら。どこにもなかったよ。
-> そしてDP6はヘッドルームを多く取っている。Logicは逆、音量を突っ込ませる側に行っている。こうしてみるとおもしろいねー、設計思想が違うとはこのことだな。
-> どのソフトも0dBFSを越えられる事になっているのは、32bit浮動小数点演算とかをしてるからだと思われマス。（よくわかってない）
-> 
-> ---
-> 
-> * [オーディオインターフェイスのアウトレベルを計測 : レスペス・トランクィル](http://blog.livedoor.jp/qoozy/archives/51840903.html)
+
+{% capture text %}
+ちなみに、audioeaseのmake a test tone で 0dBFS の波形を作り、各DAWで再生＆ミキサーのメーターを確認してみました。
+0dBFSってのはデジタルオーディオの世界でこれ以上大きい音はないって波形ですから、当然0dBFSでメーターが触れるのかと思いきや
+
+DP6
+: -2.5dBFS
+
+Logic 8 Pro 
+: +1.2dBFS
+
+ProTools 8 LE 
+: 0.0dBFS
+
+ProTools は厳格ですなー。って、昔のProToolsは新規ソング作成時にヘッドルームを指定できた気がするんだけど、なくなったのかしら。どこにもなかったよ。
+そしてDP6はヘッドルームを多く取っている。Logicは逆、音量を突っ込ませる側に行っている。こうしてみるとおもしろいねー、設計思想が違うとはこのことだな。
+どのソフトも0dBFSを越えられる事になっているのは、32bit浮動小数点演算とかをしてるからだと思われマス。（よくわかってない）
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[オーディオインターフェイスのアウトレベルを計測 : レスペス・トランクィル](http://blog.livedoor.jp/qoozy/archives/51840903.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+

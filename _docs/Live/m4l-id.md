@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: pathからidを生成する"
 date   : 2017/03/21
-lastchange : 2017-06-07 21:34:56.
+lastchange : 2017-06-17 00:29:12.
 tags   :
   - Ableton
   - Live
@@ -33,30 +33,35 @@ Max for Live 側からの制御には主にこの *id* を利用する。
 
 ## *id*
 
-> ### Object ids
-> 
-> An object id identifies a particular object instance in Live like a track or a clip.
-> 
-> To get an id, a `live.path` object must be used to navigate to the Live object. 
-> When a `live.path` object sees this Live object the first time, an id is assigned to it.
-> 
-> The id is only valid inside the device with the `live.path`
-> and remains unchanged as long the object exists. 
-> If the object is moved in Live, its id usually remains unchanged. 
-> There may be exceptions if the movement is implemented as a delete/create sequence, though. 
-> When an object is deleted and a new object is created at its place, it will get a new id.
-> 
-> An id is never reused in the scope of a Max device. 
-> Ids are not stored. Therefore, after loading a saved device, 
-> the `live.path` object must navigate to the object again.
-> 
-> An object id consists of the word "id" and a number, 
-> separated by a space, like `id 3`. `id 0` refers to no object.
-> In Max terms it's a list of the symbol "id" and an integer. 
-> 
-> ---
-> 
-> * [Live API Overview](https://docs.cycling74.com/max7/vignettes/live_api_overview)
+
+{% capture text %}
+### Object ids
+
+An object id identifies a particular object instance in Live like a track or a clip.
+
+To get an id, a `live.path` object must be used to navigate to the Live object. 
+When a `live.path` object sees this Live object the first time, an id is assigned to it.
+
+The id is only valid inside the device with the `live.path`
+and remains unchanged as long the object exists. 
+If the object is moved in Live, its id usually remains unchanged. 
+There may be exceptions if the movement is implemented as a delete/create sequence, though. 
+When an object is deleted and a new object is created at its place, it will get a new id.
+
+An id is never reused in the scope of a Max device. 
+Ids are not stored. Therefore, after loading a saved device, 
+the `live.path` object must navigate to the object again.
+
+An object id consists of the word "id" and a number, 
+separated by a space, like `id 3`. `id 0` refers to no object.
+In Max terms it's a list of the symbol "id" and an integer. 
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Live API Overview](https://docs.cycling74.com/max7/vignettes/live_api_overview)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 * *id* はLiveオブジェクト(トラックとかクリップとか操作できるもろもろ)を一意に見分けるもの
 * `live.path`によって発行される
@@ -84,36 +89,46 @@ Max for Live 側からの制御には主にこの *id* を利用する。
 
 ## `live.path`
 
-> `live.path` is used to navigate to Live objects 
-> on which the `live.object`, `live.observer` and `live.remote~` objects operate. 
-> The navigation is purely path-based and is independent of the objects 
-> currently present in Live 
-> (navigating to a nonexistent path will result in the message `id 0` 
-> being sent out the left and middle outputs rather than an error message).
-> 
-> ---
-> 
-> * [Max 7 - live.path Reference](https://docs.cycling74.com/max7/maxobject/live.path)
+{% capture text %}
+`live.path` is used to navigate to Live objects 
+on which the `live.object`, `live.observer` and `live.remote~` objects operate. 
+The navigation is purely path-based and is independent of the objects 
+currently present in Live 
+(navigating to a nonexistent path will result in the message `id 0` 
+being sent out the left and middle outputs rather than an error message).
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - live.path Reference](https://docs.cycling74.com/max7/maxobject/live.path)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
-> ## Live.Path
-> 
-> As you might remember from the last lesson, 
-> the path we provide Max for Live to direct it to the 
-> volume parameter of track 1's volume is:
-> 
-> ```
-> path live_set tracks 0 mixer_device volume
-> ```
->
-> ---
-> 
-> The `live.path` object takes the directions 
-> we give it and returns a unique ID number 
-> (out of its second outlet) for the parameter: track 1, mixer volume.
-> 
-> ---
->
-> * [Controlling Live with Max for Live Lesson 2 - Ableton](https://help.ableton.com/hc/en-us/articles/212086305-Controlling-Live-with-Max-for-Live-Lesson-2)
+
+
+{% capture text %}
+## Live.Path
+
+As you might remember from the last lesson, 
+the path we provide Max for Live to direct it to the 
+volume parameter of track 1's volume is:
+
+```
+path live_set tracks 0 mixer_device volume
+```
+
+---
+
+The `live.path` object takes the directions 
+we give it and returns a unique ID number 
+(out of its second outlet) for the parameter: track 1, mixer volume.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Controlling Live with Max for Live Lesson 2 - Ableton](https://help.ableton.com/hc/en-us/articles/212086305-Controlling-Live-with-Max-for-Live-Lesson-2)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 `live.path` は *path* を与えると *id* を発行してくれるM4Lオブジェクト(*id* を与えて *path* を取得することもできる)。
 *path* の与え方は以下

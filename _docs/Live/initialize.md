@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: 値の初期化"
 date   : 2017/04/02
-lastchange : 2017-06-07 21:45:14.
+lastchange : 2017-06-17 00:26:49.
 tags   :
   - Max for Live
   - init
@@ -25,17 +25,22 @@ Liveセットを開いた時・・・は、初期化ではなく前回のパラ�
 
 * [Device Parameters in Max for Live](https://docs.cycling74.com/max7/vignettes/live_parameters)
 
-> > ## Setting an initial state for a Live UI object
-> > 
-> > * Select the Max for Live UI object and click the Inspector button 
-> > in the Patcher toolbar to show the object's [Inspector](https://docs.cycling74.com/max7/vignettes/inspector).
-> > * Click the Parameter tab at the top of the inspector window to show the Parameter attributes.
-> > * Ensure that Parameter Mode Enable is checked. (It will be turned on by default for all Live UI objects that store values.)
-> > * Enter a floating-point value for the Initial Value attribute.
+{% capture text %}
+> ## Setting an initial state for a Live UI object
 > 
-> ---
-> 
-> * [Device Parameters in Max for Live](https://docs.cycling74.com/max7/vignettes/live_parameters)
+> * Select the Max for Live UI object and click the Inspector button 
+> in the Patcher toolbar to show the object's [Inspector](https://docs.cycling74.com/max7/vignettes/inspector).
+> * Click the Parameter tab at the top of the inspector window to show the Parameter attributes.
+> * Ensure that Parameter Mode Enable is checked. (It will be turned on by default for all Live UI objects that store values.)
+> * Enter a floating-point value for the Initial Value attribute.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Device Parameters in Max for Live](https://docs.cycling74.com/max7/vignettes/live_parameters)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 これ古い。
 

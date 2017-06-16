@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: live.observer"
 date   : 2017/03/29
-lastchange : 2017-06-07 21:44:05.
+lastchange : 2017-06-17 00:36:00.
 tags   :
   - Ableton
   - Live
@@ -14,26 +14,33 @@ tags   :
 
 ## イベントリスナーを使う
 
-> プログラムに対し何かの指示を行うようなときに用いられるのが「イベント」というものです。
-> AWTには、さまざまな操作ごとに異なるイベントが用意されています。
-> 例えば「ボタンをクリックしたらこのイベント」
-> 「マウスを動かしたらこのイベント」
-> というような具合ですね。
-> そして、こうしたイベントが発生したときに
-> 何らかの処理を行わせるためのものとして「イベントリスナー」というものが用意されています。
-> 
-> イベントリスナーの中には、
-> 発生するイベントの種類に応じて呼び出されるメソッドが用意されています。
-> 例えばマウスを操作したときのためのイベントリスナーには
-> 「マウスボタンを押し下げる」
-> 「マウスボタンを離す」
-> 「マウスポインタがコンポーネントの領域に入ってくる」
-> 「マウスポインタがコンポーネントの外に出て行く」
-> というように、たくさんのメソッドが用意されています。
-> もちろん、イベントの内容によって用意されているメソッドは違ってきます。
->
-> ---
-> * [イベント処理の仕組みを理解する \[Javaプログラミング\] All About](https://allabout.co.jp/gm/gc/80617/)
+
+{% capture text %}
+プログラムに対し何かの指示を行うようなときに用いられるのが「イベント」というものです。
+AWTには、さまざまな操作ごとに異なるイベントが用意されています。
+例えば「ボタンをクリックしたらこのイベント」
+「マウスを動かしたらこのイベント」
+というような具合ですね。
+そして、こうしたイベントが発生したときに
+何らかの処理を行わせるためのものとして「イベントリスナー」というものが用意されています。
+
+イベントリスナーの中には、
+発生するイベントの種類に応じて呼び出されるメソッドが用意されています。
+例えばマウスを操作したときのためのイベントリスナーには
+「マウスボタンを押し下げる」
+「マウスボタンを離す」
+「マウスポインタがコンポーネントの領域に入ってくる」
+「マウスポインタがコンポーネントの外に出て行く」
+というように、たくさんのメソッドが用意されています。
+もちろん、イベントの内容によって用意されているメソッドは違ってきます。
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[イベント処理の仕組みを理解する \[Javaプログラミング\] All About](https://allabout.co.jp/gm/gc/80617/)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 別にJavaをこれからやりますというわけではなく、
 このように変化があったら通達してくれるオブジェクトがあったら便利ですね。
@@ -54,41 +61,50 @@ tags   :
 ## `live.observer`
 
 
-> ### Live.Observer
-> 
-> In some cases, we may not wish to alter the values of a parameter,
-> it might only be necessary to listen to them so we can then do something with their values. 
-> 
-> ---
-> 
-> It would be nice if Live controlled the slider in Max for Live and vice versa,
-> to give us some visual feedback of what's happening.
-> 
-> For these cases, we would use live.observer which actively monitors any change in values of Live objects.
-> 
-> ---
-> 
-> After we have configured live.observer with the object ID from live.path
-> (so that it is focused on a parameter) we can send it the message **property value**
-> to tell it to output the value of the parameter it is focused on.
-> 
-> ---
-> 
-> * [Controlling Live with Max for Live Lesson 2 - Ableton](https://help.ableton.com/hc/en-us/articles/212086305-Controlling-Live-with-Max-for-Live-Lesson-2)
+{% capture text %}
+### Live.Observer
+
+In some cases, we may not wish to alter the values of a parameter,
+it might only be necessary to listen to them so we can then do something with their values. 
+
+---
+
+It would be nice if Live controlled the slider in Max for Live and vice versa,
+to give us some visual feedback of what's happening.
+
+For these cases, we would use live.observer which actively monitors any change in values of Live objects.
+
+---
+
+After we have configured live.observer with the object ID from live.path
+(so that it is focused on a parameter) we can send it the message **property value**
+to tell it to output the value of the parameter it is focused on.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Controlling Live with Max for Live Lesson 2 - Ableton](https://help.ableton.com/hc/en-us/articles/212086305-Controlling-Live-with-Max-for-Live-Lesson-2)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
 
-> live.observer is used to listen to changes in the values of properties of Live objects.
-> This object works in conjunction with the live.path object,
-> which sends id *nn* messages into the right inlet of live.observer.
-> 
-> After an object id and property is specified,
-> its value is sent out the left outlet. From this moment on, 
-> the value is sent on each change of the property ('notification')
-> as well as in response to bang messages.
-> 
-> ---
-> 
-> * [live.observer Reference](https://docs.cycling74.com/max7/maxobject/live.observer)
+{% capture text %}
+live.observer is used to listen to changes in the values of properties of Live objects.
+This object works in conjunction with the live.path object,
+which sends id *nn* messages into the right inlet of live.observer.
+
+After an object id and property is specified,
+its value is sent out the left outlet. From this moment on, 
+the value is sent on each change of the property ('notification')
+as well as in response to bang messages.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[live.observer Reference](https://docs.cycling74.com/max7/maxobject/live.observer)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 
 Max から Live を遠隔操作できるけど、Live の変更を Max が追従しない。よくMIDIコンとDAWで起こるやつですね。
@@ -136,31 +152,43 @@ Max から Live を遠隔操作できるけど、Live の変更を Max が追従
 
 ## 受け取れるパラメータ
 
-> Not all properties can be observed, please consult the Live Object Model to see which can.
-> 
-> Besides properties, it is also possible to observer children of Live objects. 
-> Their values are object ids or lists of them.
-> 
-> ---
-> 
-> * [live.observer Reference](https://docs.cycling74.com/max7/maxobject/live.observer)
+{% capture text %}
+Not all properties can be observed, please consult the Live Object Model to see which can.
+
+Besides properties, it is also possible to observer children of Live objects. 
+Their values are object ids or lists of them.
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[live.observer Reference](https://docs.cycling74.com/max7/maxobject/live.observer)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 `live.observer`はLiveの全てを監視してくれるわけではない。
 監視対象になるのは特定のプロパティと子オブジェクトだけであると書いてある。
 
-> ##### volume
-> Type
-> : DeviceParameter
-> 
-> Access
-> : get
-> 
-> Description
-> : 
-> 
-> ---
->
-> * [Max 7 - LOM - The Live Object Model](https://docs.cycling74.com/max7/vignettes/live_object_model)
+{% capture text %}
+##### volume
+Type
+: DeviceParameter
+
+Access
+: get
+
+Description
+: 
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Max 7 - LOM - The Live Object Model](https://docs.cycling74.com/max7/vignettes/live_object_model)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 `mixer_device -> volume` に関して抜粋してみたが、ドキュメント上では`live.observer`には対応していない・・・？
 

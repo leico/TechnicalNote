@@ -2,7 +2,7 @@
 layout : post
 title  : "Max for Live: live.object"
 date   : 2017/03/28
-lastchange : 2017-06-07 21:43:37.
+lastchange : 2017-06-17 00:32:01.
 tags   :
   - Ableton
   - Live
@@ -24,19 +24,25 @@ Max for Live から Live を操作するオブジェクトがいくつか用意�
 * [Max 7 - live.object Reference](https://docs.cycling74.com/max7/maxobject/live.object)
 * [Max 7 - LOM - The Live Object Model](https://docs.cycling74.com/max7/vignettes/live_object_model)
 
-> ### Live.Object
-> 
-> Once provided with a valid ID (as above),
-> live.object can be used to control the accessed parameter 
-> (in this case, track 1’s volume). 
-> We can test this by hooking up a simple slider object to it. 
-> 
-> The slider, in conjuction with a `set value` message,
-> tells Max what value to send to the parameter:
-> 
-> ---
-> 
-> * [Controlling Live with Max for Live Lesson 2 - Ableton](https://help.ableton.com/hc/en-us/articles/212086305-Controlling-Live-with-Max-for-Live-Lesson-2)
+
+{% capture text %}
+### Live.Object
+
+Once provided with a valid ID (as above),
+live.object can be used to control the accessed parameter 
+(in this case, track 1’s volume). 
+We can test this by hooking up a simple slider object to it. 
+
+The slider, in conjuction with a `set value` message,
+tells Max what value to send to the parameter:
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Controlling Live with Max for Live Lesson 2 - Ableton](https://help.ableton.com/hc/en-us/articles/212086305-Controlling-Live-with-Max-for-Live-Lesson-2)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 IDを与えると、それに対応したパラメータにアクセスして制御することができるようになるって言っている。
 実際に *Track 1* のボリュームを操作するパッチを作ってみる
@@ -133,13 +139,18 @@ IDを与えると、それに対応したパラメータにアクセスして制
 
 ### *id* について
 
-> live.path is sending object ids out of its leftmost outlet 
-> connected to the rightmost inlet of `live.object`,`live.observer` and `live.remote~`.
-> This causes these objects to operate on the object selected by live.path. 
-> 
-> ---
-> 
-> * [Live API Overview](https://docs.cycling74.com/max7/vignettes/live_api_overview)
+
+{% capture text %}
+`live.path` is sending object ids out of its leftmost outlet 
+connected to the rightmost inlet of `live.object`,`live.observer` and `live.remote~`.
+This causes these objects to operate on the object selected by `live.path`. 
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Live API Overview](https://docs.cycling74.com/max7/vignettes/live_api_overview)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
 
 画像や引用の通り、 *id* は`live.object`の右のインレットに送る必要がある。
 その他のメッセージは左のインレットに入れる。

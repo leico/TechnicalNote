@@ -2,7 +2,7 @@
 layout : post
 title  : Raspberry Pi:VirtualBoxを使って死んだSDカードからリカバリー
 date : 2017/02/02
-lastchange : 2017-06-07 20:22:34.
+lastchange : 2017-06-17 01:19:04.
 tags   :
   - Raspberry Pi
   - VirtualBox
@@ -94,43 +94,53 @@ Volume boot on disk2s1 unmounted
 
 アンマウントできたので、データを吸い出す。
 
+{% capture text %}
+#### イメージ読み出し
 
-> #### イメージ読み出し
-> 
-> 以下は/dev/disk2がSDドライブの場合の例。以下のコマンドでSDカードの中身をRPi.imgというイメージファイルに読み出します。
-> 
-> ```
-> $ sudo dd if=/dev/disk2 of=~/RPi.img
-> ```
-> 
-> ---
-> 
-> * [MacでRaspberry PiのSDカードをハードコピー（バックアップ）](http://karaage.hatenadiary.jp/entry/2015/06/09/080000)
+以下は/dev/disk2がSDドライブの場合の例。以下のコマンドでSDカードの中身をRPi.imgというイメージファイルに読み出します。
 
-> でも、Linux君達とは少し違うところもあるようで、
-> 
-> ```
-> Ritsu:Desktop tetsu$ dd if=/dev/zero of=test bs=1M count=10
-> dd: bs: illegal numeric value
-> ```
-> 
-> と怒られてしまいました。(；´Д｀)
-> 
-> ---
-> 
-> 10MBのデータファイルを作成する場合は、
-> 
-> ```
-> % dd if=/dev/zero of=test bs=1024000 count=10 
-> 
-> 10+0 records in
-> 10+0 records out
-> 10240000 bytes transferred in 0.105885 secs (96708667 bytes/sec)
-> ```
-> 
-> ---
-> 
-> * [5 Seasons: Macでddコマンド。](http://5-seasons.blogspot.jp/2010/05/macdd.html)
+```
+$ sudo dd if=/dev/disk2 of=~/RPi.img
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[MacでRaspberry PiのSDカードをハードコピー（バックアップ）](http://karaage.hatenadiary.jp/entry/2015/06/09/080000)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+{% capture text %}
+でも、Linux君達とは少し違うところもあるようで、
+
+```
+Ritsu:Desktop tetsu$ dd if=/dev/zero of=test bs=1M count=10
+dd: bs: illegal numeric value
+```
+
+と怒られてしまいました。(；´Д｀)
+
+---
+
+10MBのデータファイルを作成する場合は、
+
+```
+% dd if=/dev/zero of=test bs=1024000 count=10 
+
+10+0 records in
+10+0 records out
+10240000 bytes transferred in 0.105885 secs (96708667 bytes/sec)
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[5 Seasons: Macでddコマンド。](http://5-seasons.blogspot.jp/2010/05/macdd.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 ということなので、こうする。
 
@@ -144,19 +154,26 @@ Raw状態で読み書きができるようになる。 __r__ なしの場合、O
 
 ## 小さいMicor SDへ移行するための加工
 
-> 今回は、16GBのSDカード(実際は16GBのマイクロSDカード)から8GBのSDカードへまるごとコピーしてみました。
-> もちろんコピー元のSDカードでコピー先のSDカードの容量を超えて使用しているとコピーはできません。
-> 今回は、コピー元のパーティションサイズを縮小してコピー先へコピーします。
-> 
-> コピーするにはGpartedというフリーのパーティション編集ツールをつかいます。
-> Gpartedを使い慣れている方なら以下の説明は不要かもしれません。
-> 
-> Raspberry PiにつながるUSBのCD/DVDなどがあればRaspberry Pi上でもできると思いますが、もってないのでパソコン上で行いました。
-> パソコン上で行うには、SDカードのリード/ライトできるUSBアダプタなど2つ(ソース、ディスティネーション)必要です。
-> 
-> ---
-> 
-> * [Raspberry Piで大きな容量のSDカードから小さな容量のSDカードへまるごとコピーする](http://myboom.mkch.net/modules/pukiwiki/171.html)
+
+{% capture text %}
+今回は、16GBのSDカード(実際は16GBのマイクロSDカード)から8GBのSDカードへまるごとコピーしてみました。
+もちろんコピー元のSDカードでコピー先のSDカードの容量を超えて使用しているとコピーはできません。
+今回は、コピー元のパーティションサイズを縮小してコピー先へコピーします。
+
+コピーするにはGpartedというフリーのパーティション編集ツールをつかいます。
+Gpartedを使い慣れている方なら以下の説明は不要かもしれません。
+
+Raspberry PiにつながるUSBのCD/DVDなどがあればRaspberry Pi上でもできると思いますが、もってないのでパソコン上で行いました。
+パソコン上で行うには、SDカードのリード/ライトできるUSBアダプタなど2つ(ソース、ディスティネーション)必要です。
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Raspberry Piで大きな容量のSDカードから小さな容量のSDカードへまるごとコピーする](http://myboom.mkch.net/modules/pukiwiki/171.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 検索してみると他にもRaspberry Piのパーティションを`gparted`を用いてサイズ変更している人はそこそこいる。
 この人はGPartedのLive CDで直接Micro SDからMicro SDへコピーをしているが、
@@ -168,16 +185,23 @@ USBメモリも予備がないのでUSBブートも諦め、今回は[VirtualBox
 
 まずはRaspberry PiのイメージをVirtualBoxが読み込める形式にしなければならない。
 
-> RAWイメージから仮想ハードディスクイメージを作成する
-> 
-> ```
-> VBoxManage convertfromraw sdb.img sdb.vdi --format VDI    # VDIフォーマット
-> VBoxManage convertfromraw sdb.img sdb.vmdk --format VMDK  # VMDKフォーマット
-> ```
-> 
-> ---
-> 
-> * [VirtualBox &#124; saito's memo](http://memo.saitodev.com/home/virtualbox/)
+{% capture text %}
+RAWイメージから仮想ハードディスクイメージを作成する
+
+```
+VBoxManage convertfromraw sdb.img sdb.vdi --format VDI    # VDIフォーマット
+VBoxManage convertfromraw sdb.img sdb.vmdk --format VMDK  # VMDKフォーマット
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[VirtualBox &#124; saito's memo](http://memo.saitodev.com/home/virtualbox/)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 初めて知ったがイメージからvdiへ変換するコマンドがVirtualBoxをインストールする際に自動的に入るようだ。
 便利なのでこれを使う。
@@ -300,92 +324,107 @@ Media change: please insert the disc labeled ...
 というエラーが出る。
 
 
-> Open and modify the file /etc/apt/sources.list
-> 
-> ```
-> vi /etc/apt/sources.list
-> ```
-> 
-> You will see an output like this:
-> 
-> ```
-> #
-> 
-> deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 CD Binary-1 20130504-14:44]/ wheezy main
-> 
-> deb http://ftp.us.debian.org/debian/ wheezy main
-> deb-src http://ftp.us.debian.org/debian/ wheezy main
-> 
-> deb http://security.debian.org/ wheezy/updates main
-> deb-src http://security.debian.org/ wheezy/updates main
-> 
-> # wheezy-updates, previously known as 'volatile'
-> deb http://ftp.us.debian.org/debian/ wheezy-updates main
-> deb-src http://ftp.us.debian.org/debian/ wheezy-updates main
-> ~
-> ```
-> 
-> This file contains all your package sources.
-> You might find a deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 CD Binary-1 20130504-14:44]/
-> wheezy main line indicating a local CDROM as a package source.
-> Comment it out by placing a # symbol at the beginning of the line and save the file.
-> 
-> You should leave it like this:
-> 
-> ```
-> #
-> 
-> # deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 CD Binary-1 20130504-14:44]/ wheezy main
-> 
-> deb http://ftp.us.debian.org/debian/ wheezy main
-> deb-src http://ftp.us.debian.org/debian/ wheezy main
-> 
-> deb http://security.debian.org/ wheezy/updates main
-> deb-src http://security.debian.org/ wheezy/updates main
-> 
-> # wheezy-updates, previously known as 'volatile'
-> deb http://ftp.us.debian.org/debian/ wheezy-updates main
-> deb-src http://ftp.us.debian.org/debian/ wheezy-updates main
-> ~
-> ```
-> 
-> ---
-> 
-> * [Fix the apt-get install error: “Media change: please insert the disc labeled ...” on your Linux VPS](https://www.velocihost.net/clients/knowledgebase/29/Fix-the-apt-get-install-error-Media-change-please-insert-the-disc-labeled--on-your-Linux-VPS.html)
+
+
+
+{% capture text %}
+Open and modify the file /etc/apt/sources.list
+
+```
+vi /etc/apt/sources.list
+```
+
+You will see an output like this:
+
+```
+#
+
+deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 CD Binary-1 20130504-14:44]/ wheezy main
+
+deb http://ftp.us.debian.org/debian/ wheezy main
+deb-src http://ftp.us.debian.org/debian/ wheezy main
+
+deb http://security.debian.org/ wheezy/updates main
+deb-src http://security.debian.org/ wheezy/updates main
+
+# wheezy-updates, previously known as 'volatile'
+deb http://ftp.us.debian.org/debian/ wheezy-updates main
+deb-src http://ftp.us.debian.org/debian/ wheezy-updates main
+~
+```
+
+This file contains all your package sources.
+You might find a deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 CD Binary-1 20130504-14:44]/
+wheezy main line indicating a local CDROM as a package source.
+Comment it out by placing a # symbol at the beginning of the line and save the file.
+
+You should leave it like this:
+
+```
+#
+
+# deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 CD Binary-1 20130504-14:44]/ wheezy main
+
+deb http://ftp.us.debian.org/debian/ wheezy main
+deb-src http://ftp.us.debian.org/debian/ wheezy main
+
+deb http://security.debian.org/ wheezy/updates main
+deb-src http://security.debian.org/ wheezy/updates main
+
+# wheezy-updates, previously known as 'volatile'
+deb http://ftp.us.debian.org/debian/ wheezy-updates main
+deb-src http://ftp.us.debian.org/debian/ wheezy-updates main
+~
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[Fix the apt-get install error: “Media change: please insert the disc labeled ...” on your Linux VPS](https://www.velocihost.net/clients/knowledgebase/29/Fix-the-apt-get-install-error-Media-change-please-insert-the-disc-labeled--on-your-Linux-VPS.html)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
 
 `sources.list`をみると、他にもなんか少ない。
 
+
+{% capture text %}
 ## Example sources.list
 
-> Below is an example of a `sources.list` for Debian 8/Jessie.
-> 
-> ```
-> deb http://httpredir.debian.org/debian jessie main
-> deb-src http://httpredir.debian.org/debian jessie main
-> 
-> deb http://httpredir.debian.org/debian jessie-updates main
-> deb-src http://httpredir.debian.org/debian jessie-updates main
-> 
-> deb http://security.debian.org/ jessie/updates main
-> deb-src http://security.debian.org/ jessie/updates main
-> ```
-> 
-> If you also want the contrib and non-free components, add contrib non-free after main:
-> 
-> ```
-> deb http://httpredir.debian.org/debian jessie main contrib non-free
-> deb-src http://httpredir.debian.org/debian jessie main contrib non-free
-> 
-> deb http://httpredir.debian.org/debian jessie-updates main contrib non-free
-> deb-src http://httpredir.debian.org/debian jessie-updates main contrib non-free
-> 
-> deb http://security.debian.org/ jessie/updates main contrib non-free
-> deb-src http://security.debian.org/ jessie/updates main contrib non-free
-> ```
-> 
-> ---
-> 
-> * [SourcesList - Debian Wiki](https://wiki.debian.org/SourcesList)
+Below is an example of a `sources.list` for Debian 8/Jessie.
+
+```
+deb http://httpredir.debian.org/debian jessie main
+deb-src http://httpredir.debian.org/debian jessie main
+
+deb http://httpredir.debian.org/debian jessie-updates main
+deb-src http://httpredir.debian.org/debian jessie-updates main
+
+deb http://security.debian.org/ jessie/updates main
+deb-src http://security.debian.org/ jessie/updates main
+```
+
+If you also want the contrib and non-free components, add contrib non-free after main:
+
+```
+deb http://httpredir.debian.org/debian jessie main contrib non-free
+deb-src http://httpredir.debian.org/debian jessie main contrib non-free
+
+deb http://httpredir.debian.org/debian jessie-updates main contrib non-free
+deb-src http://httpredir.debian.org/debian jessie-updates main contrib non-free
+
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+```
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[SourcesList - Debian Wiki](https://wiki.debian.org/SourcesList)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
 
 最終的にこのようにした。Example contrib non-free と同じ。
 
@@ -538,15 +577,24 @@ Raspberry Pi本体のパーティションをコピーして
 
 ## 復元先Micro SDをvdiからディスクイメージファイルに変換する
 
-> * 仮想ハードディスクイメージをRAWイメージに変換する
-> 
-> ```
-> VBoxManage clonehd sdb.vdi sdb.img --format RAW
-> ```
-> 
-> ---
-> 
-> * [VirtualBox &#124; saito's memo](http://memo.saitodev.com/home/virtualbox/)
+{% capture text %}
+* 仮想ハードディスクイメージをRAWイメージに変換する
+
+```
+VBoxManage clonehd sdb.vdi sdb.img --format RAW
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[VirtualBox &#124; saito's memo](http://memo.saitodev.com/home/virtualbox/)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
 
 こうした。
 
