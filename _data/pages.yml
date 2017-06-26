@@ -54,12 +54,9 @@
 
     - name : poly~ & bpatcher Tricks
       pages:
-        - poly-individual-signal
         - poly-summary
-        - bpatcher-inherit-argument
-        - bpatcher-argument-name
-        - bpatcher-argument
-        - bpatcher-embed
+        - bpatcher-tips
+        - poly-individual-signal
 
     - name  : 関連
       label : Memo
