@@ -57,6 +57,7 @@
         - poly-summary
         - bpatcher-tips
         - poly-individual-signal
+        - bpatcher-poly-interface
 
     - name  : 関連
       label : Memo
