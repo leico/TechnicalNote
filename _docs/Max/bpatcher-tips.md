@@ -2,7 +2,7 @@
 layout : post
 title  : "bpatcher小技まとめ"
 date   : 2017/06/26
-lastchange : 2017-06-27 18:17:25.
+lastchange : 2017-06-27 18:22:37.
 tags   :
   - Max
   - Max for Live
@@ -124,7 +124,7 @@ tags   :
 ## プレゼンテーションモードでサブパッチを展開する
 
 *open in presentation* にチェックが入っているサブパッチはプレゼンテーションモードで開かれる。
-内部埋め込みされているサブパッチも **Command** + **Shift** + *i* でパッチャーインスペクタを開き、
+内部埋め込みされているサブパッチも **Command** + **Shift** + **i** でパッチャーインスペクタを開き、
 *opent in presentation* にチェックを入れた後、再度パッチを開き直すか、`bpatcher`をコピーすると
 プレゼンテーションモードでサブパッチが表示される。
 
