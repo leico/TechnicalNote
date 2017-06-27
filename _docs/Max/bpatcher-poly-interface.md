@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : "poly~のUIをbpatcherで作る"
-date   : 2017/06/26
-lastchange : 2017-06-27 17:25:38.
+date   : 2017/06/27
+lastchange : 2017-06-27 17:42:32.
 tags   :
   - Max
   - Max for Live
