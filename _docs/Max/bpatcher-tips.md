@@ -2,7 +2,7 @@
 layout : post
 title  : "bpatcher小技まとめ"
 date   : 2017/06/26
-lastchange : 2017-06-26 11:44:24.
+lastchange : 2017-06-27 18:17:25.
 tags   :
   - Max
   - Max for Live
@@ -117,3 +117,23 @@ tags   :
 
 ' | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
+
+
+
+
+## プレゼンテーションモードでサブパッチを展開する
+
+*open in presentation* にチェックが入っているサブパッチはプレゼンテーションモードで開かれる。
+内部埋め込みされているサブパッチも **Command** + **Shift** + *i* でパッチャーインスペクタを開き、
+*opent in presentation* にチェックを入れた後、再度パッチを開き直すか、`bpatcher`をコピーすると
+プレゼンテーションモードでサブパッチが表示される。
+
+{% capture url %}{{ site.github.url }}{% link _docs/Max/images/bpatcher-tips/09-presentation.png %}{% endcapture %}
+{% assign caption = '
+埋め込んだサブパッチをプレゼンテーションモードで表示している例。
+もちろん`bpatcher`自体をプレゼンテーションモードに登録すれば、メインパッチのプレゼンテーションモードにも表示される。
+
+UI部分を含めてサブパッチを作り、プレゼンテーションでUIだけ表示していろんなパッチで使いまわすことも可能。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
