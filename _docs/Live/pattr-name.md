@@ -2,7 +2,7 @@
 layout : post
 title  : "pattrの名前は先頭に「---」付けてはならない"
 date   : 2017/06/28
-lastchange : 2017-06-28 18:03:34.
+lastchange : 2017-06-28 18:07:46.
 tags   :
   - Max for Live
   - pattr
@@ -116,3 +116,4 @@ or [send](https://docs.cycling74.com/max7/maxobject/send)
 
 `pattr`は今のところ、名前に`---`をつける必要がない。
 逆につけてしまうと前回のデータを読み込むことができない。
+だから名前空間のところで`pattr`に言及されていないのか。
