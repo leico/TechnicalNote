@@ -25,6 +25,7 @@
         - store-parameter
         - initialize
         - initial-timing
+        - pattr-name
 
     - name : Max関連
       label : Max
