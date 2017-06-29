@@ -8,6 +8,7 @@
 
     - name  : Tips
       pages :
+        - m4l-bpatcher-namespace
         - knob-mapping
         - automapping-index
         - dbfs
@@ -52,6 +53,8 @@
         - store-parameter
         - initialize
         - initial-timing
+        - pattr-name
+
 
     - name : poly~ & bpatcher Tricks
       pages:
