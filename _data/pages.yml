@@ -28,6 +28,7 @@
         - initial-timing
         - pattr-name
         - m4l-bpatcher-pattr
+        - pattr-range
 
     - name : Max関連
       label : Max
@@ -55,6 +56,7 @@
         - initialize
         - initial-timing
         - m4l-bpatcher-pattr
+        - pattr-range
 
 
     - name : poly~ & bpatcher Tricks
