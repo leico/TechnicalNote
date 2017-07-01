@@ -27,6 +27,7 @@
         - initialize
         - initial-timing
         - pattr-name
+        - m4l-bpatcher-pattr
 
     - name : Max関連
       label : Max
@@ -53,7 +54,7 @@
         - store-parameter
         - initialize
         - initial-timing
-        - pattr-name
+        - m4l-bpatcher-pattr
 
 
     - name : poly~ & bpatcher Tricks
