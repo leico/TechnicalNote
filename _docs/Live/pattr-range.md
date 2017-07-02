@@ -2,7 +2,7 @@
 layout : post
 title  : "pattrが保存するデータの範囲は、Rangeで指定された範囲内のみ"
 date   : 2017/07/02
-lastchange : 2017-07-02 11:49:21.
+lastchange : 2017-07-02 11:50:02.
 tags   :
   - Max for Live
   - pattr
@@ -120,7 +120,7 @@ object: single values, lists, or strings.
 
 保存可能範囲はとりあえず、\\( 0 \to 1 \\) あれば問題はないのだが、
 
-`live.gain`
+`live.gain~`
 : \\( -70 \to 6 \\)
 
 人間の可聴範囲
