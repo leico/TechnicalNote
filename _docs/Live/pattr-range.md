@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : "pattrが保存するデータの範囲は、Rangeで指定された範囲内のみ"
-date   : 2017/06/29
-lastchange : 2017-07-02 01:48:12.
+date   : 2017/07/02
+lastchange : 2017-07-02 11:36:03.
 tags   :
   - Max for Live
   - pattr
