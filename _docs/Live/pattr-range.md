@@ -2,7 +2,7 @@
 layout : post
 title  : "pattrが保存するデータの範囲は、Rangeで指定された範囲内のみ"
 date   : 2017/07/02
-lastchange : 2017-07-02 11:36:03.
+lastchange : 2017-07-02 11:49:21.
 tags   :
   - Max for Live
   - pattr
@@ -76,7 +76,7 @@ object: single values, lists, or strings.
 {% include cite.html text=text source=source %}
 
 まず`pattr`が記憶できるのは4つのデータになる。その中で数値を記録できるのは整数(*integer*)と実数(*floating-point*)になる。
-整数の方は \\( 0 - 255 \\) の範囲しか利用することができない。
+整数の方は \\( 0 \to 255 \\) の範囲しか利用することができない。
 
 {% capture text %}
 > # Working with Integer values outside of the 0 - 255 range
