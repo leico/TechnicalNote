@@ -8,6 +8,7 @@
 
     - name  : Tips
       pages :
+        - selected-parameter
         - m4l-bpatcher-namespace
         - knob-mapping
         - automapping-index
