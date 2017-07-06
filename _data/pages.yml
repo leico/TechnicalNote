@@ -29,6 +29,7 @@
         - pattr-name
         - m4l-bpatcher-pattr
         - pattr-range
+        - m4l-bpatcher-pattr-nobind
 
     - name : Max関連
       label : Max
