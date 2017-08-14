@@ -2,7 +2,7 @@
 layout : post
 title  : 作品展示の際の設定チェックシート
 date   : 2017/08/14
-lastchange : 2017-08-14 12:21:32.
+lastchange : 2017-08-14 12:31:52.
 tags   :
   - Mac
   - Macbook
@@ -115,7 +115,7 @@ tags   :
 
 
 
-## 自動起動設定
+## プログラム自動起動設定
 
 `システム環境設定` -> `ユーザとグループ` -> 左カラム `展示で使用するアカウント` -> `ログイン項目` タブ
 {% capture url %}{{ site.github.url }}{% link _docs/Mac/images/exhibit-check/05_autoexec.png %}{% endcapture %}
