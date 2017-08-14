@@ -2,7 +2,7 @@
 layout : post
 title  : Collection変数を調査する
 date   : 2017/03/05
-lastchange : 2017-06-15 21:15:33.
+lastchange : 2017-08-13 15:43:34.
 tags   :
   - jekyll
   - github
@@ -13,7 +13,7 @@ tags   :
 
 ## Collectionの中身を調査する。
 
-{% assign text='
+{% capture text %}
 The collections are also available under `site.collections`,
 with the metadata you specified in your `_config.yml` (if present)
 and the following information:
@@ -26,7 +26,8 @@ and the following information:
 | `relative_directory` | The path to the collection's source directory, relative to the site source. |
 | `directory`          | The full path to the collections's source directory. |
 | `output`             | Whether the collection's documents will be output as individual files. |
-' | markdownify %}
+{% endcapture %}
+{% assign text = text | markdownify %}
 {% assign source='
 [Collections - Jekyll](https://jekyllrb.com/docs/collections/)
 ' | markdownify | remove: '<p>' | remove: '</p>' %}

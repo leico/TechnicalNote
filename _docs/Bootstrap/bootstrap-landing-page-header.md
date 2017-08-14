@@ -2,7 +2,7 @@
 layout : post
 title  : bootstrap:ランディングページ(トップページ)のヘッダについて考える
 date : 2017/02/12
-lastchange : 2017-06-15 16:29:49.
+lastchange : 2017-08-13 15:41:29.
 tags   :
   - bootstrap
   - jumbotron
@@ -116,7 +116,7 @@ section
 
 他にも例はいくつか載っているがこれがいい気がする。
 
-{% assign text='
+{% capture text %}
 # Page header
 
 A simple shell for an h1 to appropriately space out and segment sections of content on a page.
@@ -131,7 +131,8 @@ It can utilize the h1's default small element, as well as most other components 
   <h1>Example page header <small>Subtext for header</small></h1>
 </div>
 ```
-' | markdownify %}
+{% endcapture %}
+{% assign text = text | markdownify %}
 {% assign source='
 [Components - Bootstrap#Page header](http://getbootstrap.com/components/#page-header)
 ' | markdownify | remove: '<p>' | remove: '</p>' %}

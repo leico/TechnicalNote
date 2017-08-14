@@ -247,7 +247,9 @@
   label : Mac
   sections :
     - name : Tips
-      pages : Mac-USB
+      pages : 
+        - exhibit-check
+        - Mac-USB
 
 
 
