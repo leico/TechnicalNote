@@ -2,7 +2,7 @@
 layout : post
 title  : 作品展示の際の設定チェックシート
 date   : 2017/08/14
-lastchange : 2017-08-15 17:16:53.
+lastchange : 2017-08-15 17:23:52.
 tags   :
   - Mac
   - Macbook
@@ -313,12 +313,11 @@ to activate
 
 ペアレンタルコントロールを活用すると鑑賞者/学芸員の行動を制限することができる。
 
-`システム環境設定` -> `ペアレンタルコントロール`
+`システム環境設定` -> `ペアレンタルコントロール` -> `アプリケーション`タブ
 
 {% capture url %}{{ site.github.url }}{% link _docs/Mac/images/exhibit-check/15_controlapp.png %}{% endcapture %}
 {% assign caption = '
 
-### `アプリケーションタブ`
 
 起動できるアプリケーションなどをコントロールすることができる
 
