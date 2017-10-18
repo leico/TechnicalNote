@@ -251,8 +251,20 @@
         - exhibit-check
         - Mac-USB
 
+    - name  : 関連記事
+      label : Linux
+      pages : 
+        - screen-share
 
 
+
+
+- title : Linux
+  label : Linux
+  sections :
+    - name  : Tips
+      pages :
+        - screen-share
 
 
 

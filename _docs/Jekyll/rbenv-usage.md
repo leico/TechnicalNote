@@ -2,7 +2,7 @@
 layout : post
 title  : rbenvコマンドの利用方法
 date   : 2017/01/16
-lastchange : 2017-03-01 16:49:53.
+lastchange : 2017-09-20 21:29:54.
 tags   :
   - jekyll
   - ruby
@@ -28,15 +28,15 @@ tags   :
 
 ### `rbenv install x.y.z`でRuby Ver.x.y.zをインストール
 
-`rbenv install x.y.z`で`${RBENV_ROOT}/versions/x.y.z`に_Ruby x.y.z_がインストールされる。
+`rbenv install x.y.z`で`${RBENV_ROOT}/versions/x.y.z`に _Ruby x.y.z_ がインストールされる。
 場合によっては同時にOpenSSLや、必要となる他のライブラリも一緒にインストールされる。
 
 インストール時間はちょっと長め。数分ほど待つ。
 
 ## `rbenv rehash`でRuby関連コマンドの更新
 
-インストールした_Ruby x.y.z_はまだ言うなればパスが通ってない。
-`rbenv rehash`コマンドで_Ruby x.y.z_を利用できる状態にする。
+インストールした _Ruby x.y.z_ はまだ言うなればパスが通ってない。
+`rbenv rehash`コマンドで _Ruby x.y.z_ を利用できる状態にする。
 
 この処理はいずれかのバージョンのRubyにgemをインストールした場合も必要になる。
 

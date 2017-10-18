@@ -1,6 +1,16 @@
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% capture keywords %}
+    {%- for tag in page.tags -%}
+      {%- if forloop.last != true -%} {{ tag | append: "," }}
+      {%- else -%}                    {{ tag }}
+      {%- endif -%}
+    {%- endfor -%}
+  {% endcapture %}
+  <meta name="keywords" content="{{keywords}}">
+
+
   <title>{{ page.title }}</title>
 
   <!-- bootstrap and jQuery include -->

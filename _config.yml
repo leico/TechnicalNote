@@ -14,7 +14,7 @@ encording: utf-8
 
 # ---- gems ------------
 
-gems:
+plugins:
   - jekyll-gist
   - jekyll-mentions
   - jekyll-feed
