@@ -2,7 +2,7 @@
 layout : post
 title  : Linux で Blackmagic Design 製品を扱う
 date : 2017/10/18
-lastchange : 2017-10-18 20:44:48.
+lastchange : 2017-10-18 20:56:33.
 tags   :
   - blackmagic design
   - Ultrastudio Mini Recorder
@@ -56,9 +56,10 @@ Linux用バイナリで専用ソフトウェアもリリースされている。
 
 左のカラムから最新版の _Desktop Video_ の Linux 用を選択する。
 {% capture url %}{{site.github.url}}{% link _docs/Linux/images/blackmagic-minirecorder/01_desktop_video.png %}{% endcapture %}
-{% assign caption = '
+{% capture caption %}
 {{ page.lastchange }} 現在、Ver.10.9.7
-' | markdownify %}
+{% endcapture %}
+{% assign caption = caption | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
 
 
