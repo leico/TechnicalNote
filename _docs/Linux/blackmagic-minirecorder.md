@@ -2,7 +2,7 @@
 layout : post
 title  : Linux で Blackmagic Design 製品を扱う
 date : 2017/10/18
-lastchange : 2017-10-18 20:32:11.
+lastchange : 2017-10-18 20:44:48.
 tags   :
   - blackmagic design
   - Ultrastudio Mini Recorder
@@ -13,7 +13,7 @@ tags   :
 ## Ultrastudio Mini RecorderをLinuxで認識させる
 
 ひとまず、というところまでできたのでまとめる。
-利用するSDKを見るにDeckLink製品用のものなので、DeckLink製品系でも利用できると思う。
+後で利用するSDKを見るにDeckLink製品用のものなので、DeckLink製品系でも利用できると思う。
 
 参考:
 
