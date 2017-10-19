@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : LinuxプログラムでBlackmagic Design製品を扱う
+title  : bmdtoolsをコンパイルしてBlackmagic Design製品を扱う
 date : 2017/10/18
-lastchange : 2017-10-20 00:19:25.
+lastchange : 2017-10-20 00:33:44.
 tags   :
   - blackmagic design
   - Ultrastudio Mini Recorder
