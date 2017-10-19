@@ -264,6 +264,7 @@
   sections :
     - name  : Tips
       pages :
+        - bmdtools
         - blackmagic-minirecorder
         - screen-share
 
