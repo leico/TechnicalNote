@@ -251,9 +251,10 @@
         - exhibit-check
         - Mac-USB
 
-    - name  : 関連記事
+    - name  : Linux関連
       label : Linux
       pages : 
+        - macfanctld
         - screen-share
 
 
@@ -266,6 +267,7 @@
       pages :
         - bmdtools
         - blackmagic-minirecorder
+        - macfanctld
         - screen-share
 
 
