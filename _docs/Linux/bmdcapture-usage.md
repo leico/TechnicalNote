@@ -2,7 +2,7 @@
 layout : post
 title  : bmdcaptureの使い方
 date : 2017/10/20
-lastchange : 2017-10-20 16:57:35.
+lastchange : 2017-10-20 17:05:42.
 tags   :
   - blackmagic design
   - bmdtools
@@ -310,7 +310,7 @@ bmdcapture -m 9 -C 0 -A 2 -V 3 -f ./video.raw
 $ bmdcapture -C 0 -m 9 -F nut -V 3 -A 2 -o strict=experimental:syncpoints=none -f pipe:1 | avconv -vsync passthrough -y -i - -vcodec libx264 test.avi
 ```
 
-`-C 0`のデバイスからHDMIで1080p 30FPSでキャプチャしたものを、`strict=experimental`, `syncpoints=none` オプションを付けてavconvに渡している。
+`-C 0`のデバイスからHDMIで1080p 30FPSでキャプチャしたものを、`strict=experimental`, `syncpoints=none` オプションを付けて`avconv`に渡している。
 
-avconvはlibx264コーデックを利用して _test.avi_ に書き出している。
+`avconv`はlibx264コーデックを利用して _test.avi_ に書き出している。
 
