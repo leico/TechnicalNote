@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : macintoshにいれたLinuxでの空冷ファンコントロール
-date : 2017/10/18
-lastchange : 2017-10-20 13:29:10.
+date : 2017/10/20
+lastchange : 2017-10-20 13:32:54.
 tags   :
   - Linux
   - Macintosh

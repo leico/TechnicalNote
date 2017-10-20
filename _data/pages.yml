@@ -265,6 +265,7 @@
   sections :
     - name  : Tips
       pages :
+        - bmdtools-usage
         - bmdtools
         - blackmagic-minirecorder
         - macfanctld
