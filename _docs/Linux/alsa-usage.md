@@ -2,7 +2,7 @@
 layout : post
 title  : "Linux: 利用できるオーディオデバイスの情報を取得する"
 date : 2017/10/22
-lastchange : 2017-10-22 01:53:03.
+lastchange : 2017-10-22 02:40:23.
 tags   :
   - avconv
   - alsa
@@ -15,6 +15,10 @@ tags   :
 映像だけでなく、音声の入出力デバイスも確認したいのでその方法を調べた。
 
 参考 : 
+
+* [Configuring Sound on Linux/HW Address - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/Configuring_Sound_on_Linux/HW_Address)
+* [arecord: Linux Command to List all Soundcards and Digital Audio Devices – nixCraft](https://www.cyberciti.biz/tips/howto-display-soundcards-digital-audio-devices.html)
+
 
 ## 出力デバイス一覧は`aplay`を利用する
 

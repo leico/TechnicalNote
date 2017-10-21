@@ -2,7 +2,7 @@
 layout : post
 title  : avconvでのALSAデバイス指定方法
 date : 2017/10/22
-lastchange : 2017-10-22 01:51:56.
+lastchange : 2017-10-22 02:41:36.
 tags   :
   - avconv
   - alsa
@@ -39,7 +39,12 @@ I'm not sure how this will affect the CPU usage.
 これの意味するのはなんだろうか。
 
 
+参考:
 
+* [linux - What do ALSA devices like "hw:0,0" mean? How do I figure out which to use? - Super User](https://superuser.com/a/53962)
+* [linux - What do ALSA devices like "hw:0,0" mean? How do I figure out which to use? - Super User](https://superuser.com/a/53977)
+* [Linux: 利用できるオーディオデバイス情報を取得する]({{site.github.url}}{% link _docs/Linux/alsa-usage.md %})
+ 
 
 
 
