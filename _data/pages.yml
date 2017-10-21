@@ -263,11 +263,16 @@
 - title : Linux
   label : Linux
   sections :
-    - name  : Tips
-      pages :
+    - name  : bmdtools & avconv関係
+      pages : 
+        - avconv
         - bmdcapture-usage
         - bmdtools
         - blackmagic-minirecorder
+    - name  : Tips
+      pages :
+        - ld-library-path
+        - make-uninstall
         - macfanctld
         - screen-share
 
