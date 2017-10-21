@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : bmdcaptureの使い方
+title  : "bmdtools: bmdcaptureの使い方"
 date : 2017/10/20
-lastchange : 2017-10-20 17:05:42.
+lastchange : 2017-10-21 23:49:52.
 tags   :
   - blackmagic design
   - bmdtools
