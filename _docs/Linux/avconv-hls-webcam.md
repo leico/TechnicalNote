@@ -2,7 +2,7 @@
 layout : post
 title  : avconvとWebカメラでHLS(HTTP Live Streaming)配信を行う
 date : 2017/10/23
-lastchange : 2017-10-23 22:01:56.
+lastchange : 2017-10-23 22:09:51.
 tags   :
   - avconv
   - alsa
@@ -42,6 +42,12 @@ avconv -f video4linux2 -input_format mjpeg -video_size 1280x720 -pix_fmt yvyu422
 -acodec libfdk_aac -b:a 256000 -ar 44100 \
 -f hls -hls_list_size 10 -hls_time 10 out.m3u8
 ```
+
+
+## まずは`avconv`の使い方
+
+こちらにまとめた
+[avconvの使い方]({{site.github.url}}{% link _docs/Linux/avconv-usage.md %})
 
 
 
