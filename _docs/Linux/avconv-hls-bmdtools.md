@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : "bmdtools: bmdcapture から avconv で HLS(HTTP Live Streaming)配信を行う"
-date : 2017/10/23
-lastchange : 2017-10-24 20:56:56.
+date : 2017/10/24
+lastchange : 2017-10-24 21:10:27.
 tags   :
   - avconv
   - hls
