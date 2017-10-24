@@ -265,6 +265,7 @@
   sections :
     - name  : bmdtools & avconv関係
       pages : 
+        - avconv-hls-bmdtools
         - avconv-hls-webcam
         - avconv-usage
         - avconv-alsa
