@@ -2,7 +2,7 @@
 layout : post
 title  : github-pages環境のアップデート
 date   : 2017/06/01
-lastchange : 2018-05-02 00:11:52.
+lastchange : 2018-05-02 01:41:28.
 tags   :
   - jekyll
   - ruby
@@ -22,6 +22,9 @@ tags   :
 * [Dependency versions \| GitHub Pages](https://pages.github.com/versions/)
 * [rbenvでrubyのバージョン管理をする - Qiita](http://qiita.com/MasahiroSakoda/items/b66f92df80b375f7c786)
 * [ツールを使いたいだけの人のための bundler 入門 (例: vagrant + veewee) - Qiita](http://qiita.com/znz/items/5471e5826fde29fa9a80)
+* [rbenv/rbenv: Groom your app’s Ruby environment](https://github.com/rbenv/rbenv#upgrading-with-git)
+* [rbenv install 2.4.0 fails in Mac OS Sierra 10.12.6 Issue #1119](https://github.com/rbenv/ruby-build/issues/1119)
+
 
 ## Rubyのバージョンが上がっている場合
 
