@@ -98,7 +98,10 @@ table
   @extend .table
 
 blockquote
+  border-left: solid medium $gray-300
+  @extend .ml-3
   @extend .blockquote
+  @extend .pl-2
 
 .blockquote-footer
   font-size: 100%
@@ -108,6 +111,8 @@ p
 
 .card-block > p
   @extend .card-text
+.card-block > *
+  @extend .ml-3
 
 pre
   @extend .p-3
