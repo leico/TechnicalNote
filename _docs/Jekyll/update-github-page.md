@@ -2,7 +2,7 @@
 layout : post
 title  : github-pages環境のアップデート
 date   : 2017/06/01
-lastchange : 2017-06-16 23:15:51.
+lastchange : 2018-05-02 00:11:52.
 tags   :
   - jekyll
   - ruby
@@ -200,28 +200,201 @@ rbenv: version `2.3.3' is not installed (set by /Users/leico_studio/pro/github-p
 
 ローカルの設定が **2.3.3** なので怒られている。
 
-### Ruby2.4.0とbundlerのインストール
+### rbenvのバージョンを上げる
 
-[rbenvコマンドの利用方法]({{site.github.url}}{% link _docs/Jekyll/rbenv-usage.md %})を振り返りつつ、2.4.0とbundlerのインストールを行う。
+[rbenvをアプリケーションフォルダにインストールする]({{site.github.url}}{% link _docs/Jekyll/rbenv-install.md %})では git を利用したので、
+同じく git コマンドを利用しながらアップデートを行う。
+
+{% capture text %}
+#### Upgrading with Git
+
+If you've installed rbenv manually using Git, you can upgrade to the latest version by pulling from GitHub:
+
+```sh
+$ cd ~/.rbenv
+$ git pull
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[rbenv/rbenv: Groom your app’s Ruby environment](https://github.com/rbenv/rbenv#upgrading-with-git)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+まずはインストールしたディレクトリまで移動し、最新の状態を取得する。
+
+```sh
+cd /Applications/Ruby/rbenv
+git pull
+```
+
+最新版がちゃんとコンパイル通るか、安定して動作するかはわからないので、安定版 or リリース版のソースコードに変更する。
+今回の場合は **v1.1.1** リリースを利用する。
+
+安定版を使用するだけなので、ブランチを切らずにただ安定版のソースをチェックアウトする。
+
+```sh
+git checkout v1.1.1
+```
+
+アップデートを行ったら、コンパイルしたバイナリを削除して再コンパイルする。
+
+{% capture text %}
+
+Optionally, try to compile dynamic bash extension to speed up rbenv. 
+Don't worry if it fails; rbenv will still work normally:
+
+```sh
+$ cd ~/.rbenv && src/configure && make -C src
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% assign source='
+[rbenv/rbenv: Groom your app’s Ruby environment](https://github.com/rbenv/rbenv#upgrading-with-git)
+' | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+```sh
+make clean -C src
+  rm -f *.o ../libexec/*.dylib
+src/configure
+make -C src
+  gcc -fno-common     -c -o realpath.o realpath.c
+  gcc -dynamiclib -dynamic -undefined dynamic_lookup   -o ../libexec/rbenv-realpath.dylib realpath.o 
+```
+
+### ruby-buildのバージョンも上げる
+
+続いて `ruby-build` のバージョンアップも行う。
+_rbenv_ ディレクトリ以下にある _plugins/ruby-build_ ディレクトリに移動、git から最新版をダウンロードする。
+
+
+```sh
+cd plugins/ruby_build
+git pull
+```
+
+こちらも最新の安定版にするので、リリースを確認する。
+
+```sh
+git tag
+v20110906
+v20110906.1
+v20110914
+...
+v20180224
+v20180329
+v20180424
+```
+
+今回の場合はv20180424が最新のリリースなのでこちらを用いる。
+
+```sh
+git checkout v20180424
+```
+
+### Ruby2.4.2 と bundlerのインストール
+
+[rbenvコマンドの利用方法]({{site.github.url}}{% link _docs/Jekyll/rbenv-usage.md %})を振り返りつつ、2.4.2 とbundlerのインストールを行う。
+
+が、最初以下のようなエラーが起こったのでそれの対処法を載せておく。
+
+{% capture text %}
 
 ```sh
 rbenv install 2.4.0
-
-Downloading openssl-1.0.2j.tar.gz...
--> https://dqw8nmjcqpjn7.cloudfront.net/e7aff292be21c259c6af26469c7a9b3ba26e9abaaffd325e3dccc9785256c431
-Installing openssl-1.0.2j...
-Installed openssl-1.0.2j to /Applications/Ruby/rbenv/versions/2.4.0
-
+ruby-build: use openssl from homebrew
 Downloading ruby-2.4.0.tar.bz2...
 -> https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.bz2
 Installing ruby-2.4.0...
-Installed ruby-2.4.0 to /Applications/Ruby/rbenv/versions/2.4.0
+ruby-build: use readline from homebrew
 
-rbenv rehash
+BUILD FAILED (OS X 10.12.6 using ruby-build 20170726)
+
+Inspect or clean up the working tree at /var/folders/9_/xjrq9lv11hl_82pmlzqh3h0m0000gn/T/ruby-build.20170728015414.21759
+Results logged to /var/folders/9_/xjrq9lv11hl_82pmlzqh3h0m0000gn/T/ruby-build.20170728015414.21759.log
+
+Last 10 log lines:
+  Referenced from: /usr/local/bin/tar
+  Expected in: /usr/lib/libSystem.B.dylib
+
+dyld: Symbol not found: _utimensat
+  Referenced from: /usr/local/bin/tar
+  Expected in: /usr/lib/libSystem.B.dylib
+
+/usr/local/bin/ruby-build: line 344: 21953 Abort trap: 6           tar $tar_args "$package_filename"
+/var/folders/9_/xjrq9lv11hl_82pmlzqh3h0m0000gn/T/ruby-build.20170728015414.21759/ruby-2.4.0 /var/folders/9_/xjrq9lv11hl_82pmlzqh3h0m0000gn/T/ruby-build.20170728015414.21759 ~/Documents/Github
+/usr/local/bin/ruby-build: line 563: ./configure: No such file or directory
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+by [Ghost](https://github.com/ghost)
+from [rbenv install 2.4.0 fails in Mac OS Sierra 10.12.6 Issue #1119](https://github.com/rbenv/ruby-build/issues/1119)
+{% endcapture %}
+{% assign source=source | markdownify %}
+{% include cite.html text=text source=source %}
+
+同じページに対処法も載っていた。
+
+{% capture text %}
+looks like the same workaround for [#992 (comment)](https://github.com/rbenv/ruby-build/issues/992#issuecomment-247342449) works here:
+
+```sh
+xcode-select --install
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+by [dkinzer](https://github.com/dkinzer)
+from [rbenv install 2.4.0 fails in Mac OS Sierra 10.12.6 Issue #1119](https://github.com/rbenv/ruby-build/issues/1119)
+{% endcapture %}
+{% assign source=source | markdownify %}
+{% include cite.html text=text source=source %}
+
+どうやらCommand Line Toolsが古かったようだ。
+
+{% capture url %}{{ site.github.url }}{% link _docs/Jekyll/images/update-github-page/01.png %}{% endcapture %}
+{% assign caption = '
+上記のコマンドを実行すると、Command Line Toolsのインストールを行う旨のダイアログが表示される。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+{% capture url %}{{ site.github.url }}{% link _docs/Jekyll/images/update-github-page/02.png %}{% endcapture %}
+{% assign caption = '
+インストールを行おうとすると、利用規約が表示され、同意すると
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+{% capture url %}{{ site.github.url }}{% link _docs/Jekyll/images/update-github-page/03.png %}{% endcapture %}
+{% assign caption = '
+インストールが行われる。
+' | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
+
+インストールが終了したらRuby 2.4.2をインストールする。
+
+```sh
+rbenv install 2.4.2
+Downloading openssl-1.1.0h.tar.gz...
+-> https://dqw8nmjcqpjn7.cloudfront.net/5835626cde9e99656585fc7aaa2302a73a7e1340bf8c14fd635a62c66802a517
+Installing openssl-1.1.0h...
+Installed openssl-1.1.0h to /Applications/Ruby/rbenv/versions/2.4.2
+
+Downloading ruby-2.4.2.tar.bz2...
+-> https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.2.tar.bz2
+Installing ruby-2.4.2...
+Installed ruby-2.4.2 to /Applications/Ruby/rbenv/versions/2.4.2
 ```
 
 ```
-rbenv local 2.4.0
+rbenv local 2.4.2
 gem install bundler
 ```
 
@@ -239,160 +412,187 @@ gem 'jekyll-gist'
 
 ### github-pagesのgemをインストール
 
-`bundle update`を行って2.4.0用にインストールする。
+`bundle update`を行って2.4.2用にインストールする。
 
 ```sh
 bundle update
-Fetching gem metadata from https://rubygems.org/............
-Fetching version metadata from https://rubygems.org/...
-Fetching dependency metadata from https://rubygems.org/..
+Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/.
 Resolving dependencies...
-Fetching i18n 0.8.4
-Installing i18n 0.8.4
-Fetching minitest 5.10.2
-Installing minitest 5.10.2
+Fetching concurrent-ruby 1.0.5
+Installing concurrent-ruby 1.0.5
+Fetching i18n 0.9.5
+Installing i18n 0.9.5
+Fetching minitest 5.11.3
+Installing minitest 5.11.3
 Fetching thread_safe 0.3.6
 Installing thread_safe 0.3.6
+Fetching tzinfo 1.2.5
+Installing tzinfo 1.2.5
+Fetching activesupport 4.2.9
+Installing activesupport 4.2.9
 Fetching public_suffix 2.0.5
 Installing public_suffix 2.0.5
-Fetching net-dns 0.8.0
-Installing net-dns 0.8.0
-Fetching multipart-post 2.0.0
-Installing multipart-post 2.0.0
-Fetching ffi 1.9.18
-Installing ffi 1.9.18 with native extensions
-Fetching colorator 1.1.0
-Installing colorator 1.1.0
-Fetching sass 3.4.24
-Installing sass 3.4.24
-Fetching rb-fsevent 0.9.8
-Installing rb-fsevent 0.9.8
-Fetching kramdown 1.13.2
-Installing kramdown 1.13.2
-Fetching liquid 3.0.6
-Installing liquid 3.0.6
-Fetching mercenary 0.3.6
-Installing mercenary 0.3.6
-Fetching forwardable-extended 2.6.0
-Installing forwardable-extended 2.6.0
-Fetching rouge 1.11.1
-Installing rouge 1.11.1
-Fetching safe_yaml 1.0.4
-Installing safe_yaml 1.0.4
-Fetching coffee-script-source 1.12.2
-Installing coffee-script-source 1.12.2
+Fetching addressable 2.5.2
+Installing addressable 2.5.2
+Using bundler 1.16.1
+Fetching coffee-script-source 1.11.1
+Installing coffee-script-source 1.11.1
 Fetching execjs 2.7.0
 Installing execjs 2.7.0
-Fetching mini_portile2 2.1.0
-Installing mini_portile2 2.1.0
-Fetching jekyll-paginate 1.1.0
-Installing jekyll-paginate 1.1.0
-Fetching jekyll-swiss 0.4.0
-Installing jekyll-swiss 0.4.0
-Fetching gemoji 3.0.0
-Installing gemoji 3.0.0
-Fetching unicode-display_width 1.2.1
-Installing unicode-display_width 1.2.1
-Using bundler 1.15.0
-Fetching tzinfo 1.2.3
-Installing tzinfo 1.2.3
-Fetching addressable 2.5.1
-Installing addressable 2.5.1
-Fetching faraday 0.12.1
-Installing faraday 0.12.1
-Fetching ethon 0.10.1
-Installing ethon 0.10.1
-Fetching rb-inotify 0.9.8
-Installing rb-inotify 0.9.8
-Fetching jekyll-sass-converter 1.5.0
-Installing jekyll-sass-converter 1.5.0
-Fetching pathutil 0.14.0
-Installing pathutil 0.14.0
 Fetching coffee-script 2.4.1
 Installing coffee-script 2.4.1
-Fetching nokogiri 1.7.2
-Installing nokogiri 1.7.2 with native extensions
-Fetching terminal-table 1.8.0
-Installing terminal-table 1.8.0
-Fetching activesupport 4.2.8
-Installing activesupport 4.2.8
+Fetching colorator 1.1.0
+Installing colorator 1.1.0
+Fetching ruby-enum 0.7.2
+Installing ruby-enum 0.7.2
+Fetching commonmarker 0.17.9
+Installing commonmarker 0.17.9 with native extensions
+Fetching dnsruby 1.60.2
+Installing dnsruby 1.60.2
+Fetching eventmachine 1.2.6
+Installing eventmachine 1.2.6 with native extensions
+Fetching http_parser.rb 0.6.0
+Installing http_parser.rb 0.6.0 with native extensions
+Fetching em-websocket 0.5.1
+Installing em-websocket 0.5.1
+Fetching ffi 1.9.23
+Installing ffi 1.9.23 with native extensions
+Fetching ethon 0.11.0
+Installing ethon 0.11.0
+Fetching multipart-post 2.0.0
+Installing multipart-post 2.0.0
+Fetching faraday 0.15.0
+Installing faraday 0.15.0
+Fetching forwardable-extended 2.6.0
+Installing forwardable-extended 2.6.0
+Fetching gemoji 3.0.0
+Installing gemoji 3.0.0
 Fetching sawyer 0.8.1
 Installing sawyer 0.8.1
-Fetching typhoeus 0.8.0
-Installing typhoeus 0.8.0
-Fetching listen 3.0.6
-Installing listen 3.0.6
-Fetching jekyll-coffeescript 1.0.1
-Installing jekyll-coffeescript 1.0.1
-Fetching html-pipeline 2.6.0
-Installing html-pipeline 2.6.0
-Fetching octokit 4.7.0
-Installing octokit 4.7.0
-Fetching jekyll-watch 1.5.0
-Installing jekyll-watch 1.5.0
-Fetching github-pages-health-check 1.3.3
-Installing github-pages-health-check 1.3.3
-Fetching jekyll-gist 1.4.0
-Installing jekyll-gist 1.4.0
-Fetching jekyll 3.4.3
-Installing jekyll 3.4.3
-Fetching jekyll-avatar 0.4.2
-Installing jekyll-avatar 0.4.2
+Fetching octokit 4.8.0
+Installing octokit 4.8.0
+Fetching typhoeus 1.3.0
+Installing typhoeus 1.3.0
+Fetching github-pages-health-check 1.7.3
+Installing github-pages-health-check 1.7.3
+Fetching rb-fsevent 0.10.3
+Installing rb-fsevent 0.10.3
+Fetching rb-inotify 0.9.10
+Installing rb-inotify 0.9.10
+Fetching sass-listen 4.0.0
+Installing sass-listen 4.0.0
+Fetching sass 3.5.6
+Installing sass 3.5.6
+Fetching jekyll-sass-converter 1.5.2
+Installing jekyll-sass-converter 1.5.2
+Fetching ruby_dep 1.5.0
+Installing ruby_dep 1.5.0
+Fetching listen 3.1.5
+Installing listen 3.1.5
+Fetching jekyll-watch 2.0.0
+Installing jekyll-watch 2.0.0
+Fetching kramdown 1.16.2
+Installing kramdown 1.16.2
+Fetching liquid 4.0.0
+Installing liquid 4.0.0
+Fetching mercenary 0.3.6
+Installing mercenary 0.3.6
+Fetching pathutil 0.16.1
+Installing pathutil 0.16.1
+Fetching rouge 2.2.1
+Installing rouge 2.2.1
+Fetching safe_yaml 1.0.4
+Installing safe_yaml 1.0.4
+Fetching jekyll 3.7.3
+Installing jekyll 3.7.3
+Fetching jekyll-avatar 0.5.0
+Installing jekyll-avatar 0.5.0
+Fetching jekyll-coffeescript 1.1.1
+Installing jekyll-coffeescript 1.1.1
+Fetching jekyll-commonmark 1.2.0
+Installing jekyll-commonmark 1.2.0
+Fetching jekyll-commonmark-ghpages 0.1.5
+Installing jekyll-commonmark-ghpages 0.1.5
 Fetching jekyll-default-layout 0.1.4
 Installing jekyll-default-layout 0.1.4
-Fetching jekyll-feed 0.9.2
-Installing jekyll-feed 0.9.2
-Fetching jekyll-github-metadata 2.3.1
-Installing jekyll-github-metadata 2.3.1
-Fetching jekyll-mentions 1.2.0
-Installing jekyll-mentions 1.2.0
-Fetching jekyll-optional-front-matter 0.1.2
-Installing jekyll-optional-front-matter 0.1.2
-Fetching jekyll-readme-index 0.1.0
-Installing jekyll-readme-index 0.1.0
-Fetching jekyll-redirect-from 0.12.1
-Installing jekyll-redirect-from 0.12.1
-Fetching jekyll-relative-links 0.4.0
-Installing jekyll-relative-links 0.4.0
-Fetching jekyll-seo-tag 2.2.3
-Installing jekyll-seo-tag 2.2.3
-Fetching jekyll-sitemap 1.0.0
-Installing jekyll-sitemap 1.0.0
-Fetching jekyll-theme-architect 0.0.4
-Installing jekyll-theme-architect 0.0.4
-Fetching jekyll-theme-cayman 0.0.4
-Installing jekyll-theme-cayman 0.0.4
-Fetching jekyll-theme-dinky 0.0.4
-Installing jekyll-theme-dinky 0.0.4
-Fetching jekyll-theme-hacker 0.0.4
-Installing jekyll-theme-hacker 0.0.4
-Fetching jekyll-theme-leap-day 0.0.4
-Installing jekyll-theme-leap-day 0.0.4
-Fetching jekyll-theme-merlot 0.0.4
-Installing jekyll-theme-merlot 0.0.4
-Fetching jekyll-theme-midnight 0.0.4
-Installing jekyll-theme-midnight 0.0.4
-Fetching jekyll-theme-minimal 0.0.4
-Installing jekyll-theme-minimal 0.0.4
-Fetching jekyll-theme-modernist 0.0.4
-Installing jekyll-theme-modernist 0.0.4
-Fetching jekyll-theme-primer 0.2.1
-Installing jekyll-theme-primer 0.2.1
-Fetching jekyll-theme-slate 0.0.4
-Installing jekyll-theme-slate 0.0.4
-Fetching jekyll-theme-tactile 0.0.4
-Installing jekyll-theme-tactile 0.0.4
-Fetching jekyll-theme-time-machine 0.0.4
-Installing jekyll-theme-time-machine 0.0.4
-Fetching jekyll-titles-from-headings 0.1.5
-Installing jekyll-titles-from-headings 0.1.5
-Fetching jemoji 0.8.0
-Installing jemoji 0.8.0
-Fetching minima 2.1.1
-Installing minima 2.1.1
-Fetching github-pages 139
-Installing github-pages 139
+Fetching jekyll-feed 0.9.3
+Installing jekyll-feed 0.9.3
+Fetching jekyll-gist 1.5.0
+Installing jekyll-gist 1.5.0
+Fetching jekyll-github-metadata 2.9.4
+Installing jekyll-github-metadata 2.9.4
+Fetching mini_portile2 2.3.0
+Installing mini_portile2 2.3.0
+Fetching nokogiri 1.8.2
+Installing nokogiri 1.8.2 with native extensions
+Fetching html-pipeline 2.7.2
+Installing html-pipeline 2.7.2
+Fetching jekyll-mentions 1.3.0
+Installing jekyll-mentions 1.3.0
+Fetching jekyll-optional-front-matter 0.3.0
+Installing jekyll-optional-front-matter 0.3.0
+Fetching jekyll-paginate 1.1.0
+Installing jekyll-paginate 1.1.0
+Fetching jekyll-readme-index 0.2.0
+Installing jekyll-readme-index 0.2.0
+Fetching jekyll-redirect-from 0.13.0
+Installing jekyll-redirect-from 0.13.0
+Fetching jekyll-relative-links 0.5.3
+Installing jekyll-relative-links 0.5.3
+Fetching rubyzip 1.2.1
+Installing rubyzip 1.2.1
+Fetching jekyll-remote-theme 0.2.3
+Installing jekyll-remote-theme 0.2.3
+Fetching jekyll-seo-tag 2.4.0
+Installing jekyll-seo-tag 2.4.0
+Fetching jekyll-sitemap 1.2.0
+Installing jekyll-sitemap 1.2.0
+Fetching jekyll-swiss 0.4.0
+Installing jekyll-swiss 0.4.0
+Fetching jekyll-theme-architect 0.1.1
+Installing jekyll-theme-architect 0.1.1
+Fetching jekyll-theme-cayman 0.1.1
+Installing jekyll-theme-cayman 0.1.1
+Fetching jekyll-theme-dinky 0.1.1
+Installing jekyll-theme-dinky 0.1.1
+Fetching jekyll-theme-hacker 0.1.1
+Installing jekyll-theme-hacker 0.1.1
+Fetching jekyll-theme-leap-day 0.1.1
+Installing jekyll-theme-leap-day 0.1.1
+Fetching jekyll-theme-merlot 0.1.1
+Installing jekyll-theme-merlot 0.1.1
+Fetching jekyll-theme-midnight 0.1.1
+Installing jekyll-theme-midnight 0.1.1
+Fetching jekyll-theme-minimal 0.1.1
+Installing jekyll-theme-minimal 0.1.1
+Fetching jekyll-theme-modernist 0.1.1
+Installing jekyll-theme-modernist 0.1.1
+Fetching jekyll-theme-primer 0.5.3
+Installing jekyll-theme-primer 0.5.3
+Fetching jekyll-theme-slate 0.1.1
+Installing jekyll-theme-slate 0.1.1
+Fetching jekyll-theme-tactile 0.1.1
+Installing jekyll-theme-tactile 0.1.1
+Fetching jekyll-theme-time-machine 0.1.1
+Installing jekyll-theme-time-machine 0.1.1
+Fetching jekyll-titles-from-headings 0.5.1
+Installing jekyll-titles-from-headings 0.5.1
+Fetching jemoji 0.9.0
+Installing jemoji 0.9.0
+Fetching minima 2.4.1
+Installing minima 2.4.1
+Fetching unicode-display_width 1.3.2
+Installing unicode-display_width 1.3.2
+Fetching terminal-table 1.8.0
+Installing terminal-table 1.8.0
+Fetching github-pages 183
+Installing github-pages 183
 Bundle updated!
+Post-install message from dnsruby:
+Installing dnsruby...
+  For issues and source code: https://github.com/alexdalitz/dnsruby
+  For general discussion (please tell us how you use dnsruby): https://groups.google.com/forum/#!forum/dnsruby
 Post-install message from html-pipeline:
 -------------------------------------------------
 Thank you for installing html-pipeline!
@@ -418,7 +618,6 @@ cp test/Gemfile webpage/.
 
 ```ruby
 source "https://rubygems.org"
-ruby RUBY_VERSION
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -428,7 +627,7 @@ ruby RUBY_VERSION
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-# gem "jekyll", "3.4.3"
+# gem "jekyll", "~> 3.7.3"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.0"
@@ -439,11 +638,15 @@ gem "github-pages", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-   gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-feed", "~> 0.6"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Performance-booster for watching directories on Windows
+gem "wdm", "~> 0.1.0" if Gem.win_platform?
+
 ```
 
 ページ用のgemを更新する
@@ -452,83 +655,94 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 cd webpage
 bundle update
 The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
-Fetching gem metadata from https://rubygems.org/............
-Fetching version metadata from https://rubygems.org/...
-Fetching dependency metadata from https://rubygems.org/..
-Resolving dependencies...
-Using public_suffix 2.0.5
-Using colorator 1.1.0
-Using sass 3.4.24
-Using rb-fsevent 0.9.8
-Using ffi 1.9.18
-Using kramdown 1.13.2
-Using liquid 3.0.6
-Using mercenary 0.3.6
-Using forwardable-extended 2.6.0
-Using rouge 1.11.1
-Using safe_yaml 1.0.4
-Using i18n 0.8.4
-Using minitest 5.10.2
+Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/.
+Resolving dependencies....
+Using concurrent-ruby 1.0.5
+Using i18n 0.9.5
+Using minitest 5.11.3
 Using thread_safe 0.3.6
-Using net-dns 0.8.0
-Using multipart-post 2.0.0
-Using coffee-script-source 1.12.2
+Using tzinfo 1.2.5
+Using activesupport 4.2.9
+Using public_suffix 2.0.5
+Using addressable 2.5.2
+Using bundler 1.16.1
+Using coffee-script-source 1.11.1
 Using execjs 2.7.0
-Using mini_portile2 2.1.0
-Using jekyll-paginate 1.1.0
-Using jekyll-swiss 0.4.0
-Using gemoji 3.0.0
-Using unicode-display_width 1.2.1
-Using bundler 1.15.0
-Using addressable 2.5.1
-Using jekyll-sass-converter 1.5.0
-Using rb-inotify 0.9.8
-Using ethon 0.10.1
-Using pathutil 0.14.0
-Using tzinfo 1.2.3
-Using faraday 0.12.1
 Using coffee-script 2.4.1
-Using nokogiri 1.7.2
-Using terminal-table 1.8.0
-Using listen 3.0.6 (was 3.0.8)
-Using typhoeus 0.8.0
-Using activesupport 4.2.8
+Using colorator 1.1.0
+Using ruby-enum 0.7.2
+Using commonmarker 0.17.9
+Using dnsruby 1.60.2
+Using eventmachine 1.2.6
+Using http_parser.rb 0.6.0
+Using em-websocket 0.5.1
+Using ffi 1.9.23
+Using ethon 0.11.0
+Using multipart-post 2.0.0
+Using faraday 0.15.0
+Using forwardable-extended 2.6.0
+Using gemoji 3.0.0
 Using sawyer 0.8.1
-Using jekyll-coffeescript 1.0.1
-Using jekyll-watch 1.5.0
-Using html-pipeline 2.6.0
-Using octokit 4.7.0
-Using jekyll 3.4.3
-Using github-pages-health-check 1.3.3
-Using jekyll-gist 1.4.0
-Using minima 2.1.1
-Using jekyll-avatar 0.4.2
+Using octokit 4.8.0
+Using typhoeus 1.3.0
+Using github-pages-health-check 1.7.3
+Using rb-fsevent 0.10.3
+Using rb-inotify 0.9.10
+Using sass-listen 4.0.0
+Using sass 3.5.6
+Using jekyll-sass-converter 1.5.2
+Using ruby_dep 1.5.0
+Using listen 3.1.5
+Using jekyll-watch 2.0.0
+Using kramdown 1.16.2
+Using liquid 4.0.0
+Using mercenary 0.3.6
+Using pathutil 0.16.1
+Using rouge 2.2.1
+Using safe_yaml 1.0.4
+Using jekyll 3.7.3
+Using jekyll-avatar 0.5.0
+Using jekyll-coffeescript 1.1.1
+Using jekyll-commonmark 1.2.0
+Using jekyll-commonmark-ghpages 0.1.5
 Using jekyll-default-layout 0.1.4
-Using jekyll-feed 0.9.2
-Using jekyll-github-metadata 2.3.1
-Using jekyll-mentions 1.2.0
-Using jekyll-optional-front-matter 0.1.2
-Using jekyll-readme-index 0.1.0
-Using jekyll-redirect-from 0.12.1
-Using jekyll-relative-links 0.4.0
-Using jekyll-seo-tag 2.2.3
-Using jekyll-sitemap 1.0.0
-Using jekyll-theme-architect 0.0.4
-Using jekyll-theme-cayman 0.0.4
-Using jekyll-theme-dinky 0.0.4
-Using jekyll-theme-hacker 0.0.4
-Using jekyll-theme-leap-day 0.0.4
-Using jekyll-theme-merlot 0.0.4
-Using jekyll-theme-midnight 0.0.4
-Using jekyll-theme-minimal 0.0.4
-Using jekyll-theme-modernist 0.0.4
-Using jekyll-theme-primer 0.2.1
-Using jekyll-theme-slate 0.0.4
-Using jekyll-theme-tactile 0.0.4
-Using jekyll-theme-time-machine 0.0.4
-Using jekyll-titles-from-headings 0.1.5
-Using jemoji 0.8.0
-Using github-pages 139
+Using jekyll-feed 0.9.3
+Using jekyll-gist 1.5.0
+Using jekyll-github-metadata 2.9.4
+Using mini_portile2 2.3.0
+Using nokogiri 1.8.2
+Using html-pipeline 2.7.2
+Using jekyll-mentions 1.3.0
+Using jekyll-optional-front-matter 0.3.0
+Using jekyll-paginate 1.1.0
+Using jekyll-readme-index 0.2.0
+Using jekyll-redirect-from 0.13.0
+Using jekyll-relative-links 0.5.3
+Using rubyzip 1.2.1
+Using jekyll-remote-theme 0.2.3
+Using jekyll-seo-tag 2.4.0
+Using jekyll-sitemap 1.2.0
+Using jekyll-swiss 0.4.0
+Using jekyll-theme-architect 0.1.1
+Using jekyll-theme-cayman 0.1.1
+Using jekyll-theme-dinky 0.1.1
+Using jekyll-theme-hacker 0.1.1
+Using jekyll-theme-leap-day 0.1.1
+Using jekyll-theme-merlot 0.1.1
+Using jekyll-theme-midnight 0.1.1
+Using jekyll-theme-minimal 0.1.1
+Using jekyll-theme-modernist 0.1.1
+Using jekyll-theme-primer 0.5.3
+Using jekyll-theme-slate 0.1.1
+Using jekyll-theme-tactile 0.1.1
+Using jekyll-theme-time-machine 0.1.1
+Using jekyll-titles-from-headings 0.5.1
+Using jemoji 0.9.0
+Using minima 2.4.1
+Using unicode-display_width 1.3.2
+Using terminal-table 1.8.0
+Using github-pages 183
 Bundle updated!
 ```
 
