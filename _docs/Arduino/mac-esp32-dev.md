@@ -2,7 +2,7 @@
 layout : post
 title  : macOSでESP32-dev-moduleを実験する。
 date   : 2018/05/02
-lastchange : 2018-05-02 04:54:19.
+lastchange : 2018-05-21 18:49:13.
 tags   :
   - arduino
   - esp32
@@ -32,7 +32,7 @@ macOSでの開発に関して、あまり資料を探しても無かったので
 * [USB - UART ブリッジ VCP ドライバ\|Silicon Labs](https://jp.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 * [Getting Started with ESP32 Dev Module \| Random Nerd Tutorials](http://randomnerdtutorials.com/getting-started-with-esp32/)
 
-
+ちなみに買ったESP32ボードはこちら。
 
 ## Arduino IDEをインストール
 
