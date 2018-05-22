@@ -18,6 +18,7 @@
 
     - name : Max for Live Basics
       pages :
+        - m4l-freeze
         - m4l-path
         - m4l-id
         - m4l-object
