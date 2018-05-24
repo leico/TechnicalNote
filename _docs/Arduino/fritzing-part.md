@@ -2,7 +2,7 @@
 layout : post
 title  : Fritzing用のパーツをIllustratorで作成する
 date   : 2018/05/25
-lastchange : 2018-05-25 02:21:05.
+lastchange : 2018-05-25 02:33:39.
 tags   :
   - fritzing
   - part
@@ -519,9 +519,41 @@ The PCB View uses the following colors:
 {% include thumbnail.html url=url caption=caption %}
 
 
+## データのテンプレート
+
+仕様の確認はできた。
+では実際にどうやって作ればいいのか、というテンプレートファイルが存在している。
+
+
+{% capture text %}
+
+You can download and use these helpful templates 
+to design your custom parts according to Fritzing's Graphic Standards.
+
+The following .zip file includes:
+
+1. Droid Sans font
+2. OCRA font
+3. Breadboard View graphics template
+4. Schematic View graphics template
+5. PCB View graphics template
+
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[Fritzing - Download fonts and templates](http://fritzing.org/fritzings-graphic-standards/download-fonts-and-templates)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+
+
 ## 最終データ
 
-最終的にできるデータがこちら
+最終的に作ってみたデータがこちら
 
 {% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/fritzing-part/06_FritzingData.png %}{% endcapture %}
 {% capture caption %}
