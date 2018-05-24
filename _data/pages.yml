@@ -291,6 +291,7 @@
   sections : 
     - name : 
       pages :
+        - fritzing-part
         - mac-esp32-dev
         - esp32-pinmap
         - esp32-2.2LCD
