@@ -249,7 +249,9 @@
   label : Mac
   sections :
     - name : Tips
-      pages : 
+      pages :
+        - thunderbolt3-pci-nonsupport
+        - csrutil
         - exhibit-check
         - Mac-USB
 
