@@ -2,7 +2,7 @@
 layout : post
 title  : "ESP32でI2C接続: I2C Scanner"
 date   : 2018/05/29
-lastchange : 2018-05-29 16:56:50.
+lastchange : 2018-05-29 17:05:22.
 tags   :
   - esp32
   - I2C
@@ -49,6 +49,9 @@ ESP32SとHMC5883Lの配線
 {% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/esp32-pinmap/05_ESP32S_Dev_Module.svg %}{% endcapture %}
 {% capture caption %}
 ESP32-dev-boardのピン配線
+
+[ESP32-dev-moduleのピンマップを確認する]({{site.github.url}}{% link _docs/Arduino/esp32-pinmap.md %})
+から転用
 {% endcapture %}
 {% assign caption = caption | markdownify %}
 {% include thumbnail.html url=url caption=caption %}
