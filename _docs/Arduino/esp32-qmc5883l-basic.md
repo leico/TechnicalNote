@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : "QMC5883Lのファーストステップ"
+title  : "QMC5883Lでとりあえず3軸地磁気データを取得する"
 date   : 2018/05/29
-lastchange : 2018-06-04 17:42:12.
+lastchange : 2018-06-04 22:44:13.
 tags   :
   - esp32
   - I2C
@@ -13,7 +13,8 @@ tags   :
 
 ## このICってどうなっているのだ
 
-[ESP32でI2C接続: QMC5883L(HMC5883L)を使ってみる]({{site.github.url}}{% link _docs/Arduino/esp32-qmc5883l.md %})でひとまずデータを取ることができるようになったのだが、
+[ESP32でI2C接続: QMC5883L(HMC5883L)を使ってみる]({{site.github.url}}{% link _docs/Arduino/esp32-qmc5883l.md %})
+でひとまずデータを取ることができるようになったのだが、
 このICの仕組みはどうなっているのだろう。
 ということで仕様書を見ながら実装をしてみる。
 今回は仕様書の最初に載っている方法を実装する。
@@ -21,6 +22,8 @@ tags   :
 参考:
 
 * [3-Axis Magnetic Sensor QMC5883L](http://wiki.sunfounder.cc/images/7/72/QMC5883L-Datasheet-1.0.pdf)
+* [LSBとMSB](http://www.geocities.co.jp/Hollywood/6872/note/lsbmsb.html)
+
 
 ## 連続測定モード
 
@@ -32,15 +35,8 @@ tags   :
 * Write Register 09H by 0x1D (Define OSR = 512, Full Scale Range = 8Gauss,
 ODR = 200Hz, set continuous measurement mode)
 
-{% endcapture %}
-{% assign text=text | markdownify %}
-{% capture source %}
-[3-Axis Magnetic Sensor QMC5883L](http://wiki.sunfounder.cc/images/7/72/QMC5883L-Datasheet-1.0.pdf)
-{% endcapture %}
-{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
-{% include cite.html text=text source=source %}
+---
 
-{% capture text %}
 
 <table>
   <thead>
