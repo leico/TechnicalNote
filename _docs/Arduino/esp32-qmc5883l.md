@@ -2,7 +2,7 @@
 layout : post
 title  : "ESP32でI2C接続: QMC5883L(HMC5883L)を使ってみる"
 date   : 2018/05/29
-lastchange : 2018-05-29 18:23:07.
+lastchange : 2018-05-31 01:52:55.
 tags   :
   - esp32
   - I2C
@@ -16,7 +16,7 @@ tags   :
 [ESP32でI2C接続: I2C Scanner]({{site.github.url}}{% link _docs/Arduino/esp32-i2cscan.md %})
 で HMC5883L の I2Cアドレスを確認したところ、どうもアドレスが違う。
 
-今回はこのチップをサンプルソースから動作するまでをまとめる。
+今回はこのチップでサンプルソースを動作するまでをまとめる。
 
 参考:
 * [Arduinoでi2c通信でセンサから値をとってみる - Qiita](https://qiita.com/hurusu1006/items/f493ee4eb9998d5bd740)

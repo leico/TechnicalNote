@@ -293,6 +293,7 @@
   sections : 
     - name : 
       pages :
+        - esp32-qmc5883l-basic
         - esp32-qmc5883l
         - esp32-i2cscan
         - fritzing-part
