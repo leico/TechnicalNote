@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : "QMC5883Lでとりあえず3軸地磁気データを取得する"
-date   : 2018/05/29
-lastchange : 2018-06-04 22:44:13.
+date   : 2018/06/04
+lastchange : 2018-06-04 22:57:55.
 tags   :
   - esp32
   - I2C

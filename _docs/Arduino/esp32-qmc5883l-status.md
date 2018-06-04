@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : "QMC5883Lのステータス・レジスタを使ってみる"
-date   : 2018/05/29
-lastchange : 2018-06-04 22:55:01.
+date   : 2018/06/04
+lastchange : 2018-06-04 22:58:03.
 tags   :
   - esp32
   - I2C
