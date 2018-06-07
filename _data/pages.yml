@@ -214,6 +214,7 @@
   sections :
     - name  : Tips
       pages :
+        - lambda
         - overload-cast
         - accessor
         - Explicit-specialization-of-after-instantiation
