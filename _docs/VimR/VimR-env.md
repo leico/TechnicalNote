@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : VimR+dein.vimで`$HOME`を使ったパスの設定
+title  : VimR+dein.vimで $HOME を使ったパスの設定
 date   : 2017/01/25
-lastchange : 2017-06-17 02:14:27.
+lastchange : 2018-07-03 17:19:05.
 tags   :
   - vim
   - VimR

@@ -88,6 +88,7 @@
 
     - name  : Jekyllの導入
       pages :
+        - rbenv-homebrew
         - Ruby-research
         - rbenv-install
         - rbenv-usage
@@ -214,12 +215,13 @@
   sections :
     - name  : Tips
       pages :
+        - 
         - lambda
         - overload-cast
         - accessor
         - Explicit-specialization-of-after-instantiation
         - part-of-specialize
-        - template-meta
+        - template-specialization
         - inherited-interface
         - call-base-class-function
         - not-definit-const-static-in-header
@@ -251,6 +253,7 @@
   sections :
     - name : Tips
       pages :
+        - homebrew-applications
         - thunderbolt3-pci-nonsupport
         - csrutil
         - exhibit-check

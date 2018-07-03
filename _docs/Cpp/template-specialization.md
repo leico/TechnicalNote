@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : テンプレートメタの入り口
+title  : テンプレート特殊化の入り口
 date   : 2016/09/13
-lastchange : 2017-03-06 00:07:07.
+lastchange : 2018-06-07 17:07:19.
 tags   :
   - C++
   - genelic

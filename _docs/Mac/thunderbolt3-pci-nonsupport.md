@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : サポートされていないPCIカードをThunderbolt3 PCI ボックスで動かす
-date   : 2017/08/14
-lastchange : 2018-05-27 02:56:12.
+date   : 2018/05/27
+lastchange : 2018-07-03 16:04:04.
 tags   :
   - Mac
   - Sierra
