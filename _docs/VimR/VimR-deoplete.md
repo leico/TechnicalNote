@@ -2,7 +2,7 @@
 layout : post
 title  : VimRにdeoplete.nvimをインストールする
 date   : 2018/07/04
-lastchange : 2018-07-04 17:10:35.
+lastchange : 2018-07-04 17:55:24.
 tags   :
   - vim
   - VimR
@@ -17,6 +17,17 @@ tags   :
 やっとhomebrewを入れたのでサクッと python3 をインストールしてVimRに補完プラグインのdeopleteを導入する。
 
 参考:
+[Vimでの補完ツールプラグインをneocompleteからdeopleteへ](https://rcmdnk.com/blog/2017/11/16/computer-vim/)
+[Support for :python3 on neovim · Issue #345 · qvacua/vimr](https://github.com/qvacua/vimr/issues/345#issuecomment-260456378)
+[Vim documentation: provider](https://neovim.io/doc/user/provider.html#provider-python)
+[Shougo/neosnippet.vim: neo-snippet plugin](https://github.com/Shougo/neosnippet.vim)
+[neovim で deoplete + neosnippet の連携をする - Qiita](https://qiita.com/takezo/items/809d53ecd37c438bac9e)
+[neovimの補完プラグインdeopleteが重い(快適設定にする) - sinshutu\_kibotuの日記](https://sinshutu-kibotu.hatenablog.jp/entry/2017/01/27/062757)
+[map - Vim日本語ドキュメント](https://vim-jp.org/vimdoc-ja/map.html#:map-%3Cexpr%3E)
+[【図解Vim】mapとnoremap - ここぽんのーと](https://cocopon.me/blog/2013/10/vim-map-noremap/)
+[Vimのmap、noremapについて調べた - 転職した](http://yellowring.hatenablog.jp/entry/2015/03/08/152351)
+[Vim - neocomplete.vimを使った補完後に改行をさせないようにしたい。(116046)\｜teratail](https://teratail.com/questions/116046)
+[neosnippet.vim/neosnippet.txt at master · Shougo/neosnippet.vim](https://github.com/Shougo/neosnippet.vim/blob/master/doc/neosnippet.txt)
 
 
 
@@ -382,7 +393,7 @@ endif
 {% endcapture %}
 {% assign text=text | markdownify %}
 {% capture source %}
-[Vim documentation: provider](https://neovim.io/doc/user/provider.html#provider-python)
+[Shougo/neosnippet.vim: neo-snippet plugin](https://github.com/Shougo/neosnippet.vim)
 {% endcapture %}
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
@@ -501,7 +512,7 @@ on_i = 1
 {% endcapture %}
 {% assign text=text | markdownify %}
 {% capture source %}
-[neovimの補完プラグインdeopleteが重い(快適設定にする) - sinshutu_kibotuの日記](https://sinshutu-kibotu.hatenablog.jp/entry/2017/01/27/062757)
+[neovimの補完プラグインdeopleteが重い(快適設定にする) - sinshutu\_kibotuの日記](https://sinshutu-kibotu.hatenablog.jp/entry/2017/01/27/062757)
 {% endcapture %}
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
