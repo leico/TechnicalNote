@@ -87,10 +87,10 @@ pre
 .card h5, .card h6
   font-size : 1rem
 
-h1:not(.card-header), 
-h2:not(.card-header),
-h3:not(.card-header),
-h4:not(.card-header),
+h1:not(.card-header, .card-title), 
+h2:not(.card-header, .card-title),
+h3:not(.card-header, .card-title),
+h4:not(.card-header, .card-title),
 .h1, .h2, .h3, .h4
   @extend .my-5
 
@@ -99,10 +99,10 @@ table
 
 blockquote
   border-left: solid medium $gray-300
-  @extend .ml-3
-  @extend .mr-2
+  @extend .mx-3
+  @extend .my-4
   @extend .blockquote
-  @extend .pl-2
+  @extend .pl-3
 
 .blockquote-footer
   font-size: 100%
@@ -110,13 +110,24 @@ blockquote
 p
   @extend .text-justify
 
+.card-block
+  @extend .pt-3
 .card-block > p
   @extend .card-text
 .card-block > *
   @extend .ml-3
 
+.card-title
+  @extend .my-3
+  
+  
+
 pre
   @extend .p-3
+
+div.highlighter-rouge
+  @extend .rounded
+div.highlight
   @extend .rounded
 
 div.card-columns.category-index

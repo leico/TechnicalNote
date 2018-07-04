@@ -2,7 +2,7 @@
 layout : post
 title  : dein.vim:tomlファイルでプラグイン管理する
 date : 2017/01/26
-lastchange : 2017-06-17 02:03:27.
+lastchange : 2018-07-04 17:13:52.
 tags   :
   - vim
   - VimR
@@ -91,12 +91,26 @@ set transparency=15
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+[[plugins]]
+repo = 'leico/autodate.vim'
 
 ```
 
 ### __~/.config/nvim/dein/toml/dein\_lazy.toml__
 
 ```toml
+# deoplete------------------
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+let g:deoplete#enable_at_startup   = 1
+let g:deoplete#auto_complete_delay = 0
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+'''
+on_i = 1
 
 
 
@@ -109,25 +123,37 @@ on_i = 1
 hook_source = '''
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+imap <expr><CR>
+\ (pumvisible() && neosnippet#expandable()) ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
+
+
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+"if has('conceal')
+"  set conceallevel=2 concealcursor=niv
+"endif
 '''
+
+
+
+
+[[plugins]]
+repo = 'sudar/vim-arduino-syntax'
+on_ft = ['arduino']
+
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -135,12 +161,14 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+
+
 ```
 
 ## きっかけ
 
 プラグインを入れるとプラグインの設定も書かないといけなくなり、__init.vim__ が煩雑になってくるので、
-プラグインの設定も含めてtomlファイルに以降することにした。
+プラグインの設定も含めてtomlファイルに移行することにした。
 
 参考
 
@@ -156,7 +184,7 @@ repo = 'Shougo/context_filetype.vim'
 
 
 {% capture text %}
-```
+```vim
 " 設定開始
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
@@ -193,7 +221,7 @@ endif
 
 tomlを読み込む記述をする必要があるので、上記から
 
-```
+```vim
  " プラグインリストを収めた TOML ファイル
  " 予め TOML ファイル（後述）を用意しておく
  let g:rc_dir    = expand('~/.vim/rc')
@@ -207,7 +235,7 @@ tomlを読み込む記述をする必要があるので、上記から
 
 の部分を変更して __init.vim__ に追加する
 
-```
+```vim
 
 if &compatible
   set nocompatible               " Be iMproved
