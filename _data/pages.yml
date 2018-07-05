@@ -112,6 +112,7 @@
 
     - name  : Tips
       pages :
+        - jekyll-syntaxhighlight
         - cite-include
         - jekyll-atom
         - liquid-raw

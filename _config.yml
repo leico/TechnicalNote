@@ -6,9 +6,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
-  - Submodules/
+  - Submodules
   - README.md
   - '*/README.md'
+  - '*/LICENSE'
 
 timezone: Asia/Tokyo
 encording: utf-8

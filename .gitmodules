@@ -4,3 +4,9 @@
 [submodule "Submodules/Bootstrap"]
 	path = Submodules/Bootstrap
 	url = https://github.com/twbs/bootstrap.git
+[submodule "Submodules/Desert"]
+	path = Submodules/Desert
+	url = https://github.com/leico/Desert-css
+[submodule "Submodules/Zenburn"]
+	path = Submodules/Zenburn
+	url = https://github.com/leico/Zenburn-css
