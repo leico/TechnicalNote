@@ -2,7 +2,7 @@
 layout : post
 title  : Jekyllのシンタックスハイライトのテーマを作って変更する
 date : 2018/07/05
-lastchange : 2018-07-05 19:22:25.
+lastchange : 2018-07-05 19:24:56.
 tags   :
   - jekyll
   - github pages
@@ -19,6 +19,16 @@ tags   :
 その過程を書いておく。
 
 参考:
+
+* [List of tokens · jneen/rouge Wiki](https://github.com/jneen/rouge/wiki/List-of-tokens)
+* [pygments-css/vs.css at master · richleland/pygments-css](https://github.com/richleland/pygments-css/blob/master/vs.css)
+* [Solarized theme stylesheets for Jekyll and Pygments](https://gist.github.com/nicolashery/5765395)
+* [Pygments Syntax Highlighter CSS Theme Files](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html)
+* [desert.vim/desert.vim at master · fugalh/desert.vim](https://github.com/fugalh/desert.vim/blob/master/colors/desert.vim)
+* [Vimでの補完ツールプラグインをneocompleteからdeopleteへ](https://rcmdnk.com/blog/2017/11/16/computer-vim/)
+* [カラースキームを作ってみよう - 永遠に未完成](https://thinca.hatenablog.com/entry/20130410/1365530054)
+* [rgb.txt](http://fugal.net/vim/rgbtxt.html)
+
 
 ## RougeのCSSクラスはPygmentsのCSSクラスと互換性がありそうだ
 
