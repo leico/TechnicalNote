@@ -237,6 +237,7 @@
   sections :
     - name  : Tips
       pages :
+        - Vim-neosnippet-cpp
         - Vim-structure
         - VimR-dein-XDG
         - VimR-dein-autodate
