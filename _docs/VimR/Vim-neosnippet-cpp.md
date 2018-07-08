@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : neosnippet用 C/C++11 スニペットを作成する。
-date   : 2018/07/04
-lastchange : 2018-07-08 17:14:35.
+date   : 2018/07/08
+lastchange : 2018-07-08 17:27:52.
 tags   :
   - vim
   - VimR
