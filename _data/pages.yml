@@ -255,6 +255,7 @@
   sections :
     - name : Tips
       pages :
+        - mac-screencapture-gif
         - homebrew-applications
         - thunderbolt3-pci-nonsupport
         - csrutil
