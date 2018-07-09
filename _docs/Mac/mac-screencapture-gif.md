@@ -2,7 +2,7 @@
 layout : post
 title  : Macでキーボード入力を表示させながらスクリーンキャプチャを行う
 date   : 2018/07/09
-lastchange : 2018-07-09 18:43:43.
+lastchange : 2018-07-09 18:50:21.
 tags   :
   - Mac
   - High Sierra
@@ -18,6 +18,14 @@ tags   :
 どうやって作られているのだろうと思ったので調べた。
 
 参考:
+
+* [キー入力を表示しながらスクリーンショットGifを撮る](https://rcmdnk.com/blog/2014/08/01/computer-mac-windows/#keycast)
+* [Macの画面をGIFアニメとしてキャプチャできる３アプリを比較検討してみた \| あなたのスイッチを押すブログ](http://bamka.info/mac-gif-captcha)
+* [Releases · cho45/KeyCast](https://github.com/cho45/KeyCast/releases)
+* [Cockos Incorporated \| LICEcap](https://www.cockos.com/licecap/)
+* [32 ビット App と macOS High Sierra 10.13.4 の互換性 - Apple サポート](https://support.apple.com/ja-jp/ht208436)
+
+
 
 ## キー入力に KeyCastを使う
 
@@ -158,7 +166,7 @@ githubに挙がっているので誰かが開発継続してくれることを�
 {% endcapture %}
 {% assign text=text | markdownify %}
 {% capture source %}
-[キー入力を表示しながらスクリーンショットGifを撮る](https://rcmdnk.com/blog/2014/08/01/computer-mac-windows/#keycast)
+[Macの画面をGIFアニメとしてキャプチャできる３アプリを比較検討してみた \| あなたのスイッチを押すブログ](http://bamka.info/mac-gif-captcha)
 {% endcapture %}
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
