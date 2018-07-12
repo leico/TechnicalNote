@@ -2,7 +2,7 @@
 layout : post
 title  : VimRにdeoplete.nvimをインストールする
 date   : 2018/07/04
-lastchange : 2018-07-04 17:56:31.
+lastchange : 2018-07-09 23:40:44.
 tags   :
   - vim
   - VimR
@@ -68,7 +68,7 @@ t_channel[5]..yarp#core#jobstart[2]..yarp#pyx#init[13]..yarp#core#serveraddr[1].
 
 みたいなエラーがおきます。 この場合にはpip3で
 
-```
+```sh
 $ pip3 install --upgrade neovim
 ```
 
@@ -236,7 +236,8 @@ endif
 ```
 
 VimR上で
-```
+
+```vim
 :call dein#install()
 ```
 
@@ -251,13 +252,13 @@ Try the :UpdateRemotePlugins command and restart Neovim. See also :checkhealth.
 
 というエラーが表示されたので
 
-```
+```vim
 :UpdateRemotePlugins
 ```
 
 を実行、
 
-```
+```vim
 :checkhealth
 ```
 
@@ -632,7 +633,7 @@ on_i = 1
 
 vimにはモードがあるため、mapやnoremapも各々のモード用に種類が存在する。
 
-```
+```vim
       コマンド                    モード
  :map   :noremap  :unmap     ノーマル、ビジュアル、選択、演算待ち状態
  :nmap  :nnoremap :nunmap    ノーマル
