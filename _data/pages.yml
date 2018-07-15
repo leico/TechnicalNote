@@ -216,7 +216,7 @@
   sections :
     - name  : Tips
       pages :
-        - 
+        - has_trivial_assign
         - lambda
         - overload-cast
         - accessor
