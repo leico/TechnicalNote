@@ -2,7 +2,7 @@
 layout : post
 title  : has_trivial_assign は is_trivially_copy_assignable になった
 date   : 2017/07/15
-lastchange : 2018-07-15 12:36:06.
+lastchange : 2018-07-15 12:43:02.
 tags   :
   - C++
   - C++11
@@ -76,15 +76,15 @@ No member named 'has_trivial_assign' in namespace 'std'
 {% capture text %}
 Summary of renamed traits 	
 
-|              | General form                                                        | Nothrow form                                                                 | Trivial form                                                                   |
-|--------------|---------------------------------------------------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Construction | **is\_constructible**                                               | **is\_nothrow\_constructible**                                               |                                                                                |
-|              | **~~has~~** **_is_** **\_default\_construct** **_ible_** **~~or~~** | **~~has~~** **_is_** **\_nothrow\_default\_construct** **_ible_** **~~or~~** | **~~has~~** **_is_** **\_trivially\_default\_construct** **_ible_** **~~or~~** |
-|              | **~~has~~** **_is_** **\_copy\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_nothrow\_copy\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_trivially\_copy\_construct** **_ible_** **~~or~~**    |
-|              | **~~has~~** **_is_** **\_move\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_nothrow\_move\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_trivially\_move\_construct** **_ible_** **~~or~~**    |
-| Destruction  |                                                                     |                                                                              | **~~has~~** **_is_** **\_trivially\_destruct** **_ible_** **~~or~~**           |
-| Assignment   | **~~has~~** **_is_** **\_copy\_assign** **_able_**                  | **~~has~~** **_is_** **\_nothrow\_copy\_assign** **_able_**                  | **~~has~~** **_is_** **\_trivially\_copy\_assign** **_able_**                  |
-|              | **~~has~~** **_is_** **\_move\_assign** **_able_**                  | **~~has~~** **_is_** **\_nothrow\_move\_assign** **_able_**                  | **~~has~~** **_is_** **\_trivially\_move\_assign** **_able_**                  |
+|              | General form                                                        | Nothrow form                                                                 | Trivial form                                                                               |
+|--------------|---------------------------------------------------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| Construction | **is\_constructible**                                               | **is\_nothrow\_constructible**                                               |                                                                                            |
+|              | **~~has~~** **_is_** **\_default\_construct** **_ible_** **~~or~~** | **~~has~~** **_is_** **\_nothrow\_default\_construct** **_ible_** **~~or~~** | **~~has~~** **_is_** **\_trivial** **_ly_** **\_default\_construct** **_ible_** **~~or~~** |
+|              | **~~has~~** **_is_** **\_copy\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_nothrow\_copy\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_trivial** **_ly_** **\_copy\_construct** **_ible_** **~~or~~**    |
+|              | **~~has~~** **_is_** **\_move\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_nothrow\_move\_construct** **_ible_** **~~or~~**    | **~~has~~** **_is_** **\_trivial** **_ly_** **\_move\_construct** **_ible_** **~~or~~**    |
+| Destruction  |                                                                     |                                                                              | **~~has~~** **_is_** **\_trivial** **_ly_** **\_destruct** **_ible_** **~~or~~**           |
+| Assignment   | **~~has~~** **_is_** **\_copy\_assign** **_able_**                  | **~~has~~** **_is_** **\_nothrow\_copy\_assign** **_able_**                  | **~~has~~** **_is_** **\_trivial** **_ly_** **\_copy\_assign** **_able_**                  |
+|              | **~~has~~** **_is_** **\_move\_assign** **_able_**                  | **~~has~~** **_is_** **\_nothrow\_move\_assign** **_able_**                  | **~~has~~** **_is_** **\_trivial** **_ly_** **\_move\_assign** **_able_**                  |
 
 {% endcapture %}
 {% assign text=text | markdownify %}
