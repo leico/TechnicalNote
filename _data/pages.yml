@@ -255,6 +255,7 @@
   sections :
     - name : Tips
       pages :
+        - motu-mixer
         - mac-screencapture-gif
         - homebrew-applications
         - thunderbolt3-pci-nonsupport
@@ -314,6 +315,6 @@
   label : Memo
   sections :
     - name : 
-      pages : 
+      pages :
         - log-power
         - bouldering
