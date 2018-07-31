@@ -216,6 +216,8 @@
   sections :
     - name  : Tips
       pages :
+        - using_error
+        - cast_specialization
         - has_trivial_assign
         - lambda
         - overload-cast

@@ -28,6 +28,7 @@ $purple : #B129CC
 // Body
 //
 // Settings for the `<body>` element.
+
 $body-bg    : $gray-ultralight
 $body-color : $gray-dark
 
@@ -87,12 +88,13 @@ pre
 .card h5, .card h6
   font-size : 1rem
 
-h1:not(.card-header, .card-title), 
-h2:not(.card-header, .card-title),
-h3:not(.card-header, .card-title),
-h4:not(.card-header, .card-title),
+h1:not(.card-header):not(.card-title), 
+h2:not(.card-header):not(.card-title),
+h3:not(.card-header):not(.card-title),
+h4:not(.card-header):not(.card-title),
 .h1, .h2, .h3, .h4
-  @extend .my-5
+  @extend .mt-5
+  @extend .mb-3
 
 table
   @extend .table

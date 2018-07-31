@@ -41,5 +41,5 @@ sass:
   sass_dir: _sass
   style: :compressed
 
-# ---- fixed github metadata authentication bug ----
+# ---- fixed github metadata ----
 #github : [metadata]
