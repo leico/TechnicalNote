@@ -216,6 +216,7 @@
   sections :
     - name  : Tips
       pages :
+        - variadic-template
         - using_error
         - cast_specialization
         - has_trivial_assign
