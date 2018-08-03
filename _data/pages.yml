@@ -216,6 +216,7 @@
   sections :
     - name  : Tips
       pages :
+        - enum-class-operator
         - template-specialize-inherit
         - variadic-template
         - using_error
