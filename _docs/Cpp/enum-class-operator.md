@@ -2,7 +2,7 @@
 layout : post
 title  : enum class 同士の計算を僕も実装してみた
 date   : 2017/08/03
-lastchange : 2018-08-04 01:14:26.
+lastchange : 2018-08-04 01:38:21.
 tags   :
   - C++
   - C++11
@@ -342,7 +342,7 @@ template < typename Type1, typename Type2, typename... Tail >
 先頭から順番に enum class の基底型が同一かをチェックする動作を実装した。
 
 1つ目と2つ目、 enum class `Type1` / `Type2` の基底型が同一だった場合、
-Type2 を先頭にしたパラメータパックでもう一度 `impl(...)` を呼び出す、
+`Type2` を先頭にしたパラメータパックでもう一度 `impl(...)` を呼び出す、
 という処理が引数1つになるまで続く。
 
 ```cpp
@@ -500,6 +500,7 @@ static constexpr T operator& ( T t, U u ) {
 ### その他
 
 テストケースの enum class
+
 ```cpp
 enum class A : unsigned char { 
   one
