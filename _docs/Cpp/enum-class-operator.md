@@ -2,7 +2,7 @@
 layout : post
 title  : enum class 同士の計算を僕も実装してみた
 date   : 2018/08/03
-lastchange : 2018-08-04 02:08:19.
+lastchange : 2018-08-04 02:10:46.
 tags   :
   - C++
   - C++11
@@ -108,7 +108,7 @@ struct enum_logic_enabled : std :: false_type {};
 template < typename T, typename U > 
 using enum_enabler = std :: enable_if<
     enum_logic_enabled< T, U > :: value &&
-    is_enum_logic_safe< T, U > :: type :: value 
+    is_enum_logic_safe< T, U > :: value 
   , std :: nullptr_t
 >;
 
