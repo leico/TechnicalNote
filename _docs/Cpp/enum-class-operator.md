@@ -2,7 +2,7 @@
 layout : post
 title  : enum class 同士の計算を簡単に実装する
 date   : 2017/08/03
-lastchange : 2018-08-04 01:06:02.
+lastchange : 2018-08-04 01:11:14.
 tags   :
   - C++
   - C++11
@@ -543,3 +543,7 @@ main 関数内
 ## 出力結果
 
 なし
+
+## 連絡事項
+
+`namespace` に入れるなどは各自で。
