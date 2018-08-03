@@ -216,6 +216,7 @@
   sections :
     - name  : Tips
       pages :
+        - template-specialize-inherit
         - variadic-template
         - using_error
         - cast_specialization
