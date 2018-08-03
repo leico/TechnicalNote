@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : has_trivial_assign は is_trivially_copy_assignable になった
-date   : 2017/07/15
-lastchange : 2018-07-15 12:43:02.
+date   : 2018/07/15
+lastchange : 2018-08-04 02:09:10.
 tags   :
   - C++
   - C++11

@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : enum class 同士の計算を僕も実装してみた
-date   : 2017/08/03
-lastchange : 2018-08-04 01:38:21.
+date   : 2018/08/03
+lastchange : 2018-08-04 02:08:19.
 tags   :
   - C++
   - C++11

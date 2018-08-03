@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : 可変引数テンプレートパラメータいろいろ
-date   : 2017/08/02
-lastchange : 2018-08-02 19:10:42.
+date   : 2018/08/02
+lastchange : 2018-08-04 02:08:37.
 tags   :
   - C++
   - C++11

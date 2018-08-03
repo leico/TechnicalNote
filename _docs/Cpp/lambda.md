@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : ラムダ式を利用する
-date   : 2017/06/06
-lastchange : 2018-06-07 11:19:51.
+date   : 2018/06/06
+lastchange : 2018-08-04 02:08:51.
 tags   :
   - C++
   - C++11
