@@ -2,7 +2,7 @@
 layout : post
 title  : テンプレートテンプレートパラメータまとめ
 date   : 2018/08/06
-lastchange : 2018-08-07 01:39:22.
+lastchange : 2018-08-07 04:10:51.
 tags   :
   - C++
   - C++11
@@ -379,7 +379,7 @@ struct test < Temp< int, Type>  > {
 };
 
 
-//Temp<iint, float> で特殊化
+//Temp<int, float> で特殊化
 template < template < typename, typename > class Temp > 
 struct test < Temp< int, float > > { 
   static constexpr int value = -1;

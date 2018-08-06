@@ -50,6 +50,7 @@
   sections:
     - name : Tips
       pages :
+        - constant
         - separate-samplingrate
         - patch-share
 
