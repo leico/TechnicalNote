@@ -214,8 +214,11 @@
 - title : C++
   label : Cpp
   sections :
-    - name  : Tips
+    - name  : C++11 Tips
       pages :
+        - template-template-parameter
+        - is-same-base-of
+        - private-using
         - enum-class-operator
         - template-specialize-inherit
         - variadic-template
@@ -223,6 +226,9 @@
         - cast_specialization
         - has_trivial_assign
         - lambda
+
+    - name  : Tips
+      pages :
         - overload-cast
         - accessor
         - Explicit-specialization-of-after-instantiation
