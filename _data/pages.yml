@@ -267,6 +267,7 @@
   sections :
     - name : Tips
       pages :
+        - homebrew-pyenv
         - motu-mixer
         - mac-screencapture-gif
         - homebrew-applications

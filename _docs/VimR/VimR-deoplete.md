@@ -2,7 +2,7 @@
 layout : post
 title  : VimRにdeoplete.nvimをインストールする
 date   : 2018/07/04
-lastchange : 2018-07-09 23:40:44.
+lastchange : 2018-08-21 00:16:48.
 tags   :
   - vim
   - VimR
@@ -20,6 +20,8 @@ tags   :
 * [Vimでの補完ツールプラグインをneocompleteからdeopleteへ](https://rcmdnk.com/blog/2017/11/16/computer-vim/)
 * [Support for :python3 on neovim · Issue #345 · qvacua/vimr](https://github.com/qvacua/vimr/issues/345#issuecomment-260456378)
 * [Vim documentation: provider](https://neovim.io/doc/user/provider.html#provider-python)
+* [homebrew : Python3 をアンインストールして pyenv からインストールし直す]({{site.github.url}}{% link _docs/Mac/homebrew-pyenv.md %})
+* [pyenvで入れたPythonをNeoVimで使う - Qiita](https://qiita.com/makerbox/items/9ac6be611f65785669ad)
 * [Shougo/neosnippet.vim: neo-snippet plugin](https://github.com/Shougo/neosnippet.vim)
 * [neovim で deoplete + neosnippet の連携をする - Qiita](https://qiita.com/takezo/items/809d53ecd37c438bac9e)
 * [neovimの補完プラグインdeopleteが重い(快適設定にする) - sinshutu\_kibotuの日記](https://sinshutu-kibotu.hatenablog.jp/entry/2017/01/27/062757)
@@ -167,19 +169,50 @@ a previous version was already installed.
 
 ## Python3のインストール
 
-```sh
-brew install python3
-```
+[homebrew : Python3 をアンインストールして pyenv からインストールし直す]({{site.github.url}}{% link _docs/Mac/homebrew-pyenv.md %})
+を参考に `pyenv` で Python をインストール。
 
-簡単。
-
-## NeoVim用パッケージのインストール
+デフォルトの環境をインストールした Python のバージョンに変更する。
 
 ```sh
-pip3 install --upgrade neovim
+pyenv global 3.7.0
 ```
 
-こちらも簡単。
+{% capture text %}
+
+## pyenvに入れたPythonにNeoVimサポートをインストール
+
+```sh
+pip3 install --user --upgrade neovim
+```
+
+.vim/init.vim に以下を追加
+
+```vim
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[pyenvで入れたPythonをNeoVimで使う - Qiita](https://qiita.com/makerbox/items/9ac6be611f65785669ad)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+これを参考に
+
+1. neovim モジュールのインストール
+    ```sh
+    pip install neovim
+    ```
+2. _~/.config/nvim/init.vim_ を編集
+    ```vim
+    let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+    ```
+
+これで単純に python3 を入れた時と同等になった。
+
 
 ここまでが終了するとVimR上で
 
