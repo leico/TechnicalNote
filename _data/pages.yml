@@ -122,7 +122,6 @@
 
 
 
-
 - title    : bootstrap
   label    : Bootstrap
   sections :
@@ -141,7 +140,12 @@
 
 
 
-
+- title    : Keyboard
+  label    : QMK
+  sections :
+    - name  : Tips
+      pages :
+        - build-vitamins
 
 
 - title    : openFrameworks
