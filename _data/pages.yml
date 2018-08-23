@@ -145,6 +145,8 @@
   sections :
     - name  : Tips
       pages :
+        - write-vitamins-avrdude
+        - recover-avr
         - build-vitamins
 
 
@@ -316,7 +318,7 @@
 - title : Arduino & ESP32
   label : Arduino
   sections : 
-    - name : 
+    - name : ESP32
       pages :
         - esp32-qmc5883l-status
         - esp32-qmc5883l-basic
@@ -326,6 +328,10 @@
         - mac-esp32-dev
         - esp32-pinmap
         - esp32-2.2LCD
+
+    - name : Arduino
+      pages :
+        - avr-isp
 
 
 - title : Memorandum
