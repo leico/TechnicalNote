@@ -145,6 +145,7 @@
   sections :
     - name  : Tips
       pages :
+        - build-qmk-toolbox
         - write-vitamins-avrdude
         - recover-avr
         - build-vitamins

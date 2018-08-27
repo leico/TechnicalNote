@@ -2,7 +2,7 @@
 layout : post
 title  : Arduino を AVR ライタにする
 date   : 2018/08/23
-lastchange : 2018-08-23 16:36:27.
+lastchange : 2018-08-27 21:56:47.
 tags   :
   - Arduino
   - AVR writer
@@ -45,7 +45,7 @@ _ファイル -> スケッチ例 -> ArduinoISP -> ArduinoISP_
 
 
 
-以下ボードの設定と書き込み装置の設定
+以下ボードの設定
 
 {% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/02_board.png %}{% endcapture %}
 {% capture caption %}
@@ -57,17 +57,42 @@ _ファイル -> スケッチ例 -> ArduinoISP -> ArduinoISP_
 {% include thumbnail.html url=url caption=caption %}
 
 
+書込装置の設定は特に必要ない。
 
+{% capture text %}
 
-{% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/03_writer.png %}{% endcapture %}
-{% capture caption %}
-
-書き込み装置は AVRISP mkII
+Arduino ISPのスケッチアップロード時は書き込み装置の選択は関係無いので
+「書き込み装置は AVRISP mkII」は不要ですよ。
 
 {% endcapture %}
-{% assign caption = caption | markdownify %}
-{% include thumbnail.html url=url caption=caption %}
+{% assign text=text | markdownify %}
+{% capture source %}
+from [Twitter](https://twitter.com/maris_HY/status/1032658939735732224) 
+by [まりすさん](https://twitter.com/maris_HY)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
 
+{% capture text %}
+
+IF you have a programmer, you use one of those options.
+If you're simply uploading via a USB cable, you don't need to worry about it.
+However, if you've purchased an external programmer, such as the [AVR-ISP](https://www.google.com/search?q=avr-isp),
+an [stk500](https://www.google.com/search?q=stk500), 
+or even if you're uploading via an [ArduinoISP](https://www.arduino.cc/en/Tutorial/ArduinoISP), 
+you'll be selecting one of those options and instead of hitting Upload, 
+you'd hit Upload Using Programmer (look under the File menu).
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+from [Why do we need to set Tools > Programmers in Arduino IDE?](http://forum.arduino.cc/index.php?topic=163185.msg1219060#msg1219060)
+by KirAsh4
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+外部プログラマーを利用しない限り書込装置の部分は気にしなくていいらしい。まりすさんコメント感謝。
 
 
 シリアルポートはボードによって異なる。
