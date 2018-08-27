@@ -2,7 +2,7 @@
 layout : post
 title  : Arduino を AVR ライタにする
 date   : 2018/08/23
-lastchange : 2018-08-27 21:56:47.
+lastchange : 2018-08-27 22:06:16.
 tags   :
   - Arduino
   - AVR writer
@@ -99,7 +99,7 @@ by KirAsh4
 一度 Arduino IDE を Arduino Uno と接続せずに起動しシリアルポートを確認、
 Arduino Uno を接続して Arduino IDE を立ち上げ直して増えた項目が Arduino Uno のシリアルポートになる。
 
-{% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/04_serial.png %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/03_serial.png %}{% endcapture %}
 {% capture caption %}
 
 今回は _/dev/cu.usbserial-DA00X4WO_
@@ -134,7 +134,7 @@ Arduino Uno を接続して Arduino IDE を立ち上げ直して増えた項目�
 
 書き込む際は書き込み装置をこのようにする
 
-{% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/05_as_isp.png %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/04_as_isp.png %}{% endcapture %}
 {% capture caption %}
 
 _ツール -> 書込装置 -> Arduino as ISP_ を選択
@@ -196,7 +196,7 @@ ArduinoISP comment
 
 このように結線をする。以下はArduino Uno のAVRポートに接続する例。
 
-{% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/06_ICSP.svg %}{% endcapture %}
+{% capture url %}{{ site.github.url }}{% link _docs/Arduino/images/avr-isp/05_ICSP.svg %}{% endcapture %}
 {% capture caption %}
 
 {% endcapture %}
