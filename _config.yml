@@ -42,4 +42,4 @@ sass:
   style: :compressed
 
 # ---- fixed github metadata ----
-#github : [metadata]
+github : [metadata]
