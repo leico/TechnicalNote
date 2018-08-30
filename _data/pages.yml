@@ -145,6 +145,8 @@
   sections :
     - name  : Tips
       pages :
+        - key-layout
+        - keymap-customize
         - layerkey
         - build-qmk-toolbox
         - write-vitamins-avrdude
