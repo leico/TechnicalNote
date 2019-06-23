@@ -121,6 +121,14 @@
         - post-layout
 
 
+- title : CMake
+  label : CMake
+  sections : 
+    - name  : "Basic"
+      pages : 
+        - step1
+        - step2
+
 
 - title    : bootstrap
   label    : Bootstrap
