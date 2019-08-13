@@ -256,6 +256,7 @@
         - error-trycatch-constructor
         - error-trycatch-member
         - error-trycatch-other
+        - error-summary
 
 
     - name  : Tips
