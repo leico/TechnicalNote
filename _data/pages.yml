@@ -248,6 +248,16 @@
         - has_trivial_assign
         - lambda
 
+
+    - name  : Error handling
+      pages :
+        - error-oldschool
+        - error-trycatch
+        - error-trycatch-constructor
+        - error-trycatch-member
+        - error-trycatch-other
+
+
     - name  : Tips
       pages :
         - overload-cast
@@ -260,6 +270,7 @@
         - not-definit-const-static-in-header
         - pure-virtual-definition
         - interface-test
+
 
 
 

@@ -5,4 +5,4 @@ _site
 vendor
 .bundle
 Gemfile*
-
+.DS_Store
