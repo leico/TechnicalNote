@@ -84,6 +84,7 @@
   sections :
     - name  : github pagesの管理
       pages :
+        - dlopen-openssl1.0.0
         - update-github-page
         - fix-3.4.3
 
@@ -119,6 +120,14 @@
         - liquid-raw
         - page-menu
         - post-layout
+
+- title    : Python
+  label    : Python
+  sections :
+    - name  : 環境構築
+      pages : 
+        - homebrew-pyenv-anaconda-local
+
 
 
 - title : CMake

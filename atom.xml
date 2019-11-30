@@ -5,7 +5,7 @@ layout: null
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>{{ site.name }}</title>
+  <title>{{ site.name | xml_escape }}</title>
   <link href="{{ site.url }}/atom.xml" rel="self" />
   <link href="{{ site.url }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
@@ -28,7 +28,7 @@ layout: null
   {% assign docs = docs | sort: 'lastchange' | reverse %}
   {% for doc in docs %}
     <entry>
-      <title>{{ doc.title }}</title>
+      <title>{{ doc.title | xml_escape }}</title>
       <link href="{{ site.github.url }}{{ doc.url }}" />
       <updated>
         {{ doc.lastchange | date_to_xmlschema }}
