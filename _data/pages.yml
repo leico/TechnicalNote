@@ -309,6 +309,7 @@
   sections :
     - name : Tips
       pages :
+        - TimeMachine-transfer
         - homebrew-pyenv
         - motu-mixer
         - mac-screencapture-gif
