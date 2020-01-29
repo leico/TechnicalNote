@@ -291,6 +291,7 @@
   sections :
     - name  : Tips
       pages :
+        - localplugin-toml
         - Vim-neosnippet-cpp
         - Vim-structure
         - VimR-dein-XDG
@@ -309,6 +310,7 @@
   sections :
     - name : Tips
       pages :
+        - catalina-zsh
         - TimeMachine-transfer
         - homebrew-pyenv
         - motu-mixer
