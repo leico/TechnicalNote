@@ -129,6 +129,12 @@
       pages : 
         - homebrew-pyenv-anaconda-local
 
+    - name : 関連記事
+      label : Mac
+      pages :
+        - homebrew-pyenv
+
+
 
 
 - title : CMake
@@ -308,14 +314,24 @@
 - title : Mac Tips
   label : Mac
   sections :
+    - name : Homebrew
+      pages :
+        - homebrew-nodenv
+        - homebrew-pyenv
+        - homebrew-applications
+
+    - name : Homebrew 関連記事
+      label : Jekyll
+      pages :
+        - rbenv-homebrew
+
+
     - name : Tips
       pages :
         - catalina-zsh
         - TimeMachine-transfer
-        - homebrew-pyenv
         - motu-mixer
         - mac-screencapture-gif
-        - homebrew-applications
         - thunderbolt3-pci-nonsupport
         - csrutil
         - exhibit-check
