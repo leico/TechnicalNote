@@ -34,6 +34,8 @@ collections :
 
 # ---- build option ----
 
+markdown: kramdown
+
 kramdown:
   input: GFM
 
@@ -42,4 +44,4 @@ sass:
   style: :compressed
 
 # ---- fixed github metadata ----
-#github : [metadata]
+# github : [metadata]
