@@ -1,8 +1,8 @@
 ---
 layout : post
-title  : 数学の数式を色々まとめてみる
+title  : 機械学習関係の数式を色々まとめてみる
 date   : 2020/04/18
-lastchange : 2020-04-19 00:22:12.
+lastchange : 2020-04-21 00:01:20.
 tags   :
   - math
   - log
@@ -13,167 +13,39 @@ tags   :
 
 ## 公式を調べたり、読み解いてみたり、証明してみたりをまとめる
 
-### 指数関数
+### 指数関数、対数関数
 
-\\[
-y = x^a
-\\]
+指数関数は \\( y = a^x \\) 、対数関数は \\( y = \log_{a} x \\) のような形をしている。
 
-の形式で表される関数
-
-### 対数関数
-
-\\[
-y = log_{a}x
-\\]
-
-の形式で表される関数
-
-
-### 指数関数と対数関数の変換
-
-\\[
-a^p = M \Longleftrightarrow p = \log{a}M
-\\]
-
-指数関数 \\(a^p = M\\) の指数 \\(p\\) は \\(a\\) を底とする対数関数 \\(\log{a}M\\) の解として求めることができる。
-
-
-### 自然対数の底(ネイピア数)
-
-{% capture text %}
-
-## ネイピア数とは
-
-ネイピア数 \\(e=2.71828182845904 \cdots \\) (鮒一羽二羽一羽二羽しごく惜しい)
-
-\\(e\\) は自然数の階乗の逆数を合計したものでもあります。
-
-\\[
-e = \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots
-\\]
-
----
-
-## 定義
-
-
-ネイピア数の定義は下記2通りある。
-
-\\[
-e = \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right) ^ n
-\\]
-
-もしくは
-
-\\[
-e=\lim_{h \to 0} ( 1 + h ) ^ {\frac{1}{h}}
-\\]
-
----
-
-## 重要な性質
-
-ネイピア数「 \\(e\\) 」を底とする指数関数 \\(y=e^x\\) は重要で、\\(e^x\\) は微分しても積分しても \\(e^x\\) となり、何回微積分しても変わらない唯一の関数としても知られる。
-どちらかというと、そうなるような値を求めて \\(e\\) としたと考えた方がいい。
-
-「何回微積分しても変わらない」というのは、意味合い的には加法(足し算)においては \\(0\\) 、
-乗法(掛け算)においては \\(1\\) で、どちらも相手を変化させないですよね。数学ではこういう値が重要なのです。
-{% endcapture %}
-{% assign text=text | markdownify %}
-{% capture source %}
-[自然対数の底(ネイピア数) e は何に使うのか - Qiita](https://qiita.com/yaju/items/093854baa667a40f9e04)
-{% endcapture %}
-{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
-{% include cite.html text=text source=source %}
-
-
-#### ネイピア数の指数関数と対数関数の変換 [^1]
-
-\\[ 
-\begin{eqnarray}
-C  &=& e^{C'}     \tag{1}\label{ex_log1} \\\\\
-C' &=& \log_{e} C \tag{2}\label{ex_log2}
-\end{eqnarray}
-\\]
-
-指数関数と対数関数の変換から、 \\( \eqref{ex_log1} \\) を \\( \eqref{ex_log2} \\) の形に変換
-
-\\[
-e^{C'} \Longrightarrow e^{log_{e}C} \tag{3}\label{ex_log3}
-\\]
-
-\\( \eqref{ex_log3} \\) で \\( \eqref{ex_log1} \\) の \\( C' \\) に \\( \eqref{ex_log2} \\) を代入
-
-\\[
-\Longrightarrow C = e^{log_{e} C} = \exp(\log C) \tag{4}\label{ex_log4}
-\\]
-
-結果、 \\( \eqref{ex_log4} \\) のように書くことができる。
+[指数、対数について]({% link _docs/Math/log_exp.md %})
 
 
 
-#### ネイピア数関係の関数表記
 
-\\[
-\begin{eqnarray}
-  \log_{e} x &\Longleftrightarrow& \ln x   \tag{1}\label{e_ln} \\\\\
-         e^x &\Longleftrightarrow& \exp(x) \tag{2}\label{e_exp}
-\end{eqnarray}
-\\]
+### 自然対数の底、ネイピア数
 
-\\(  \eqref{e_ln} \\) 、 \\( \eqref{e_exp} \\) ともに左右は同じ意味になる。 
-プログラミング言語では、一般に \\( \eqref{e_ln}\\) 、 \\( \eqref{e_exp} \\) を
+\\( y = e^x \\) 、 \\( y = log_{e} x \\) のように出てくる、 \\( e\\) という \\( \pi \\) のような定数。
 
-\\[
-\begin{eqnarray}
-  \log ( x ) \\\\\\\\
-  \exp ( x )
-\end{eqnarray}
-\\]
-
-と表記する。
+[自然対数の底について]({% link _docs/Math/naipier.md %})
 
 
 
-### 総和に乗算する [^2]
+### 総和
 
-\\[
-\sum_{i=1}^n a_i = a_1 + a_2 + a_3 + \cdots + a_n
-\\]
+\\(\displaystyle \sum_{i = 1}^{n} x_i \\) のような形をした数式について。
 
-総和に \\(C\\) を乗算する
-
-\\[
-C\sum_{i=1}^n a_i = C( a_1 + a_2 + a_3 + \cdots + a_n) \tag{1}\label{sigma_1}
-\\]
-
-\\( \eqref{sigma_1} \\) を展開する
-
-\\[
-Ca_1 + Ca_2 + Ca_3 + \cdots + Ca_n \tag{2}\label{sigma_2}
-\\]
-
-\\( \eqref{sigma_2} \\) から
-
-
-\\[
-\begin{eqnarray}
-  C \sum_{i=1}^n a_i &=& Ca_1 + Ca_2 + Ca_3 + \cdots + Ca_n \\\\\
-                     &=& \sum_{i=1}^n Ca_i
-\end{eqnarray}
-\\]
+[総和について]({% link _docs/Math/naipier.md %})
 
 
 ### 活性化関数
 
-#### シグモイド関数 [^3]
+#### シグモイド関数 [^sigmoid]
 
 \\[
 h(x) = \frac{1}{1 + \exp(-x)}
 \\]
 
-#### ステップ関数 [^4]
+#### ステップ関数 [^step]
 
 \\[
 \begin{eqnarray}
@@ -185,7 +57,9 @@ h(x) = \frac{1}{1 + \exp(-x)}
 \end{eqnarray}
 \\]
 
-#### ReLU関数 [^5]
+#### ReLU関数 [^relu]
+
+ランプ関数というらしい
 
 \\[
 \begin{eqnarray}
@@ -199,7 +73,7 @@ h(x) = \frac{1}{1 + \exp(-x)}
 
 ### 出力層の関数
 
-#### ソフトマックス関数 [^6]
+#### ソフトマックス関数 [^softmax]
 
 \\[
 \begin{array}{ll}
@@ -246,7 +120,7 @@ h(x) = \frac{1}{1 + \exp(-x)}
 となる。
 
 
-#### ソフトマックス関数のオーバーフローを防止する [^7]
+#### ソフトマックス関数のオーバーフローを防止する [^softmax_overflow]
 
 \\[
 \begin{eqnarray}
@@ -256,14 +130,7 @@ h(x) = \frac{1}{1 + \exp(-x)}
 \end{eqnarray}
 \\]
 
-\\( \eqref{of_2} \\) は \\( \eqref{of_1} \\) の \\( 1 \\) を置き換えている。 \\( C \\) は
-
-\\[
--\max(a[k]) \quad (1 \leqq k \leqq n) 
-\\]
-
-を用いるのが一般的。
-
+\\( \eqref{of_2} \\) は \\( \eqref{of_1} \\) の \\( 1 \\) を置き換えている。 
 
 \\[
 \begin{eqnarray}
@@ -289,10 +156,20 @@ h(x) = \frac{1}{1 + \exp(-x)}
 = \dfrac{ \exp(a_k + C' ) }{ \displaystyle \sum_{i = 1}^n \exp(a_i + C' ) }                           \tag{7}\label{of_7} 
 \\]
 
+\\( C' \\) は
+
+\\[
+-\max(a[k]) \quad (1 \leqq k \leqq n) 
+\\]
+
+を用いるのが一般的。
+
+
+
 
 ### 損失関数
 
-#### 二乗和誤差 [^8]
+#### 二乗和誤差 [^mean_square]
 
 \\[
 E = \frac{1}{2} \sum_{k} (y_k - t_k)^2
@@ -307,7 +184,7 @@ E = \frac{1}{2} \sum_{k} (y_k - t_k)^2
 \\( k \\)
 : 次元数(走査対象配列の、全ての要素の総和)
 
-#### 二乗和誤差と one-hot 表現 [^9]
+#### 二乗和誤差と one-hot 表現 [^mean_square_onehot]
 
 
 \\[
@@ -340,7 +217,7 @@ E_1 = \frac{1}{2} (y_k - 1)^2 \tag{2}\label{ms_hot2}
 \\( \eqref{ms_hot2} \\) より、正解からの誤差の2乗の半分
 
 
-#### 交差エントロピー誤差 [^10]
+#### 交差エントロピー誤差 [^cross_entropy]
 
 \\[
 E = - \sum_{k} t_k \log_{e} y_k
@@ -356,7 +233,7 @@ E = - \sum_{k} t_k \log_{e} y_k
 : 次元数(走査対象配の、全ての要素の総和)
 
 
-#### 交差エントロピー誤差と one-hot 表現[^11]
+#### 交差エントロピー誤差と one-hot 表現[^cross_entropy_onehot]
 
 \\[
 E = - \sum_{k} t_k \log_{e} y_k
@@ -394,14 +271,12 @@ E_1 = - \log_{e} y_k \tag{2}\label{ce_hot2}
 
 ---
 
-[^1]: 斎藤康毅 「ゼロから作るDeep Learning ---Pythonで学ぶディープラーニングの理論と実装」, オライリー・ジャパン,2016年, P68
-[^2]: 同, P68
-[^3]: 同, P45
-[^4]: 同, P45
-[^5]: 同, P53
-[^6]: 同, P66
-[^7]: 同, P69
-[^8]: 同, P88
-[^9]: 同, P88
-[^10]: 同, P89
-[^11]: 同, P89
+[^sigmoid]: 斎藤康毅 「ゼロから作るDeep Learning ---Pythonで学ぶディープラーニングの理論と実装」, オライリー・ジャパン,2016年, P45
+[^step]: 同, P45
+[^relu]: 同, P53
+[^softmax]: 同, P66
+[^softmax_overflow]:同, P69
+[^mean_square]: 同, P88
+[^mean_square_onehot]: 同, P88
+[^cross_entropy]: 同, P89
+[^cross_entropy_onehot]: 同, P89

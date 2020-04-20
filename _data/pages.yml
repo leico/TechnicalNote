@@ -389,6 +389,19 @@
       pages :
         - avr-isp
 
+- title : 数学関係
+  label : Math
+  sections : 
+    - name : 機械学習関係
+      pages :
+        - deep_learning
+    - name : 指数、対数関係
+      pages : 
+        - log_exp
+        - naipier
+    - name : 総和関係
+      pages :
+        - sum
 
 - title : Memorandum
   label : Memo
@@ -397,4 +410,4 @@
       pages :
         - log-power
         - bouldering
-        - math
+
