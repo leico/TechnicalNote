@@ -2,7 +2,7 @@
 layout : post
 title  : 微分について
 date   : 2020/04/20
-lastchange : 2020-04-21 02:42:06.
+lastchange : 2020-04-21 03:18:34.
 tags   :
   - math
   - derivative
@@ -41,6 +41,115 @@ f'(x)
 
 \\( \eqref{der_2} \\) の左辺は \\( \eqref{der_1} \\) ととても似ている形をしているのが分かる。
 解、変数それぞれのごくわずかな変化量を求めているのが \\( \displaystyle \frac{dy}{dx} \\) でもある。
+
+## 読み方・由来
+
+### \\( f'(x) \\)
+
+
+{% capture text %}
+現代、最も広く用いられる微分の現代的記法のひとつは[ジョゼフ＝ルイ・ラグランジュ][joseph]
+により提唱された[プライム][prime]記号（ \\('\\) ）を用いた **ラグランジュの記法** である。
+
+[joseph]: https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%82%BC%E3%83%95%EF%BC%9D%E3%83%AB%E3%82%A4%E3%83%BB%E3%83%A9%E3%82%B0%E3%83%A9%E3%83%B3%E3%82%B8%E3%83%A5
+[prime]: https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%A0
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[微分の記法 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%BE%AE%E5%88%86%E3%81%AE%E8%A8%98%E6%B3%95)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+
+
+読み
+: エフダッシュ エックス
+: エフエックスの微分
+
+由来
+: {% include cite.html text=text source=source %}
+
+
+例
+: \\( f(x) = x^2 \\) \\( f'(x) = 2x \\)
+    : 関数 \\( f(x) = x^2 \\) を微分すると \\( f'(x) = 2x \\) になる
+
+
+
+### \\( \displaystyle \frac{dy}{dx} \\)
+
+{% capture text %}
+\\( \Delta x\\) と \\( \Delta y \\)がそれぞれ \\( x \\) と \\( y \\) の有限微小変化量を表すように
+\\( x \\) と \\( y \\) の微小な変化量すなわち無限小変化量を表す記号として \\( dx \\) と \\( dy \\) を用いる。
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[ライプニッツの記法 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%A9%E3%82%A4%E3%83%97%E3%83%8B%E3%83%83%E3%83%84%E3%81%AE%E8%A8%98%E6%B3%95)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+
+
+読み
+: \\( y \\) を \\( x \\) で微分
+: ディワイ ディエックス
+
+由来
+: {% include cite.html text=text source=source %}
+
+例
+: \\( \displaystyle \frac{dy}{dx} \\)
+    : \\( y \\) を \\( x \\) で微分
+: \\( \displaystyle \frac{dh}{dx} \\)
+    : \\( h \\) を \\( x \\) で微分
+
+
+
+
+### \\( \displaystyle \frac{d}{dx} \\)
+
+読み
+:  \\( x \\) で微分
+: ディ ディエックス
+
+何かをとりあえず微分する時などに使う。
+
+
+
+
+### \\( \displaystyle \frac{ \partial y}{ \partial x} \\)
+
+
+{% capture text %}
+現代的な偏微分記法は[アドリアン＝マリ・ルジャンドル][adrian] が導入しているが、後が続かなかった。
+これを1841年に再導入するのが[カール・グスタフ・ヤコブ・ヤコビ][carl]である。 
+
+[adrian]: https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AA%E3%82%A2%E3%83%B3%EF%BC%9D%E3%83%9E%E3%83%AA%E3%83%BB%E3%83%AB%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%89%E3%83%AB
+[carl]: https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%B0%E3%82%B9%E3%82%BF%E3%83%95%E3%83%BB%E3%83%A4%E3%82%B3%E3%83%96%E3%83%BB%E3%83%A4%E3%82%B3%E3%83%93 
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[偏微分 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%81%8F%E5%BE%AE%E5%88%86)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+
+
+読み
+: \\( y \\) を \\( x \\) で偏微分
+: ディワイ ディエックス
+
+由来
+: {% include cite.html text=text source=source %}
+
+例
+: \\( \displaystyle \frac{ \partial y}{ \partial x} \\)
+    : ディワイ ディエックス
+
+
+複数の変数がある関数の内、1つだけの変数について解の変化量を求める(偏微分)の時に利用する。
+
+
+
 
 
 ## 一次関数で考える
@@ -224,3 +333,4 @@ x & \rightarrow & y \\\\\
 
 このような関係になっていることが分かる。つまり、 \\( x \\) に対する \\( y \\) の変化量は常に \\( 2x \\) の割合で規則的に増加していくことがわかる。
 この関数の微分を \\( f'(x) \\) とすると、 \\( f'(x) = 2x \\) と表すことができる。
+
