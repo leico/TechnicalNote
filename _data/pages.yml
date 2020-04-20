@@ -402,6 +402,9 @@
     - name : 総和関係
       pages :
         - sum
+    - name : 微分関係
+      pages :
+        - derivative
 
 - title : Memorandum
   label : Memo

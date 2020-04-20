@@ -2,7 +2,7 @@
 layout : post
 title  : 総和について
 date   : 2020/04/20
-lastchange : 2020-04-20 23:55:59.
+lastchange : 2020-04-21 00:28:45.
 tags   :
   - math
   - sum
@@ -30,6 +30,47 @@ tags   :
 
 と、範囲の部分に数の集合を意味するものが入ったりすることもある。
 
+
+### 読み方・由来
+
+{% capture text %}
+\\( \sum \\) 記号の考案者は、オイラー(Leonard Euler，1707-1783）です。「無限解析序論」の中です。
+
+\\[
+\exp(x) ＝ 1 + x + \frac{1}{2!} x ^ 2 + \frac{1}{3!} x ^ 3 + \cdots\cdots + \frac{1}{n!} x ^ n + \cdots 
+\\]
+
+を、
+
+\\[
+\exp(x) = \sum_{k = 0}^{ \infty } \frac{1}{k!} x ^ k
+\\]
+
+と書きます。
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[\\( \sum \\) の由来を教えて下さい。 数学 \| 教えて!goo](https://oshiete.goo.ne.jp/qa/570786.html)
+
+by [kbannai](https://oshiete.goo.ne.jp/profile/46822/)
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+
+
+
+読み
+: sum
+: 総和
+: シグマ
+
+由来
+: {% include cite.html text=text source=source %}
+
+例
+: \\(\displaystyle \sum_{i=0}^{n} x_i \\)
+    : \\( i = 0 \\) から \\( n \\) までの \\( x_i \\) の合計/合算/総和
+    : sum of zero to n
 
 ### 総和に乗算する
 

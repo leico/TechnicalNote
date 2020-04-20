@@ -21,7 +21,16 @@
 
   <!-- MathJax include -->
   <script type="text/javascript" src="{{site.github.url}}/js/MathJax/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
-
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      "HTML-CSS": {
+        // デフォルトが ["STIX","TeX"] なのを変更
+        // [] にしても良い
+          availableFonts: ["TeX"]
+        , undefinedFamily: "'Raleway', Helvetica, Arial, sans-serif"
+      }
+    });
+  </script>
   <!-- Google Analytics -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
