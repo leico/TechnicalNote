@@ -2,7 +2,7 @@
 layout : post
 title  : 機械学習関係の数式を色々まとめてみる
 date   : 2020/04/18
-lastchange : 2020-04-21 00:01:20.
+lastchange : 2020-04-21 18:06:57.
 tags   :
   - math
   - log
@@ -17,7 +17,7 @@ tags   :
 
 指数関数は \\( y = a^x \\) 、対数関数は \\( y = \log_{a} x \\) のような形をしている。
 
-[指数、対数について]({% link _docs/Math/log_exp.md %})
+[指数、対数について]({{site.github.url}}{% link _docs/Math/log_exp.md %})
 
 
 
@@ -26,7 +26,7 @@ tags   :
 
 \\( y = e^x \\) 、 \\( y = log_{e} x \\) のように出てくる、 \\( e\\) という \\( \pi \\) のような定数。
 
-[自然対数の底について]({% link _docs/Math/naipier.md %})
+[自然対数の底について]({{site.github.url}}{% link _docs/Math/naipier.md %})
 
 
 
@@ -34,7 +34,7 @@ tags   :
 
 \\(\displaystyle \sum_{i = 1}^{n} x_i \\) のような形をした数式について。
 
-[総和について]({% link _docs/Math/naipier.md %})
+[総和について]({{site.github.url}}{% link _docs/Math/naipier.md %})
 
 
 ### 活性化関数
