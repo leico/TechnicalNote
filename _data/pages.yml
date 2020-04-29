@@ -186,6 +186,7 @@
   sections :
     - name  : Tips
       pages :
+        - transition_new
         - multiwindow
 
 
