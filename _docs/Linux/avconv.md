@@ -2,7 +2,7 @@
 layout : post
 title  : "Linux: avconvをlibx264、libx265、alsaを利用できるようにしてビルドする"
 date : 2017/10/21
-lastchange : 2017-10-21 23:21:38.
+lastchange : 2020-05-01 00:23:58.
 tags   :
   - bmdtools
   - ffmepg
@@ -716,7 +716,72 @@ alsa                      oss
 
 ALSA、libx264、libx265、libfdk\_aacが有効になっているか確認する。
 
-`make`、`make install`
+`make` をしてみるとエラーで止まることがある。
+
+{% capture text %}
+
+``` diff
+@@ -874,12 +895,14 @@ static const enum AVPixelFormat pix_fmts_8bit_rgb[] = {
+ 
+ static av_cold void X264_init_static(AVCodec *codec)
+ {
+-    if (x264_bit_depth == 8)
++    if (X264_BIT_DEPTH == 8)
+         codec->pix_fmts = pix_fmts_8bit;
+-    else if (x264_bit_depth == 9)
++    else if (X264_BIT_DEPTH == 9)
+         codec->pix_fmts = pix_fmts_9bit;
+-    else if (x264_bit_depth == 10)
++    else if (X264_BIT_DEPTH == 10)
+         codec->pix_fmts = pix_fmts_10bit;
++    else /* X264_BIT_DEPTH == 0 */
++        codec->pix_fmts = pix_fmts;
+ }
+``` 
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[git.videolan.org Git - ffmpeg.git/commitdiff](http://git.videolan.org/?p=ffmpeg.git;a=commitdiff;h=2a111c99a60fdf4fe5eea2b073901630190c6c93 "git.videolan.org Git - ffmpeg.git/commitdiff")
+{% endcapture %}
+{% assign source = source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+_libavcodec/libx264.c_ ファイル内の変数が大文字に変更になったみたいなので変更する。
+
+{% capture text %}
+
+``` diff
+--- a/libavcodec/libfdk-aacenc.c	2018-09-05 22:28:50.071703112 +0930
++++ b/libavcodec/libfdk-aacenc.c	2018-09-05 22:30:05.183907088 +0930
+@@ -290,7 +290,11 @@
+     }
+ 
+     avctx->frame_size = info.frameLength;
++#if AACENCODER_LIB_VL0 < 4
+     avctx->initial_padding = info.encoderDelay;
++#else
++    avctx->initial_padding = info.nDelay;
++#endif
+     ff_af_queue_init(avctx, &s->afq);
+ 
+     if (avctx->flags & AV_CODEC_FLAG_GLOBAL_HEADER) {
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[Build of libavcodec fails · Issue #346 · rdp/ffmpeg-windows-build-helpers · GitHub](https://github.com/rdp/ffmpeg-windows-build-helpers/issues/346#issuecomment-419358559 "Build of libavcodec fails · Issue #346 · rdp/ffmpeg-windows-build-helpers · GitHub")
+{% endcapture %}
+{% assign source = source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+_libfdk-aacenc.c_ も最新版で変数名が変更されたようなので、これに変更をする。
+
+この2点の修正で `make` が通るようになった！
+
+`make install`
 
 ```sh
 $ make
