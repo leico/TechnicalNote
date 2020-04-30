@@ -353,6 +353,7 @@
   sections :
     - name  : bmdtools & avconv関係
       pages : 
+        - hls_cron
         - disown_nohup
         - avconv-hls-bmdtools
         - avconv-hls-webcam
