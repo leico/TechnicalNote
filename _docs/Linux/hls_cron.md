@@ -2,7 +2,7 @@
 layout : post
 title  : hls 配信で生成され続ける動画ファイルを定期的に削除する
 date : 2020/04/30
-lastchange : 2020-04-30 17:28:26.
+lastchange : 2020-04-30 18:34:42.
 tags   :
   - avconv
   - alsa
@@ -51,6 +51,7 @@ $ ls /var/www/html/*.ts
 参考:
 
 * [cronの設定方法 - Qiita](https://qiita.com/hikouki/items/e744b3a4d356d2af12cf)
+* [How To Start/Stop/Restart Cron Service In Linux](http://lifelinux.com/how-to-startstoprestart-cron-service-in-linux/)
 
 ## ジョブを定期的に実行する
 
