@@ -19,7 +19,7 @@ tags   :
 * [コンテナセキュリティのリスクと対策 - sagantaf](http://sagantaf.hatenablog.com/entry/2019/07/30/141016 "コンテナセキュリティのリスクと対策 - sagantaf")
 * [DockerによるPHP開発環境構築（PHP + MySQL + Nginx） - Qiita](https://qiita.com/nemui_/items/f911be7ffa4f29293fd5 "DockerによるPHP開発環境構築（PHP + MySQL + Nginx） - Qiita")
 * [docker-compose.ymlの書き方について解説してみた - Qiita](https://qiita.com/yuta-ushijima/items/d3d98177e1b28f736f04 "docker-compose.ymlの書き方について解説してみた - Qiita")
-* [Compose file version 3 reference | Docker Documentation](https://docs.docker.com/compose/compose-file/#depends_on "Compose file version 3 reference | Docker Documentation")
+* [Compose file version 3 reference \| Docker Documentation](https://docs.docker.com/compose/compose-file/#depends_on "Compose file version 3 reference \| Docker Documentation")
 
 
 
@@ -412,7 +412,7 @@ services:
 {% endcapture %}
 {% assign text=text | markdownify %}
 {% capture source %}
-[Compose file version 3 reference | Docker Documentation](https://docs.docker.com/compose/compose-file/#depends_on "Compose file version 3 reference | Docker Documentation")
+[Compose file version 3 reference \| Docker Documentation](https://docs.docker.com/compose/compose-file/#depends_on "Compose file version 3 reference \| Docker Documentation")
 {% endcapture %}
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
