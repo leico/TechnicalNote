@@ -2,12 +2,16 @@
 layout : post
 title  : "Dockerに慣れる : コンテナを操作する"
 date   : 2020/06/24
-lastchange : 2020-06-24 13:51:12
+lastchange : 2020-06-24 18:28:51
 tags   :
   - docker
   - httpd
   - container
-  - pull
+  - docker pull
+  - docker run
+  - docker kill
+  - docker ps
+  - docker rm
 ---
 
 ## Docker 使ってみたがイマイチわかっていない
@@ -48,7 +52,7 @@ Docker 社によって認証を受けている、多くの 「公式リポジト
 
 ざっくり
 
-* Docker 用のコンテナがまとまっているポータル
+* Docker Hub は Docker 用のコンテナがまとまっているポータル
 * 公式が用意した信頼できるコンテナが存在する
 * 登録するとリポジトリの公開ができる
 * 登録せずともコンテナの取得、ダウンロードはできる
@@ -247,6 +251,8 @@ $ docker run -d -p 8080:80 httpd
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
 
+
+
 やってみる。
 
 ```sh
@@ -314,6 +320,29 @@ nginx
 : <http://localhost:8090>
 
 という謎環境ができた。
+
+`docker run` コマンドの引数だが、
+
+{% capture text %}
+※（前回説明しませんでしたが）オプション「-d」は"バックグラウンドで動作"、
+「-p」は"ポートの指定（ホスト8080番ポートへの通信を、コンテナ80番ポートへ転送）"となります。
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[【Docker】第3回　コンテナのライフサイクルとイメージの作成/札幌のAI・IoT・システム開発｜ITイノベーション/最先端技術｜パブリックリレーションズ](https://www.public.ne.jp/2019/01/08/docker-3/ "【Docker】第3回　コンテナのライフサイクルとイメージの作成/札幌のAI・IoT・システム開発｜ITイノベーション/最先端技術｜パブリックリレーションズ")
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+`-p [outside]:[container]`
+: ポート転送指定。 `[outside]` のポートをコンテナの `[container]` ポートに転送する
+
+`-d`
+: バックグラウンドで実行する
+
+ということらしい。
+
+
 
 ## 動作中のコンテナを確認する
 

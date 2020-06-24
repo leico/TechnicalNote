@@ -186,6 +186,8 @@
     - name  : Basic
       pages : 
         - basic-container
+        - basic-container-usage
+        - basic-volatility-change
     - name  : Tips
       pages : 
         - docker-php
