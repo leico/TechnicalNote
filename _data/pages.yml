@@ -180,6 +180,8 @@
         - recover-avr
         - build-vitamins
 
+
+
 - title : Docker
   label : Docker
   sections :
@@ -192,6 +194,7 @@
         - basic-remove-image
     - name  : Tips
       pages : 
+        - docker-asp.net-core-sdk
         - docker-php
 
 
