@@ -192,6 +192,7 @@
         - basic-volatility-change
         - basic-commit-container
         - basic-remove-image
+        - basic-dockerfile
     - name  : Tips
       pages : 
         - docker-asp.net-core-sdk
