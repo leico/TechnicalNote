@@ -2,7 +2,7 @@
 layout : post
 title  : "Dockerに慣れる : 変更したコンテナイメージを保存する"
 date   : 2020/06/25
-lastchange : 2020-06-25 12:13:31
+lastchange : 2020-06-26 11:12:56
 tags   :
   - docker
   - httpd
@@ -12,7 +12,7 @@ tags   :
 
 ## コンテナ内を変更してももとに戻ってしまう
 
-[Dockerに慣れる : 一時的にコンテナ内の情報を変更する]({{site.github.url}}{% link _docs/Docker/docker-php.md %})
+[Dockerに慣れる : 一時的にコンテナ内の情報を変更する]({{site.github.url}}{% link _docs/Docker/basic-volatility-change.md %})
 でコンテナ内部の shell を呼び出し変更することができたが、参考にしたサイトに書いてある通り
 プロセスを消去すると変更した内容が元に戻ってしまった。
 

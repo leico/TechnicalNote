@@ -189,6 +189,7 @@
         - basic-container-usage
         - basic-volatility-change
         - basic-commit-container
+        - basic-remove-image
     - name  : Tips
       pages : 
         - docker-php
