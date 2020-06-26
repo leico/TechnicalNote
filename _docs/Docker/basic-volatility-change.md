@@ -2,7 +2,7 @@
 layout : post
 title  : "Dockerに慣れる : 一時的にコンテナ内の情報を変更する"
 date   : 2020/06/24
-lastchange : 2020-06-25 01:48:27
+lastchange : 2020-06-26 11:23:39
 tags   :
   - docker
   - httpd
@@ -12,7 +12,7 @@ tags   :
 
 ## コンテナ内を変更したい
 
-[Dockerに慣れる : コンテナを操作する]({{site.github.url}}{% link _docs/Docker/docker-php.md %}) で起動と終了とプロセス削除まで行うことができた。ひとまず Hello world ができた感じがするので、次は内部に変更を加えてみる。
+[Dockerに慣れる : コンテナを操作する]({{site.github.url}}{% link _docs/Docker/basic-container.md %}) で起動と終了とプロセス削除まで行うことができた。ひとまず Hello world ができた感じがするので、次は内部に変更を加えてみる。
 ただし、内部の変更はコンテナを再起動させてしまったら消えてしまうらしい。
 
 {% capture text %}
