@@ -193,6 +193,7 @@
         - basic-commit-container
         - basic-remove-image
         - basic-dockerfile
+        - basic-bind-mount
     - name  : Tips
       pages : 
         - docker-asp.net-core-sdk
