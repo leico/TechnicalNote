@@ -2,7 +2,7 @@
 layout : post
 title  : rbenvをHomebrewからインストールする
 date   : 2018/07/03
-lastchange : 2018-07-03 18:01:46.
+lastchange : 2020-07-15 23:18:00.
 tags   :
   - Mac
   - High Sierra
@@ -23,6 +23,7 @@ Homebrewを _/Applications_ ディレクトリで運用できるようになっ�
 * [Homebrewでrbenvインストール - Qiita](https://qiita.com/kanetai/items/0331c3080de1bc0acd1f)
 * [Ruby系のコマンドでits extensions are not built](https://blog.freedom-man.com/ruby-notbuilt-message/)
 * [gem (Rubygems) のコマンドまとめ - でんのうにっし](http://d.hatena.ne.jp/m__z/20130905/1378367697)
+* [rbenv installがopensslで失敗する - Qiita](https://qiita.com/kazutosato/items/9c4ff7711ca992dd67e5 "rbenv installがopensslで失敗する - Qiita")
 
 
 
@@ -73,6 +74,53 @@ eval "$(rbenv init -)"
 
 `export RBENV_ROOT=/Applications/Homebrew/opt/Ruby`
 : Rubyのインストール先は _Homebrew/opt_ が最適な気がしたのでこのディレクトリにした。
+
+
+
+## `openssl` をインストールする
+
+`ruby-build` のインストール時に
+
+{% capture text %}
+
+```sh
+ruby-build installs a non-Homebrew OpenSSL for each Ruby version installed and these are never upgraded.
+
+To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following
+to your ~/.bashrc:
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+`brew install ruby-build`
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+このように言われる。この設定をしていると `openssl` を入れないと `rbenv` でインストールできないので
+`openssl` をインストールする。
+
+
+```sh
+$ brew install openssl
+```
+
+現状の _.bash_profile_ には `openssl` の設定として以下のものが入っている。
+
+```bash
+...
+#prepend openssl PATH
+export PATH="/Applications/Homebrew/opt/openssl/bin:$PATH"
+
+...
+
+#for ruby-build, change openSSL version
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+```
+
 
 
 ## `bundler` をインストールする
