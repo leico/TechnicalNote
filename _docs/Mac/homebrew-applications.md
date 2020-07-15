@@ -2,7 +2,7 @@
 layout : post
 title  : Homebrewを /Applications ディレクトリにインストールする
 date   : 2018/07/03
-lastchange : 2018-07-03 17:41:05.
+lastchange : 2020-07-15 22:37:57.
 tags   :
   - Mac
   - High Sierra
@@ -24,16 +24,16 @@ Macでアプリの扱いが簡単な方がいいので、 _/Applications_ ディ
 Homebrewをインストールすることにした。
 
 参考:
+
 * [Homebrew のインストール先を変更する - Qiita](https://qiita.com/usamik26/items/601f5612bd3f8a21cc41)
+* [Homebrew/legacy-homebrew: 💀 The former home of Homebrew/homebrew (deprecated)](https://github.com/Homebrew/legacy-homebrew "Homebrew/legacy-homebrew: 💀 The former home of Homebrew/homebrew (deprecated)")
+* [Installation — Homebrew Documentation](https://docs.brew.sh/Installation "Installation — Homebrew Documentation")
 * [brew(1) – The missing package manager for macOS — Homebrew Documentation](https://docs.brew.sh/Manpage)
 
 
 
 
 ## Homebrewを _/Applications_ ディレクトリにインストールする
-
-
-
 
 
 {% capture text %}
@@ -78,9 +78,67 @@ mkdir /Applications/Homebrew
 
 このディレクトリに Homebrew をインストールするので載っているコマンドを少し変更して実行する。
 
+{% capture text %}
+
+# Homebrew (Legacy)
+
+This repository was deprecated and split into two repositories:
+
+* Homebrew formulae/packages: [Homebrew/homebrew-core](https://github.com/Homebrew/homebrew-core) (former contents of `Library/Formula` )
+* Homebrew package manager: [Homebrew/brew](https://github.com/Homebrew/brew)
+
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[Homebrew/legacy-homebrew: 💀 The former home of Homebrew/homebrew (deprecated)](https://github.com/Homebrew/legacy-homebrew "Homebrew/legacy-homebrew: 💀 The former home of Homebrew/homebrew (deprecated)")
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+
+久しぶりに復旧作業を行ったら `brew` がインストールされなかった。リポジトリが非推奨になって上記の _README.md_ しか存在しない状態になっていた。
+
+
+{% capture text %}
+
+Just extract (or `git clone` ) Homebrew wherever you want. Just avoid:
+
+* Directories with names that contain spaces. Homebrew itself can handle spaces, but many build scripts cannot.
+* `/tmp` subdirectories because Homebrew gets upset.
+* `/sw` and `/opt/local` because build scripts get confused when Homebrew is there instead of Fink or MacPorts, respectively.
+
+However do yourself a favour and install to `/usr/local` .
+Some things may not build when installed elsewhere.
+One of the reasons Homebrew just works relative to the competition is **because** 
+we recommend installing to `/usr/local` . _Pick another prefix at your peril!_
+
+```sh
+mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[Installation — Homebrew Documentation](https://docs.brew.sh/Installation "Installation — Homebrew Documentation")
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+
+URLを
+
+```url
+https://github.com/Homebrew/brew/tarball/master
+```
+
+にしたら動きそうだ。
+
+
 ```sh
 cd /Applications/Homebrew
-curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C .
+curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C .
 ```
 
 上記の例では _/opt/homebrew_ に、 _/opt_ ディレクトリから展開を行っているので、
