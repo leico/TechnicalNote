@@ -2,7 +2,7 @@
 layout : post
 title  : Catalina から zsh になって bash_profile が利用できなくなった
 date   : 2020/01/29
-lastchange : 2020-01-29 18:14:04.
+lastchange : 2020-07-16 16:54:52
 tags   :
   - macOS
   - catalina

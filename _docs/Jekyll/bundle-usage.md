@@ -2,7 +2,7 @@
 layout : post
 title  : bundlerの利用方法
 date   : 2017/01/17
-lastchange : 2017-06-15 17:22:03.
+lastchange : 2020-07-16 16:55:44
 tags   :
   - jekyll
   - ruby
