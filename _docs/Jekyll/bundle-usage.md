@@ -31,7 +31,7 @@ gem install bundler
 
 で現在動作しているRubyにbundlerがインストールされる。
 
-`rbenv`を強制的に指定するには
+`rbenv` を強制的に指定するには
 
 ```sh
 rbenv exec gem install bundler
@@ -167,6 +167,57 @@ Rails3からBundlerが導入されgemの管理がしやすくなりましたが�
 
 
 と、いうことなので、localの任意のパスにインストールする方法がよさそうだ。
+
+{% capture text %}
+
+# bundleで--pathと--binstubsが非推奨[DEPRECATED]になったよ
+
+railsアプリを作る際、bundle initした後にやるおまじないがあります。
+
+```sh
+$ bundle install --path vendor/bundle --binstubs=vendor/bin
+```
+
+* ローカルにgemをインストールするため --pathオプションでvendor/bundleを指定
+* bundle execを打ちたくないので --binstubsオプションでvendor/binを指定
+
+いつものように上記のコマンドを打つと、以前は出なかった以下のメッセージが出るようになりました。
+
+```sh
+[DEPRECATED] The `--path` flag is deprecated because it relies on being remembered across bundler invocations, which bundler will no longer do in future versions. Instead please use `bundle config set path 'vendor/bundle'`, and stop using this flag
+[DEPRECATED] The --binstubs option will be removed in favor of `bundle binstubs`
+```
+
+--pathも--binstubsも非推奨 [DEPRECATED] となり、今後のバージョンからremovedされる可能性があるだと…。
+
+___
+
+## どうすりゃいいのさ[vendor/bundle]
+
+メッセージに書いてある通りに
+
+```sh
+bundle config set path 'vendor/bundle'
+```
+
+を一回やっとけばOKです。 
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[bundlerで非推奨になった --path --binstubs - Qiita](https://qiita.com/devzooiiooz/items/8babd82f780f01812f9d "bundlerで非推奨になった --path --binstubs - Qiita")
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+と、最近 `--path` オプションが廃止されたので、プロジェクトディレクトリ直下で
+
+```sh
+bundle config set path 'vendor/bundle'
+```
+
+した。
+
 
 ### gemをローカルにインストールする
 
