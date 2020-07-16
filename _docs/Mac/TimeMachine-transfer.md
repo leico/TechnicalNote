@@ -2,7 +2,7 @@
 layout : post
 title  : Time Machine 用 HDD を移行しようとして時間を無駄にしつつ解決するまで
 date   : 2020/01/12
-lastchange : 2020-01-13 00:30:06.
+lastchange : 2020-07-16 22:27:41
 tags   :
   - Mac
   - Macbook
@@ -13,6 +13,11 @@ tags   :
 ---
 
 ## 移行が終わらないし容量がおかしい
+
+こちらの方法で解決しない状況が発生し、新しい記事を書きました。
+
+[Catalina で 1TB → 4TB の TimeMachine へHDDを移行する]({{site.github.url}}{% link _docs/Mac/TimeMachine-transfer2.md %})
+
 
 Time Machine 用ディスクの移行方法は Apple のサイト
 [別のバックアップディスクに Time Machine バックアップを転送する方法 - Apple サポート](https://support.apple.com/ja-jp/HT202380)
@@ -170,7 +175,7 @@ cp: /Volumes/Backup_late2016/Backups.backupdb: Operation not permitted
 > `[システム環境設定]` - `[セキュリティとプライバシー]` - `[プライバシー]タブ` - 
 > `（左ペインの）[フルディスクアクセス]` -`（左下の鍵を解除。要パスワード）` - `「＋」ボタン押下` - `「ターミナル」を追加`
 
----
+___
 
 macOS **Mojave（OSX 10.14）以降でセキュリティ設定が厳しくなったため** 、`sudo` 付きやユーザーのホームディレクトリ下でも
 「 `Operation not permitted` 」が出るようになりました。これは、 `du` `ls` `mv` `cp` といった基本コマンドでも同じです。
@@ -372,4 +377,4 @@ Time Machine に入れました。
 {% include thumbnail.html url=url caption=caption %}
 
 
-ここまでで移行が終了しました。長かった。
+ここまでで移行が終了したらラッキーです。
