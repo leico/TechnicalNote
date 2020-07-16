@@ -21,6 +21,8 @@ tags   :
 * [シェルの種類とバージョンの検出 - 拡張 POSIX シェルスクリプト Advent Calendar 2013 - ダメ出し Blog](https://fumiyas.github.io/2013/12/04/name-ver-mode.sh-advent-calendar.html "シェルの種類とバージョンの検出 - 拡張 POSIX シェルスクリプト Advent Calendar 2013 - ダメ出し Blog")
 * [zshプロンプトのカスタマイズ - Qiita](https://qiita.com/yamagen0915/items/77fb78d9c73369c784da "zshプロンプトのカスタマイズ - Qiita")
 * [zshのプロンプトを256色表示にする＋好きなフォーマットで時刻表示 - Qiita](https://qiita.com/butaosuinu/items/770a040bc9cfe22c71f4 "zshのプロンプトを256色表示にする＋好きなフォーマットで時刻表示 - Qiita")
+* [zsh で全 256 色を試しに表示みたい - Qiita](https://qiita.com/k_ui/items/b02b93e3af13023c0bfd "zsh で全 256 色を試しに表示みたい - Qiita")
+
 
 
 
@@ -185,3 +187,19 @@ $ '
 : `[コマンド入力]`
 
 となっています。
+
+256色指定できるのですが、それぞれの色を確認するには以下を利用しました。
+
+{% capture text %}
+
+```sh
+for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+```
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[zsh で全 256 色を試しに表示みたい - Qiita](https://qiita.com/k_ui/items/b02b93e3af13023c0bfd "zsh で全 256 色を試しに表示みたい - Qiita")
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
