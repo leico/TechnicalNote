@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="548px" preserveAspectRatio="none" style="width:595px;height:548px;" version="1.1" viewBox="0 0 595 548" width="595px" zoomAndPan="magnify"><defs><filter height="300%" id="fbj75a0nqwsx5" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="289" x="144" y="29.7031">fork先を加えた場合</text><!--MD5=[c429691f2fe3ffc642d3e6ed879a8b4b]
+cluster remote--><rect fill="#FFFFFF" filter="url(#fbj75a0nqwsx5)" height="129" style="stroke: #000000; stroke-width: 1.5;" width="425" x="7" y="198.25"/><text fill="#000000" font-family="sans-serif" font-size="32" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="130" x="154.5" y="229.9531">remote</text><!--MD5=[02ab48b3985ee383ac7fbb2fd4890895]
+entity origin--><rect fill="#FEFECE" filter="url(#fbj75a0nqwsx5)" height="57.25" rx="35" ry="35" style="stroke: #000000; stroke-width: 1.5;" width="114" x="302" y="254.25"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="94" x="312" y="293.9531">origin</text><!--MD5=[6b7c3aae9961f3bd67914536103bdff7]
+entity upstream--><rect fill="#FEFECE" filter="url(#fbj75a0nqwsx5)" height="57.25" rx="35" ry="35" style="stroke: #000000; stroke-width: 1.5;" width="177" x="23.5" y="254.25"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="157" x="33.5" y="293.9531">upstream</text><!--MD5=[c9fbf108714351053409b12ce2e7415b]
+entity update--><ellipse cx="112" cy="60.25" fill="#FEFECE" filter="url(#fbj75a0nqwsx5)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="108,48.25,114,43.25,112,48.25,114,53.25,108,48.25" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="116" x="33.5" y="105.9531">update</text><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="157" x="33.5" y="143.2031">upstream</text><!--MD5=[7d66f1e173a0914e21321fc9f76b2d8d]
+entity 端末A--><rect fill="#FEFECE" filter="url(#fbj75a0nqwsx5)" height="57.25" style="stroke: #000000; stroke-width: 1.5;" width="106" x="244" y="474.25"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="86" x="254" y="513.9531">端末A</text><!--MD5=[1cff2198f867ed28f3a7d000cc40b7b9]
+link upstream to origin--><path d="M200.824,282.75 C227.211,282.75 255.898,282.75 281.505,282.75 " fill="none" id="upstream-&gt;origin" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="281.724,275.75,301.724,282.75,281.724,289.75,281.724,275.75" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="65" x="218.75" y="271.4531">fork</text><!--MD5=[155e4490f5d0d0f2c641e6dbadbfa056]
+link update to upstream--><path d="M112,151.681 C112,183.052 112,221.827 112,248.842 " fill="none" id="update-&gt;upstream" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="112,254.082,116,245.082,112,249.082,108,245.082,112,254.082" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4fa0ad87e8205ccc05d5a66c570faee9]
+link upstream to 端末A--><path d="M125.119,311.3 C138.979,338.799 162.598,381.429 190,413.25 C208.508,434.7425 232.605,455.173 253.245,470.9778 " fill="none" id="upstream-&gt;端末A" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="257.324,474.076,252.5764,465.447,253.3423,471.0517,247.7376,471.8177,257.324,474.076" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="113" x="191" y="404.9531">git pull</text><!--MD5=[0bed56ce1b3a998bbd8edf7a0352adc9]
+reverse link origin to 端末A--><path d="M345.008,316.167 C338.02,333.224 329.834,354.619 324,374.25 C313.946,408.085 306.119,448.029 301.538,474.0726 " fill="none" id="origin&lt;-端末A" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="346.945,311.476,339.8125,318.2677,345.0364,316.0974,347.2067,321.3214,346.945,311.476" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="133" x="325" y="404.9531">git push</text><!--MD5=[9d42871a1c432e937025c3e0b354dab6]
+link origin to 端末A--><path d="M406.984,311.4 C444.12,336.553 485.701,375.421 463,413.25 C439.76,451.9768 393.187,474.6888 355.272,487.3874 " fill="none" id="origin-&gt;端末A" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="350.22,489.0378,360.0172,490.0449,354.9728,487.485,357.5327,482.4405,350.22,489.0378" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="32" lengthAdjust="spacingAndGlyphs" textLength="113" x="470" y="404.9531">git pull</text><!--MD5=[884a479286abac038d2e28f788edb93b]
+@startuml
+title fork先を加えた場合
+
+skinparam DefaultFontSize 32
+
+rectangle remote {
+
+  storage origin
+  storage upstream
+
+}
+
+control "update\nupstream" as update
+
+rectangle 端末A
+
+upstream -|> origin : fork
+
+update ..> upstream
+
+upstream ...> 端末A : git pull
+origin   <- - - 端末A : git push
+origin   - - -> 端末A : git pull
+@enduml
+
+PlantUML version 1.2020.16beta3(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
