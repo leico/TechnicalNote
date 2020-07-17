@@ -2,7 +2,7 @@
 layout : post
 title  : Catalina で 1TB → 4TB の TimeMachine へHDDを移行する
 date   : 2020/07/17
-lastchange : 2020-07-17 02:23:42
+lastchange : 2020-07-17 17:10:13
 tags   :
   - Mac
   - Macbook
@@ -167,7 +167,7 @@ USBドライブへの書き込みは
 {% endcapture %}
 {% assign text=text | markdownify %}
 {% capture source %}
-[Create a bootable USB stick on macOS \| Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#1-overview "Create a bootable USB stick on macOS \| Ubuntu")
+[Create a bootable USB stick on macOS \| Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#3-prepare-the-usb-stick "Create a bootable USB stick on macOS \| Ubuntu")
 {% endcapture %}
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
@@ -208,7 +208,7 @@ Flash!
 {% endcapture %}
 {% assign text=text | markdownify %}
 {% capture source %}
-[Create a bootable USB stick on macOS \| Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#1-overview "Create a bootable USB stick on macOS \| Ubuntu")
+[Create a bootable USB stick on macOS \| Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#5-etcher-configuration "Create a bootable USB stick on macOS \| Ubuntu")
 {% endcapture %}
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
