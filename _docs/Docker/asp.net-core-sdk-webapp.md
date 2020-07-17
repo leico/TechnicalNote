@@ -1,8 +1,8 @@
 ---
 layout : post
 title  : "ASP.NET Core SDK コンテナでWebアプリを動かす"
-date   : 2020/06/26
-lastchange : 2020-07-17 16:40:47
+date   : 2020/07/17
+lastchange : 2020-07-17 17:40:56
 tags   :
   - docker
   - container
