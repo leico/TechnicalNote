@@ -6,10 +6,15 @@ lastchange : 2020-07-17 18:38:16
 tags   :
   - docker
   - compose
+  - httpd
 ---
 
 ## Docker Compose を単体のコンテナで使う
 
+[Dockerに慣れる : ボリュームをマウントする]({{site.github.url}}{% link _docs/Docker/basic-bind-mount.md %})
+では、ホストのディレクトリをコンテナ側から参照する方法を試した。
+
+今回は Docker Compose を利用してみる。
 
 {% capture text %}
 
