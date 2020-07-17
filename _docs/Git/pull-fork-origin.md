@@ -2,7 +2,7 @@
 layout : post
 title  : "fork元の変更を取り込む"
 date   : 2020/07/17
-lastchange : 2020-07-18 02:14:45
+lastchange : 2020-07-18 02:18:15
 tags   :
   - git
   - remote
@@ -14,6 +14,9 @@ tags   :
 ということが github を使っているとそれなりにある。本家 github の変更を取り込む方法を調べた。
 
 参考:
+
+* [GitHubでFork/cloneしたリポジトリを本家リポジトリに追従する - Qiita](https://qiita.com/xtetsuji/items/555a1ef19ed21ee42873 "GitHubでFork/cloneしたリポジトリを本家リポジトリに追従する - Qiita")
+
 
 ## upsteam として fork 元のリポジトリを登録してしまう
 
