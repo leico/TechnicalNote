@@ -194,6 +194,7 @@
         - basic-remove-image
         - basic-dockerfile
         - basic-bind-mount
+        - basic-docker-compose
     - name  : Tips
       pages : 
         - docker-asp.net-core-sdk
