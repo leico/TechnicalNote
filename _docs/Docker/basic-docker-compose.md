@@ -270,7 +270,11 @@ httpd_1  | 172.18.0.1 - - [17/Jul/2020:09:29:21 +0000] "GET / HTTP/1.1" 200 141
 バックグラウンド起動をさせ、 _htdocs/index.html_ を変更してみる。
 
 ```sh
-docker-compose up -d
+$ docker-compose up -d
+```
+
+```sh
+$ vimr htdocs/index.html
 ```
 
 ```html
