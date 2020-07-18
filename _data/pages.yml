@@ -209,6 +209,7 @@
         - pull-fork-origin
         - remote-branch-checkout
         - sparse-checkout
+        - sparse-checkout-submodule
 
 
 

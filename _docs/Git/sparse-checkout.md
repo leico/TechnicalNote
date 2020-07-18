@@ -5,7 +5,7 @@ date   : 2020/07/17
 lastchange : 2020-07-18 13:59:24
 tags   :
   - git
-  - sparse-checkout
+  - sparse checkout
 ---
 
 ## 偉大なリポジトリの一部だけを利用したい
