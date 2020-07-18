@@ -132,7 +132,7 @@ $ git init
 Initialized empty Git repository in /Users/test_user/Project/public_git/sparse-checkout/.git/
 ```
 
-**sparse checkout** を有効にする
+sparse checkout を有効にする
 
 ```sh
 $ git config core.sparsecheckout true
