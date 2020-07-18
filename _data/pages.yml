@@ -207,6 +207,8 @@
     - name : Tips
       pages : 
         - pull-fork-origin
+        - remote-branch-checkout
+        - sparse-checkout
 
 
 
