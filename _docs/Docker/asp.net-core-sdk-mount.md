@@ -19,6 +19,10 @@ tags   :
 
 今回はホストのディレクトリをマウントし、そこにプロジェクトを保存するように変更し、実際にプロジェクトを変更してみる。
 
+参考:
+* [[bash] 実行スクリプトの絶対パスの取得 - Qiita](https://qiita.com/koara-local/items/2d67c0964188bba39e29 "[bash] 実行スクリプトの絶対パスの取得 - Qiita")
+
+
 ## プロジェクトディレクトリを作成する
 
 <https://github.com/leico/dotnet-study> というリポジトリを作った。
