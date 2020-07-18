@@ -195,6 +195,7 @@
         - basic-dockerfile
         - basic-bind-mount
         - basic-docker-compose
+        - basic-bridge
     - name  : Tips
       pages : 
         - docker-asp.net-core-sdk
