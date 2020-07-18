@@ -199,6 +199,7 @@
       pages : 
         - docker-asp.net-core-sdk
         - asp.net-core-sdk-webapp
+        - asp.net-core-sdk-mount
         - docker-php
 
 - title : Git

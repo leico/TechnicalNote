@@ -97,7 +97,7 @@ docker-compose version 1.25.5, build 8a1c60f6
 
 まず準備として、作業ディレクトリを用意します。
 今回はユーザーディレクトリ直下に _docker_wp_ ディレクトリを作成し、
-そこへ _docker-compose.yml_を作成することとします。
+そこへ _docker-compose.yml_ を作成することとします。
 
 ```sh
 $ mkdir docker_wp
