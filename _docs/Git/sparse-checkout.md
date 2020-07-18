@@ -37,13 +37,13 @@ tags   :
 {% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
 {% include cite.html text=text source=source %}
 
-リポジトリの内、必要となるのはコンパイルされたヘッダファイル 1 つだけということがそれなりにあるので **sparse checkout**
-ができるとそういう時に便利そうだ。
+リポジトリの内、必要となるのはコンパイルされたヘッダファイル 1 つだけ
+ということがそれなりにあるので sparse checkout ができるとそういう時に便利そうだ。
 
 ただ、調査した感じでは大規模なリポジトリの一部だけを利用するという用途の場合、 
-**sparse checkout** と **submodule** を組み合わせる必要があるらしい。
+sparse checkout と submodule を組み合わせる必要があるらしい。
 
-わからないことは 1 つずつチェックしていく。今回は **parse checkout** だけを使ってみる
+わからないことは 1 つずつチェックしていく。今回は parse checkout だけを使ってみる
 
 参考:
 
@@ -52,14 +52,14 @@ tags   :
 
 ## sparse checkout 単体の使いみち
 
-調べて考えついた **sparse checkout** 単体の利用方法を挙げてみる
+調べて考えついた sparse checkout 単体の利用方法を挙げてみる
 
 * リポジトリの一部をローカルにコピーしたい
    * コピーしたところだけローカルで動作確認する
    * コピーしたところだけ修正して Pull Request を送る
    * コピーしたところと、自分のところのモジュールの結合テストをする
 
-こういう状況の時に **sparse checkout** 単体で利用することができそうだった。
+こういう状況の時に sparse checkout 単体で利用することができそうだった。
 
 ## sparse checkout を利用してみる
 
@@ -121,7 +121,7 @@ $ ls
 A.md		B.md		C.md		D.md		README.md
 ```
 
-これを別のディレクトリに **sparse checkout** する。
+これを別のディレクトリに sparse checkout する。
 まずはディレクトリを作って `git init` する
 
 ```sh

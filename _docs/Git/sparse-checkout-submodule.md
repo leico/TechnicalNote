@@ -12,7 +12,7 @@ tags   :
 ## submodule の中身を必要な部分だけ持ってくるようにする
 
 [sparse checkout でリポジトリの一部を持ってくる]({{site.github.url}}{% link _docs/Git/sparse-checkout.md %})
-でリポジトリの一部分だけ取得することができた。それを **submodule** に応用してみる。
+でリポジトリの一部分だけ取得することができた。それを submodule に応用してみる。
 
 参考:
 
