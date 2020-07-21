@@ -201,6 +201,7 @@
         - docker-asp.net-core-sdk
         - asp.net-core-sdk-webapp
         - asp.net-core-sdk-mount
+        - asp.net-core-sdk-hw
         - docker-php
 
 - title : Git
