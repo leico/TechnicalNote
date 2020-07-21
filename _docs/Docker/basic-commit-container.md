@@ -10,7 +10,7 @@ tags   :
   - docker commit
 ---
 
-## コンテナ内を変更してももとに戻ってしまう
+## コンテナ内を変更しても元に戻ってしまう
 
 [Dockerに慣れる : 一時的にコンテナ内の情報を変更する]({{site.github.url}}{% link _docs/Docker/basic-volatility-change.md %})
 でコンテナ内部の shell を呼び出し変更することができたが、参考にしたサイトに書いてある通り
