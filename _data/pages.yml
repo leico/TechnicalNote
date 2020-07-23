@@ -207,6 +207,15 @@
       pages : 
         - docker-php
 
+- title : ASP.NET Core
+  label : AspDotNetCore
+  sections : 
+    - name : Razor page
+      pages : 
+        - prepare-directory
+    
+
+
 - title : Git
   label : Git
   sections : 
