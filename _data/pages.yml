@@ -213,6 +213,7 @@
     - name : Razor page
       pages : 
         - prepare-directory
+        - create-project
     
 
 
