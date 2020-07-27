@@ -2,7 +2,7 @@
 layout : post
 title  : "Docker 内にマウントするディレクトリ構成を変更する"
 date   : 2020-07-23
-lastchange : 2020-07-23 15:07:26
+lastchange : 2020-07-24 10:58:14
 tags   :
   - docker
   - container
@@ -86,3 +86,30 @@ WebApp
 
 大丈夫そうだ。
 
+## 起動してみる
+
+念のため、起動してみる。
+
+```sh
+ # cd Project/WebApp/ && dotnet run
+ warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
+      Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://0.0.0.0:5000
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Projects/WebApp
+```
+
+動作した。 <http://localhost:5000> に接続して確認してみる。
+
+
+{% capture url %}{{site.github.url}}{% link _docs/AspDotNetCore/images/prepare-directory/01_check.png %}{% endcapture %}
+{% capture caption %}
+接続確認できた。
+{% endcapture %}
+{% assign caption = caption | markdownify %}
+{% include thumbnail.html url=url caption=caption %}
