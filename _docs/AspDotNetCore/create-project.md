@@ -13,7 +13,8 @@ tags   :
 
 ## Microsoft 公式のチュートリアルプロジェクトを作成する
 
-今回からチュートリアルを進めていく。
+[Docker 内にマウントするディレクトリ構成を変更する]({{site.github.url}}{% link _docs/AspDotNetCore/prepare-directory.md %})
+で次のチュートリアルの準備ができたので、今回からチュートリアルを進めていく。
 
 参考:
 

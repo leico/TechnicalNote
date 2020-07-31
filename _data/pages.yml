@@ -214,6 +214,10 @@
       pages : 
         - prepare-directory
         - create-project
+        - add-model-setup
+        - add-model
+        - add-model-dockerfile
+
     
 
 

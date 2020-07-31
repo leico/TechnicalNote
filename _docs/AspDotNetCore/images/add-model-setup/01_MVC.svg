@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="223px" preserveAspectRatio="none" style="width:584px;height:223px;" version="1.1" viewBox="0 0 584 223" width="584px" zoomAndPan="magnify"><defs><filter height="300%" id="frbj05hcn77m3" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e146996fd069f5e3f616daf63324ce03]
+cluster アプリケーションバックエンド--><rect fill="#FFFFFF" filter="url(#frbj05hcn77m3)" height="199" style="stroke: #000000; stroke-width: 1.5;" width="406" x="161" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="210" x="259" y="21.9951">アプリケーションバックエンド</text><!--MD5=[67f9881f0c570a7203dc0404f424d5f8]
+entity ビュー--><rect fill="#FEFECE" filter="url(#frbj05hcn77m3)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="62" x="198" y="46"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="208" y="68.9951">ビュー</text><!--MD5=[4f28ecbfc97c5518733020d1a1166ebc]
+entity コントローラ--><rect fill="#FEFECE" filter="url(#frbj05hcn77m3)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="104" x="177" y="134"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="187" y="156.9951">コントローラ</text><!--MD5=[13d22bb52699372ed6d714bc710ffd52]
+entity モデル--><rect fill="#FEFECE" filter="url(#frbj05hcn77m3)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="62" x="468" y="154"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="478" y="176.9951">モデル</text><!--MD5=[9dde73a266ab2b929168dd578303b015]
+entity データベース--><path d="M447,52.5 C447,42.5 499,42.5 499,42.5 C499,42.5 551,42.5 551,52.5 L551,77.7969 C551,87.7969 499,87.7969 499,87.7969 C499,87.7969 447,87.7969 447,77.7969 L447,52.5 " fill="#FEFECE" filter="url(#frbj05hcn77m3)" style="stroke: #000000; stroke-width: 1.5;"/><path d="M447,52.5 C447,62.5 499,62.5 499,62.5 C499,62.5 551,62.5 551,52.5 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="457" y="79.4951">データベース</text><!--MD5=[2bbeed1e4589b316384864ac0d040eb2]
+entity ユーザ--><ellipse cx="27" cy="74" fill="#FEFECE" filter="url(#frbj05hcn77m3)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 1.5;"/><path d="M27,82 L27,109 M14,90 L40,90 M27,109 L14,124 M27,109 L40,124 " fill="none" filter="url(#frbj05hcn77m3)" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="6" y="142.4951">ユーザ</text><!--MD5=[a940f30dc92ce60b84d800d3f68022b8]
+reverse link ユーザ to ビュー--><path d="M53.4908,99.774 C90.4126,92.205 158.643,78.218 197.96,70.158 " fill="none" id="ユーザ&lt;-ビュー" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="48.2777,100.843,57.8977,102.9537,53.1758,99.8387,56.2908,95.1167,48.2777,100.843" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="98.5" y="79.0669">応答</text><!--MD5=[7b57f24a95d74de289d810daa8205b64]
+link ユーザ to コントローラ--><path d="M48.3297,111.508 C57.3679,114.295 68.1673,117.481 78,120 C108.718,127.8704 143.317,135.3432 171.538,141.0851 " fill="none" id="ユーザ-&gt;コントローラ" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="176.731,142.1368,168.7045,136.4293,171.8306,141.1439,167.1159,144.27,176.731,142.1368" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="79" y="116.0669">リクエスト</text><!--MD5=[23dd4962c742f6858ad72b635be67d79]
+link コントローラ to モデル--><path d="M281.04,155.8089 C334.269,159.7813 416.293,165.9024 462.744,169.3689 " fill="none" id="コントローラ-&gt;モデル" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="467.952,169.7576,459.274,165.1001,462.9658,169.3862,458.6797,173.078,467.952,169.7576" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="312" y="139.0669">データ問い合わせ</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="331.5" y="154.1997">・変更依頼</text><!--MD5=[85dfff547956e0345c95806ec4d9944c]
+reverse link コントローラ to モデル--><path d="M274.883,132.1719 C286.429,127.9684 298.988,124.1529 311,122 C357.372,113.688 371.679,109.138 417,122 C438.939,128.2261 460.763,142.2691 476.22,153.8922 " fill="none" id="コントローラ&lt;-モデル" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="270.001,133.9935,279.8316,134.5937,274.6853,132.245,277.034,127.0988,270.001,133.9935" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="344.5" y="110.0669">データ</text><!--MD5=[05a48b8cb5312937d21eea12beb4d189]
+link モデル to データベース--><path d="M499,148.4709 C499,132.0904 499,110.176 499,92.912 " fill="none" id="モデル-データベース" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="499,87.714,495,96.714,499,92.714,503,96.714,499,87.714" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="499,153.8489,503,144.8489,499,148.8489,495,144.8489,499,153.8489" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="434.5" y="117.8169">データ呼び出し</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="454" y="132.9497">書き込み</text><!--MD5=[19cf723ee8f206e238a58d211ebfa421]
+reverse link ビュー to コントローラ--><path d="M229,87.372 C229,101.904 229,120.315 229,133.7663 " fill="none" id="ビュー&lt;-コントローラ" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="229,82.21,225,91.21,229,87.21,233,91.21,229,82.21" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="178.5" y="112.5669">処理結果反映</text><!--MD5=[dede063238c15b1fea59a3c9f963a087]
+@startuml
+left to right direction
+actor ユーザ
+
+rectangle アプリケーションバックエンド {
+  rectangle ビュー
+  rectangle コントローラ
+  rectangle モデル
+  database データベース
+}
+
+ユーザ <- ビュー : 応答
+ユーザ - -> コントローラ : リクエスト
+コントローラ -> モデル : データ問い合わせ\n・変更依頼
+コントローラ <- - モデル : データ
+モデル <-> データベース : データ呼び出し\n書き込み
+ビュー <- コントローラ : 処理結果反映
+@enduml
+
+PlantUML version 1.2020.16beta7(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

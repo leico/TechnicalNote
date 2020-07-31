@@ -96,7 +96,7 @@ EXPOSE 80
 : 生成するイメージの製作者（Author）を指定します。
 
 `ENV`
-: 環境変数を「<変数名> ＜値＞」で指定します。
+: 環境変数を「 \<変数名\> \<値\>」で指定します。
 
 `WORKDIR`
 : 作業ディレクトリを指定します。
@@ -140,7 +140,28 @@ RUN echo "Hello Dockerfile!" > index.html
 EXPOSE 80
 ```
 
-コンテナイメージをビルドしてみる。
+コンテナイメージをビルドする。
+
+{% capture text %}
+
+ファイルを保存したら、以下のコマンドでイメージのビルドを実行します。
+
+```sh
+$ docker build -f ./Dockerfile_httpd_build -t httpd_build .
+```
+* `-f` でDockerfileを指定、`-t` で生成するイメージ名を指定します。
+* 最後の「ピリオド」は Dockerfile のあるディレクトリを指定しますが、
+  今回はカレントに置いてあるので「ピリオド」のみとしています。
+
+{% endcapture %}
+{% assign text=text | markdownify %}
+{% capture source %}
+[【Docker】第4回　Dockerfileを使ってイメージをビルドする/札幌のAI・IoT・システム開発｜ITイノベーション/最先端技術｜パブリックリレーションズ](https://www.public.ne.jp/2019/01/25/docker-4/ "【Docker】第4回　Dockerfileを使ってイメージをビルドする/札幌のAI・IoT・システム開発｜ITイノベーション/最先端技術｜パブリックリレーションズ")
+{% endcapture %}
+{% assign source=source | markdownify | remove: '<p>' | remove: '</p>' %}
+{% include cite.html text=text source=source %}
+
+やってみる。
 
 ```sh
 $ docker build -t httpd_build .
